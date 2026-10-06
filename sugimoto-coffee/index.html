@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>杉本珈琲店｜通町商店街の自家焙煎コーヒー専門店｜提案用ページ</title>
+<meta name="description" content="秋田市通町商店街の自家焙煎コーヒー専門店・杉本珈琲店の強みと一押し「千秋ブレンド」を紹介し、新しいコーヒー豆診断サービスを提案するコンセプトページです。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2a221c">
+<style>
+  :root {
+    --color-ink: #2a221c;
+    --color-bg: #f4eee1;
+    --color-surface: #ffffff;
+    --color-roast-light: #c9a06a;
+    --color-roast-mid: #8a5730;
+    --color-roast-dark: #3c2415;
+    --color-accent: #7a2e26;
+    --color-accent-dark: #5c211b;
+    --color-proposal-bg: #eef2ea;
+    --color-proposal-border: #7c8f6c;
+    --color-text: #2a221c;
+    --color-muted: #6b6055;
+    --color-border: #ddd0ba;
+    --font-display: "Yu Mincho","Hiragino Mincho ProN","游明朝",serif;
+    --font-body: "Yu Gothic","Hiragino Kaku Gothic ProN","メイリオ",sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    background-image:
+      repeating-linear-gradient(45deg, rgba(122,46,38,0.05) 0, rgba(122,46,38,0.05) 1px, transparent 1px, transparent 15px),
+      repeating-linear-gradient(-45deg, rgba(122,46,38,0.035) 0, rgba(122,46,38,0.035) 1px, transparent 1px, transparent 15px);
+    color: var(--color-text);
+    line-height: 1.8;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  .media {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  figure { margin: 0; }
+  figcaption {
+    font-size: 0.78rem;
+    color: var(--color-muted);
+    margin-top: 0.5em;
+  }
+
+  a { color: var(--color-accent-dark); }
+  a:focus-visible,
+  button:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--color-ink);
+    color: #fff;
+    padding: 10px 16px;
+    z-index: 100;
+  }
+  .skip-link:focus {
+    left: 14px;
+    top: 14px;
+  }
+
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 clamp(14px, 4vw, 32px);
+  }
+
+  section { padding: clamp(48px, 8vw, 96px) 0; }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0 0 0.6em;
+  }
+
+  h1 { font-size: clamp(1.7rem, 5vw, 2.6rem); }
+  h2 { font-size: clamp(1.35rem, 4vw, 1.9rem); }
+  h3 { font-size: clamp(1.05rem, 3vw, 1.25rem); }
+
+  p { margin: 0 0 1em; }
+  p:last-child { margin-bottom: 0; }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    color: var(--color-muted);
+    margin-bottom: 0.8em;
+  }
+
+  /* ---- roast gradient signature element ---- */
+  .roast-bar {
+    height: 8px;
+    width: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--color-roast-light), var(--color-roast-mid) 55%, var(--color-roast-dark));
+  }
+  .roast-divider { padding: 0; }
+  .roast-divider .wrap { padding: 0; max-width: 100%; }
+
+  /* ---- proposal label ---- */
+  .proposal-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-proposal-bg);
+    border: 1px solid var(--color-proposal-border);
+    color: #3f4a35;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    padding: 6px 12px;
+    border-radius: 999px;
+  }
+
+  /* ---- header ---- */
+  header.site-header {
+    padding: 18px clamp(14px, 4vw, 32px);
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+  header.site-header .wrap {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .brand {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 4vw, 1.35rem);
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+  nav.site-nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 18px;
+    margin: 0;
+    padding: 0;
+  }
+  nav.site-nav a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    padding: 6px 2px;
+    border-bottom: 2px solid transparent;
+  }
+  nav.site-nav a:hover { border-bottom-color: var(--color-roast-mid); }
+  .back-link {
+    font-size: 0.82rem;
+    color: var(--color-muted);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .back-link:hover { color: var(--color-accent-dark); }
+
+  /* ---- hero ---- */
+  .hero {
+    min-height: 78svh;
+    display: flex;
+    align-items: center;
+    background:
+      linear-gradient(160deg, rgba(30,18,12,0.82), rgba(50,26,16,0.72)),
+      url('images/01_hero_exterior.jpg');
+    background-size: cover;
+    background-position: center 65%;
+    color: #f6efe3;
+    padding: clamp(48px, 10vw, 96px) 0;
+  }
+  .hero .proposal-tag {
+    background: rgba(238,242,234,0.15);
+    border-color: rgba(238,242,234,0.5);
+    color: #eef2ea;
+  }
+  .hero h1 { color: #fbf6ec; margin-top: 0.4em; }
+  .hero .lede {
+    font-size: clamp(1rem, 2.6vw, 1.15rem);
+    max-width: 46ch;
+    color: #ece2d2;
+  }
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 1.8em;
+  }
+  @media (max-width: 480px) {
+    .cta-row { flex-direction: column; }
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 12px 22px;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-align: center;
+  }
+  .btn-primary {
+    background: var(--color-roast-light);
+    color: var(--color-ink);
+    border-color: var(--color-roast-light);
+  }
+  .btn-primary:hover { background: #d6b483; }
+  .btn-outline {
+    background: transparent;
+    border-color: rgba(246,239,227,0.6);
+    color: #f6efe3;
+  }
+  .btn-outline:hover { background: rgba(246,239,227,0.12); }
+  .btn-accent {
+    background: var(--color-accent);
+    color: #fff;
+    border-color: var(--color-accent);
+  }
+  .btn-accent:hover { background: var(--color-accent-dark); }
+  .btn-ghost {
+    background: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text);
+  }
+  .btn-ghost:hover { background: var(--color-surface); }
+
+  /* ---- concept ---- */
+  .concept-quote {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    line-height: 1.9;
+    border-left: 3px solid var(--color-roast-mid);
+    padding-left: 1em;
+    margin: 1.2em 0;
+  }
+
+  /* ---- strengths ---- */
+  .strength-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 1.6em;
+  }
+  .strength-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: clamp(18px, 4vw, 28px);
+    box-shadow: 0 2px 10px rgba(42,34,28,0.05);
+  }
+  .strength-num {
+    font-family: var(--font-display);
+    color: var(--color-roast-mid);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+  }
+  .strength-value {
+    font-size: 0.92rem;
+    color: var(--color-muted);
+    margin-top: 0.6em;
+    padding-top: 0.6em;
+    border-top: 1px dashed var(--color-border);
+  }
+
+  /* ---- story ---- */
+  .story-section {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .story-flow {
+    display: grid;
+    gap: 14px;
+    margin-top: 1.6em;
+  }
+  .story-step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+  .story-step .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-roast-mid);
+    margin-top: 8px;
+  }
+  .story-step p { font-size: 0.96rem; }
+
+  /* ---- signature product ---- */
+  .signature-card {
+    background: linear-gradient(150deg, var(--color-ink), #4a3323);
+    color: #f6efe3;
+    border-radius: 14px;
+    padding: clamp(24px, 5vw, 44px);
+    margin-top: 1.6em;
+  }
+  .signature-card .eyebrow { color: #d9c9ac; }
+  .signature-card h3 { color: #fbf6ec; }
+  .signature-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    margin: 1.2em 0;
+    font-size: 0.9rem;
+    color: #e6dbc7;
+  }
+  .signature-meta strong { color: #fbf6ec; }
+
+  /* ---- usage scenes ---- */
+  .scene-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 1.6em;
+  }
+  .scene-card {
+    padding: 18px;
+    border-radius: 10px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+  }
+  .scene-card h3 { font-size: 1rem; margin-bottom: 0.4em; }
+  .scene-card p { font-size: 0.92rem; color: var(--color-muted); }
+
+  /* ---- proposal / prototype section ---- */
+  .proposal-section {
+    background: var(--color-proposal-bg);
+    border-top: 2px solid var(--color-proposal-border);
+    border-bottom: 2px solid var(--color-proposal-border);
+  }
+  .proposal-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    color: #3f4a35;
+    background: #ffffff;
+    border: 1px solid var(--color-proposal-border);
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 0.8em;
+  }
+  .prototype-notice {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    background: #ffffff;
+    border: 1px solid var(--color-proposal-border);
+    border-left: 4px solid var(--color-proposal-border);
+    padding: 14px 16px;
+    border-radius: 6px;
+    color: #3f4a35;
+    margin: 1.4em 0;
+  }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin: 1.6em 0;
+  }
+  @media (min-width: 620px) {
+    .benefit-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .benefit-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .benefit-card h3 { font-size: 0.95rem; margin-bottom: 0.3em; }
+  .benefit-card p { font-size: 0.88rem; color: var(--color-muted); }
+
+  /* ---- diagnosis launch card ---- */
+  .diagnosis-launch {
+    margin-top: 1.8em;
+    padding: clamp(24px, 5vw, 42px);
+    background: #ffffff;
+    border: 1px solid var(--color-proposal-border);
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 3px 14px rgba(42, 34, 28, 0.06);
+  }
+  .diagnosis-launch-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 3vw, 1.45rem);
+    font-weight: 600;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin-bottom: 0.7em;
+  }
+  .diagnosis-launch-text {
+    max-width: 34em;
+    margin: 0 auto 1.4em;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+  }
+  .diagnosis-launch .btn {
+    min-width: min(100%, 280px);
+  }
+  .prototype-small-note {
+    margin-top: 1em;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    color: var(--color-muted);
+  }
+  @media (max-width: 480px) {
+    .diagnosis-launch { padding: 22px 16px; }
+    .diagnosis-launch .btn { width: 100%; }
+  }
+
+  /* ---- store info ---- */
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 1.6em;
+  }
+  .info-row {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.94rem;
+  }
+  .info-row dt { color: var(--color-muted); }
+  .info-row dd { margin: 0; overflow-wrap: anywhere; }
+
+  .cta-final {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 1.8em;
+  }
+
+  footer.site-footer {
+    background: var(--color-ink);
+    color: #d9c9ac;
+    padding: 32px clamp(14px, 4vw, 32px);
+    font-size: 0.85rem;
+  }
+  footer.site-footer .wrap {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  footer.site-footer a { color: #f0e6d2; }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">本文へ移動</a>
+
+<main id="main-content">
+
+  <!-- hero -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="proposal-tag">CONCEPT LP ｜ 本ページには未導入の提案が含まれます</span>
+      <h1>秋田・通町商店街で、<br>自家焙煎の一杯を。</h1>
+      <p class="lede">世界各地の豆を店内で自家焙煎する杉本珈琲店。浅煎りから深煎り、カフェインレスまで幅広く扱い、店内飲食・豆販売・オンライン通販で楽しめます。</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#signature">一押しのコーヒーを見る</a>
+        <a class="btn btn-outline" href="https://sugicafe.net/" target="_blank" rel="noopener noreferrer">公式サイトを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="roast-divider"><div class="roast-bar"></div></div>
+
+  <!-- concept -->
+  <section id="concept">
+    <div class="wrap">
+      <span class="eyebrow">CONCEPT</span>
+      <h2>店主が大切にしていること</h2>
+      <figure style="margin-bottom:1.6em;">
+        <img class="media" src="images/02_interior_counter.jpg" alt="コーヒーの瓶が並ぶ棚の前で、スタッフがコーヒーを準備している店内の様子" style="aspect-ratio:16/9;" loading="lazy">
+        <figcaption>イメージ画像：店内の様子</figcaption>
+      </figure>
+      <p class="concept-quote">「珈琲には、甘味を伴った苦味や酸味、フルーツ感のある風味、コクのある風味など複雑な味わいがあります。差し支えなければ、まずはブラックで珈琲本来の風味を味わっていただければ幸いです。」</p>
+      <p style="color:var(--color-muted); font-size:0.9rem;">公式サイトに掲載されている店主のメッセージより要約しています。</p>
+    </div>
+  </section>
+
+  <!-- strengths -->
+  <section id="strengths" style="background:var(--color-surface); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);">
+    <div class="wrap">
+      <span class="eyebrow">STRENGTHS</span>
+      <h2>公式情報から見える、この店舗の強み</h2>
+      <div class="strength-list">
+
+        <article class="strength-card">
+          <p class="strength-num">01</p>
+          <figure style="margin:0.8em 0 1em;">
+            <img class="media" src="images/03_hand_drip.jpg" alt="ハンドドリップでコーヒーを淹れている様子" style="aspect-ratio:4/3;" loading="lazy">
+            <figcaption>イメージ画像：自家焙煎の一杯</figcaption>
+          </figure>
+          <h3>浅煎りから深煎り、カフェインレスまでの自家焙煎</h3>
+          <p>世界各地の豆を店内で自家焙煎し、浅煎りから深煎り、カフェインレスまで幅広く提供しています。</p>
+          <p class="strength-value">お客様にとっての価値：好みの濃さや体調に合わせて、焙煎度を選びながらコーヒーを楽しめます。</p>
+        </article>
+
+        <article class="strength-card">
+          <p class="strength-num">02</p>
+          <figure style="margin:0.8em 0 1em;">
+            <img class="media" src="images/05_coffee_beans_product.jpg" alt="焙煎したコーヒー豆が入った袋が並んでいる商品の様子" style="aspect-ratio:4/3;" loading="lazy">
+            <figcaption>イメージ画像：豆の販売イメージ</figcaption>
+          </figure>
+          <h3>店内・持ち帰り・通販、3通りの楽しみ方</h3>
+          <p>店内飲食・コーヒー豆の店頭販売・オンライン通販のすべてに対応しています。</p>
+          <p class="strength-value">お客様にとっての価値：来店できない日でも、通販でいつもの味を自宅に届けてもらえます。</p>
+        </article>
+
+        <article class="strength-card">
+          <p class="strength-num">03</p>
+          <figure style="margin:0.8em 0 1em;">
+            <img class="media" src="images/01_hero_exterior.jpg" alt="通町商店街に面した店舗の外観" style="aspect-ratio:4/3;" loading="lazy">
+            <figcaption>イメージ画像：通町商店街の店舗外観</figcaption>
+          </figure>
+          <h3>通町商店街に根ざした一軒</h3>
+          <p>店主は全国の商店街を仕事で巡る中で秋田市の通町商店街を気に入り、この地で店を構えました。</p>
+          <p class="strength-value">お客様にとっての価値：地域に根ざした商店街の中で、落ち着いて一杯を味わう時間を過ごせます。</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- story -->
+  <section id="story" class="story-section">
+    <div class="wrap">
+      <span class="eyebrow">STORY</span>
+      <h2>創業者ストーリー</h2>
+      <div class="story-flow">
+        <div class="story-step">
+          <span class="dot" aria-hidden="true"></span>
+          <p>店主の杉本英明氏は、大手コーヒーメーカーに24年間勤務していました。</p>
+        </div>
+        <div class="story-step">
+          <span class="dot" aria-hidden="true"></span>
+          <p>仕事で全国の商店街を巡る中、秋田市の通町商店街を気に入ったことが、開業のきっかけになりました。</p>
+        </div>
+        <div class="story-step">
+          <span class="dot" aria-hidden="true"></span>
+          <p>退職後の2009年7月、この地で杉本珈琲店を開業しました。</p>
+        </div>
+        <div class="story-step">
+          <span class="dot" aria-hidden="true"></span>
+          <p>長年培った経験は、世界各地の豆を扱う自家焙煎へとつながっています。</p>
+        </div>
+        <div class="story-step">
+          <span class="dot" aria-hidden="true"></span>
+          <p>「珈琲本来の風味を味わってほしい」という想いを込めて、一杯ずつ丁寧に提供しています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- signature product -->
+  <section id="signature">
+    <div class="wrap">
+      <span class="eyebrow">SIGNATURE</span>
+      <h2>特に注目したい一杯</h2>
+      <div class="signature-card">
+        <span class="eyebrow">FEATURED</span>
+        <figure style="margin-bottom:1.2em;">
+          <img class="media" src="images/03_hand_drip.jpg" alt="ハンドドリップでコーヒーを淹れ、湯気が立ち上っている様子" style="aspect-ratio:16/9;" loading="lazy">
+          <figcaption style="color:#d9c9ac;">イメージ画像：ハンドドリップの様子</figcaption>
+        </figure>
+        <h3>千秋ブレンド</h3>
+        <p>開店以来提供しているオリジナルブレンドで、中煎りのバランスが取れた味わいです。好みや気分に合わせて選べる自家焙煎コーヒーの入り口として、まず試していただきたい一杯です。</p>
+        <div class="signature-meta">
+          <span><strong>焙煎度：</strong>中煎り</span>
+          <span><strong>特徴：</strong>バランスの取れた味わい</span>
+          <span><strong>向いている場面：</strong>日常の一杯、初めての来店時</span>
+        </div>
+        <p style="font-size:0.85rem; color:#d9c9ac;">価格・ご提供方法は最新の公式情報をご確認ください。</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://sugicafe.net/" target="_blank" rel="noopener noreferrer">公式サイトで詳しく見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- usage scenes -->
+  <section style="background:var(--color-surface); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);">
+    <div class="wrap">
+      <span class="eyebrow">USAGE</span>
+      <h2>店舗での過ごし方</h2>
+      <div class="scene-grid">
+        <div class="scene-card">
+          <figure style="margin:0 0 1em;">
+            <img class="media" src="images/04_morning_set.jpg" alt="トーストとコーヒーが並んだモーニングセットの様子" style="aspect-ratio:4/3;" loading="lazy">
+            <figcaption>イメージ画像：モーニングセット</figcaption>
+          </figure>
+          <h3>朝はモーニングセットで</h3>
+          <p>トーストと千秋ブレンドのモーニングセットで、一日を落ち着いてスタートできます。</p>
+        </div>
+        <div class="scene-card">
+          <h3>気分に合わせた一杯を</h3>
+          <p>好みや気分に合わせて選べる自家焙煎コーヒーを、店内でゆっくり味わえます。</p>
+        </div>
+        <div class="scene-card">
+          <h3>豆を持ち帰る・通販で届く</h3>
+          <p>焙煎したての豆は店頭でもオンラインでも購入でき、自宅でも同じ味を楽しめます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- interactive prototype -->
+  <section id="diagnosis" class="proposal-section">
+    <div class="wrap">
+      <span class="proposal-label">INTERACTIVE PROTOTYPE ｜ 動く新サービス試作</span>
+      <span class="eyebrow" style="display:block;">PROPOSAL</span>
+      <h2>コーヒー豆診断（新サービス提案）</h2>
+      <p>好みから合う豆をすぐ探せる診断と、マメルというキャラクターと一緒に味の違いを楽しく学べる診断の、2種類を用意した提案です。下のボタンから試作デモをお試しいただけます。</p>
+
+      <div class="prototype-notice">
+        本機能は店舗運営者向けの試作デモです。<br>
+        現在提供中の正式サービスではありません。<br>
+        入力内容の保存・送信は行いません。
+      </div>
+
+      <div class="benefit-grid">
+        <div class="benefit-card">
+          <h3>お客様のメリット</h3>
+          <p>好みを整理しながら、焙煎度やカフェインの有無から自分に合う一杯を見つけやすくなります。</p>
+        </div>
+        <div class="benefit-card">
+          <h3>店舗側のメリット</h3>
+          <p>店頭での声かけや、通販ページでの商品選びのきっかけとして活用できる可能性があります。</p>
+        </div>
+      </div>
+
+      <noscript>
+        <p style="background:#fff; border:1px solid var(--color-proposal-border); padding:14px; border-radius:6px;">
+          この試作デモの利用にはJavaScriptが必要です。JavaScriptを有効にすると診断をお試しいただけます。店舗情報や他のセクションはJavaScriptなしでも閲覧できます。
+        </p>
+      </noscript>
+
+      <div class="diagnosis-launch">
+        <p class="diagnosis-launch-title">
+          あなたに合う一杯を、診断で見つけてみませんか？
+        </p>
+
+        <p class="diagnosis-launch-text">
+          好みや飲み方について答えるだけで、
+          おすすめのコーヒータイプを確認できます。
+        </p>
+
+        <a
+          class="btn btn-accent"
+          href="https://coffee-diagnosis-app.netlify.app/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          コーヒー豆診断を試す
+        </a>
+
+        <p class="prototype-small-note">
+          ※試作デモが別画面で開きます。入力内容は保存・送信されません。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="roast-divider"><div class="roast-bar"></div></div>
+
+  <!-- store info -->
+  <section id="info">
+    <div class="wrap">
+      <span class="eyebrow">STORE INFO</span>
+      <h2>店舗情報</h2>
+      <dl class="info-grid">
+        <div class="info-row">
+          <dt>店舗名</dt>
+          <dd>杉本珈琲店</dd>
+        </div>
+        <div class="info-row">
+          <dt>所在地</dt>
+          <dd>秋田県秋田市 通町商店街</dd>
+        </div>
+        <div class="info-row">
+          <dt>公式サイト</dt>
+          <dd><a href="https://sugicafe.net/" target="_blank" rel="noopener noreferrer">https://sugicafe.net/</a></dd>
+        </div>
+      </dl>
+      <p style="font-size:0.88rem; color:var(--color-muted); margin-top:1em;">営業時間・定休日など最新情報は、店舗の公式サイトをご確認ください。</p>
+      <div class="cta-final">
+        <a class="btn btn-primary" href="https://sugicafe.net/" target="_blank" rel="noopener noreferrer">公式サイトを見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 杉本珈琲店. All Rights Reserved.</span>
+    <a href="#main-content">ページの先頭へ戻る</a>
+  </div>
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ナガハマコーヒー 秋田駅前店｜店舗向け提案用コンセプトLP</title>
+<meta name="description" content="秋田駅前・秋田オーパ1Fにあるナガハマコーヒー秋田駅前店。スペシャルティコーヒーとパスタランチ、手作りケーキを味わえるカフェをご紹介する、店舗向け提案用のコンセプトLPです。">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#2b2420">
+<style>
+  :root {
+    --color-primary: #2b2420;
+    --color-secondary: #f4ece0;
+    --color-accent: #d9711f;
+    --color-accent-btn: #ab5918;
+    --color-accent-strong: #b25412;
+    --color-background: #faf6f0;
+    --color-surface: #f0e6d8;
+    --color-text: #241f1b;
+    --color-muted: #6c6156;
+    --color-border: #ddceba;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  h1, h2, h3, .hero-copy {
+    font-family: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+  }
+
+  img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  a {
+    color: var(--color-primary);
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--color-primary);
+    color: #fff;
+    padding: 10px 16px;
+    z-index: 100;
+  }
+
+  .skip-link:focus {
+    left: 12px;
+    top: 12px;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Proposal label */
+  .proposal-label {
+    margin: 0;
+    padding: 8px 16px;
+    text-align: center;
+    background-color: #4a3626;
+    color: #fff;
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+  }
+
+  .hero-image-note {
+    margin: 16px 0 0;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    min-height: 88svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 16px;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 55%;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(24, 18, 13, 0.56) 0%, rgba(24, 18, 13, 0.48) 45%, rgba(24, 18, 13, 0.76) 100%);
+  }
+
+  .hero-inner {
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto;
+    color: #fff;
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 999px;
+    padding: 4px 16px;
+    margin-bottom: 24px;
+  }
+
+  .hero-logo {
+    width: min(320px, 82vw);
+    margin: 0 auto 20px;
+    filter: drop-shadow(0 1px 3px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 14px rgba(255, 255, 255, 0.6));
+  }
+
+  .hero-title {
+    margin: 0 0 20px;
+    font-weight: 700;
+    word-break: normal;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  }
+
+  .hero-name {
+    display: block;
+    font-size: clamp(1.25rem, 5vw, 1.7rem);
+    letter-spacing: 0.04em;
+    margin-bottom: 14px;
+  }
+
+  .hero-copy {
+    display: block;
+    font-size: clamp(1.5rem, 5.5vw, 2.1rem);
+    line-height: 1.55;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-sub {
+    margin: 0 0 32px;
+    font-size: clamp(0.95rem, 3vw, 1.05rem);
+    line-height: 1.9;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+  }
+
+  .cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 12px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    border: 1px solid transparent;
+  }
+
+  .btn-primary {
+    background-color: var(--color-accent);
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .btn-secondary {
+    background-color: rgba(255, 255, 255, 0.94);
+    color: var(--color-primary);
+    border-color: #fff;
+  }
+
+  .btn-secondary.on-light {
+    background-color: transparent;
+    border-color: var(--color-primary);
+  }
+
+  /* Sections */
+  section {
+    padding: 56px 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  #info {
+    background-color: var(--color-surface);
+  }
+
+  #gallery,
+  #menu {
+    background-color: var(--color-surface);
+  }
+
+  .section-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  .section-inner.wide {
+    max-width: 960px;
+  }
+
+  .section-title {
+    margin: 0 0 12px;
+    font-size: clamp(1.3rem, 4vw, 1.7rem);
+    color: var(--color-primary);
+    text-align: center;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+  }
+
+  .section-desc {
+    margin: 0 0 28px;
+    text-align: center;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+  }
+
+  .lead-text p {
+    margin: 0 0 20px;
+    font-size: 1.05rem;
+    color: var(--color-text);
+  }
+
+  .lead-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Photo gallery */
+  .photo-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .photo-card {
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(36, 31, 27, 0.08);
+  }
+
+  .photo-card img {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .photo-card figcaption {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    text-align: center;
+  }
+
+  /* Feature cards */
+  .feature-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .feature-card {
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(36, 31, 27, 0.06);
+  }
+
+  .feature-card img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .feature-card-body {
+    padding: 24px;
+  }
+
+  .feature-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: var(--color-accent-strong);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+
+  .feature-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+    color: var(--color-text);
+  }
+
+  .feature-card p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+  }
+
+  /* Featured product */
+  .featured-product {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(36, 31, 27, 0.1);
+  }
+
+  .featured-product-image {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .featured-product-body {
+    padding: 28px 24px;
+  }
+
+  .featured-product-body .feature-label {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: #fff;
+    border-radius: 999px;
+    padding: 4px 14px;
+    margin-bottom: 12px;
+  }
+
+  .featured-product-body h3 {
+    margin: 0 0 12px;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    color: var(--color-primary);
+  }
+
+  .featured-product-body p {
+    margin: 0 0 20px;
+    color: var(--color-text);
+  }
+
+  /* Menu gallery */
+  .menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .menu-card {
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(36, 31, 27, 0.06);
+  }
+
+  .menu-card img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  .menu-card--anniversary img {
+    object-position: center;
+  }
+
+  .menu-card-body {
+    padding: 16px 18px;
+  }
+
+  .menu-card h3 {
+    margin: 0 0 6px;
+    font-size: 1.05rem;
+    color: var(--color-text);
+  }
+
+  .menu-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+  }
+
+  /* Flow steps */
+  .flow-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .flow-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .flow-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .flow-card h3 {
+    margin: 0 0 8px;
+    font-size: 1.05rem;
+    color: var(--color-text);
+  }
+
+  .flow-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+  }
+
+  /* Coffee bean diagnosis (link to the public app) */
+  .diagnosis-badge {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: #fff;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    border-radius: 999px;
+    padding: 4px 14px;
+    margin-bottom: 14px;
+  }
+
+  .diagnosis-disclaimer {
+    margin: 0 0 28px;
+    padding: 12px 16px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    text-align: center;
+  }
+
+  .diagnosis-cta { margin-top: 8px; text-align: center; }
+
+  /* Store info */
+  .info-list {
+    margin: 0;
+    padding: 0;
+  }
+
+  .info-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .info-row:last-child {
+    border-bottom: none;
+  }
+
+  .info-row dt {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 0.9rem;
+  }
+
+  .info-row dd {
+    margin: 0;
+    color: var(--color-text);
+    overflow-wrap: anywhere;
+  }
+
+  .info-note {
+    margin: 20px 0 0;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+
+  /* Bottom CTA */
+  .bottom-cta {
+    background-color: var(--color-surface);
+    text-align: center;
+  }
+
+  .bottom-cta .section-title {
+    margin-bottom: 12px;
+  }
+
+  .bottom-cta p {
+    color: var(--color-muted);
+    margin: 0 0 28px;
+  }
+
+  .top-return {
+    margin-top: 28px;
+  }
+
+  .top-return a {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    text-decoration: underline;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 32px 16px;
+    text-align: center;
+    background-color: var(--color-primary);
+    color: #fff;
+  }
+
+  .footer-logo {
+    width: min(260px, 72vw);
+    margin: 0 auto 18px;
+    filter: drop-shadow(0 1px 3px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 14px rgba(255, 255, 255, 0.6));
+  }
+
+  .site-footer p {
+    margin: 0 0 12px;
+    font-size: 0.85rem;
+  }
+
+  .site-footer a {
+    color: #fff;
+  }
+
+  @media (min-width: 480px) {
+    .cta-group {
+      flex-direction: row;
+      max-width: none;
+      justify-content: center;
+    }
+
+    .btn {
+      flex: 0 1 auto;
+    }
+  }
+
+  @media (min-width: 600px) {
+    .photo-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .menu-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .flow-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .info-row {
+      grid-template-columns: 160px 1fr;
+      align-items: baseline;
+    }
+
+    .featured-product {
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+    }
+
+    .featured-product-image {
+      aspect-ratio: auto;
+      height: 100%;
+    }
+
+    .featured-product-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .feature-list--three {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .menu-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* ===== べた塗り背景のボタン・ラベル（コントラスト比 4.5 以上を確保） ===== */
+  .btn-primary,
+  .featured-product-body .feature-label,
+  .flow-number { background-color: var(--color-accent-btn); }
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
+<main id="main-content">
+
+  <!-- ファーストビュー -->
+  <p class="proposal-label">店舗向け提案用ページ｜未導入の試作機能を含みます</p>
+  <div class="hero">
+    <img class="hero-image" src="images/hero_web.jpg" alt="" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <img class="hero-logo" src="images/logo_web.png" alt="ナガハマコーヒー 秋田駅前店のロゴ">
+      <span class="hero-eyebrow">秋田駅前・秋田オーパ1F</span>
+      <h1 class="hero-title"><span class="hero-name">ナガハマコーヒー 秋田駅前店</span><span class="hero-copy">秋田の朝は、<br>ナガハマコーヒーから。</span></h1>
+      <p class="hero-sub">秋田駅前で、スペシャルティコーヒーとパスタランチ、手作りケーキを味わえるひとときを。</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="#concept">こだわりを見る</a>
+        <a class="btn btn-secondary" href="#info">店舗情報を見る</a>
+      </div>
+      <p class="hero-image-note">※ファーストビュー画像はイメージです</p>
+    </div>
+  </div>
+
+  <!-- コンセプト -->
+  <section id="concept" aria-labelledby="concept-title">
+    <div class="section-inner wide">
+      <h2 id="concept-title" class="section-title">ナガハマコーヒーの強み</h2>
+      <p class="section-desc">秋田駅前店は、コーヒーだけでなくパスタランチや手作りケーキも味わえる店舗です。</p>
+      <ul class="feature-list feature-list--three">
+        <li class="feature-card">
+          <div class="feature-card-body">
+            <span class="feature-label">01</span>
+            <h3>1982年から続く秋田のロースター</h3>
+            <p>1982年の創業以来、地域に根ざしたコーヒーロースターを目指して秋田で歩んできました。</p>
+          </div>
+        </li>
+        <li class="feature-card">
+          <div class="feature-card-body">
+            <span class="feature-label">02</span>
+            <h3>鑑定士による生豆選定</h3>
+            <p>ブラジル政府公認のコーヒー鑑定士が、良質な生豆を厳選しています。</p>
+          </div>
+        </li>
+        <li class="feature-card">
+          <div class="feature-card-body">
+            <span class="feature-label">03</span>
+            <h3>カッピングによる品質管理</h3>
+            <p>カッピングによる味覚管理を重ねながら、日々の一杯をお届けしています。</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ストーリー -->
+  <section id="story" aria-labelledby="story-title">
+    <div class="section-inner">
+      <h2 id="story-title" class="section-title">秋田で育ててきた一杯</h2>
+      <div class="lead-text">
+        <p>ナガハマコーヒーは、1982年の創業以来、地域に根ざしたコーヒーロースターを目指して秋田で歩んできました。焙煎工場は1996年に創業し、2026年で30周年を迎えます。</p>
+        <p>ブラジル政府公認のコーヒー鑑定士による生豆選定と、カッピングによる味覚管理を重ねながら、秋田の暮らしに寄り添う一杯を届け続けています。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- お店の様子 -->
+  <section id="gallery" aria-labelledby="gallery-title">
+    <div class="section-inner wide">
+      <h2 id="gallery-title" class="section-title">お店の様子（イメージ）</h2>
+      <p class="section-desc">店内をイメージしたコンセプトビジュアルです。※画像はイメージです</p>
+      <div class="photo-row">
+        <figure class="photo-card">
+          <img src="images/02_counter_interior_web.jpg" alt="ドリップ器具が並ぶ落ち着いた雰囲気の店内イメージ" loading="lazy" decoding="async">
+          <figcaption>店内イメージ</figcaption>
+        </figure>
+        <figure class="photo-card">
+          <img src="images/03_coffee_cupping_web.jpg" alt="複数のコーヒーをカッピングで確認するイメージ" loading="lazy" decoding="async">
+          <figcaption>カッピングによる味覚管理（イメージ）</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 特に注目したい商品 -->
+  <section id="featured" aria-labelledby="featured-title">
+    <div class="section-inner wide">
+      <h2 id="featured-title" class="section-title">特に注目したい商品</h2>
+      <article class="featured-product">
+        <img class="featured-product-image" src="images/04_iced_coffee_product_web.jpg" alt="アイスコーヒーのグラスとコーヒー豆のパッケージ（イメージ）" loading="lazy" decoding="async">
+        <div class="featured-product-body">
+          <span class="feature-label">モンドセレクション3年連続金賞</span>
+          <h3>世界遺産のアイスコーヒー</h3>
+          <p>モンドセレクションで3年連続金賞を受賞した、無糖のアイスコーヒーです。すっきりとした後味で、食事や作業の合間にも合わせやすい一本です。</p>
+          <a class="btn btn-secondary on-light" href="https://www.ncafe.co.jp/" target="_blank" rel="noopener noreferrer">公式サイトで詳しく見る</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 商品・メニューの一例 -->
+  <section id="menu" aria-labelledby="menu-title">
+    <div class="section-inner wide">
+      <h2 id="menu-title" class="section-title">商品・メニューの一例</h2>
+      <p class="section-desc">店内でお楽しみいただける品の一部をご紹介します。内容や価格は変更になる場合がありますので、詳しくは店舗へお問い合わせください。</p>
+      <div class="menu-grid">
+        <article class="menu-card">
+          <img src="images/05_pasta_web.jpg" alt="帆立といくらがのったクリームパスタ" loading="lazy" decoding="async">
+          <div class="menu-card-body">
+            <h3>パスタランチ</h3>
+            <p>自家製のパスタを使用したランチメニューです。</p>
+          </div>
+        </article>
+        <article class="menu-card">
+          <img src="images/06_cake_web.jpg" alt="マロンとクリームが飾られたケーキと珈琲" loading="lazy" decoding="async">
+          <div class="menu-card-body">
+            <h3>手作りケーキ</h3>
+            <p>パティシエが手作りするケーキを、コーヒーと一緒にお楽しみいただけます。</p>
+          </div>
+        </article>
+        <article class="menu-card menu-card--anniversary">
+          <img src="images/07_anniversary_blend_web.jpg" alt="ANNIVERSARY BLENDと記されたコーヒー豆のパッケージ" loading="lazy" decoding="async">
+          <div class="menu-card-body">
+            <h3>30周年記念ブレンド</h3>
+            <p>焙煎工場30周年を記念した、期間限定のコーヒー豆です。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 過ごし方 -->
+  <section aria-labelledby="flow-title">
+    <div class="section-inner">
+      <h2 id="flow-title" class="section-title">秋田駅前店での過ごし方</h2>
+      <ul class="flow-list">
+        <li class="flow-card">
+          <span class="flow-number" aria-hidden="true">1</span>
+          <h3>コーヒーを選ぶ</h3>
+          <p>その日の一杯や、お好みのコーヒー豆をお選びいただけます。</p>
+        </li>
+        <li class="flow-card">
+          <span class="flow-number" aria-hidden="true">2</span>
+          <h3>味わう</h3>
+          <p>パスタランチやケーキと一緒に、コーヒーの時間をお楽しみください。</p>
+        </li>
+        <li class="flow-card">
+          <span class="flow-number" aria-hidden="true">3</span>
+          <h3>店内で過ごす</h3>
+          <p>秋田駅前・秋田オーパ1Fで、買い物や移動の合間にお立ち寄りください。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- コーヒー豆診断（店舗提案用プロトタイプ） -->
+  <section id="diagnosis" aria-labelledby="diagnosis-title">
+    <div class="section-inner">
+      <span class="diagnosis-badge">INTERACTIVE PROTOTYPE｜動く新サービス試作</span>
+      <h2 id="diagnosis-title" class="section-title">あなたにぴったりのコーヒー豆診断</h2>
+      <p class="section-desc">香り・苦味・酸味・飲み口を選ぶだけ。約1分で、あなたに合うコーヒー豆をご提案します。</p>
+      <p class="diagnosis-disclaimer">店舗への提案用試作機能です。別ページで公開している試作版を実際にお試しいただけます。実際の商品情報や在庫状況は店舗へご確認ください。</p>
+
+      <div class="diagnosis-cta">
+        <a class="btn btn-primary" href="https://coffee-diagnosis-app.netlify.app/index.html" target="_blank" rel="noopener noreferrer">コーヒー豆診断を試してみる（別ウィンドウで開きます）</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section id="info" aria-labelledby="info-title">
+    <div class="section-inner">
+      <h2 id="info-title" class="section-title">店舗情報</h2>
+      <dl class="info-list">
+        <div class="info-row">
+          <dt>店名</dt>
+          <dd>ナガハマコーヒー 秋田駅前店</dd>
+        </div>
+        <div class="info-row">
+          <dt>住所</dt>
+          <dd>〒010-0874 秋田県秋田市千秋久保田町4-2 秋田オーパ1F<br><a href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%8D%83%E7%A7%8B%E4%B9%85%E4%BF%9D%E7%94%B0%E7%94%BA4-2" target="_blank" rel="noopener noreferrer">地図を見る<span class="sr-only">（外部サイトへ移動します）</span></a></dd>
+        </div>
+        <div class="info-row">
+          <dt>電話番号</dt>
+          <dd><a href="tel:0188257051">018-825-7051</a></dd>
+        </div>
+        <div class="info-row">
+          <dt>営業時間</dt>
+          <dd>8:00～19:00（ラストオーダーは閉店30分前）</dd>
+        </div>
+        <div class="info-row">
+          <dt>席数</dt>
+          <dd>禁煙30席、喫煙2席</dd>
+        </div>
+        <div class="info-row">
+          <dt>Wi-Fi</dt>
+          <dd>あり</dd>
+        </div>
+        <div class="info-row">
+          <dt>公式サイト</dt>
+          <dd><a href="https://www.ncafe.co.jp/" target="_blank" rel="noopener noreferrer">ncafe.co.jp<span class="sr-only">（外部サイトへ移動します）</span></a></dd>
+        </div>
+        <div class="info-row">
+          <dt>Instagram</dt>
+          <dd><a href="https://www.instagram.com/nagahama_akitaekimae/" target="_blank" rel="noopener noreferrer">@nagahama_akitaekimae<span class="sr-only">（外部サイトへ移動します）</span></a></dd>
+        </div>
+      </dl>
+      <p class="info-note">営業時間や取り扱い商品は変更される場合がありますので、最新情報は公式サイトまたはInstagramをご確認ください。</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bottom-cta" aria-labelledby="cta-title">
+    <div class="section-inner">
+      <h2 id="cta-title" class="section-title">ナガハマコーヒー秋田駅前店を訪ねる</h2>
+      <p>秋田駅前で過ごすコーヒーの時間を、秋田オーパ1Fでお楽しみください。</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%8D%83%E7%A7%8B%E4%B9%85%E4%BF%9D%E7%94%B0%E7%94%BA4-2" target="_blank" rel="noopener noreferrer">地図を開く</a>
+        <a class="btn btn-secondary on-light" href="https://www.instagram.com/nagahama_akitaekimae/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+      </div>
+      <p class="top-return"><a href="#main-content">ページの先頭へ戻る</a></p>
+    </div>
+  </section>
+
+</main>
+
+<!-- フッター -->
+<footer class="site-footer">
+  <img class="footer-logo" src="images/logo_web.png" alt="ナガハマコーヒー 秋田駅前店のロゴ">
+  <p>ナガハマコーヒー 秋田駅前店</p>
+  <p>&copy; ナガハマコーヒー株式会社. All Rights Reserved.</p>
+  <p><a href="#main-content">ページの先頭へ戻る</a></p>
+</footer>
+
+</body>
+</html>

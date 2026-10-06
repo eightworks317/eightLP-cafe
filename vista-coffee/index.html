@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VISTA COFFEE ROASTERS｜味覚・嗅覚・視覚で楽しむコーヒー｜提案用ページ</title>
+<meta name="description" content="VISTA COFFEE ROASTERSは秋田駅前のスペシャルティコーヒー専門店。香りと3Dイメージで選ぶ新しい体験と、欠点豆を一粒ずつ取り除く丁寧な焙煎が特徴です。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#171310">
+<style>
+  /* ============================================================
+     TOKENS
+  ============================================================ */
+  :root {
+    --color-bg: #171310;
+    --color-surface: #221b15;
+    --color-surface-2: #2c231b;
+    --color-paper: #f4ecdf;
+    --color-ink: #241d15;
+    --color-cream: #f4ecdf;
+    --color-muted: #b9ab97;
+    --color-muted-ink: #6f6252;
+    --color-accent: #c1693f;
+    --color-accent-btn: #975231;
+    --color-accent-strong: #e08a5c;
+    --color-berry: #994464;
+    --color-proposal-bg: #1c2a20;
+    --color-proposal-border: #5a7d63;
+    --color-proposal-text: #dce8de;
+    --color-border: #3a3126;
+    --color-border-light: #d9cdb9;
+
+    --font-serif: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-sans: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 48px;
+    --space-6: 64px;
+    --space-7: 96px;
+
+    --radius-s: 4px;
+    --radius-m: 10px;
+    --radius-l: 20px;
+  }
+
+  /* ============================================================
+     RESET / BASE
+  ============================================================ */
+  * , *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-cream);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.4; margin: 0; }
+  p { margin: 0 0 1em; }
+  a { color: inherit; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  section { padding: var(--space-6) 0; }
+  .container {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 var(--space-3);
+  }
+  @media (min-width: 768px) {
+    .container { padding: 0 var(--space-5); }
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-accent-strong);
+    outline-offset: 3px;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: var(--space-2);
+    background: var(--color-cream);
+    color: var(--color-ink);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-s);
+    z-index: 100;
+    transition: top .2s ease;
+  }
+  .skip-link:focus { top: var(--space-2); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  }
+
+  /* ============================================================
+     PROPOSAL LABEL
+  ============================================================ */
+  .proposal-banner {
+    background: var(--color-surface-2);
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-muted);
+    font-size: 13px;
+    letter-spacing: .04em;
+    text-align: center;
+    padding: var(--space-1) var(--space-2);
+  }
+  .proposal-banner strong { color: var(--color-accent-strong); font-weight: 600; }
+
+  /* ============================================================
+     HERO
+  ============================================================ */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding: var(--space-6) 0;
+    overflow: hidden;
+    background: var(--color-bg);
+  }
+  .hero-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .hero-photo-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      linear-gradient(180deg, rgba(15,12,9,.55), rgba(15,12,9,.75)),
+      radial-gradient(circle at 82% 18%, rgba(193,105,63,.30), transparent 55%),
+      radial-gradient(circle at 12% 85%, rgba(163,72,106,.28), transparent 50%);
+  }
+  .hero-rings {
+    position: absolute;
+    z-index: 2;
+    right: -8%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: min(72vw, 560px);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: .8;
+  }
+  .hero-rings span {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(224,138,92,.35);
+    animation: spin-slow 60s linear infinite;
+  }
+  .hero-rings span:nth-child(2) { inset: 10%; border-color: rgba(163,72,106,.32); animation-duration: 80s; animation-direction: reverse; }
+  .hero-rings span:nth-child(3) { inset: 22%; border-color: rgba(224,138,92,.5); animation-duration: 45s; }
+  .hero-rings span:nth-child(4) { inset: 34%; border: none; background: radial-gradient(circle at 35% 30%, rgba(224,138,92,.9), rgba(163,72,106,.55) 60%, transparent 75%); }
+  @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  .hero-content { position: relative; z-index: 2; max-width: 620px; }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: .18em;
+    color: var(--color-accent-strong);
+    border: 1px solid var(--color-accent);
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 {
+    font-size: clamp(32px, 8vw, 56px);
+    letter-spacing: .04em;
+    margin-bottom: var(--space-2);
+  }
+  .hero-copy {
+    font-size: clamp(16px, 3.6vw, 19px);
+    color: var(--color-muted);
+    margin-bottom: var(--space-4);
+    max-width: 46ch;
+  }
+  .hero-cta { display: flex; flex-direction: column; gap: var(--space-2); max-width: 320px; }
+  @media (min-width: 560px) {
+    .hero-cta { flex-direction: row; max-width: none; }
+  }
+
+  /* ============================================================
+     BUTTONS / LINKS
+  ============================================================ */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .btn-primary {
+    background: var(--color-accent);
+    color: var(--color-cream);
+  }
+  .btn-primary:hover { background: var(--color-accent-strong); }
+  .btn-outline {
+    background: transparent;
+    border-color: var(--color-border-light);
+    color: var(--color-cream);
+  }
+  .btn-outline:hover { border-color: var(--color-accent-strong); color: var(--color-accent-strong); }
+  .btn:disabled { opacity: .45; cursor: not-allowed; }
+
+  /* ============================================================
+     SECTION HEADINGS
+  ============================================================ */
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: .16em;
+    color: var(--color-accent-strong);
+    margin-bottom: var(--space-1);
+    display: block;
+  }
+  .section-title {
+    font-size: clamp(24px, 5vw, 32px);
+    margin-bottom: var(--space-3);
+  }
+  .section-lead {
+    color: var(--color-muted);
+    max-width: 62ch;
+    margin-bottom: var(--space-4);
+  }
+  .section-alt { background: var(--color-paper); color: var(--color-ink); }
+  .section-alt .eyebrow { color: var(--color-berry); }
+  .section-alt .section-lead { color: var(--color-muted-ink); }
+  .lead-note { display: block; margin-top: var(--space-1); font-size: 13px; opacity: .85; }
+
+  /* ============================================================
+     STRENGTHS
+  ============================================================ */
+  .strength-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  @media (min-width: 720px) {
+    .strength-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .strength-card {
+    background: rgba(244,236,223,.95);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-m);
+    overflow: hidden;
+    min-width: 0;
+  }
+  .strength-card .strength-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .strength-card .strength-copy { padding: var(--space-3); }
+  .strength-num {
+    font-family: var(--font-serif);
+    font-size: 13px;
+    color: var(--color-berry);
+    letter-spacing: .1em;
+    display: block;
+    margin-bottom: var(--space-1);
+  }
+  .strength-card h3 { font-size: 18px; margin-bottom: var(--space-1); color: var(--color-ink); }
+  .strength-card p { font-size: 14.5px; color: var(--color-muted-ink); margin: 0; }
+
+  /* ============================================================
+     STORY
+  ============================================================ */
+  .story-block { max-width: 680px; }
+  .story-block p { color: var(--color-muted-ink); }
+  .story-meta {
+    margin-top: var(--space-4);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-3);
+  }
+  @media (min-width: 620px) {
+    .story-meta { grid-template-columns: repeat(2, 1fr); }
+  }
+  .story-meta dt { font-size: 12px; letter-spacing: .08em; color: var(--color-berry); margin-bottom: 4px; }
+  .story-meta dd { margin: 0; font-size: 14.5px; color: var(--color-muted-ink); }
+
+  /* ============================================================
+     FEATURED PRODUCT
+  ============================================================ */
+  .featured {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-l);
+    overflow: hidden;
+  }
+  @media (min-width: 760px) {
+    .featured { grid-template-columns: 1fr 1.1fr; }
+  }
+  .featured-visual {
+    min-height: 220px;
+    background: var(--color-surface-2);
+  }
+  .featured-visual img {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    object-fit: cover;
+  }
+  .featured-body { padding: var(--space-4); }
+  .featured-tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: .1em;
+    color: var(--color-accent-strong);
+    border: 1px solid var(--color-accent);
+    border-radius: 999px;
+    padding: 3px 12px;
+    margin-bottom: var(--space-2);
+  }
+  .featured-body h3 { font-size: clamp(20px, 4vw, 26px); margin-bottom: var(--space-2); }
+  .featured-body p { color: var(--color-muted); font-size: 15px; }
+  .featured-facts { list-style: none; margin: var(--space-2) 0; padding: 0; font-size: 14.5px; color: var(--color-muted); }
+  .featured-facts li { padding: 4px 0; border-top: 1px solid var(--color-border); }
+  .featured-facts li:first-child { border-top: none; }
+  .featured-facts b { color: var(--color-cream); font-weight: 600; }
+  .featured-cta { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-3); }
+
+  /* ============================================================
+     SECONDARY OFFERINGS
+  ============================================================ */
+  .offer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+  @media (min-width: 620px) {
+    .offer-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .offer-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-m);
+    padding: var(--space-3);
+    min-width: 0;
+  }
+  .offer-card h3 { font-size: 16px; margin-bottom: var(--space-1); }
+  .offer-card p { font-size: 14px; color: var(--color-muted); margin: 0; }
+
+  /* ============================================================
+     USAGE SCENES
+  ============================================================ */
+  .scene-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+  @media (min-width: 720px) {
+    .scene-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .scene-card {
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-m);
+    overflow: hidden;
+    background: rgba(255,255,255,.5);
+  }
+  .scene-card .scene-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .scene-card .scene-copy { padding: var(--space-3); }
+  .scene-card h3 { font-size: 15.5px; margin-bottom: var(--space-1); }
+  .scene-card p { font-size: 14px; color: var(--color-muted-ink); margin: 0; }
+
+  /* ============================================================
+     PROTOTYPE
+  ============================================================ */
+  .prototype-section {
+    background: var(--color-proposal-bg);
+    border-top: 1px solid var(--color-proposal-border);
+    border-bottom: 1px solid var(--color-proposal-border);
+  }
+  .prototype-frame {
+    background: var(--color-surface);
+    border: 1px solid var(--color-proposal-border);
+    border-radius: var(--radius-l);
+    padding: var(--space-4);
+  }
+  .prototype-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    letter-spacing: .12em;
+    color: var(--color-proposal-text);
+    background: rgba(90,125,99,.25);
+    border: 1px solid var(--color-proposal-border);
+    border-radius: 999px;
+    padding: 4px 14px;
+    margin-bottom: var(--space-2);
+  }
+  .prototype-notice {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--color-proposal-text);
+    background: rgba(90,125,99,.15);
+    border: 1px dashed var(--color-proposal-border);
+    border-radius: var(--radius-m);
+    padding: var(--space-2) var(--space-3);
+    margin: var(--space-3) 0;
+  }
+  .prototype-intro h3 { font-size: clamp(20px, 4vw, 26px); margin-bottom: var(--space-2); }
+  .prototype-intro p { color: var(--color-muted); }
+  .prototype-meta-list { font-size: 14.5px; color: var(--color-muted); margin: var(--space-3) 0; padding-left: 0; }
+  .prototype-meta-list li { padding: 4px 0 4px 20px; position: relative; }
+  .prototype-meta-list li::before { content: "・"; position: absolute; left: 0; color: var(--color-accent-strong); }
+
+  .prototype-cta { margin-top: var(--space-3); }
+
+  /* ============================================================
+     BUSINESS USE
+  ============================================================ */
+  .b2b-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+  @media (min-width: 720px) {
+    .b2b-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .b2b-card {
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-m);
+    padding: var(--space-3);
+    min-width: 0;
+  }
+  .b2b-card h3 { font-size: 17px; margin-bottom: var(--space-1); color: var(--color-cream); }
+  .b2b-card p { color: var(--color-muted); font-size: 14.5px; margin: 0; }
+  .b2b-quote {
+    display: block;
+    margin-top: var(--space-1);
+    font-size: 13.5px;
+    color: var(--color-accent-strong);
+  }
+  .b2b-cta { margin-top: var(--space-4); }
+
+  /* ============================================================
+     COFFEE LINES / EXPERIENCE
+  ============================================================ */
+  .line-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+  @media (min-width: 720px) {
+    .line-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .line-card {
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-m);
+    padding: var(--space-3);
+    min-width: 0;
+  }
+  .line-name {
+    font-family: var(--font-serif);
+    font-size: 13px;
+    letter-spacing: .12em;
+    color: var(--color-accent-strong);
+    display: block;
+    margin-bottom: var(--space-1);
+  }
+  .line-card h3 { font-size: 16px; margin-bottom: var(--space-1); color: var(--color-cream); }
+  .line-card p { color: var(--color-muted); font-size: 14px; margin: 0; }
+
+  .exp-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+  @media (min-width: 720px) {
+    .exp-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .exp-card {
+    background: rgba(244,236,223,.95);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-m);
+    padding: var(--space-3);
+    min-width: 0;
+  }
+  .exp-card h3 { font-size: 17px; margin-bottom: var(--space-1); color: var(--color-ink); }
+  .exp-card p { color: var(--color-muted-ink); font-size: 14.5px; margin: 0; }
+  .exp-cta { margin-top: var(--space-4); }
+
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+    margin: var(--space-4) 0;
+  }
+  @media (min-width: 620px) {
+    .benefit-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .benefit-card {
+    border: 1px solid var(--color-proposal-border);
+    background: rgba(90,125,99,.14);
+    border-radius: var(--radius-m);
+    padding: var(--space-3);
+    min-width: 0;
+  }
+  .benefit-card h4 {
+    font-family: var(--font-sans);
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--color-proposal-text);
+    margin: 0 0 4px;
+  }
+  .benefit-card p {
+    font-size: 13.5px;
+    color: var(--color-muted);
+    margin: 0;
+  }
+
+  /* ============================================================
+     STORE INFO
+  ============================================================ */
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    align-items: start;
+  }
+  @media (min-width: 760px) {
+    .info-grid { grid-template-columns: 1.2fr 0.8fr; }
+  }
+  .info-list dt {
+    font-size: 12px;
+    letter-spacing: .08em;
+    color: var(--color-berry);
+    margin-top: var(--space-2);
+  }
+  .info-list dd {
+    margin: 2px 0 0;
+    font-size: 15px;
+    color: var(--color-cream);
+    overflow-wrap: anywhere;
+  }
+  .section-alt .info-list dd { color: var(--color-ink); }
+  .info-list a { text-decoration: underline; text-underline-offset: 3px; }
+  .info-list dt:first-child { margin-top: 0; }
+  .cta-panel {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-l);
+    padding: 28px;
+    color: var(--color-cream);
+    height: fit-content;
+    align-self: start;
+  }
+  .cta-panel h3 { font-size: 18px; margin-bottom: var(--space-2); }
+  .cta-list { display: flex; flex-direction: column; gap: 16px; }
+
+  /* ============================================================
+     FOOTER
+  ============================================================ */
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-4) 0;
+    font-size: 13px;
+    color: var(--color-muted);
+  }
+  .site-footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+  .site-footer a { text-decoration: underline; }
+  .footer-note { display: flex; flex-direction: column; gap: 2px; }
+  .footer-note-main { font-weight: 600; color: var(--color-cream); }
+  .footer-note-sub { color: var(--color-muted); font-size: 12px; }
+
+  /* ===== べた塗り背景のボタン・ラベル（コントラスト比 4.5 以上を確保） ===== */
+  .btn-primary { background: var(--color-accent-btn); }
+  .btn-primary:hover { background: var(--color-accent-btn); filter: brightness(0.88); }
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">本文へスキップ</a>
+
+<div class="proposal-banner">
+  <strong>CONCEPT LP</strong>｜本ページは店舗運営者向けの提案用ページです。一部に未導入の新サービス提案が含まれます。掲載写真はすべてイメージ画像です。
+</div>
+
+<main id="main-content">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-label="ファーストビュー">
+    <img class="hero-photo" src="images/01_hero_sensory_coffee.webp" alt="" fetchpriority="high">
+    <div class="hero-photo-overlay" aria-hidden="true"></div>
+    <div class="hero-rings" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="container hero-content">
+      <span class="hero-eyebrow">AKITA / SPECIALTY COFFEE</span>
+      <h1>VISTA COFFEE ROASTERS</h1>
+      <p class="hero-copy">
+        味覚・嗅覚・視覚で楽しむコーヒー。秋田駅前で、世界各地の個性豊かな豆と出会う、
+        新しいスペシャルティコーヒー体験をお届けします。
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#prototype">コーヒー豆診断を試す</a>
+        <a class="btn btn-outline" href="#featured">おすすめ商品を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONCEPT ============ -->
+  <section class="section-alt" aria-labelledby="concept-title">
+    <div class="container">
+      <span class="eyebrow">CONCEPT</span>
+      <h2 id="concept-title" class="section-title">コーヒーの新たなVista（景色）を</h2>
+      <p class="section-lead">
+        VISTA COFFEE ROASTERSは、世界各地から選ばれた個性豊かなコーヒー豆と、
+        その新しい魅力をお客様と一緒に体験することから生まれたコーヒー専門店です。
+        自信を持って提供できるスペシャルティコーヒーだけを仕入れ、焙煎前・焙煎後に豆を一粒ずつ確認しながら、
+        豆本来の個性を引き出す味わいを追求しています。
+        公式Instagramでは「秋田駅西口徒歩5〜6分の<strong>体験型コーヒースタンド</strong>」と案内されています。
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ STRENGTHS ============ -->
+  <section id="strengths" aria-labelledby="strengths-title">
+    <div class="container">
+      <span class="eyebrow">STRENGTHS</span>
+      <h2 id="strengths-title" class="section-title">VISTAが届ける、3つのコーヒー体験</h2>
+      <p class="section-lead">
+        コーヒーは、飲んでみるまで好みが分かりません。香りを嗅ぎ、味わいを絵で見て、飲み比べる。
+        <strong>VISTA COFFEE ROASTERSが用意しているのは、おいしさにたどり着くまでの道のりです。</strong>
+        次の3つは、その入口にあたります。
+        <span class="lead-note">※ 公式サイトで確認できる情報をもとに整理しています。</span>
+      </p>
+      <div class="strength-grid">
+        <article class="strength-card">
+          <img class="strength-photo" src="images/02_strength_sensory_choice.webp" alt="カップの上でラテアートを仕上げている様子">
+          <div class="strength-copy">
+            <span class="strength-num">01</span>
+            <h3>味覚・嗅覚・視覚で選ぶコーヒー体験</h3>
+            <p>それぞれのコーヒー豆の個性や雰囲気を3Dアニメーションとともに紹介しており、香りとビジュアルの両方から好みの一杯を選べます。感覚的に、直感で選べる新しい体験です。</p>
+          </div>
+        </article>
+        <article class="strength-card">
+          <img class="strength-photo" src="images/03_strength_quality_sorting.webp" alt="コーヒー生豆を1粒ずつピンセットで選別している様子">
+          <div class="strength-copy">
+            <span class="strength-num">02</span>
+            <h3>一粒ずつ確認するクオリティの追求</h3>
+            <p>焙煎前・焙煎後にコーヒー豆を1粒ずつ確認し、味を乱す欠点豆（割れ・欠け・不揃い）を取り除くピッキングを欠かさず行い、透明感のある飲み口を実現しています。</p>
+          </div>
+        </article>
+        <article class="strength-card">
+          <img class="strength-photo" src="images/04_strength_world_blend.webp" alt="焙煎機の中で豆が撹拌されている様子">
+          <div class="strength-copy">
+            <span class="strength-num">03</span>
+            <h3>世界各地の個性豊かな豆を独自にブレンド</h3>
+            <p>届けたい味わいから発想し、そこに合う豆を世界中から探して仕上げるブレンドづくり。使用する豆や味わいは時期によって変化し、一期一会の出会いを楽しめます。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STORY ============ -->
+  <section id="story" class="section-alt" aria-labelledby="story-title">
+    <div class="container">
+      <span class="eyebrow">BRAND STORY</span>
+      <h2 id="story-title" class="section-title">ブランドストーリー</h2>
+      <div class="story-block">
+        <p>
+          VISTA COFFEE ROASTERSは、源田純氏と入澤敦也氏が国際教養大学在学中の2021年に、
+          自家焙煎コーヒーの販売を始めたことから歩みが始まりました。
+        </p>
+        <p>
+          「コーヒーの新たなVista（景色）を、お客様と一緒に体験する」という想いのもと、
+          味覚だけでなく嗅覚・視覚でもスペシャルティコーヒーを直感的に楽しめる店舗として、
+          2024年12月7日に秋田駅前に実店舗をオープンしました。
+        </p>
+        <p>
+          豆選びの過程そのものを新しい発見にしたいという考えは、
+          今のコーヒー豆1粒ずつのピッキングや、香りと3Dイメージで選ぶ体験型サービスにつながっています。
+        </p>
+        <dl class="story-meta">
+          <div>
+            <dt>創業</dt>
+            <dd>2021年（国際教養大学在学中に自家焙煎コーヒー販売を開始）</dd>
+          </div>
+          <div>
+            <dt>実店舗開業</dt>
+            <dd>2024年12月7日</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COFFEE LINES ============ -->
+  <section id="lines" aria-labelledby="lines-title">
+    <div class="container">
+      <span class="eyebrow">COFFEE LINES</span>
+      <h2 id="lines-title" class="section-title">コーヒーは、3つのラインで</h2>
+      <p class="section-lead">
+        VISTA COFFEE ROASTERSでは、性格の違う3つのラインでコーヒーが用意されていると案内されています。
+        どれが上ということではなく、楽しみ方の入口が3つある、という組み立てです。
+      </p>
+      <div class="line-grid">
+        <article class="line-card">
+          <span class="line-name">INNOVATIVE</span>
+          <h3>華やかで、個性的に</h3>
+          <p>驚きのある味わい。コーヒーの幅を広げたい方へ。</p>
+        </article>
+        <article class="line-card">
+          <span class="line-name">CLASSIC</span>
+          <h3>産地の魅力を、素直に</h3>
+          <p>その土地の個性がまっすぐ出るコーヒー。定番として選べます。</p>
+        </article>
+        <article class="line-card">
+          <span class="line-name">RESERVE</span>
+          <h3>希少なトップロット</h3>
+          <p>限られた量だけ届く特別な豆。出会えたときに。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED PRODUCT ============ -->
+  <section id="featured" aria-labelledby="featured-title">
+    <div class="container">
+      <span class="eyebrow">SIGNATURE</span>
+      <h2 id="featured-title" class="section-title">特に注目したい商品・サービス</h2>
+      <p class="section-lead">オンラインショップと店舗情報の両方で確認できる、ブランドを知る入口となる商品とサービスです。</p>
+
+      <div class="featured">
+        <div class="featured-visual">
+          <img src="images/05_featured_strawberry_blend.webp" alt="赤く熟したコーヒーチェリーのイメージ" loading="lazy">
+        </div>
+        <div class="featured-body">
+          <span class="featured-tag">ONE'S PICK</span>
+          <h3>Blend：STRAWBERRY</h3>
+          <p>
+            ストロベリー、キャンディー、ブルーベリー、グレープのような華やかな香りを楽しめる、
+            個性の強い中煎りブレンドです。ストロベリーのインフューズド豆と、
+            COE（カップ・オブ・エクセレンス）入賞農園のナチュラル豆を組み合わせています。
+          </p>
+          <ul class="featured-facts">
+            <li><b>焙煎度</b>：中煎り</li>
+            <li><b>風味</b>：ストロベリー、キャンディー、ブルーベリー、バブルガム、グレープ</li>
+            <li><b>価格</b>：100g ¥1,600／200g ¥3,100（税込・オンラインショップ）</li>
+          </ul>
+          <div class="featured-cta">
+            <a class="btn btn-primary" href="https://catatema.base.shop/items/112019978" target="_blank" rel="noopener noreferrer">200gを見る（オンラインショップ）</a>
+            <a class="btn btn-outline" href="https://catatema.base.shop/items/112020002" target="_blank" rel="noopener noreferrer">100gを見る</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="offer-grid" style="margin-top: var(--space-4);">
+        <article class="offer-card">
+          <h3>体験型サービス：香りと3Dイメージで選ぶ</h3>
+          <p>コーヒー豆の香りと3Dイメージを確認しながら、感覚的に好みの一杯を選べる、Vistaならではの体験型サービスです。オンラインショップで実際にご覧いただけます。</p>
+        </article>
+        <article class="offer-card">
+          <h3>Blend：Late Hours</h3>
+          <p>チョコレートやカカオ感、ラズベリーのような瑞々しさを楽しめる中深煎りブレンド。しっかりとしたボディがありながら飲みやすく仕上げています。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ USAGE SCENES ============ -->
+  <section class="section-alt" aria-labelledby="scenes-title">
+    <div class="container">
+      <span class="eyebrow">HOW TO ENJOY</span>
+      <h2 id="scenes-title" class="section-title">VISTA COFFEEでの過ごし方</h2>
+      <div class="scene-grid">
+        <article class="scene-card">
+          <img class="scene-photo" src="images/06_scene_instore.webp" alt="カウンター席のある落ち着いた雰囲気の店内" loading="lazy">
+          <div class="scene-copy">
+            <h3>店頭で選ぶ</h3>
+            <p>秋田駅西口から徒歩5分。穏やかな雰囲気の店内で、世界各地の個性豊かなコーヒー豆をゆっくりお選びいただけます。</p>
+          </div>
+        </article>
+        <article class="scene-card">
+          <img class="scene-photo" src="images/07_scene_online_selection.webp" alt="オンラインショップに並ぶコーヒー豆のパッケージ" loading="lazy">
+          <div class="scene-copy">
+            <h3>オンラインで選ぶ</h3>
+            <p>それぞれの豆の個性を3Dアニメーションとともに紹介するオンラインショップで、自宅からでも香りと見た目のイメージを確かめながら選べます。</p>
+          </div>
+        </article>
+        <article class="scene-card">
+          <img class="scene-photo" src="images/08_scene_gift.webp" alt="贈り物向けにラッピングされたコーヒー豆パッケージのイメージ" loading="lazy">
+          <div class="scene-copy">
+            <h3>贈り物として選ぶ</h3>
+            <p>個人向けのギフトから、ビジネスシーンでのご挨拶用まで、ご予算に合わせたコーヒーギフトのご相談を受け付けています。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section aria-labelledby="exp-title">
+    <div class="container">
+      <span class="eyebrow">EXPERIENCE</span>
+      <h2 id="exp-title" class="section-title">飲み比べて、自分の好みを知る</h2>
+      <p class="section-lead">
+        VISTA COFFEE ROASTERSは「体験型コーヒースタンド」を名乗っています。
+        豆を売るだけでなく、<strong>コーヒーの違いが分かるようになる場</strong>が、定期的に開かれています。
+      </p>
+      <div class="exp-grid">
+        <article class="exp-card">
+          <h3>パブリックカッピング</h3>
+          <p>店舗で開かれる飲み比べ会。3つのラインから性格の違う豆を選び、違いを体験する1時間ほどの会です。</p>
+        </article>
+        <article class="exp-card">
+          <h3>コーヒーワークショップ</h3>
+          <p>他店に講師として招かれ、コーヒー初心者の方を対象にしたテイスティングの会も開かれています。回を重ねて続いています。</p>
+        </article>
+        <article class="exp-card">
+          <h3>イベント出店</h3>
+          <p>文化施設やイベント会場への出店もあり、店舗の外でも飲む機会がつくられています。</p>
+        </article>
+      </div>
+      <p class="section-lead" style="margin-top:var(--space-3);margin-bottom:0;">
+        開催の予定は変わります。<strong>最新のご案内は公式Instagramでご確認ください。</strong>
+      </p>
+      <div class="exp-cta">
+        <a class="btn btn-outline" href="https://www.instagram.com/vista_coffee_roasters/" target="_blank" rel="noopener noreferrer">
+          開催予定を見る（公式Instagram・別ウィンドウで開きます）
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BUSINESS USE ============ -->
+  <section id="business" aria-labelledby="business-title">
+    <div class="container">
+      <span class="eyebrow">FOR BUSINESS</span>
+      <h2 id="business-title" class="section-title">法人・事業者のお客様へ</h2>
+      <p class="section-lead">
+        VISTA COFFEE ROASTERSは公式サイトで「個人様から法人様まで」と案内しており、
+        飲食店・オフィス・イベント向けのサービスも紹介されています。ここでは公式サイトで確認できる内容を整理しました。
+      </p>
+      <div class="b2b-grid">
+        <article class="b2b-card">
+          <h3>コーヒー豆の卸</h3>
+          <p>飲食店やカフェで使うコーヒー豆の卸に対応しています。
+            <span class="b2b-quote">公式サイトでは「主に飲食店様向けに特別価格でご用意しております」と紹介されています。</span>
+          </p>
+        </article>
+        <article class="b2b-card">
+          <h3>オフィス向けの定期便</h3>
+          <p>焙煎したてのコーヒー豆を定期的にお届けするサービスです。
+            <span class="b2b-quote">公式サイトでは「ご家庭用にもオフィス用にも」と紹介されています。</span>
+          </p>
+        </article>
+        <article class="b2b-card">
+          <h3>ビジネスギフト・贈答用</h3>
+          <p>取引先へのご挨拶や社内の記念品など、ご予算に合わせたギフトのご相談を受け付けています。
+            <span class="b2b-quote">公式サイトでは「ビジネスでのご挨拶用まで」と紹介されています。</span>
+          </p>
+        </article>
+        <article class="b2b-card">
+          <h3>出張カフェ</h3>
+          <p>社内イベントや催事の会場までバリスタが出向き、その場でドリンクを提供するサービスが紹介されています。</p>
+        </article>
+      </div>
+      <div class="b2b-cta">
+        <a class="btn btn-outline" href="https://vista-coffee.jimdosite.com/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B/" target="_blank" rel="noopener noreferrer">
+          法人向けのご相談・お問い合わせ（公式サイト・別ウィンドウで開きます）
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INTERACTIVE PROTOTYPE ============ -->
+  <section id="prototype" class="prototype-section" aria-labelledby="prototype-title">
+    <div class="container">
+      <div class="prototype-frame">
+        <span class="prototype-label">🧪 INTERACTIVE PROTOTYPE｜動く新サービス試作</span>
+
+        <div class="prototype-intro">
+          <h3 id="prototype-title">コーヒー豆診断（試作デモ）</h3>
+          <p>
+            苦味・酸味・香り・飲み方の好みから、お客様に合う豆やサービスの方向性を案内する
+            「コーヒー豆診断サービス」の導入アイデアです。店頭受取・通販・定期便まで申し込める窓口として
+            育てていくことを想定し、実際に操作できる試作版を別ページで公開しています。
+          </p>
+          <ul class="prototype-meta-list">
+            <li>対象顧客：初めてVistaのコーヒーを選ぶ方、豆選びに迷っている方</li>
+            <li>解決する課題：豆の種類が多く、どれを選べばよいか分かりにくいという声への対応</li>
+            <li>小さく始める方法：まずは店頭タブレットやWebページでの簡易診断として試験導入する</li>
+          </ul>
+        </div>
+
+        <div class="benefit-grid">
+          <article class="benefit-card">
+            <h4>豆選びの迷いを軽減</h4>
+            <p>種類の多さで迷ってしまうお客様に、質問形式で自然に選び方を案内できます。</p>
+          </article>
+          <article class="benefit-card">
+            <h4>初心者でも注文しやすい</h4>
+            <p>専門用語が分からなくても、好みの傾向から候補を絞り込めます。</p>
+          </article>
+          <article class="benefit-card">
+            <h4>店頭スタッフの説明負担を軽減</h4>
+            <p>混雑時でも、診断結果を案内の起点として活用できます。</p>
+          </article>
+          <article class="benefit-card">
+            <h4>オンライン購入や再来店につなげる</h4>
+            <p>診断結果から商品ページへ誘導し、購入や再訪のきっかけを作れます。</p>
+          </article>
+        </div>
+
+        <p class="prototype-notice">
+          本機能は店舗運営者向けの試作デモです。現在提供中の正式サービスではありません。
+          入力内容の保存・送信は行いません。
+        </p>
+
+        <div class="prototype-cta">
+          <a class="btn btn-primary" href="https://coffee-diagnosis-app.netlify.app/index.html" target="_blank" rel="noopener noreferrer">
+            コーヒー豆診断を試してみる（別ウィンドウで開きます）
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STORE INFO ============ -->
+  <section id="info" class="section-alt" aria-labelledby="info-title">
+    <div class="container">
+      <span class="eyebrow">STORE INFO</span>
+      <h2 id="info-title" class="section-title">店舗情報</h2>
+      <div class="info-grid">
+        <dl class="info-list">
+          <dt>店舗名</dt>
+          <dd>VISTA COFFEE ROASTERS（合同会社VISTA）</dd>
+
+          <dt>店舗所在地</dt>
+          <dd>〒010-0001　秋田県秋田市中通7丁目2-20　佐々木ビル101（秋田駅西口・明田地下道付近）</dd>
+
+          <dt>運営会社所在地</dt>
+          <dd>〒010-1421　秋田県秋田市牛島東四丁目1番6-2（合同会社VISTA・特定商取引法に基づく表記より）</dd>
+
+          <dt>アクセス</dt>
+          <dd>秋田駅西口から徒歩5〜6分</dd>
+
+          <dt>駐車場</dt>
+          <dd>店舗裏に3台。自転車も同じスペースをご利用いただけます。<br>
+              営業中のみのご利用で、駐車場内に案内表示はありません。分かりにくい場合は店頭でお尋ねください。</dd>
+
+          <dt>公式サイト</dt>
+          <dd><a href="https://vista-coffee.jimdosite.com/" target="_blank" rel="noopener noreferrer">vista-coffee.jimdosite.com</a></dd>
+
+          <dt>オンラインショップ</dt>
+          <dd><a href="https://catatema.base.shop/" target="_blank" rel="noopener noreferrer">catatema.base.shop</a></dd>
+
+          <dt>Instagram</dt>
+          <dd><a href="https://www.instagram.com/vista_coffee_roasters/" target="_blank" rel="noopener noreferrer">@vista_coffee_roasters</a></dd>
+
+          <dt>営業時間・定休日</dt>
+          <dd>最新情報は店舗の公式案内をご確認ください。</dd>
+        </dl>
+
+        <div class="cta-panel">
+          <h3>店舗を訪ねる・つながる</h3>
+          <div class="cta-list">
+            <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A7%E4%B8%81%E7%9B%AE2-20%20%E4%BD%90%E3%80%85%E6%9C%A8%E3%83%93%E3%83%AB101" target="_blank" rel="noopener noreferrer">地図を見る</a>
+            <a class="btn btn-outline" href="https://catatema.base.shop/" target="_blank" rel="noopener noreferrer">オンラインショップを見る</a>
+            <a class="btn btn-outline" href="https://vista-coffee.jimdosite.com/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B/" target="_blank" rel="noopener noreferrer">お問い合わせページを見る</a>
+            <a class="btn btn-outline" href="https://www.instagram.com/vista_coffee_roasters/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <span class="footer-note">
+      <span class="footer-note-main">VISTA COFFEE ROASTERS様向け コンセプトLP</span>
+      <span class="footer-note-sub">※本ページは正式な公式サイトではありません。</span>
+    </span>
+    <a href="../../../">トップページへ戻る</a>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CafeOrCoffeeShop",
+  "name": "VISTA COFFEE ROASTERS",
+  "url": "https://vista-coffee.jimdosite.com/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "中通7丁目2-20 佐々木ビル101",
+    "addressLocality": "秋田市",
+    "addressRegion": "秋田県",
+    "postalCode": "010-0001",
+    "addressCountry": "JP"
+  },
+  "sameAs": [
+    "https://www.instagram.com/vista_coffee_roasters/",
+    "https://catatema.base.shop/"
+  ]
+}
+</script>
+
+</body>
+</html>

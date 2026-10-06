@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ねまれやこぅひぃ｜千秋公園のお堀端、朝6時からの喫茶店｜提案用ページ</title>
+<meta name="description" content="ねまれやこぅひぃは、秋田市千秋明徳町・千秋公園のお堀前にある喫茶店です。朝6時からのモーニング、和洋のランチ、コーヒーを提供しています。2024年5月開業。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#c4762c">
+
+<style>
+  :root {
+    --color-ink: #2c2a22;
+    --color-cream: #faf5ea;
+    --color-surface: #efe6d2;
+    --color-band: #2f3a2c;
+    --color-band-surface: #3d4a39;
+    --color-accent: #c4762c;
+    --color-accent-deep: #9a5717;
+    --color-accent-btn: var(--color-accent-deep);
+    --color-accent-on-band: #e3b181;
+    --color-moat: #5c7a5e;
+    --color-muted: #6a6253;
+    --color-border: #ded0b4;
+    --color-proposal-border: #5c7a5e;
+    --color-on-band: #f6f0e2;
+    --color-on-band-muted: #cdd4c4;
+    --font-heading: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-body: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 48px;
+    --space-6: 64px;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background-color: var(--color-cream);
+    background-image:
+      repeating-linear-gradient(92deg, rgba(92, 122, 94, 0.06) 0px, rgba(92, 122, 94, 0.06) 2px, transparent 2px, transparent 42px),
+      radial-gradient(circle at 88% 4%, rgba(196, 118, 44, 0.10) 0%, transparent 32%);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: var(--color-accent-deep); }
+  a:hover { color: var(--color-accent); }
+
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0 0 var(--space-2);
+    letter-spacing: 0.03em;
+  }
+  p { margin: 0 0 var(--space-2); }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 max(14px, 5vw);
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--color-accent);
+    color: #fff;
+    padding: 10px 16px;
+    z-index: 100;
+    border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus { left: 0; }
+
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: -0.15em;
+    flex-shrink: 0;
+  }
+  .heading-with-icon {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  .heading-with-icon .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--color-moat);
+  }
+  .experience-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    color: var(--color-moat);
+    margin-bottom: 6px;
+  }
+  .special .heading-with-icon .icon,
+  .special .experience-icon,
+  .proto .icon { color: var(--color-accent); }
+  .divider {
+    width: 36px;
+    height: 36px;
+    margin: 0 0 var(--space-3);
+    color: var(--color-moat);
+    display: block;
+  }
+
+  /* ===== 写真 ===== */
+  .figure { margin: 0 0 var(--space-3); }
+  .photo {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(44, 42, 34, 0.16);
+    display: block;
+  }
+  .img-caption {
+    font-size: 0.78rem;
+    color: var(--color-muted);
+    margin: 6px 0 0;
+  }
+  .special .img-caption,
+  .proto .img-caption { color: var(--color-on-band-muted); }
+  .menu-group .photo { aspect-ratio: 16 / 10; margin-bottom: var(--space-2); }
+  .experience-photo-item { display: grid; gap: var(--space-2); }
+  .experience-photo-item .photo { aspect-ratio: 16 / 10; }
+  @media (min-width: 640px) {
+    .experience-photo-item {
+      grid-template-columns: 170px 1fr;
+      align-items: start;
+    }
+    .experience-photo-item .photo { aspect-ratio: 4 / 3; }
+  }
+
+  /* ===== 提案用ラベル ===== */
+  .proposal-banner {
+    background: var(--color-band);
+    color: var(--color-on-band-muted);
+    text-align: center;
+    padding: 10px var(--space-2);
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+    overflow-wrap: anywhere;
+  }
+  .proposal-banner strong { color: var(--color-on-band); font-weight: 700; }
+
+  /* ===== ボタン ===== */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 12px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    text-align: center;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-weight: 700;
+  }
+  .btn-accent { background: var(--color-accent); color: #fff; }
+  .btn-accent:hover, .btn-accent:focus-visible { background: var(--color-accent-deep); color: #fff; }
+  .btn-outline {
+    background: transparent;
+    border-color: var(--color-accent-deep);
+    color: var(--color-accent-deep);
+  }
+  .btn-outline:hover, .btn-outline:focus-visible { background: var(--color-accent-deep); color: #fff; }
+  .btn-outline-light {
+    background: transparent;
+    border-color: rgba(246, 240, 226, 0.5);
+    color: var(--color-on-band);
+  }
+  .btn-outline-light:hover, .btn-outline-light:focus-visible {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  /* ===== ヒーロー ===== */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    background: var(--color-band);
+    overflow: hidden;
+  }
+  .hero-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(35, 42, 32, 0.64) 0%, rgba(35, 42, 32, 0.80) 58%, rgba(35, 42, 32, 0.90) 100%);
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    /* padding の一括指定にすると .container の左右余白まで 0 に上書きされ、
+       320px幅で文字が画面の端に貼りついてしまうため、上下だけを指定する。 */
+    padding-block: var(--space-6);
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    color: #edb877;
+    border: 1px solid rgba(237, 184, 119, 0.6);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 {
+    font-size: clamp(1.9rem, 7.5vw, 3rem);
+    margin-bottom: var(--space-1);
+    color: var(--color-on-band);
+  }
+  .hero h1 .en {
+    display: block;
+    font-size: clamp(0.75rem, 2.6vw, 0.95rem);
+    letter-spacing: 0.2em;
+    color: var(--color-on-band-muted);
+    font-family: var(--font-body);
+    font-weight: 400;
+    margin-top: var(--space-1);
+  }
+  .hero-copy {
+    font-size: clamp(1.25rem, 4.5vw, 1.6rem);
+    line-height: 1.6;
+    color: #f9f2e3;
+    max-width: 24em;
+    margin-bottom: var(--space-3);
+    font-weight: 700;
+  }
+  .hero-lead {
+    color: var(--color-on-band-muted);
+    max-width: 34em;
+    margin-bottom: var(--space-4);
+  }
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: 320px;
+  }
+
+  /* ===== セクション共通 ===== */
+  section { padding: var(--space-6) 0; }
+  .section-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    color: var(--color-accent-deep);
+    margin-bottom: var(--space-1);
+  }
+  .section-lead { color: var(--color-muted); max-width: 36em; }
+
+  /* ===== 情報の出典に関する注記 ===== */
+  .source-note {
+    background: var(--color-surface);
+    border-left: 3px solid var(--color-moat);
+    border-radius: 0 8px 8px 0;
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    margin-top: var(--space-4);
+  }
+  .source-note p { margin-bottom: 0; }
+
+  /* ===== コンセプト ===== */
+  .concept { background: var(--color-cream); }
+
+  /* ===== 強み ===== */
+  .strengths { background: var(--color-surface); }
+  .strength-list {
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+  .strength-card {
+    background: var(--color-cream);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: var(--space-3);
+    min-width: 0;
+  }
+  .strength-num {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--color-accent-deep);
+    display: block;
+    margin-bottom: var(--space-1);
+    font-weight: 700;
+  }
+  .strength-card h3 { font-size: 1.05rem; margin-bottom: var(--space-1); }
+  .strength-card p { font-size: 0.92rem; color: var(--color-muted); margin-bottom: 0; }
+
+  /* ===== 創業者ストーリー ===== */
+  .story { background: var(--color-cream); }
+  .story-body { max-width: 40em; }
+  .story-body p { margin-bottom: var(--space-2); }
+  .story-fact {
+    display: inline-block;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 4px 14px;
+    font-size: 0.82rem;
+    color: var(--color-accent-deep);
+    margin: 0 var(--space-1) var(--space-2) 0;
+  }
+
+  /* ===== 一押し ===== */
+  .special { background: var(--color-band); color: var(--color-on-band); }
+  .special .section-eyebrow { color: var(--color-accent); }
+  .special .section-lead { color: var(--color-on-band-muted); }
+  .special-card {
+    margin-top: var(--space-4);
+    background: rgba(246, 240, 226, 0.06);
+    border: 1px solid rgba(196, 118, 44, 0.45);
+    border-radius: 14px;
+    padding: var(--space-4);
+  }
+  .special-card h3 { color: #f9f2e3; font-size: clamp(1.15rem, 4vw, 1.45rem); }
+  .special-badge {
+    display: inline-block;
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: var(--space-2);
+    font-family: var(--font-body);
+  }
+  .special-meta {
+    display: grid;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid rgba(246, 240, 226, 0.2);
+  }
+  .special-meta dt {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin-bottom: 4px;
+  }
+  .special-meta dd { margin: 0 0 var(--space-2); color: var(--color-on-band-muted); }
+  .special-cta { margin-top: var(--space-3); display: flex; flex-direction: column; gap: var(--space-2); }
+
+  /* ===== メニュー ===== */
+  .menu-section { background: var(--color-surface); }
+  .menu-grid {
+    display: grid;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+    grid-template-columns: 1fr;
+  }
+  .menu-group {
+    background: var(--color-cream);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: var(--space-3);
+    min-width: 0;
+  }
+  .menu-group h3 { font-size: 1rem; margin-bottom: var(--space-1); }
+  .menu-group .menu-group-note { font-size: 0.82rem; color: var(--color-muted); margin-bottom: var(--space-2); }
+  .menu-group ul { list-style: none; margin: 0; padding: 0; }
+  .menu-group li {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding: 7px 0;
+    border-bottom: 1px dashed var(--color-border);
+    font-size: 0.92rem;
+  }
+  .menu-group li:last-child { border-bottom: none; }
+  .menu-note { margin-top: var(--space-3); font-size: 0.85rem; color: var(--color-muted); }
+
+  /* ===== 過ごし方 ===== */
+  .experience { background: var(--color-cream); }
+  .experience-list {
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+  .experience-list li {
+    border-left: 3px solid var(--color-accent);
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-surface);
+    border-radius: 0 12px 12px 0;
+    min-width: 0;
+  }
+  .experience-list h3 { font-size: 1rem; margin-bottom: 4px; }
+  .experience-list p { margin-bottom: 0; font-size: 0.92rem; color: var(--color-muted); }
+
+  /* ===== 動く新サービス試作 ===== */
+  .proto { background: var(--color-band); color: var(--color-on-band); }
+  .proto-inner {
+    background: rgba(246, 240, 226, 0.05);
+    border: 2px dashed var(--color-proposal-border);
+    border-radius: 16px;
+    padding: var(--space-4);
+  }
+  .proto-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: #fff;
+    background: var(--color-accent);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: var(--space-2);
+    font-family: var(--font-body);
+  }
+  .proto h2 { color: #f9f2e3; }
+  .proto-lead { color: var(--color-on-band-muted); }
+  .proto-notice {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    background: rgba(196, 118, 44, 0.14);
+    border: 1px solid rgba(196, 118, 44, 0.45);
+    border-radius: 8px;
+    padding: var(--space-2) var(--space-3);
+    color: var(--color-on-band);
+    margin: var(--space-3) 0;
+  }
+  .proto-target { font-size: 0.9rem; color: var(--color-on-band-muted); margin-bottom: var(--space-3); }
+  .proto-target p { margin-bottom: var(--space-1); }
+  .proto-noscript {
+    background: rgba(196, 118, 44, 0.2);
+    border-radius: 8px;
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.9rem;
+  }
+  .proto-app { background: var(--color-band); border-radius: 12px; padding: var(--space-3); margin-top: var(--space-2); }
+  .proto-progress { font-size: 0.82rem; color: var(--color-accent); letter-spacing: 0.08em; margin-bottom: var(--space-2); }
+  #proto-q-title { font-size: clamp(1.02rem, 4vw, 1.25rem); margin-bottom: var(--space-3); font-family: var(--font-body); font-weight: 700; }
+  .proto-options { display: grid; gap: var(--space-2); margin-bottom: var(--space-2); }
+  .proto-option {
+    text-align: left;
+    width: 100%;
+    min-height: 44px;
+    padding: 12px 16px 12px 40px;
+    border-radius: 10px;
+    border: 1px solid rgba(246, 240, 226, 0.35);
+    background: rgba(246, 240, 226, 0.04);
+    color: var(--color-on-band);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    cursor: pointer;
+    position: relative;
+  }
+  .proto-option::before {
+    content: "";
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid rgba(246, 240, 226, 0.5);
+  }
+  .proto-option.is-selected { border-color: var(--color-accent); background: rgba(196, 118, 44, 0.22); }
+  .proto-option.is-selected::before {
+    border-color: var(--color-accent);
+    background: var(--color-accent);
+    box-shadow: inset 0 0 0 3px var(--color-band);
+  }
+  .proto-option:hover, .proto-option:focus-visible { border-color: var(--color-accent); }
+  .proto-warning {
+    color: #fbe3c8;
+    background: rgba(196, 118, 44, 0.3);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    margin-bottom: var(--space-2);
+  }
+  .proto-nav { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+  .proto-nav .btn { flex: 1 1 120px; }
+  .proto-result h3 { color: var(--color-accent); font-size: clamp(1.15rem, 4.5vw, 1.45rem); font-family: var(--font-body); }
+  .proto-result dl { display: grid; gap: var(--space-1); margin: var(--space-3) 0; }
+  .proto-result dt { font-size: 0.78rem; letter-spacing: 0.08em; color: var(--color-accent); margin-top: var(--space-2); }
+  .proto-result dd { margin: 4px 0 0; color: var(--color-on-band-muted); font-size: 0.94rem; }
+  .proto-result-actions { display: flex; flex-direction: column; gap: var(--space-2); margin-top: var(--space-3); }
+
+  /* ===== 店舗情報 ===== */
+  .store-info { background: var(--color-surface); }
+  .info-list { list-style: none; margin: var(--space-4) 0 0; padding: 0; display: grid; gap: var(--space-2); }
+  .info-list li {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: var(--space-2);
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.94rem;
+  }
+  .info-list li:last-child { border-bottom: none; }
+  .info-label { color: var(--color-muted); font-size: 0.85rem; }
+  .info-note { margin-top: var(--space-3); font-size: 0.85rem; color: var(--color-muted); }
+
+  /* ===== 最終CTA ===== */
+  .final-cta { background: var(--color-band); color: var(--color-on-band); text-align: center; }
+  .final-cta h2 { color: #f9f2e3; }
+  .final-cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: 320px;
+    margin: var(--space-4) auto 0;
+  }
+
+  /* ===== フッター ===== */
+  .site-footer { background: var(--color-band); color: var(--color-on-band-muted); padding: var(--space-4) 0; font-size: 0.85rem; }
+  .site-footer .container { display: flex; flex-direction: column; gap: var(--space-2); }
+  .site-footer a { color: var(--color-accent); }
+  .top-link { color: var(--color-accent); text-decoration: none; overflow-wrap: anywhere; }
+  .top-link:hover { color: var(--color-on-band); }
+
+  @media (min-width: 640px) {
+    .strength-list { grid-template-columns: repeat(3, 1fr); }
+    .strength-card { display: grid; grid-template-rows: auto 3.6em 1fr; }
+    .menu-grid { grid-template-columns: repeat(2, 1fr); }
+    .menu-group h3 { min-height: 3em; }
+    .menu-group .menu-group-note { min-height: 3em; }
+    .hero-cta { flex-direction: row; max-width: none; }
+    .final-cta-buttons { flex-direction: row; max-width: none; justify-content: center; }
+    .proto-nav .btn { flex: 0 0 auto; min-width: 140px; }
+  }
+
+  /* ===== 濃い帯・写真の上のアクセント色（コントラスト比 4.5 以上を確保） ===== */
+  .special .section-eyebrow,
+  .proto .section-eyebrow,
+  .final-cta .section-eyebrow,
+  .special-meta dt,
+  .proto-result dt,
+  .site-footer a,
+  .top-link { color: var(--color-accent-on-band); }
+
+
+  /* ===== べた塗り背景のボタン・ラベル（コントラスト比 4.5 以上を確保） ===== */
+  .btn-accent,
+  .proto-label,
+  .special-badge { background: var(--color-accent-btn); }
+  .btn-accent:hover,
+  .btn-accent:focus-visible { background: var(--color-accent-btn); filter: brightness(0.88); }
+
+</style>
+</head>
+<body>
+
+<!-- アイコン用SVGスプライト（装飾用の自作ベクター画像です） -->
+<svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden;">
+  <symbol id="icon-sunrise" viewBox="0 0 48 48">
+    <circle cx="24" cy="28" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
+    <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="24" y1="10" x2="24" y2="15"/>
+      <line x1="10" y1="28" x2="15" y2="28"/>
+      <line x1="33" y1="28" x2="38" y2="28"/>
+      <line x1="13" y1="17" x2="17" y2="21"/>
+      <line x1="35" y1="17" x2="31" y2="21"/>
+      <line x1="5" y1="38" x2="43" y2="38"/>
+    </g>
+  </symbol>
+  <symbol id="icon-cup" viewBox="0 0 48 48">
+    <path d="M10 19h23v10a11.5 11.5 0 0 1-11.5 11.5A11.5 11.5 0 0 1 10 29z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M33 22h3.5a5 5 0 0 1 0 10H33" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M17 13c-1.2 1.8 1 2.8 0 4.6M23 13c-1.2 1.8 1 2.8 0 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </symbol>
+  <symbol id="icon-bowl" viewBox="0 0 48 48">
+    <path d="M7 22h34c0 9-7.6 16-17 16S7 31 7 22z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <line x1="4" y1="41" x2="44" y2="41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <path d="M18 12c-1.2 1.8 1 2.8 0 4.6M24 9c-1.2 1.8 1 2.8 0 4.6M30 12c-1.2 1.8 1 2.8 0 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </symbol>
+  <symbol id="icon-water" viewBox="0 0 48 48">
+    <path d="M4 18c5-4 10-4 15 0s10 4 15 0 6-3 10-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <path d="M4 27c5-4 10-4 15 0s10 4 15 0 6-3 10-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <path d="M4 36c5-4 10-4 15 0s10 4 15 0 6-3 10-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+</svg>
+
+<a href="#main-content" class="skip-link">本文へ移動</a>
+
+<!-- 提案用ラベル -->
+<div class="proposal-banner">
+  <strong>CONCEPT LP</strong>／店舗向け提案用ページです。本ページには未導入の提案が含まれます。
+</div>
+
+<main id="main-content">
+
+  <!-- ファーストビュー -->
+  <div class="hero">
+    <img class="hero-photo" src="images/01_hero_moat_exterior.jpg" alt="" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <span class="hero-eyebrow">AKITA SENSHU PARK / MORNING KISSA</span>
+      <h1>ねまれやこぅひぃ<span class="en">NEMAREYA COFFEE</span></h1>
+      <p class="hero-copy">朝6時から。お堀を眺めて、ねまってください。</p>
+      <p class="hero-lead">千秋公園のお堀前にある喫茶店です。和洋のモーニングからランチ、コーヒーまで、出勤前のひとときにも、ゆっくり過ごす時間にもお使いいただけます。</p>
+      <div class="hero-cta">
+        <a class="btn btn-accent" href="#special">朝6時のモーニングを見る</a>
+        <a class="btn btn-outline-light" href="#store-info">店舗情報を見る</a>
+      </div>
+      <p class="img-caption" style="color:var(--color-on-band-muted);">※イメージ画像です。実際の店舗外観とは異なります。</p>
+    </div>
+  </div>
+
+  <!-- コンセプト -->
+  <section id="concept" class="concept">
+    <div class="container">
+      <svg class="divider"><use href="#icon-water"></use></svg>
+      <p class="section-eyebrow">CONCEPT</p>
+      <h2 class="heading-with-icon"><svg class="icon"><use href="#icon-cup"></use></svg>お堀の景色を眺めながら、ゆったり過ごせる店</h2>
+      <p class="section-lead">店名の「ねまれ」は、秋田の方言で「座って休んでください」という意味です。店主の畠山昌敏さんは、仕事や子育てで疲れている人にお堀の景色を眺めながらゆったり過ごしてほしいという想いで、この店をつくりました。</p>
+
+      <figure class="figure">
+        <img class="photo" src="images/02_moat_view_counter.jpg" alt="水辺を望む窓際のカウンター席のイメージ写真" loading="lazy" width="488" height="418">
+        <figcaption class="img-caption">※イメージ画像です。実際の店内とは異なります。</figcaption>
+      </figure>
+
+      <div class="source-note">
+        <p>本ページの店舗情報は、開業を報じた秋田経済新聞（2024年5月5日）およびタウン情報媒体の記事をもとに整理しています。公式ホームページ・公式SNSは確認できなかったため、掲載内容が最新でない可能性があります。ご来店前に店舗へ直接ご確認ください。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 企業・店舗の強み -->
+  <section id="strengths" class="strengths">
+    <div class="container">
+      <p class="section-eyebrow">STRENGTHS</p>
+      <h2>報道情報から見える、ねまれやこぅひぃの強み</h2>
+      <p class="section-lead">開業を報じた記事の内容をもとに、３つの強みとして整理しました。</p>
+      <ul class="strength-list">
+        <li class="strength-card">
+          <span class="strength-num">STRENGTH 01</span>
+          <h3>朝6時からのモーニング営業</h3>
+          <p>「出勤前のお客さまに朝食で元気を付けてもらおう」と早朝営業を決めたと報じられています。仕事前や散歩の途中にも立ち寄れます。</p>
+        </li>
+        <li class="strength-card">
+          <span class="strength-num">STRENGTH 02</span>
+          <h3>千秋公園のお堀を望む立地</h3>
+          <p>千秋公園・穴門のお堀前という場所にあります。水辺の景色を眺めながら食事やコーヒーを楽しめます。</p>
+        </li>
+        <li class="strength-card">
+          <span class="strength-num">STRENGTH 03</span>
+          <h3>一人でも過ごしやすい席づくり</h3>
+          <p>約45坪の店内にテーブル14席と、充電コンセント付きカウンター8席を設けています。一人でも落ち着いて過ごせます。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 創業者ストーリー -->
+  <section id="story" class="story">
+    <div class="container">
+      <svg class="divider"><use href="#icon-sunrise"></use></svg>
+      <p class="section-eyebrow">FOUNDER'S STORY</p>
+      <h2>「コックになりたかった」という夢から</h2>
+      <div class="story-body">
+        <span class="story-fact">2024年5月1日 開業</span>
+        <span class="story-fact">店主・畠山昌敏さん</span>
+        <span class="story-fact">秋田弁「ねまれ」＝休んでください</span>
+        <p>「コックになるのが子どもの頃からの夢だった」。店主の畠山昌敏さんは、約40年の会社勤めを経て、この喫茶店を開業しました。開店にあたっては、30年来の友人とともに準備を進めたと報じられています。</p>
+        <p>店名は、秋田県地方の方言で「座って休んでください」を意味する「ねまれ」から。老若男女が読みやすいようにと、ひらがなの表記が選ばれています。</p>
+        <p>ご自身が早起きで朝食もしっかり食べる方だということもあり、モーニングは朝6時から。「出勤前のお客さまに朝食で元気を付けてもらおう」という考えが、この早朝営業につながっています。開業初日には約70人が来店し、モーニングの時間帯の客数がランチよりも多かったといいます。</p>
+        <p>「仕事や子育てなどで疲れているお客さまに、お堀の景色を眺めながら、ゆったり過ごしてもらえる店づくりができれば」。この言葉が、ねまれやこぅひぃの原点です。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 一押し商品・サービス -->
+  <section id="special" class="special">
+    <div class="container">
+      <p class="section-eyebrow">FEATURED</p>
+      <h2>朝6時から始まるモーニング</h2>
+      <p class="section-lead">報道情報の中で、店の特徴として最も強く紹介されているサービスです。</p>
+      <div class="special-card">
+        <figure class="figure">
+          <img class="photo" src="images/04_morning_set.jpg" alt="トーストとゆで卵、コーヒーが並ぶ朝食セットのイメージ写真" loading="lazy" width="487" height="352">
+          <figcaption class="img-caption">※イメージ画像です。実際に提供されるモーニングとは異なります。</figcaption>
+        </figure>
+        <span class="special-badge">秋田市内では珍しい朝定食を提供</span>
+        <h3 class="heading-with-icon"><svg class="icon"><use href="#icon-sunrise"></use></svg>和も洋も選べる、朝6時〜9時のモーニング</h3>
+        <p>トーストセット、ホットサンドセット、おにぎりセット、朝定食などを、いずれも550円で提供しています。コーヒー付きです。秋田市内では珍しい朝定食を出すモーニング営業として紹介されており、開業初日はランチよりもモーニングの時間帯の来店が多かったと報じられています。</p>
+        <dl class="special-meta">
+          <div>
+            <dt>提供時間</dt>
+            <dd>6:00〜9:00</dd>
+          </div>
+          <div>
+            <dt>価格</dt>
+            <dd>トーストセット・ホットサンドセット・おにぎりセット・朝定食　各550円（コーヒー付き）</dd>
+          </div>
+          <div>
+            <dt>向いている場面</dt>
+            <dd>出勤前にしっかり朝食をとりたいとき、千秋公園の朝の散歩とあわせて立ち寄りたいとき</dd>
+          </div>
+        </dl>
+        <div class="special-cta">
+          <a class="btn btn-accent" href="tel:09010632008">電話をかける（090-1063-2008）</a>
+          <a class="btn btn-outline-light" href="#store-info">営業時間・アクセスを見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- その他の商品・サービス -->
+  <section id="menu" class="menu-section">
+    <div class="container">
+      <p class="section-eyebrow">MENU</p>
+      <h2>モーニングとランチ</h2>
+      <p class="section-lead">開業時に報じられていたメニューと価格です。</p>
+      <div class="menu-grid">
+        <div class="menu-group">
+          <h3 class="heading-with-icon"><svg class="icon" aria-hidden="true"><use href="#icon-sunrise"></use></svg>モーニング（6:00〜9:00）</h3>
+          <p class="menu-group-note">すべてコーヒー付きです。</p>
+          <ul>
+            <li><span>トーストセット</span><span>550円</span></li>
+            <li><span>ホットサンドセット</span><span>550円</span></li>
+            <li><span>おにぎりセット</span><span>550円</span></li>
+            <li><span>朝定食</span><span>550円</span></li>
+          </ul>
+        </div>
+        <div class="menu-group">
+          <h3 class="heading-with-icon"><svg class="icon" aria-hidden="true"><use href="#icon-bowl"></use></svg>ランチ（11:00〜14:00）</h3>
+          <p class="menu-group-note">和・洋の定食は週替わりです。</p>
+          <ul>
+            <li><span>週替わり和定食</span><span>880円</span></li>
+            <li><span>週替わり洋食</span><span>880円</span></li>
+            <li><span>スパゲッティー</span><span>880円</span></li>
+            <li><span>ビーフカレー</span><span>1,320円</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="menu-note">価格・内容は2024年5月の開業時に報じられた情報です。現在の提供内容は変わっている可能性があるため、最新情報は店舗へ直接ご確認ください。</p>
+    </div>
+  </section>
+
+  <!-- 店舗での過ごし方 -->
+  <section id="how-to-enjoy" class="experience">
+    <div class="container">
+      <svg class="divider"><use href="#icon-water"></use></svg>
+      <p class="section-eyebrow">HOW TO ENJOY</p>
+      <h2>ねまれやこぅひぃでの過ごし方</h2>
+      <ul class="experience-list">
+        <li class="experience-photo-item">
+          <img class="photo" src="images/03_morning_coffee.jpg" alt="水辺を望む窓辺に置かれたコーヒーのイメージ写真" loading="lazy" width="486" height="418">
+          <div>
+            <svg class="experience-icon" aria-hidden="true"><use href="#icon-sunrise"></use></svg>
+            <h3>出勤前に、朝ごはんで一日を始める</h3>
+            <p>6時から9時のモーニングで、和洋どちらの朝食も選べます。コーヒー付きで550円です。</p>
+            <p class="img-caption">※イメージ画像です。実際の提供品とは異なります。</p>
+          </div>
+        </li>
+        <li class="experience-photo-item">
+          <img class="photo" src="images/05_lunch_curry.jpg" alt="カレーライスとサラダ、コーヒーのイメージ写真" loading="lazy" width="488" height="352">
+          <div>
+            <svg class="experience-icon" aria-hidden="true"><use href="#icon-bowl"></use></svg>
+            <h3>お堀を眺めながらランチをとる</h3>
+            <p>11時から14時のランチタイムには、週替わりの和定食・洋食やビーフカレーなどを楽しめます。</p>
+            <p class="img-caption">※イメージ画像です。実際の提供品とは異なります。</p>
+          </div>
+        </li>
+        <li class="experience-photo-item">
+          <img class="photo" src="images/06_afternoon_sweets.jpg" alt="窓辺に置かれたデザートのイメージ写真" loading="lazy" width="486" height="352">
+          <div>
+            <svg class="experience-icon" aria-hidden="true"><use href="#icon-cup"></use></svg>
+            <h3>カウンター席でゆっくり過ごす</h3>
+            <p>充電コンセント付きのカウンター席が8席あり、一人でも落ち着いて過ごせます。デザートやドリンクも用意されていると報じられています。</p>
+            <p class="img-caption">※イメージ画像です。実際に提供されるデザートとは異なります。</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 動く新サービス試作 -->
+  <section id="prototype" class="proto">
+    <div class="container">
+      <div class="proto-inner">
+        <span class="proto-label">動く新サービス試作／INTERACTIVE PROTOTYPE</span>
+        <h2>朝ごはん・ランチ選び診断</h2>
+        <p class="proto-lead">今の気分を５つの質問で選ぶと、ねまれやこぅひぃでの過ごし方とメニューの選び方をご紹介します。</p>
+
+        <div class="proto-notice">
+          本機能は店舗運営者向けの試作デモです。<br>
+          現在提供中の正式サービスではありません。<br>
+          入力内容の保存・送信は行いません。
+        </div>
+
+        <div class="proto-target">
+          <p><strong>対象のお客様：</strong>はじめて来店される方や、モーニングとランチのどちらに合わせて訪れるか迷っている方</p>
+          <p><strong>解決したいこと：</strong>時間帯によってメニューが変わるため、来店前に「いつ行けば何が食べられるか」を分かりやすく案内すること</p>
+          <p><strong>お客様のメリット：</strong>自分に合う時間帯とメニューを事前に把握でき、売り切れによる行き違いを減らせます。</p>
+          <p><strong>店舗側のメリット：</strong>電話での問い合わせ対応を減らしつつ、朝・昼それぞれの時間帯へ来店を分散させやすくなります。</p>
+          <p><strong>小さく始める方法：</strong>まずはこの５問診断だけを設置し、反応を見てから予約機能の検討へ進むことができます。</p>
+          <p><strong>今後の展開案：</strong>日替わり定食やモーニングの内容をWebで確認でき、席やテイクアウトを事前予約できる仕組みや、千秋公園の散策と組み合わせた「モーニング予約」があれば、より計画を立てやすくなります（これは新サービス提案であり、現在提供中のサービスではありません）。</p>
+          <p><strong>実施前の確認事項：</strong>実際に導入する際は、日々のメニュー更新を誰が行うか、予約枠をどこまで受けるかを店舗側で決めておく必要があります。</p>
+        </div>
+
+        <noscript>
+          <p class="proto-noscript">この試作デモの利用には JavaScript が必要です。JavaScript を有効にしてページを再度お読み込みください。店舗の情報は JavaScript がなくても、そのままご覧いただけます。</p>
+        </noscript>
+
+        <div class="proto-app">
+
+          <div id="proto-intro">
+            <p style="color:var(--color-on-band-muted); margin-bottom:var(--space-3);">全５問、選択式です。所要時間は１分ほどです。</p>
+            <button type="button" id="proto-start" class="btn btn-accent">診断してみる</button>
+          </div>
+
+          <div id="proto-question" hidden>
+            <p id="proto-progress" class="proto-progress" aria-live="polite">質問 1 / 5</p>
+            <h3 id="proto-q-title">質問文がここに表示されます</h3>
+            <div id="proto-options" class="proto-options" role="radiogroup" aria-labelledby="proto-q-title"></div>
+            <p id="proto-warning" class="proto-warning" role="alert" hidden></p>
+            <div class="proto-nav">
+              <button type="button" id="proto-back" class="btn btn-outline-light">戻る</button>
+              <button type="button" id="proto-next" class="btn btn-accent">次へ</button>
+            </div>
+          </div>
+
+          <div id="proto-result" class="proto-result" hidden aria-live="polite">
+            <h3 id="proto-result-title">結果タイプ名</h3>
+            <dl>
+              <div>
+                <dt>要約</dt>
+                <dd id="proto-result-summary"></dd>
+              </div>
+              <div>
+                <dt>この結果になった理由</dt>
+                <dd id="proto-result-reason"></dd>
+              </div>
+              <div>
+                <dt>おすすめ候補（報道情報のメニューより）</dt>
+                <dd id="proto-result-recommend"></dd>
+              </div>
+              <div>
+                <dt>店舗の強みとのつながり</dt>
+                <dd id="proto-result-connection"></dd>
+              </div>
+            </dl>
+            <div class="proto-result-actions">
+              <a class="btn btn-accent" href="#menu">メニューを見る</a>
+              <button type="button" id="proto-restart" class="btn btn-outline-light">最初からやり直す</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section id="store-info" class="store-info">
+    <div class="container">
+      <p class="section-eyebrow">STORE INFO</p>
+      <h2>店舗情報</h2>
+      <ul class="info-list">
+        <li>
+          <span class="info-label">店舗名</span>
+          <span>ねまれやこぅひぃ</span>
+        </li>
+        <li>
+          <span class="info-label">住所</span>
+          <span>秋田市千秋明徳町（千秋公園・穴門のお堀前）<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%8D%83%E7%A7%8B%E6%98%8E%E5%BE%B3%E7%94%BA%20%E3%81%AD%E3%81%BE%E3%82%8C%E3%82%84%E3%81%93%E3%81%85%E3%81%B2%E3%81%83" target="_blank" rel="noopener noreferrer">地図を見る</a>
+          </span>
+        </li>
+        <li>
+          <span class="info-label">電話</span>
+          <span><a href="tel:09010632008">090-1063-2008</a></span>
+        </li>
+        <li>
+          <span class="info-label">営業時間</span>
+          <span>6:00〜17:00（モーニング＝9:00まで／ランチ＝11:00〜14:00）</span>
+        </li>
+        <li>
+          <span class="info-label">定休日</span>
+          <span>木曜日</span>
+        </li>
+        <li>
+          <span class="info-label">席数</span>
+          <span>テーブル14席／カウンター8席（充電コンセント付き）　約45坪</span>
+        </li>
+        <li>
+          <span class="info-label">開業</span>
+          <span>2024年5月1日</span>
+        </li>
+      </ul>
+      <p class="info-note">上記は2024年5月の開業時に報じられた情報です。公式ホームページ・公式SNSは確認できなかったため、メールアドレス・駐車場・決済方法などは掲載しておりません。営業時間や定休日は変更されている可能性があるため、ご来店前に店舗へ直接ご確認ください。</p>
+    </div>
+  </section>
+
+  <!-- 最終CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <p class="section-eyebrow">CONTACT</p>
+      <h2>ねまれやこぅひぃへ行く</h2>
+      <p style="color:var(--color-on-band-muted);">営業状況やその日のメニューは、お電話でご確認いただけます。</p>
+      <div class="final-cta-buttons">
+        <a class="btn btn-accent" href="tel:09010632008">電話をかける</a>
+        <a class="btn btn-outline-light" href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%8D%83%E7%A7%8B%E6%98%8E%E5%BE%B3%E7%94%BA%20%E3%81%AD%E3%81%BE%E3%82%8C%E3%82%84%E3%81%93%E3%81%85%E3%81%B2%E3%81%83" target="_blank" rel="noopener noreferrer">地図を見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- フッター -->
+<footer class="site-footer">
+  <div class="container">
+    <p>ねまれやこぅひぃ</p>
+    <p>© ねまれやこぅひぃ. All Rights Reserved.</p>
+    <a class="top-link" href="#main-content">ページの先頭へ戻る</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  // 質問データ。各選択肢に category（M/W/L/C/S）を割り当てる。
+  // M=朝定食 W=洋風モーニング L=ランチ和定食 C=ビーフカレー S=ゆっくりカウンター
+  // 5カテゴリのうち各設問で1カテゴリのみ非表示にし、全カテゴリが5問中4問で
+  // 選択可能になるよう設計（判定ロジックの根拠は下部コメントを参照）。
+  var questions = [
+    {
+      title: '来店したい時間帯は？',
+      options: [
+        { label: '朝6時台〜9時、出勤前に', category: 'M' },
+        { label: '朝、少しゆっくりめに', category: 'W' },
+        { label: 'お昼どき（11時〜14時）', category: 'L' },
+        { label: '時間は決めず、のんびり', category: 'S' }
+      ]
+    },
+    {
+      title: '食べたいものに近いのは？',
+      options: [
+        { label: 'ごはんとみそ汁の和朝食', category: 'M' },
+        { label: 'トーストやホットサンド', category: 'W' },
+        { label: '和定食や洋食のランチ', category: 'L' },
+        { label: 'しっかりしたカレー', category: 'C' }
+      ]
+    },
+    {
+      title: '来店の目的に近いのは？',
+      options: [
+        { label: '一日の始まりに元気をつけたい', category: 'M' },
+        { label: '仕事の合間にしっかり食べたい', category: 'L' },
+        { label: '食べごたえのある一皿がほしい', category: 'C' },
+        { label: '腰を落ち着けて作業や読書をしたい', category: 'S' }
+      ]
+    },
+    {
+      title: '重視したいことは？',
+      options: [
+        { label: '手軽に食べられること', category: 'W' },
+        { label: '週替わりの内容を楽しむこと', category: 'L' },
+        { label: '満足感のあるボリューム', category: 'C' },
+        { label: 'ゆっくり過ごせる席があること', category: 'S' }
+      ]
+    },
+    {
+      title: 'ねまれやこぅひぃに期待することは？',
+      options: [
+        { label: '秋田では珍しい朝定食を味わいたい', category: 'M' },
+        { label: 'コーヒーと軽めの朝食を楽しみたい', category: 'W' },
+        { label: 'お堀を眺めながらの食事を楽しみたい', category: 'C' },
+        { label: '充電しながら落ち着いて過ごしたい', category: 'S' }
+      ]
+    }
+  ];
+
+  var results = {
+    M: {
+      name: '朝定食でしっかりタイプ',
+      summary: '朝から和の朝食をしっかり食べて、一日を始めたい方向けのタイプです。',
+      reason: '「出勤前に」「和朝食」「一日の始まりに元気をつけたい」など、朝食を重視する選択が中心でした。',
+      recommend: '朝定食（550円・コーヒー付き／6:00〜9:00の提供）',
+      connection: '秋田市内では珍しい朝定食を出すモーニング営業が、この店の中心にある特徴です。'
+    },
+    W: {
+      name: '洋風モーニングタイプ',
+      summary: 'トーストやホットサンドで、軽やかに朝を始めたい方向けのタイプです。',
+      reason: '「トーストやホットサンド」「手軽に食べられること」「コーヒーと軽めの朝食」など、洋風で身軽な選択が中心でした。',
+      recommend: 'トーストセット／ホットサンドセット（各550円・コーヒー付き）',
+      connection: '和洋どちらも選べるモーニングだからこそ、その日の気分に合わせられます。'
+    },
+    L: {
+      name: '週替わりランチタイプ',
+      summary: 'お昼にしっかりした定食を食べたい方向けのタイプです。',
+      reason: '「お昼どき」「和定食や洋食のランチ」「週替わりの内容を楽しむ」など、ランチ重視の選択が中心でした。',
+      recommend: '週替わり和定食／週替わり洋食（各880円・コーヒー付き／11:00〜14:00の提供）',
+      connection: '週替わりで内容が変わるため、通うたびに違う一皿に出会えます。'
+    },
+    C: {
+      name: 'ビーフカレータイプ',
+      summary: '食べごたえのある一皿でしっかり満たされたい方向けのタイプです。',
+      reason: '「しっかりしたカレー」「満足感のあるボリューム」「お堀を眺めながらの食事」など、食事そのものを重視する選択が中心でした。',
+      recommend: 'ビーフカレー（1,320円）',
+      connection: 'お堀の景色を眺めながら、ゆっくり味わう時間に向いています。'
+    },
+    S: {
+      name: 'カウンターでゆっくりタイプ',
+      summary: '腰を落ち着けて、一人の時間を過ごしたい方向けのタイプです。',
+      reason: '「のんびり」「作業や読書」「ゆっくり過ごせる席」「充電しながら」など、滞在時間を重視する選択が中心でした。',
+      recommend: 'コーヒーとあわせて、充電コンセント付きのカウンター席（8席）を利用する過ごし方',
+      connection: '一人でも過ごしやすい席づくりが、この店の特徴のひとつです。'
+    }
+  };
+
+  // 同点時の判定優先順位（最終手段としてのみ使用。基本は最後の質問の回答を優先する）
+  var priorityOrder = ['M', 'W', 'L', 'C', 'S'];
+
+  var state = {
+    current: 0,
+    answers: new Array(questions.length).fill(null)
+  };
+
+  function byId(id) { return document.getElementById(id); }
+
+  function resetAnswers() {
+    state.current = 0;
+    state.answers = new Array(questions.length).fill(null);
+  }
+
+  function hideWarning() {
+    var w = byId('proto-warning');
+    w.hidden = true;
+    w.textContent = '';
+  }
+
+  function showWarning() {
+    var w = byId('proto-warning');
+    w.textContent = '選択肢を1つ選んでください。';
+    w.hidden = false;
+  }
+
+  function renderQuestion() {
+    var q = questions[state.current];
+    byId('proto-progress').textContent = '質問 ' + (state.current + 1) + ' / ' + questions.length;
+    byId('proto-q-title').textContent = q.title;
+
+    var container = byId('proto-options');
+    container.innerHTML = '';
+
+    q.options.forEach(function (opt) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'proto-option';
+      btn.textContent = opt.label;
+      btn.setAttribute('role', 'radio');
+      var selected = state.answers[state.current] === opt.category;
+      btn.setAttribute('aria-checked', selected ? 'true' : 'false');
+      if (selected) { btn.classList.add('is-selected'); }
+
+      btn.addEventListener('click', function () {
+        state.answers[state.current] = opt.category;
+        hideWarning();
+        renderQuestion();
+      });
+
+      container.appendChild(btn);
+    });
+
+    byId('proto-back').disabled = state.current === 0;
+    byId('proto-next').textContent = (state.current === questions.length - 1) ? '結果を見る' : '次へ';
+  }
+
+  function computeResultKey() {
+    var scores = { M: 0, W: 0, L: 0, C: 0, S: 0 };
+    state.answers.forEach(function (cat) {
+      if (cat) { scores[cat] += 1; }
+    });
+
+    var topScore = -1;
+    priorityOrder.forEach(function (cat) {
+      if (scores[cat] > topScore) { topScore = scores[cat]; }
+    });
+    var tied = priorityOrder.filter(function (cat) { return scores[cat] === topScore; });
+
+    if (tied.length === 1) { return tied[0]; }
+
+    // 同点の場合は、最後の質問（期待すること）の回答を優先するタイブレークとする
+    var lastAnswer = state.answers[state.answers.length - 1];
+    if (lastAnswer && tied.indexOf(lastAnswer) !== -1) { return lastAnswer; }
+
+    // それでも決まらない場合のみ、固定の優先順位で決定する
+    var best = tied[0];
+    tied.forEach(function (cat) {
+      if (priorityOrder.indexOf(cat) < priorityOrder.indexOf(best)) { best = cat; }
+    });
+    return best;
+  }
+
+  function showResult() {
+    var key = computeResultKey();
+    var r = results[key];
+
+    byId('proto-question').hidden = true;
+
+    byId('proto-result-title').textContent = r.name;
+    byId('proto-result-summary').textContent = r.summary;
+    byId('proto-result-reason').textContent = r.reason;
+    byId('proto-result-recommend').textContent = r.recommend;
+    byId('proto-result-connection').textContent = r.connection;
+
+    var resultPanel = byId('proto-result');
+    resultPanel.hidden = false;
+    resultPanel.setAttribute('tabindex', '-1');
+    resultPanel.focus();
+  }
+
+  byId('proto-start').addEventListener('click', function () {
+    resetAnswers();
+    byId('proto-intro').hidden = true;
+    byId('proto-result').hidden = true;
+    byId('proto-question').hidden = false;
+    renderQuestion();
+  });
+
+  byId('proto-next').addEventListener('click', function () {
+    if (!state.answers[state.current]) {
+      showWarning();
+      return;
+    }
+    hideWarning();
+    if (state.current === questions.length - 1) {
+      showResult();
+      return;
+    }
+    state.current += 1;
+    renderQuestion();
+  });
+
+  byId('proto-back').addEventListener('click', function () {
+    if (state.current === 0) { return; }
+    state.current -= 1;
+    hideWarning();
+    renderQuestion();
+  });
+
+  byId('proto-restart').addEventListener('click', function () {
+    resetAnswers();
+    byId('proto-result').hidden = true;
+    byId('proto-question').hidden = true;
+    byId('proto-intro').hidden = false;
+    byId('proto-start').focus();
+  });
+})();
+</script>
+
+</body>
+</html>
