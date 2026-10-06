@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>交点（こうてん）｜日常を景色よく ｜コンセプトLP</title>
+<meta name="description" content="秋田市保戸野通町の喫茶店〈交点〉。コーヒーや菓子とともに、本や日常の品をささやかに商うお店です。「日常を景色よく」を大切にした、静かに過ごせる二階の喫茶店をご紹介します。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2c4a63">
+<style>
+/* ===================== 配色とタイポグラフィ ===================== */
+:root{
+  --color-bg:#fbfaf7;
+  --color-surface:#f3f0ea;
+  --color-text:#23262b;
+  --color-muted:#575c64;
+  --color-accent:#2c4a63;
+  --color-accent-dark:#1f3648;
+  --color-accent-soft:#e7edf1;
+  --color-border:#ded8cd;
+  --color-proposal:#eef2ee;
+  --color-proposal-border:#a9bbab;
+  --font-mincho:"Yu Mincho","YuMincho","Hiragino Mincho ProN","游明朝",serif;
+  --font-gothic:"Yu Gothic","YuGothic","Hiragino Kaku Gothic ProN","メイリオ",sans-serif;
+  --space:8px;
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--color-bg);
+  color:var(--color-text);
+  font-family:var(--font-gothic);
+  font-size:16px;
+  line-height:1.9;
+  overflow-wrap:break-word;
+}
+img{display:block;width:100%;max-width:100%;height:auto;}
+a{color:var(--color-accent);}
+a:focus-visible,button:focus-visible{
+  outline:3px solid var(--color-accent);
+  outline-offset:2px;
+}
+h1,h2,h3{font-family:var(--font-mincho);font-weight:600;line-height:1.5;letter-spacing:.02em;}
+h2{font-size:clamp(20px,5vw,28px);margin:0 0 calc(var(--space)*2);}
+h3{font-size:clamp(17px,4vw,20px);margin:0 0 var(--space);}
+p{margin:0 0 calc(var(--space)*2);}
+ul{margin:0 0 calc(var(--space)*2);padding-left:1.2em;}
+li{margin-bottom:var(--space);}
+
+.wrap{width:100%;max-width:960px;margin:0 auto;padding:0 16px;}
+.narrow{max-width:720px;}
+section{padding:calc(var(--space)*7) 0;}
+.eyebrow{
+  display:inline-block;font-family:var(--font-gothic);font-size:13px;
+  letter-spacing:.18em;color:var(--color-muted);margin-bottom:var(--space);
+}
+.lead{color:var(--color-muted);margin-bottom:calc(var(--space)*4);}
+.surface{background:var(--color-surface);}
+
+/* ===================== ボタン ===================== */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:48px;padding:12px 20px;
+  border-radius:4px;border:1px solid var(--color-accent);
+  font-size:15px;font-family:var(--font-gothic);text-decoration:none;
+  background:#fff;color:var(--color-accent);
+}
+.btn:hover{background:var(--color-accent-soft);}
+/* ★ .btn-primary の指定は、必ず .btn:hover より後に置きます。
+   前に置くと詳細度が同じ（0,2,0）ため後勝ちで背景が薄くなり、
+   白文字が 1.18:1 まで落ちて読めなくなります。（2026-09-17 ChatGPT Work の指摘で修正） */
+.btn-primary{background:var(--color-accent);color:#fff;border-color:var(--color-accent);}
+.btn-primary:hover{background:var(--color-accent-dark);color:#fff;border-color:var(--color-accent-dark);}
+.btn-row{display:flex;flex-direction:column;gap:12px;margin:0 0 calc(var(--space)*2);}
+@media(min-width:600px){.btn-row{flex-direction:row;flex-wrap:wrap;}}
+
+/* ===================== 提案用ラベル ===================== */
+.concept-bar{
+  background:var(--color-accent);color:#fff;
+  font-size:13px;line-height:1.7;padding:10px 0;
+}
+.concept-bar strong{letter-spacing:.14em;}
+.skip-link{
+  position:absolute;left:-9999px;top:0;background:#fff;color:var(--color-accent);
+  padding:12px 16px;z-index:20;
+}
+.skip-link:focus{left:0;}
+
+/* ===================== ファーストビュー ===================== */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:0;}
+.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.hero-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,28,32,.30) 0%,rgba(24,28,32,.62) 60%,rgba(24,28,32,.80) 100%);}
+.hero .wrap{position:relative;padding-top:calc(var(--space)*8);padding-bottom:calc(var(--space)*7);}
+.hero h1{color:#fff;font-size:clamp(30px,9vw,54px);margin:0 0 var(--space);}
+.hero h1 span{display:block;font-family:var(--font-gothic);font-size:clamp(12px,3vw,15px);letter-spacing:.2em;font-weight:400;margin-bottom:12px;opacity:.9;}
+.hero .catch{color:#fff;font-family:var(--font-mincho);font-size:clamp(17px,4.6vw,24px);margin:0 0 calc(var(--space)*2);}
+.hero .hero-text{color:#f2f0ec;max-width:34em;}
+.hero .eyebrow{color:#e2e6ea;}
+/* スマホでは文字が画面の上のほうに来るため、膜を濃くします。
+   薄いままだと「秋田市保戸野通町」が背景の明るい部分に負けます（2026-09-17 実測3.45:1）。 */
+@media(max-width:759px){
+  .hero-veil{background:linear-gradient(180deg,rgba(24,28,32,.38) 0%,rgba(24,28,32,.72) 42%,rgba(24,28,32,.88) 100%);}
+}
+.img-note{font-size:13px;color:var(--color-muted);margin-top:var(--space);}
+.hero .img-note{color:#dfe2e6;}
+
+/* ===================== カード ===================== */
+.cards{display:grid;grid-template-columns:1fr;gap:20px;}
+@media(min-width:700px){.cards{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:920px){.cards{grid-template-columns:repeat(3,1fr);}}
+.card{
+  background:#fff;border:1px solid var(--color-border);border-radius:6px;
+  box-shadow:0 1px 3px rgba(35,38,43,.06);overflow:hidden;min-width:0;
+  display:flex;flex-direction:column;
+}
+.card img{aspect-ratio:4/3;object-fit:cover;}
+.card-body{padding:20px;flex:1;display:flex;flex-direction:column;}
+/* ★「お客様にとっての価値」は、本文の行数が違っても段が揃うよう、カードの下へ寄せます。 */
+.card-body .value{margin-top:auto;}
+.card-body p:last-child{margin-bottom:0;}
+/* ★ 見出しの段を揃えます。行数が違うと、横に並べたとき本文の始まりがずれます。 */
+@media(min-width:700px){
+  .card-body h3{min-height:3em;}
+  .scenes .card-body h3{min-height:auto;}
+}
+@media(min-width:760px){
+  .sub-item h3{min-height:1.6em;}
+  .sub-item .roast{min-height:1.6em;}
+}
+@media(min-width:860px){
+  .merit h3{min-height:1.6em;}
+}
+.card .num{
+  display:inline-block;font-size:12px;letter-spacing:.14em;color:var(--color-accent);
+  border:1px solid var(--color-accent);border-radius:2px;padding:2px 8px;margin-bottom:12px;
+}
+.value{
+  background:var(--color-accent-soft);border-left:3px solid var(--color-accent);
+  padding:12px 14px;font-size:14px;line-height:1.8;margin:0;
+}
+
+/* ===================== ストーリー ===================== */
+.story-grid{display:grid;grid-template-columns:1fr;gap:24px;align-items:start;}
+@media(min-width:860px){.story-grid{grid-template-columns:1fr 1fr;}}
+.story-grid img{border-radius:6px;aspect-ratio:4/3;object-fit:cover;}
+blockquote{
+  margin:0 0 calc(var(--space)*2);padding:16px 18px;
+  background:#fff;border:1px solid var(--color-border);border-left:3px solid var(--color-accent);
+  font-family:var(--font-mincho);font-size:17px;line-height:1.95;
+}
+.source{font-size:13px;color:var(--color-muted);}
+
+/* ===================== 一押し ===================== */
+.featured{background:#fff;border:1px solid var(--color-border);border-radius:6px;overflow:hidden;}
+.featured img{aspect-ratio:4/3;object-fit:cover;}
+.featured-body{padding:24px 20px;}
+.badge{
+  display:inline-block;background:var(--color-accent);color:#fff;font-size:12px;
+  letter-spacing:.12em;padding:4px 10px;border-radius:2px;margin-bottom:12px;
+}
+.price{font-family:var(--font-mincho);font-size:22px;margin:0 0 var(--space);}
+.price small{font-size:13px;font-family:var(--font-gothic);color:var(--color-muted);margin-left:8px;}
+.price-note{font-size:14px;color:var(--color-muted);line-height:1.8;}
+/* ★ 920px 未満では縦並びのままにします。768px で2カラムにすると
+   本文が細長くなり、カップの取っ手と皿が大きく切れます。（2026-09-17 修正） */
+@media(min-width:920px){
+  .featured{display:grid;grid-template-columns:1fr 1fr;}
+  .featured img{height:100%;min-height:340px;aspect-ratio:auto;object-position:center 45%;}
+  .featured-body{padding:32px 28px;}
+}
+.sub-list{display:grid;grid-template-columns:1fr;gap:12px;margin-top:calc(var(--space)*3);}
+@media(min-width:760px){.sub-list{grid-template-columns:repeat(3,1fr);}}
+.sub-item{background:#fff;border:1px solid var(--color-border);border-radius:6px;padding:16px;min-width:0;}
+.sub-item h3{font-size:17px;margin-bottom:4px;}
+.sub-item p{font-size:14px;margin-bottom:0;color:var(--color-muted);}
+.sub-item .roast{font-size:12px;letter-spacing:.1em;color:var(--color-accent);display:block;margin-bottom:6px;}
+
+/* ===================== 過ごし方 ===================== */
+.scenes{display:grid;grid-template-columns:1fr;gap:20px;}
+@media(min-width:860px){.scenes{grid-template-columns:repeat(2,1fr);}}
+
+/* ===================== 動く試作デモ ===================== */
+.proposal{
+  background:var(--color-proposal);
+  border-top:3px solid var(--color-proposal-border);
+  border-bottom:3px solid var(--color-proposal-border);
+}
+.proposal-label{
+  display:inline-block;background:#fff;border:1px solid var(--color-proposal-border);
+  color:#33503a;font-size:12px;letter-spacing:.14em;padding:4px 10px;border-radius:2px;margin-bottom:12px;
+}
+.notice{
+  background:#fff;border:1px solid var(--color-proposal-border);border-radius:4px;
+  padding:14px 16px;font-size:14px;line-height:1.8;margin:0 0 calc(var(--space)*3);
+}
+.demo{
+  background:#fff;border:1px solid var(--color-border);border-radius:6px;
+  padding:20px 16px;margin-top:calc(var(--space)*3);
+}
+@media(min-width:600px){.demo{padding:28px 24px;}}
+.demo-progress{font-size:14px;color:var(--color-muted);margin-bottom:var(--space);}
+.demo-bar{height:6px;background:var(--color-surface);border-radius:3px;overflow:hidden;margin-bottom:calc(var(--space)*3);}
+.demo-bar span{display:block;height:100%;background:var(--color-accent);width:0;transition:width .25s ease;}
+.demo-q{font-family:var(--font-mincho);font-size:clamp(17px,4.4vw,21px);margin:0 0 calc(var(--space)*2);}
+.demo-q:focus-visible,.result-name:focus-visible{outline:3px solid var(--color-accent);outline-offset:4px;}
+.opts{list-style:none;margin:0 0 calc(var(--space)*3);padding:0;display:grid;gap:10px;}
+.opt{
+  display:flex;align-items:center;gap:12px;width:100%;min-height:56px;
+  padding:12px 14px;text-align:left;font-size:15px;font-family:var(--font-gothic);
+  background:#fff;border:1px solid var(--color-border);border-radius:4px;
+  color:var(--color-text);cursor:pointer;line-height:1.7;
+}
+.opt:hover{background:var(--color-accent-soft);}
+.opt .mark{
+  flex:0 0 auto;width:24px;height:24px;border:1px solid var(--color-border);border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;font-size:13px;color:transparent;
+}
+.opt[aria-pressed="true"]{border-color:var(--color-accent);border-width:2px;background:var(--color-accent-soft);font-weight:700;}
+.opt[aria-pressed="true"] .mark{background:var(--color-accent);border-color:var(--color-accent);color:#fff;}
+.opt[aria-pressed="true"] .label::after{content:"（選択中）";font-size:13px;font-weight:400;color:var(--color-accent);margin-left:6px;}
+.demo-nav{display:flex;flex-direction:column;gap:10px;}
+@media(min-width:600px){.demo-nav{flex-direction:row;}}
+.demo-msg{min-height:1.9em;font-size:14px;color:#8a2b2b;margin:0 0 var(--space);}
+.result-name{font-family:var(--font-mincho);font-size:clamp(20px,5.4vw,26px);margin:0 0 var(--space);}
+.result-block{border-top:1px solid var(--color-border);margin-top:calc(var(--space)*3);padding-top:calc(var(--space)*3);}
+.result-block h4{font-size:15px;margin:0 0 4px;font-family:var(--font-gothic);color:var(--color-muted);}
+.result-block p{margin-bottom:0;}
+.hidden{display:none;}
+.merit{display:grid;grid-template-columns:1fr;gap:16px;margin-top:calc(var(--space)*4);}
+@media(min-width:860px){.merit{grid-template-columns:repeat(3,1fr);}}
+.merit div{background:#fff;border:1px solid var(--color-proposal-border);border-radius:6px;padding:16px;}
+.merit h3{font-size:16px;}
+.merit p{font-size:14px;margin-bottom:0;}
+noscript p{
+  background:#fff;border:1px solid var(--color-proposal-border);
+  border-radius:4px;padding:14px 16px;font-size:15px;
+}
+
+/* ===================== 店舗情報 ===================== */
+dl.info{margin:0;}
+dl.info div{
+  display:grid;grid-template-columns:1fr;gap:2px;
+  padding:14px 0;border-bottom:1px solid var(--color-border);
+}
+@media(min-width:600px){dl.info div{grid-template-columns:150px 1fr;gap:16px;}}
+dl.info dt{font-size:14px;color:var(--color-muted);}
+dl.info dd{margin:0;overflow-wrap:anywhere;}
+/* 単独で置かれたリンクは、指で押せる高さを確保します（本文中のリンクは対象外） */
+dl.info dd a,.site-footer p a{display:inline-block;padding:14px 0;line-height:1.3;}
+@media(min-width:600px){dl.info div{align-items:center;}}
+
+/* ===================== フッター ===================== */
+.site-footer{background:var(--color-accent);color:#fff;padding:calc(var(--space)*5) 0;font-size:14px;}
+.site-footer a{color:#fff;}
+.site-footer p{margin-bottom:var(--space);}
+.site-footer p:last-child{margin-bottom:0;}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important;scroll-behavior:auto !important;}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">本文へ移動する</a>
+
+<!-- ===================== 提案用ラベル ===================== -->
+<div class="concept-bar">
+  <div class="wrap">
+    <strong>CONCEPT LP</strong>｜このページは店舗運営者様へのご提案用です。公式サイトではありません。<strong>未導入のサービス提案が含まれます。</strong>
+  </div>
+</div>
+
+<main id="main-content">
+
+<!-- ===================== ファーストビュー ===================== -->
+<section class="hero" aria-labelledby="hero-title">
+  <img class="hero-photo" src="images/hero.webp" alt="窓からの光がやわらかく差し込む、静かな喫茶店の席のイメージ画像" fetchpriority="high" width="1600" height="1000">
+  <div class="hero-veil" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="eyebrow">秋田市保戸野通町</p>
+    <h1 id="hero-title"><span>VIEW YOUR DAYS BETTER</span>交点</h1>
+    <p class="catch">日常を景色よく</p>
+    <p class="hero-text">コーヒーや菓子とともに、本や日常の品をささやかに商う喫茶店です。読書や書きものをしながら、静かに過ごす方の多いお店です。</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="#featured">一押しのブレンドを見る</a>
+      <a class="btn" href="#proposal">新サービスの試作を見る</a>
+      <a class="btn" href="#info">店舗情報を見る</a>
+    </div>
+    <p class="img-note">※ 写真はすべてAI生成のイメージ画像です。実際の店内・商品とは異なります。</p>
+  </div>
+</section>
+
+<!-- ===================== コンセプト ===================== -->
+<section id="concept" aria-labelledby="concept-title">
+  <div class="wrap narrow">
+    <p class="eyebrow">CONCEPT</p>
+    <h2 id="concept-title">大切にしていること</h2>
+    <blockquote>「日常を景色よく」<br>そんなことを大切にしたいと思っています。</blockquote>
+    <p class="source">交点 公式サイト ABOUT ページより</p>
+    <p>ひと時くつろげるように、コーヒーや菓子と席が用意されています。読書や書きものをしながら過ごす方、穏やかに話を愉しむ方が多い——公式サイトでは、店内の様子がそう紹介されています。</p>
+    <p>少しずつ本が増え、本棚におさめた蔵書のほかに、よい本と思ったものをささやかに商うようになりました。日常の品も、同じようにささやかに並んでいます。</p>
+    <img src="images/concept-window.webp" alt="本と一杯のコーヒーが置かれた窓辺のイメージ画像" loading="lazy" width="1200" height="800">
+    <p class="img-note">※ AI生成のイメージ画像です。</p>
+  </div>
+</section>
+
+<!-- ===================== 強み ===================== -->
+<section id="strengths" class="surface" aria-labelledby="strengths-title">
+  <div class="wrap">
+    <p class="eyebrow">STRENGTHS</p>
+    <h2 id="strengths-title">交点の三つの魅力</h2>
+    <p class="lead">公式サイトとオンラインストアで確認できる内容から見えてくる、このお店の特徴です。</p>
+    <div class="cards">
+
+      <div class="card">
+        <img src="images/strength-coffee.webp" alt="ハンドドリップでコーヒーを淹れる手元と、焙煎度の違う豆を分けて置いた三つの小皿のイメージ画像" loading="lazy" width="800" height="600">
+        <div class="card-body">
+          <span class="num">01</span>
+          <h3>自家ブレンドを三つ、焙煎違いで</h3>
+          <p>公式オンラインストアには、浅煎りの「囀り」、中煎りの「仄月」、深煎りの「凪ぐ空を」という三つのブレンドが並びます。それぞれに使う生産国と、目指した飲み心地が書き分けられています。</p>
+          <p class="value">お客様にとっての価値：その日の気分や時間帯に合わせて、焙煎の違いから一杯を選べます。</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/strength-books.webp" alt="棚に並ぶ本と、そばに置かれたコーヒーカップのイメージ画像" loading="lazy" width="800" height="600">
+        <div class="card-body">
+          <span class="num">02</span>
+          <h3>喫茶と本が、ひとつづきにある</h3>
+          <p>本棚におさめた蔵書のほかに、店主がよい本と思ったものを商っています。公式オンラインストアには珈琲や喫茶をめぐる本、詩集、雑誌などが並びます。</p>
+          <p class="value">お客様にとっての価値：読みかけの一冊と一杯を、同じ場所で続けて楽しめます。</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/strength-goods.webp" alt="壁に掛けた三枚の藍色の布と、その下の棚に置かれた文具や本のイメージ画像" loading="lazy" width="800" height="600">
+        <div class="card-body">
+          <span class="num">03</span>
+          <h3>喫茶の場が、展示の場にもなる</h3>
+          <p>公式サイトでは、店内を会場とした作品展が案内されています。2026年10月には、山形県の染色作家による藍染めと柿渋染めの作品展が予定されています。コーヒーの道具や文具、日常の品も扱っています。</p>
+          <p class="value">お客様にとっての価値：一杯を飲みに行くだけで、その時々の展示や品に出会えます。</p>
+        </div>
+      </div>
+
+    </div>
+    <p class="img-note">※ 写真はすべてAI生成のイメージ画像です。実際の店内・商品とは異なります。</p>
+  </div>
+</section>
+
+<!-- ===================== 店名の由来・ブランドの背景 ===================== -->
+<section id="story" aria-labelledby="story-title">
+  <div class="wrap">
+    <p class="eyebrow">BACKGROUND</p>
+    <h2 id="story-title">「交点」という名前のこと</h2>
+    <div class="story-grid">
+      <div>
+        <blockquote>人や物事が交わる場所であったら<br>そんな思いを店名に込めました。</blockquote>
+        <p class="source">交点 公式サイト ABOUT ページより</p>
+        <p>公式サイトに書かれているのは、この一文だけです。短い言葉ですが、お店のありようはここに収まっています。</p>
+        <p>コーヒーと菓子があり、本があり、日常の品がある。作品展が開かれ、読書をする人と、話をする人が同じ時間に居合わせる。<strong>別々のものが同じ場所で交わっている</strong>という点で、店の中身と名前がまっすぐつながっています。</p>
+        <p>「日常を景色よく」というもう一つの言葉も、同じところを向いています。特別な日のためではなく、いつもの一日を少しよく見せるための場所、という読み方ができます。</p>
+      </div>
+      <div>
+        <img src="images/story-ink.webp" alt="紙とインク、本の背表紙が重なる静物のイメージ画像" loading="lazy" width="800" height="600">
+        <p class="img-note">※ AI生成のイメージ画像です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 一押しの商品 ===================== -->
+<section id="featured" class="surface" aria-labelledby="featured-title">
+  <div class="wrap">
+    <p class="eyebrow">FEATURED</p>
+    <h2 id="featured-title">特に注目したいブレンド</h2>
+    <p class="lead">三つのブレンドのうち、毎日の一杯として飲み親しむことを想定した深煎りです。公式オンラインストアでも最初に紹介されています。</p>
+
+    <div class="featured">
+      <img src="images/featured-blend.webp" alt="深煎りのコーヒーを白いカップに注いだイメージ画像" loading="lazy" width="1200" height="900">
+      <div class="featured-body">
+        <p class="img-note" style="margin-top:0;">※ AI生成のイメージ画像です。実際の商品とは異なります。</p>
+        <span class="badge">深煎り／フレンチロースト</span>
+        <h3>ブレンド「凪ぐ空を」</h3>
+        <p class="price">コーヒー豆 100g ／ ¥950</p>
+        <p class="price-note">オンラインストアでの販売価格（税込）です。<strong>店内でお出しする一杯の価格ではありません。</strong><br>2026年9月17日時点の表示を確認しています。</p>
+        <p>コロンビア・ブラジル・ケニア・グァテマラのブレンドです。公式の説明では、深煎りでありながら苦々しすぎることはなく、飲み飽きしにくい味わいで、奥のほうにちらりと華やぎもある、とされています。</p>
+        <p><strong>どのような人・場面に向いているか：</strong>ブラックでも、砂糖やミルクを入れても楽しめると案内されています。毎日の一杯として飲み続けたい方、一冊を読みながらゆっくり過ごしたい時間に向いています。</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="https://www.kouten-akita.com/items/131744584" target="_blank" rel="noopener noreferrer">豆100gを公式オンラインストアで見る</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-list">
+      <div class="sub-item">
+        <h3>囀り</h3>
+        <span class="roast">浅煎り／コーヒー豆100g ¥855</span>
+        <p>エチオピアとグァテマラ。華やかで澄んだ味わいで、紅茶のような雰囲気もあると案内されています。</p>
+      </div>
+      <div class="sub-item">
+        <h3>仄月</h3>
+        <span class="roast">中煎り／コーヒー豆100g ¥950</span>
+        <p>インドネシア・グァテマラ・コロンビア・ブラジル・ケニア。バランスがとれ、ふわりとした余韻が印象的とされています。</p>
+      </div>
+      <div class="sub-item">
+        <h3>ドリップバッグ</h3>
+        <span class="roast">5個セット ¥935〜</span>
+        <p>持ち帰りや贈りもの向けに、5個セットや巾着入りのギフト、10個入りのギフトボックスがあります。</p>
+      </div>
+    </div>
+    <p class="img-note">※ 価格はいずれも<strong>オンラインストアで販売しているコーヒー豆・ドリップバッグ</strong>のもので、2026年9月17日時点の表示です。店内でお出しする飲みものの価格ではありません。最新の内容は公式サイトをご確認ください。</p>
+  </div>
+</section>
+
+<!-- ===================== 過ごし方 ===================== -->
+<section id="scenes" aria-labelledby="scenes-title">
+  <div class="wrap">
+    <p class="eyebrow">SCENES</p>
+    <h2 id="scenes-title">交点での過ごし方</h2>
+    <div class="scenes">
+      <div class="card">
+        <img src="images/scene-reading.webp" alt="窓辺の席で本を開き、コーヒーを添えて過ごす様子のイメージ画像" loading="lazy" width="800" height="600">
+        <div class="card-body">
+          <h3>読書と書きものの時間に</h3>
+          <p>公式サイトでは、読書や書きものをしながら過ごす方が多いお店として紹介されています。ラストオーダーは18時、閉店は19時です。夕方までのひと続きの時間を、一杯とともに使えます。</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/scene-gift.webp" alt="巾着に入ったドリップバッグの贈りもののイメージ画像" loading="lazy" width="800" height="600">
+        <div class="card-body">
+          <h3>贈りものを探しに</h3>
+          <p>公式オンラインストアには、巾着入りのドリップバッグ5個ギフトや、2種を組み合わせた10個入りのギフトボックスが並びます。本やトートバッグもあり、贈る相手に合わせて選べます。</p>
+        </div>
+      </div>
+    </div>
+    <p class="img-note">※ 写真はすべてAI生成のイメージ画像です。</p>
+  </div>
+</section>
+
+<!-- ===================== 動く新サービス試作 ===================== -->
+<section id="proposal" class="proposal" aria-labelledby="proposal-title">
+  <div class="wrap">
+    <span class="proposal-label">INTERACTIVE PROTOTYPE ／ 動く新サービス試作</span>
+    <h2 id="proposal-title">きょうの一杯を選ぶ、五つの問い</h2>
+    <p class="lead">店舗運営者様へのご提案です。以下は、実際に操作していただける試作です。</p>
+
+    <p class="notice"><strong>本機能は店舗運営者向けの試作デモです。現在提供中の正式サービスではありません。入力内容の保存・送信は行いません。</strong></p>
+
+    <p><strong>どなたに向けたものか：</strong>はじめて交点を訪れる方、三つのブレンドの違いがまだ分からない方。<br>
+    <strong>何を解きたいか：</strong>焙煎の違いは公式サイトに丁寧に書かれていますが、読み比べるにはある程度の時間がかかります。「きょうの気分」から入れるようにすると、選ぶ前に迷って止まることが減ります。</p>
+
+    <div class="demo" id="demo">
+      <div id="demo-intro">
+        <p>5つの問いに答えると、公式オンラインストアで扱われている商品の中から、きょうに合いそうなものをお伝えします。約1分で終わります。</p>
+        <div class="btn-row">
+          <button type="button" class="btn btn-primary" id="demo-start">試してみる</button>
+        </div>
+      </div>
+
+      <div id="demo-quiz" class="hidden">
+        <p class="demo-progress" id="demo-progress">1問目 ／ 全5問</p>
+        <div class="demo-bar" aria-hidden="true"><span id="demo-bar-fill"></span></div>
+        <h3 class="demo-q" id="demo-question">　</h3>
+        <ul class="opts" id="demo-options"></ul>
+        <p class="demo-msg" id="demo-msg" role="status" aria-live="polite"></p>
+        <div class="demo-nav">
+          <button type="button" class="btn btn-primary" id="demo-next">次へ</button>
+          <button type="button" class="btn" id="demo-back">戻る</button>
+        </div>
+      </div>
+
+      <div id="demo-result" class="hidden" role="status" aria-live="polite">
+        <span class="badge">きょうの一杯</span>
+        <p class="result-name" id="result-name">　</p>
+        <p id="result-summary"></p>
+        <div class="result-block">
+          <h4>この結果になった理由</h4>
+          <p id="result-reason"></p>
+        </div>
+        <div class="result-block">
+          <h4>おすすめ候補</h4>
+          <p id="result-pick"></p>
+        </div>
+        <div class="result-block">
+          <h4>交点の魅力とのつながり</h4>
+          <p id="result-link"></p>
+        </div>
+        <div class="result-block">
+          <div class="btn-row" id="result-cta"></div>
+          <button type="button" class="btn" id="demo-reset">最初からやり直す</button>
+        </div>
+      </div>
+
+      <noscript>
+        <p>この試作デモはJavaScriptで動いています。お使いの環境ではJavaScriptが無効のため、操作いただけません。<strong>試作以外の店舗情報や商品の紹介は、このままご覧いただけます。</strong>三つのブレンドの違いは「特に注目したい一杯」の項目に記載しています。</p>
+      </noscript>
+    </div>
+
+    <div class="merit">
+      <div>
+        <h3>お客様のメリット</h3>
+        <p>焙煎の説明を読み比べなくても、気分から入って一杯にたどり着けます。答えは保存されないので、気軽に試せます。</p>
+      </div>
+      <div>
+        <h3>店舗側のメリット</h3>
+        <p>「どれが違うんですか」という質問に、口頭で毎回お答えする手間が減ります。<br><strong>※ 将来の追加案：</strong>結果を記録する仕組みを足せば、焙煎ごとの関心の偏りも見えるようになります。<strong>いまの試作には記録の機能はありません。</strong></p>
+      </div>
+      <div>
+        <h3>小さく始める方法</h3>
+        <p>店頭のPOPやInstagramのプロフィール欄から案内するところから始められます。まずは既存の三つのブレンドだけで運用できます。</p>
+      </div>
+    </div>
+
+    <p class="lead" style="margin-top:24px;margin-bottom:0;"><strong>導入前に確認が必要なこと：</strong>結果に出す商品と表現が、お店の意図と合っているか。季節限定や品切れがあるときに、どう見せるか。この2点は店主様と決める必要があります。</p>
+  </div>
+</section>
+
+<!-- ===================== 店舗情報 ===================== -->
+<section id="info" class="surface" aria-labelledby="info-title">
+  <div class="wrap narrow">
+    <p class="eyebrow">INFORMATION</p>
+    <h2 id="info-title">店舗情報</h2>
+    <dl class="info">
+      <div><dt>店名</dt><dd>交点（こうてん）</dd></div>
+      <div><dt>住所</dt><dd>〒010-0912 秋田県秋田市保戸野通町6-2（2階）</dd></div>
+      <div><dt>営業時間</dt><dd>水・木・金・土・日 12:00〜19:00（ラストオーダー 18:00）</dd></div>
+      <div><dt>定休日</dt><dd>月・火（祝日の場合は営業）</dd></div>
+      <div><dt>駐車場</dt><dd>専用駐車場「交点P」4台分（店舗裏手の砂利敷き駐車場内）のほか、提携のコインパーキングがあります。詳しくは公式サイトのアクセス案内をご確認ください。</dd></div>
+      <div><dt>公式サイト</dt><dd><a href="https://www.kouten-akita.com/" target="_blank" rel="noopener noreferrer">kouten-akita.com</a></dd></div>
+      <div><dt>オンラインストア</dt><dd><a href="https://www.kouten-akita.com/items/all" target="_blank" rel="noopener noreferrer">kouten-akita.com/items/all</a></dd></div>
+      <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/kouten_akita/" target="_blank" rel="noopener noreferrer">@kouten_akita</a></dd></div>
+      <div><dt>Facebook</dt><dd><a href="https://facebook.com/kouten.akita" target="_blank" rel="noopener noreferrer">facebook.com/kouten.akita</a></dd></div>
+      <div><dt>お問い合わせ</dt><dd><a href="https://thebase.com/inquiry/koutenakita-base-shop" target="_blank" rel="noopener noreferrer">公式のお問い合わせフォーム</a></dd></div>
+    </dl>
+    <p class="img-note">営業日や営業時間は変更される場合があります。最新情報は店舗の公式案内をご確認ください。</p>
+    <div class="btn-row" style="margin-top:24px;">
+      <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%BF%9D%E6%88%B8%E9%87%8E%E9%80%9A%E7%94%BA6-2" target="_blank" rel="noopener noreferrer">地図を見る</a>
+      <a class="btn" href="https://www.instagram.com/kouten_akita/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+      <a class="btn" href="https://www.kouten-akita.com/items/all" target="_blank" rel="noopener noreferrer">オンラインストアを見る</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== フッター ===================== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <p>交点（こうてん）</p>
+    <p>本ページは店舗運営者様へのご提案用に制作したコンセプトLPです。公式サイトではありません。</p>
+    <p>&copy; 交点. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"CafeOrCoffeeShop",
+  "name":"交点",
+  "url":"https://www.kouten-akita.com/",
+  "address":{
+    "@type":"PostalAddress",
+    "postalCode":"010-0912",
+    "addressRegion":"秋田県",
+    "addressLocality":"秋田市",
+    "streetAddress":"保戸野通町6-2"
+  },
+  "sameAs":[
+    "https://www.instagram.com/kouten_akita/",
+    "https://facebook.com/kouten.akita"
+  ]
+}
+</script>
+
+<script>
+(function(){
+  "use strict";
+
+  /* 結果は5種類。すべて公式オンラインストアで確認できる商品・利用方法だけを使っています。 */
+  var RESULTS = {
+    nagu: {
+      name: "深煎りの一杯とともに、ゆっくり",
+      summary: "腰を落ち着けて、同じ場所で長く過ごしたい日です。深煎りのブレンドが合います。",
+      reason: "静かに過ごしたい、しっかりした味わいがよい、長めに滞在したい——この方向の答えが多くありました。",
+      pick: "ブレンド「凪ぐ空を」（深煎り／フレンチロースト）。公式の説明では、深煎りながら苦々しすぎず、飲み飽きしにくい味わいとされています。",
+      link: "焙煎違いで三つのブレンドを用意しているお店です。いちばん深いところから入ると、他の二つとの違いも分かりやすくなります。",
+      cta: [{label:"「凪ぐ空を」を公式ストアで見る", href:"https://www.kouten-akita.com/items/131744584"}]
+    },
+    saezuri: {
+      name: "浅煎りの一杯で、軽やかに",
+      summary: "このあと出かけたい日、短い時間で切り替えたい日に向きます。",
+      reason: "気分を切り替えたい、軽やかで華やかな味がよい、滞在は短めがよい——この方向の答えが多くありました。",
+      pick: "ブレンド「囀り」（浅煎り）。エチオピアとグァテマラのブレンドで、公式では紅茶のような雰囲気も感じられると案内されています。",
+      link: "「飲み終わったら街を歩いてみたくなる」という言葉が公式の説明にあります。外に出る前の一杯という使い方に合います。",
+      cta: [{label:"「囀り」を公式ストアで見る", href:"https://www.kouten-akita.com/items/138909178"}]
+    },
+    hoduki: {
+      name: "中煎りの一杯で、まんなかから",
+      summary: "どれを選べばよいか決めかねている日、誰かと穏やかに話す日に向きます。",
+      reason: "まんなかくらいの味わいがよい、話をしたい、考えごとを整理したい——この方向の答えが多くありました。",
+      pick: "ブレンド「仄月」（中煎り）。5か国のブレンドで、公式ではバランスがとれ、ふわりとした余韻が印象的とされています。",
+      link: "三つの焙煎の中間にあたる一杯です。まずここを知っておくと、次に浅煎りと深煎りのどちらへ寄せたいかが決めやすくなります。",
+      cta: [{label:"「仄月」を公式ストアで見る", href:"https://www.kouten-akita.com/items/131821599"}]
+    },
+    dripbag: {
+      name: "持ち帰って、家で続きを",
+      summary: "お店にいる時間より、家で飲む時間のほうが長くなりそうな日です。",
+      reason: "手軽に淹れられる形がよい、家でゆっくり飲みたい——この方向の答えが多くありました。豆を挽く道具がなくても淹れられます。",
+      pick: "ドリップバッグの5個セット。公式オンラインストアには浅煎り「囀り」のセットと、交点オリジナルブレンドのセットがあります。",
+      link: "「日常を景色よく」という言葉のとおり、お店の一杯を家の時間へ持ち帰る形です。道具がなくても淹れられます。",
+      cta: [{label:"ドリップバッグを公式ストアで見る", href:"https://www.kouten-akita.com/items/all"}]
+    },
+    gift: {
+      name: "贈りものとして選ぶ",
+      summary: "自分のためではなく、誰かに渡すものを探している日です。",
+      reason: "贈るものを探している、という答えがありました。この答えは他より重く見ています。",
+      pick: "巾着入りのドリップバッグ5個ギフト、または2種を組み合わせた10個入りのギフトボックス。本やオリジナルトートバッグもあります。",
+      link: "喫茶と本と日常の品が同じ場所にあるお店なので、相手に合わせて組み合わせを変えられます。",
+      cta: [{label:"ギフトを公式ストアで見る", href:"https://www.kouten-akita.com/items/all"}]
+    }
+  };
+
+  /* 同点のときは、この順番で先に来るものを選びます。 */
+  var TIE_ORDER = ["gift","dripbag","saezuri","hoduki","nagu"];
+
+  var QUESTIONS = [
+    {
+      q: "きょうは、どんな気分ですか。",
+      options: [
+        {label:"静かに、ひとりで過ごしたい", score:{nagu:2, hoduki:1}},
+        {label:"誰かと穏やかに話したい", score:{hoduki:2, nagu:1}},
+        {label:"気分を切り替えて、このあと出かけたい", score:{saezuri:3}},
+        {label:"誰かに贈るものを探している", score:{gift:3}},
+        {label:"家でゆっくり飲みたい", score:{dripbag:2, nagu:1}}
+      ]
+    },
+    {
+      q: "コーヒーの味わいは、どのあたりが好みですか。",
+      options: [
+        {label:"しっかり深い味わい", score:{nagu:3}},
+        {label:"軽やかで華やかな味わい", score:{saezuri:3}},
+        {label:"まんなかくらいのバランス", score:{hoduki:3}},
+        {label:"決めていないので、おすすめで", score:{nagu:1, saezuri:1, hoduki:1}}
+      ]
+    },
+    {
+      q: "お店で過ごす時間は、どのくらいを考えていますか。",
+      options: [
+        {label:"30分ほど", score:{saezuri:2}},
+        {label:"1〜2時間、ゆっくり", score:{nagu:2, hoduki:1}},
+        {label:"お店には寄らず、持ち帰りたい", score:{dripbag:2, gift:1, nagu:1, saezuri:1}}
+      ]
+    },
+    {
+      q: "コーヒーと一緒に、何をして過ごしたいですか。",
+      options: [
+        {label:"本を読む", score:{nagu:2, hoduki:1}},
+        {label:"書きものや、考えごとの整理", score:{hoduki:2, nagu:1}},
+        {label:"店内の本や日常の品を見てまわる", score:{saezuri:2, gift:2}},
+        {label:"とくに決めていない", score:{nagu:1, saezuri:1, hoduki:1}}
+      ]
+    },
+    {
+      q: "このあと、いちばんしたいことはどれですか。",
+      options: [
+        {label:"お店で一杯飲みたい", score:{nagu:1, hoduki:1, saezuri:1}},
+        {label:"豆や粉を買って帰りたい", score:{nagu:2, saezuri:2, hoduki:2}},
+        {label:"手軽に淹れられるドリップバッグがよい", score:{dripbag:5}},
+        {label:"誰かに贈りたい", score:{gift:4}},
+        {label:"まずお店のことを知りたい", score:{hoduki:1, nagu:1}}
+      ]
+    }
+  ];
+
+  var intro    = document.getElementById("demo-intro");
+  var quiz     = document.getElementById("demo-quiz");
+  var resultEl = document.getElementById("demo-result");
+  var qEl      = document.getElementById("demo-question");
+  var optsEl   = document.getElementById("demo-options");
+  var msgEl    = document.getElementById("demo-msg");
+  var progEl   = document.getElementById("demo-progress");
+  var barEl    = document.getElementById("demo-bar-fill");
+  var backBtn  = document.getElementById("demo-back");
+  var nextBtn  = document.getElementById("demo-next");
+
+  var step = 0;
+  var answers = new Array(QUESTIONS.length).fill(null);
+
+  function render(){
+    var item = QUESTIONS[step];
+    msgEl.textContent = "";
+    qEl.textContent = item.q;
+    progEl.textContent = (step + 1) + "問目 ／ 全" + QUESTIONS.length + "問";
+    barEl.style.width = ((step) / QUESTIONS.length * 100) + "%";
+    optsEl.innerHTML = "";
+
+    item.options.forEach(function(opt, i){
+      var li = document.createElement("li");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "opt";
+      btn.setAttribute("aria-pressed", answers[step] === i ? "true" : "false");
+      var mark = document.createElement("span");
+      mark.className = "mark";
+      mark.setAttribute("aria-hidden", "true");
+      mark.textContent = "✓";
+      var label = document.createElement("span");
+      label.className = "label";
+      label.textContent = opt.label;
+      btn.appendChild(mark);
+      btn.appendChild(label);
+      btn.addEventListener("click", function(){
+        answers[step] = i;
+        msgEl.textContent = "";
+        Array.prototype.forEach.call(optsEl.querySelectorAll(".opt"), function(b){
+          b.setAttribute("aria-pressed", "false");
+        });
+        btn.setAttribute("aria-pressed", "true");
+      });
+      li.appendChild(btn);
+      optsEl.appendChild(li);
+    });
+
+    backBtn.textContent = step === 0 ? "最初の説明へ戻る" : "戻る";
+    nextBtn.textContent = step === QUESTIONS.length - 1 ? "結果を見る" : "次へ";
+
+    /* ★ 質問が入れ替わったことが、キーボードと読み上げでも分かるように
+       見出しへフォーカスを移します。（2026-09-17 ChatGPT Work の指摘で追加） */
+    qEl.setAttribute("tabindex", "-1");
+    qEl.focus({preventScroll:true});
+  }
+
+  function judge(){
+    var score = {nagu:0, saezuri:0, hoduki:0, dripbag:0, gift:0};
+    answers.forEach(function(ansIndex, qi){
+      var s = QUESTIONS[qi].options[ansIndex].score;
+      Object.keys(s).forEach(function(k){ score[k] += s[k]; });
+    });
+    var best = null;
+    TIE_ORDER.forEach(function(key){
+      if (best === null || score[key] > score[best]) { best = key; }
+    });
+    return best;
+  }
+
+  function showResult(){
+    var key = judge();
+    var r = RESULTS[key];
+    document.getElementById("result-name").textContent = r.name;
+    document.getElementById("result-summary").textContent = r.summary;
+    document.getElementById("result-reason").textContent = r.reason;
+    document.getElementById("result-pick").textContent = r.pick;
+    document.getElementById("result-link").textContent = r.link;
+
+    var ctaWrap = document.getElementById("result-cta");
+    ctaWrap.innerHTML = "";
+    r.cta.forEach(function(c){
+      var a = document.createElement("a");
+      a.className = "btn btn-primary";
+      a.href = c.href;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.textContent = c.label;
+      ctaWrap.appendChild(a);
+    });
+    var info = document.createElement("a");
+    info.className = "btn";
+    info.href = "#info";
+    info.textContent = "店舗情報を見る";
+    ctaWrap.appendChild(info);
+
+    quiz.classList.add("hidden");
+    resultEl.classList.remove("hidden");
+    var nameEl = document.getElementById("result-name");
+    nameEl.setAttribute("tabindex", "-1");
+    nameEl.focus({preventScroll:true});
+  }
+
+  function reset(){
+    step = 0;
+    answers = new Array(QUESTIONS.length).fill(null);
+    resultEl.classList.add("hidden");
+    quiz.classList.add("hidden");
+    intro.classList.remove("hidden");
+    document.getElementById("demo-start").focus({preventScroll:true});
+  }
+
+  document.getElementById("demo-start").addEventListener("click", function(){
+    intro.classList.add("hidden");
+    resultEl.classList.add("hidden");
+    quiz.classList.remove("hidden");
+    render();
+  });
+
+  nextBtn.addEventListener("click", function(){
+    if (answers[step] === null){
+      msgEl.textContent = "選択肢をひとつ選んでから、次へお進みください。";
+      return;
+    }
+    if (step === QUESTIONS.length - 1){
+      showResult();
+    } else {
+      step += 1;
+      render();
+    }
+  });
+
+  backBtn.addEventListener("click", function(){
+    if (step === 0){
+      quiz.classList.add("hidden");
+      intro.classList.remove("hidden");
+      document.getElementById("demo-start").focus({preventScroll:true});
+      return;
+    }
+    step -= 1;
+    render();
+  });
+
+  document.getElementById("demo-reset").addEventListener("click", reset);
+})();
+</script>
+
+</body>
+</html>

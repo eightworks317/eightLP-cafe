@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>どるず珈琲店｜秋田市民市場の自家焙煎スペシャルティコーヒー専門店｜提案用ページ</title>
+<meta name="description" content="秋田市民市場内にある「どるず珈琲店」。2002年開業、自家焙煎のスペシャルティコーヒーを豆の店頭販売からオンライン通販まで幅広く提供する専門店です。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#c1440e">
+
+<!-- 提案用ページのため構造化データ（JSON-LD）は入れていません。
+     正式公開時に CafeOrCoffeeShop スキーマを追加してください。 -->
+
+<style>
+  :root {
+    --color-ink: #2b2016;
+    --color-cream: #faf3e6;
+    --color-surface: #f2e3c6;
+    --color-band: #3a2a1c;
+    --color-band-surface: #48342272;
+    --color-accent: #c1440e;
+    --color-accent-deep: #953309;
+    --color-accent-on-band: #f0a878;
+    --color-muted: #645543;
+    --color-border: #e3cfa8;
+    --color-proposal-border: #a8360c;
+    --color-on-band: #f7ecd8;
+    --color-on-band-muted: #d9c4a4;
+    /* ===== 背景柄（自家焙煎＝珈琲豆＋麻袋の織り目） ===== */
+    /* 明るい面：焙煎豆のシルエットをコーヒーブラウンで薄く散らす */
+    --pattern-beans:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='none' stroke='%233a2a1c' stroke-opacity='0.085' stroke-width='1.5' stroke-linecap='round'%3E%3Cg transform='translate(32 36) rotate(-24)'%3E%3Cellipse rx='12' ry='7.5'/%3E%3Cpath d='M-11.5 0C-6-5.5 6 5.5 11.5 0'/%3E%3C/g%3E%3Cg transform='translate(104 24) rotate(16)'%3E%3Cellipse rx='12' ry='7.5'/%3E%3Cpath d='M-11.5 0C-6-5.5 6 5.5 11.5 0'/%3E%3C/g%3E%3Cg transform='translate(74 92) rotate(-8)'%3E%3Cellipse rx='12' ry='7.5'/%3E%3Cpath d='M-11.5 0C-6-5.5 6 5.5 11.5 0'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    /* 暗い面：同じ柄をクリーム色で */
+    --pattern-beans-light:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='none' stroke='%23f7ecd8' stroke-opacity='0.07' stroke-width='1.5' stroke-linecap='round'%3E%3Cg transform='translate(32 36) rotate(-24)'%3E%3Cellipse rx='12' ry='7.5'/%3E%3Cpath d='M-11.5 0C-6-5.5 6 5.5 11.5 0'/%3E%3C/g%3E%3Cg transform='translate(104 24) rotate(16)'%3E%3Cellipse rx='12' ry='7.5'/%3E%3Cpath d='M-11.5 0C-6-5.5 6 5.5 11.5 0'/%3E%3C/g%3E%3Cg transform='translate(74 92) rotate(-8)'%3E%3Cellipse rx='12' ry='7.5'/%3E%3Cpath d='M-11.5 0C-6-5.5 6 5.5 11.5 0'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    /* 生豆の麻袋（ジュート）を思わせる細かい織り目 */
+    --texture-linen:
+      repeating-linear-gradient(0deg, rgba(122, 90, 58, 0.055) 0 1px, transparent 1px 7px),
+      repeating-linear-gradient(90deg, rgba(122, 90, 58, 0.045) 0 1px, transparent 1px 7px);
+    --texture-linen-light:
+      repeating-linear-gradient(0deg, rgba(247, 236, 216, 0.045) 0 1px, transparent 1px 7px),
+      repeating-linear-gradient(90deg, rgba(247, 236, 216, 0.035) 0 1px, transparent 1px 7px);
+    /* 店内のランプのような温かい灯り */
+    --glow-warm: radial-gradient(120% 80% at 50% 0%, rgba(193, 68, 14, 0.07) 0%, rgba(193, 68, 14, 0) 62%);
+    --glow-warm-dark: radial-gradient(120% 80% at 50% 0%, rgba(232, 152, 74, 0.10) 0%, rgba(232, 152, 74, 0) 65%);
+
+    --font-heading: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+    --font-body: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 48px;
+    --space-6: 64px;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background-color: var(--color-cream);
+    background-image: var(--pattern-beans), var(--texture-linen);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: var(--color-accent-deep); }
+  a:hover { color: var(--color-accent); }
+
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0 0 var(--space-2);
+    letter-spacing: 0.02em;
+  }
+  p { margin: 0 0 var(--space-2); }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 max(14px, 5vw);
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--color-accent);
+    color: #fff;
+    padding: 10px 16px;
+    z-index: 100;
+    border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus { left: 0; }
+
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: -0.15em;
+    flex-shrink: 0;
+  }
+  .heading-with-icon {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  .heading-with-icon .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--color-accent-deep);
+  }
+  .experience-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    color: var(--color-accent-deep);
+    margin-bottom: 6px;
+  }
+  .special .heading-with-icon .icon,
+  .special .experience-icon,
+  .proto .icon {
+    color: var(--color-accent);
+  }
+  .divider {
+    width: 38px;
+    height: 38px;
+    margin: 0 0 var(--space-3);
+    color: var(--color-accent);
+    display: block;
+  }
+  .divider.center { margin: 0 auto var(--space-3); }
+
+  /* ===== 写真 ===== */
+  .figure { margin: 0 0 var(--space-3); }
+  .photo {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(43, 32, 22, 0.16);
+    display: block;
+  }
+  .img-caption {
+    font-size: 0.78rem;
+    color: var(--color-muted);
+    margin: 6px 0 0;
+  }
+  .special .img-caption,
+  .proto .img-caption { color: var(--color-on-band-muted); }
+  .experience-photo-item { display: grid; gap: var(--space-2); }
+  .experience-photo-item .photo { aspect-ratio: 16 / 10; }
+  @media (min-width: 640px) {
+    .experience-photo-item {
+      grid-template-columns: 160px 1fr;
+      align-items: start;
+    }
+    .experience-photo-item .photo { aspect-ratio: 4 / 3; }
+  }
+
+  /* ===== 提案用ラベル ===== */
+  .proposal-banner {
+    background: var(--color-band);
+    color: var(--color-on-band-muted);
+    text-align: center;
+    padding: 10px var(--space-2);
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+    overflow-wrap: anywhere;
+  }
+  .proposal-banner strong { color: var(--color-on-band); font-weight: 700; }
+
+  /* ===== 共通リンク ===== */
+  .top-link {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+  .top-link:hover { color: var(--color-accent-deep); }
+
+  /* ===== ボタン ===== */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 12px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    text-align: center;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-weight: 700;
+  }
+  .btn-accent { background: var(--color-accent); color: #fff; }
+  .btn-accent:hover, .btn-accent:focus-visible { background: var(--color-accent-deep); color: #fff; }
+  .btn-outline {
+    background: transparent;
+    border-color: var(--color-accent-deep);
+    color: var(--color-accent-deep);
+  }
+  .btn-outline:hover, .btn-outline:focus-visible {
+    background: var(--color-accent-deep);
+    color: #fff;
+  }
+  .btn-outline-light {
+    background: transparent;
+    border-color: rgba(247, 236, 216, 0.5);
+    color: var(--color-on-band);
+  }
+  .btn-outline-light:hover, .btn-outline-light:focus-visible {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  /* ===== ヒーロー（写真＋オーバーレイ） ===== */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    background: var(--color-band);
+    overflow: hidden;
+  }
+  .hero-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(43, 32, 22, 0.35) 0%, rgba(43, 32, 22, 0.68) 60%, rgba(43, 32, 22, 0.88) 100%);
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    /* padding の一括指定にすると .container の左右余白まで 0 に上書きされ、
+       320px幅で文字が画面の端に貼りついてしまうため、上下だけを指定する。 */
+    padding-block: var(--space-6);
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    color: #ffd9c0;
+    border: 1px solid rgba(255, 217, 192, 0.7);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 {
+    font-size: clamp(1.9rem, 7.5vw, 3rem);
+    margin-bottom: var(--space-1);
+    color: var(--color-on-band);
+  }
+  .hero h1 .en {
+    display: block;
+    font-size: clamp(0.75rem, 2.6vw, 0.95rem);
+    letter-spacing: 0.2em;
+    color: var(--color-on-band-muted);
+    font-weight: 400;
+    margin-top: var(--space-1);
+  }
+  .hero-copy {
+    font-size: clamp(1rem, 3.6vw, 1.15rem);
+    color: #fbf1e0;
+    max-width: 32em;
+    margin-bottom: var(--space-3);
+    font-weight: 700;
+  }
+  .hero-lead {
+    color: var(--color-on-band-muted);
+    max-width: 34em;
+    margin-bottom: var(--space-4);
+  }
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: 320px;
+  }
+
+  /* ===== セクション共通 ===== */
+  section { padding: var(--space-6) 0; }
+
+  /* 背景柄：明るい面／暗い面で共通の珈琲豆＋麻織り柄を敷く */
+  .concept,
+  .story,
+  .experience,
+  .strengths,
+  .menu-section,
+  .store-info {
+    background-image: var(--pattern-beans), var(--texture-linen), var(--glow-warm);
+  }
+  .special,
+  .proto,
+  .final-cta,
+  .site-footer {
+    background-image: var(--pattern-beans-light), var(--texture-linen-light), var(--glow-warm-dark);
+  }
+
+  .section-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    color: var(--color-accent-deep);
+    margin-bottom: var(--space-1);
+  }
+  .section-lead { color: var(--color-muted); max-width: 36em; }
+
+  /* ===== コンセプト ===== */
+  .concept { background-color: var(--color-cream); }
+
+  /* ===== 強み ===== */
+  .strengths { background-color: var(--color-surface); }
+  .strength-list {
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+  .strength-card {
+    background: var(--color-cream);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: var(--space-3);
+    min-width: 0;
+    /* ラベル／見出し／本文の3行構成。横並び時に subgrid で高さを揃える */
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    row-gap: 0;
+    align-content: start;
+  }
+  .strength-num {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--color-accent-deep);
+    display: block;
+    margin-bottom: var(--space-1);
+    font-weight: 700;
+  }
+  .strength-card h3 { font-size: 1.05rem; margin-bottom: var(--space-1); }
+  .strength-card p { font-size: 0.92rem; color: var(--color-muted); margin-bottom: 0; }
+
+  /* ===== ブランドストーリー ===== */
+  .story { background-color: var(--color-cream); }
+  .story-body { max-width: 40em; }
+  .story-body p { margin-bottom: var(--space-2); }
+  .story-fact {
+    display: inline-block;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 4px 14px;
+    font-size: 0.82rem;
+    color: var(--color-accent-deep);
+    margin: 0 var(--space-1) var(--space-2) 0;
+  }
+
+  /* ===== 一押し商品 ===== */
+  .special { background-color: var(--color-band); color: var(--color-on-band); }
+  .special .section-eyebrow { color: var(--color-accent-on-band); }
+  .final-cta .section-eyebrow { color: var(--color-accent-on-band); }
+  .special .section-lead { color: var(--color-on-band-muted); }
+  .special-card {
+    margin-top: var(--space-4);
+    background: rgba(247, 236, 216, 0.06);
+    border: 1px solid rgba(193, 68, 14, 0.4);
+    border-radius: 12px;
+    padding: var(--space-4);
+  }
+  .special-card h3 {
+    color: #fbf1e0;
+    font-size: clamp(1.15rem, 4vw, 1.45rem);
+  }
+  .special-badge {
+    display: inline-block;
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: var(--space-2);
+  }
+  .special-meta {
+    display: grid;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid rgba(247, 236, 216, 0.2);
+  }
+  .special-meta dt {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin-bottom: 4px;
+  }
+  .special-meta dd { margin: 0 0 var(--space-2); color: var(--color-on-band-muted); }
+  .special-cta { margin-top: var(--space-3); display: flex; flex-direction: column; gap: var(--space-2); }
+
+  /* ===== その他の商品 ===== */
+  .menu-section { background-color: var(--color-surface); }
+  .menu-grid {
+    display: grid;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+    grid-template-columns: 1fr;
+  }
+  .menu-group {
+    background: var(--color-cream);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: var(--space-3);
+    min-width: 0;
+  }
+  .menu-group h3 {
+    font-size: 1rem;
+    margin-bottom: var(--space-1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .menu-group .menu-group-note {
+    font-size: 0.82rem;
+    color: var(--color-muted);
+    margin-bottom: var(--space-2);
+  }
+  .menu-group ul { list-style: none; margin: 0; padding: 0; }
+  .menu-group li {
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--color-border);
+    font-size: 0.92rem;
+  }
+  .menu-group li:last-child { border-bottom: none; }
+  .menu-item-name { display: flex; justify-content: space-between; gap: var(--space-2); font-weight: 700; }
+  .menu-item-desc { color: var(--color-muted); font-size: 0.85rem; margin-top: 2px; }
+  .menu-note { margin-top: var(--space-3); font-size: 0.85rem; color: var(--color-muted); }
+
+  /* ===== 過ごし方 ===== */
+  .experience { background-color: var(--color-cream); }
+  .experience-list {
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+  .experience-list li {
+    border-left: 3px solid var(--color-accent);
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-surface);
+    border-radius: 0 10px 10px 0;
+    min-width: 0;
+  }
+  .experience-list h3 { font-size: 1rem; margin-bottom: 4px; }
+  .experience-list p { margin-bottom: 0; font-size: 0.92rem; color: var(--color-muted); }
+
+  /* ===== 動く新サービス試作 ===== */
+  .proto { background-color: var(--color-band); color: var(--color-on-band); }
+  .proto-inner {
+    background: rgba(247, 236, 216, 0.05);
+    border: 2px dashed var(--color-proposal-border);
+    border-radius: 14px;
+    padding: var(--space-4);
+  }
+  .proto-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: #fff;
+    background: var(--color-accent);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: var(--space-2);
+  }
+  .proto h2 { color: #fbf1e0; }
+  .proto-lead { color: var(--color-on-band-muted); }
+  .proto-notice {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    background: rgba(193, 68, 14, 0.12);
+    border: 1px solid rgba(193, 68, 14, 0.4);
+    border-radius: 8px;
+    padding: var(--space-2) var(--space-3);
+    color: var(--color-on-band);
+    margin: var(--space-3) 0;
+  }
+  .proto-target { font-size: 0.9rem; color: var(--color-on-band-muted); margin-bottom: var(--space-3); }
+  .proto-target p { margin-bottom: var(--space-1); }
+  .proto-cta { margin-top: var(--space-3); }
+
+  /* ===== 店舗情報 ===== */
+  .store-info { background-color: var(--color-surface); }
+  .info-list { list-style: none; margin: var(--space-4) 0 0; padding: 0; display: grid; gap: var(--space-2); }
+  .info-list li {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: var(--space-2);
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.94rem;
+  }
+  .info-list li:last-child { border-bottom: none; }
+  .info-label { color: var(--color-muted); font-size: 0.85rem; }
+  .info-note { margin-top: var(--space-3); font-size: 0.85rem; color: var(--color-muted); }
+
+  /* ===== 最終CTA ===== */
+  .final-cta { background-color: var(--color-band); color: var(--color-on-band); text-align: center; }
+  .final-cta h2 { color: #fbf1e0; }
+  .final-cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: 320px;
+    margin: var(--space-4) auto 0;
+  }
+
+  /* ===== フッター ===== */
+  .site-footer { background-color: var(--color-band); color: var(--color-on-band-muted); padding: var(--space-4) 0; font-size: 0.85rem; }
+  .site-footer .container { display: flex; flex-direction: column; gap: var(--space-2); }
+  .site-footer a { color: var(--color-accent); }
+
+  @media (min-width: 640px) {
+    /* 3枚のカードで「ラベル・見出し・本文」の開始位置を揃える */
+    .strength-list {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto 1fr;
+    }
+    .strength-card {
+      grid-row: span 3;
+      grid-template-rows: subgrid;
+    }
+    .menu-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-cta { flex-direction: row; max-width: none; }
+    .final-cta-buttons { flex-direction: row; max-width: none; justify-content: center; }
+  }
+
+  /* ===== 濃い帯・写真の上のアクセント色（コントラスト比 4.5 以上を確保） ===== */
+  .special-meta dt,
+  .proto-result dt,
+  .site-footer a,
+  .site-footer .top-link { color: var(--color-accent-on-band); }
+
+</style>
+</head>
+<body>
+
+<!-- アイコン用SVGスプライト（装飾用の自作ベクター画像です） -->
+<svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden;">
+  <symbol id="icon-bean" viewBox="0 0 48 48">
+    <ellipse cx="24" cy="24" rx="20" ry="13" transform="rotate(-28 24 24)" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M13 29c7-9 8-9 22-13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="icon-cup" viewBox="0 0 48 48">
+    <path d="M10 19h23v10a11.5 11.5 0 0 1-11.5 11.5A11.5 11.5 0 0 1 10 29z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M33 22h3.5a5 5 0 0 1 0 10H33" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M17 13c-1.2 1.8 1 2.8 0 4.6M23 13c-1.2 1.8 1 2.8 0 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </symbol>
+  <symbol id="icon-sun" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+    <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="24" y1="4" x2="24" y2="10"/>
+      <line x1="24" y1="38" x2="24" y2="44"/>
+      <line x1="4" y1="24" x2="10" y2="24"/>
+      <line x1="38" y1="24" x2="44" y2="24"/>
+      <line x1="9" y1="9" x2="13" y2="13"/>
+      <line x1="35" y1="35" x2="39" y2="39"/>
+      <line x1="9" y1="39" x2="13" y2="35"/>
+      <line x1="35" y1="13" x2="39" y2="9"/>
+    </g>
+  </symbol>
+  <symbol id="icon-basket" viewBox="0 0 48 48">
+    <path d="M10 20h28l-3 18H13z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M10 20l6-10h16l6 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <line x1="17" y1="24" x2="18" y2="37" stroke="currentColor" stroke-width="1.5"/>
+    <line x1="24" y1="24" x2="24" y2="37" stroke="currentColor" stroke-width="1.5"/>
+    <line x1="31" y1="24" x2="30" y2="37" stroke="currentColor" stroke-width="1.5"/>
+  </symbol>
+  <symbol id="icon-heart" viewBox="0 0 48 48">
+    <path d="M24 40S6 28 6 16a10 10 0 0 1 18-6 10 10 0 0 1 18 6c0 12-18 24-18 24z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<a href="#main-content" class="skip-link">本文へ移動</a>
+
+<!-- 提案用ラベル -->
+<div class="proposal-banner">
+  <strong>CONCEPT LP</strong>／店舗向け提案用ページです。本ページには未導入の提案が含まれます。
+</div>
+
+<main id="main-content">
+
+  <!-- ファーストビュー -->
+  <div class="hero">
+    <img class="hero-photo" src="images/01_hero.webp" alt="" width="1536" height="1024" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <span class="hero-eyebrow">AKITA CITY MARKET / COFFEE ROASTER</span>
+      <h1>どるず珈琲店<span class="en">DOLL'S COFFEE</span></h1>
+      <p class="hero-copy">秋田市民市場から届く、自家焙煎スペシャルティコーヒー。</p>
+      <p class="hero-lead">秋田市民市場の一角で、世界各地から届く厳選豆を自家焙煎して提供するコーヒー専門店です。店頭での豆販売はもちろん、オンラインショップでの購入にも対応しています。</p>
+      <div class="hero-cta">
+        <a class="btn btn-accent" href="#special">公式「人気No.1」の豆を見る</a>
+        <a class="btn btn-outline-light" href="https://ec.dolls-coffee.jp/" target="_blank" rel="noopener noreferrer">オンラインショップを見る</a>
+      </div>
+      <p class="img-caption" style="color:var(--color-on-band-muted);">※イメージ画像です</p>
+    </div>
+  </div>
+
+  <!-- コンセプト -->
+  <section id="concept" class="concept">
+    <div class="container">
+      <svg class="divider"><use href="#icon-bean"></use></svg>
+      <p class="section-eyebrow">CONCEPT</p>
+      <h2 class="heading-with-icon"><svg class="icon"><use href="#icon-cup"></use></svg>ひとりでも多くのお客様を、コーヒーで笑顔に</h2>
+      <p class="section-lead">公式サイトでは、世界各地から届く厳しい審査条件を満たしたスペシャルティコーヒーを、店主自宅の自家焙煎工房でひとつひとつ焙煎していることが紹介されています。「ひとりでも多くのお客様を、コーヒーで笑顔に」という言葉が、どるず珈琲店のものづくりの軸になっています。</p>
+
+      <figure class="figure">
+        <img class="photo" src="images/02_concept.webp" alt="ハンドドリップでコーヒーを淹れる様子のイメージ写真" loading="lazy" width="1200" height="800">
+        <figcaption class="img-caption">※イメージ画像です</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 企業・店舗の強み -->
+  <section id="strengths" class="strengths">
+    <div class="container">
+      <p class="section-eyebrow">STRENGTHS</p>
+      <h2>公式情報から見える、どるず珈琲店の強み</h2>
+      <p class="section-lead">公式サイトのABOUTページから確認できる情報をもとに、３つの強みとして整理しました。</p>
+
+      <figure class="figure">
+        <img class="photo" src="images/03_strength.webp" alt="コーヒー豆の並ぶ店内のイメージ写真" loading="lazy" width="1200" height="800">
+        <figcaption class="img-caption">※イメージ画像です</figcaption>
+      </figure>
+
+      <ul class="strength-list">
+        <li class="strength-card">
+          <span class="strength-num">STRENGTH 01</span>
+          <h3>世界各地から届く、厳選されたスペシャルティコーヒー</h3>
+          <p>公式サイトでは、インドネシア・スマトラ島のワハナ農園など、生産工程が明確で厳しい審査条件を満たした豆を使用していると紹介されています。産地ごとの個性豊かな香りと味わいを楽しめます。</p>
+        </li>
+        <li class="strength-card">
+          <span class="strength-num">STRENGTH 02</span>
+          <h3>「秋田市民の台所」ならではのメニューの豊富さ</h3>
+          <p>秋田市民市場内に位置し、市場から仕入れた新鮮な食材を使ったトーストセットや４種のパスタ、手作りデザートも提供しています。コーヒーだけでなく、食事も一緒に楽しめます。</p>
+        </li>
+        <li class="strength-card">
+          <span class="strength-num">STRENGTH 03</span>
+          <h3>店頭からオンラインまで広がる購入の選択肢</h3>
+          <p>豆の店頭販売に加えて、オンラインショップでの購入や、チャリティコーヒーの定期便にも対応しています。来店できない時期でも、好みの豆を継続して楽しめます。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ブランドストーリー -->
+  <section id="story" class="story">
+    <div class="container">
+      <svg class="divider"><use href="#icon-bean"></use></svg>
+      <p class="section-eyebrow">BRAND STORY</p>
+      <h2>どるず珈琲店のあゆみ</h2>
+      <div class="story-body">
+        <span class="story-fact">2002年5月 開業</span>
+        <span class="story-fact">2011年 市民市場内へ</span>
+        <span class="story-fact">16席の専門店</span>
+        <p>どるず珈琲店は、2002年5月に秋田市外旭川地区で珈琲豆専門店として開業しました。その後2011年、秋田の「おいしい」を全国へ届ける秋田市民市場の一角に、16席の小さなコーヒー専門店をオープンしています。</p>
+        <p>豆は、店主自宅の自家焙煎工房でひとつひとつ焙煎。世界各地の良質な産地から届く、生産工程の明確なスペシャルティコーヒーを、個性豊かな香りとともにお届けしています。</p>
+        <p>「ひとりでも多くのお客様を、コーヒーで笑顔に。スペシャルティコーヒーを、よりスペシャルにお届けする。」公式サイトが伝えるこの言葉が、どるず珈琲店が大切にしている想いです。現在は、太田忠幸氏が店主として、秋田市民市場を拠点にこのコーヒーづくりを続けています。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 一押し商品 -->
+  <section id="special" class="special">
+    <div class="container">
+      <p class="section-eyebrow">FEATURED</p>
+      <h2>公式サイトで「人気No.1」とされる豆</h2>
+      <p class="section-lead">公式オンラインショップで「当店人気No.1」と明記されている商品です。</p>
+      <div class="special-card">
+        <figure class="figure">
+          <img class="photo" src="images/04_featured.webp" alt="コーヒー豆のパッケージと焙煎豆を写したイメージ写真" loading="lazy" width="1200" height="800">
+          <figcaption class="img-caption">※イメージ画像です</figcaption>
+        </figure>
+        <span class="special-badge">当店人気No.1（公式表記）</span>
+        <h3 class="heading-with-icon"><svg class="icon"><use href="#icon-bean"></use></svg>スペシャルティコーヒー豆「どるずマイルド」</h3>
+        <p>ブラジルをベースにしたどるず珈琲店オリジナルのブレンドです。柔らかな飲み口が特徴で、公式オンラインショップでも「当店人気No.1」と紹介されています。はじめての方にも選びやすい、どるず珈琲店の入り口となる一杯です。</p>
+        <dl class="special-meta">
+          <div>
+            <dt>価格</dt>
+            <dd>￥900（公式オンラインショップより）</dd>
+          </div>
+          <div>
+            <dt>向いている場面</dt>
+            <dd>普段使いの一杯として、はじめてどるず珈琲店の豆を選ぶとき</dd>
+          </div>
+        </dl>
+        <div class="special-cta">
+          <a class="btn btn-accent" href="https://ec.dolls-coffee.jp/items/78179074" target="_blank" rel="noopener noreferrer">どるずマイルドを購入する</a>
+          <a class="btn btn-outline-light" href="https://ec.dolls-coffee.jp/categories/5410109" target="_blank" rel="noopener noreferrer">豆の一覧を見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- その他の商品 -->
+  <section id="menu" class="menu-section">
+    <div class="container">
+      <p class="section-eyebrow">PRODUCTS</p>
+      <h2>商品ラインナップ</h2>
+      <p class="section-lead">公式オンラインショップに掲載されている商品です。</p>
+      <div class="menu-grid">
+        <div class="menu-group">
+          <h3><svg class="icon" aria-hidden="true"><use href="#icon-bean"></use></svg>コーヒー豆（各￥900）</h3>
+          <p class="menu-group-note">世界各地の産地から届く豆を、それぞれの特徴に合わせて焙煎しています。</p>
+          <ul>
+            <li>
+              <div class="menu-item-name"><span>どるず深煎り</span></div>
+              <p class="menu-item-desc">グアテマラベース。ビターの後に残る甘い広がりがあり、アイスコーヒーにもおすすめです。</p>
+            </li>
+            <li>
+              <div class="menu-item-name"><span>ブラジル</span></div>
+              <p class="menu-item-desc">樹上完熟で雑味がなく、甘くて香ばしい風味が特徴。店主のおすすめ商品です。</p>
+            </li>
+            <li>
+              <div class="menu-item-name"><span>マンデリン</span></div>
+              <p class="menu-item-desc">大粒で独特の苦みと濃厚なコクが特徴です。</p>
+            </li>
+            <li>
+              <div class="menu-item-name"><span>エチオピア（ホワイトナイル ナチュラル）</span></div>
+              <p class="menu-item-desc">トロピカルな香りと柔らかい酸味が特徴です。</p>
+            </li>
+            <li>
+              <div class="menu-item-name"><span>グアテマラ</span></div>
+              <p class="menu-item-desc">豊かな酸味と独特なコクと香りが特徴です。</p>
+            </li>
+            <li>
+              <div class="menu-item-name"><span>タンザニア</span></div>
+              <p class="menu-item-desc">柔らかい酸味と甘い香りで女性に人気の商品です。</p>
+            </li>
+          </ul>
+        </div>
+        <div class="menu-group">
+          <h3><svg class="icon" aria-hidden="true"><use href="#icon-cup"></use></svg>ドリンク・ドリップバッグ</h3>
+          <ul>
+            <li>
+              <div class="menu-item-name"><span>ドリップバッグ（各種）</span><span>￥220</span></div>
+              <p class="menu-item-desc">内容量10g。ブラジル・どるず深煎り・グアテマラから選べます。</p>
+            </li>
+            <li>
+              <div class="menu-item-name"><span>カフェオレベース（無糖）</span><span>￥1,400</span></div>
+              <p class="menu-item-desc">水または牛乳で4倍に薄めてお飲みください。</p>
+            </li>
+            <li>
+              <div class="menu-item-name"><span>カフェオレベース（加糖）</span><span>￥1,510</span></div>
+              <p class="menu-item-desc">香ばしい香りとすっきりとした甘さが楽しめます。</p>
+            </li>
+            <li>
+              <div class="menu-item-name"><span>スペシャルティアイスコーヒー</span><span>￥1,290</span></div>
+              <p class="menu-item-desc">すっきりとした味わいの無糖アイスコーヒーです。</p>
+            </li>
+          </ul>
+        </div>
+        <div class="menu-group">
+          <h3><svg class="icon" aria-hidden="true"><use href="#icon-heart"></use></svg>チャリティコーヒー「ニコジーコーヒー」</h3>
+          <p class="menu-group-note">保護犬活動支援のためのチャリティーコーヒーです。購入価格の20％が動物保護団体へ寄付されます。</p>
+          <ul>
+            <li>
+              <div class="menu-item-name"><span>1回分</span><span>￥3,240</span></div>
+              <p class="menu-item-desc">高品質なスペシャルティコーヒーを100gずつ3種類セットにしています。</p>
+            </li>
+            <li>
+              <div class="menu-item-name"><span>定期便（3ヶ月コース）</span><span>￥9,720</span></div>
+            </li>
+            <li>
+              <div class="menu-item-name"><span>定期便（6ヶ月コース）</span><span>￥19,440</span></div>
+            </li>
+          </ul>
+        </div>
+        <div class="menu-group">
+          <h3><svg class="icon" aria-hidden="true"><use href="#icon-basket"></use></svg>市場の食材を使った軽食</h3>
+          <p class="menu-group-note">秋田市民市場から仕入れた新鮮な食材を使い、店内スタッフが手作りしています（価格は店頭でご確認ください）。</p>
+          <ul>
+            <li>
+              <div class="menu-item-name"><span>トーストセット</span></div>
+            </li>
+            <li>
+              <div class="menu-item-name"><span>パスタ（4種）</span></div>
+            </li>
+            <li>
+              <div class="menu-item-name"><span>白いコーヒーゼリー</span></div>
+              <p class="menu-item-desc">毎日完売必須の、どるず珈琲店オリジナルの一品です。</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="menu-note">価格・内容は公式オンラインショップおよびABOUTページに基づきます。最新情報は店舗の公式案内をご確認ください。</p>
+    </div>
+  </section>
+
+  <!-- 店舗での過ごし方 -->
+  <section id="how-to-enjoy" class="experience">
+    <div class="container">
+      <svg class="divider"><use href="#icon-bean"></use></svg>
+      <p class="section-eyebrow">HOW TO ENJOY</p>
+      <h2>どるず珈琲店での過ごし方</h2>
+      <ul class="experience-list">
+        <li class="experience-photo-item">
+          <img class="photo" src="images/05_morning.webp" alt="バタートーストとゆで卵、コーヒーを並べたモーニングセットのイメージ写真" loading="lazy" width="900" height="600">
+          <div>
+            <svg class="experience-icon" aria-hidden="true"><use href="#icon-sun"></use></svg>
+            <h3>朝、焙煎したての一杯から一日を始める</h3>
+            <p>営業開始の9:00から、自家焙煎したてのスペシャルティコーヒーを楽しめます。</p>
+            <p class="img-caption">※イメージ画像です</p>
+          </div>
+        </li>
+        <li class="experience-photo-item">
+          <img class="photo" src="images/06_lunch.webp" alt="市場の野菜を背景にしたトーストとスープ、サラダのランチプレートのイメージ写真" loading="lazy" width="900" height="600">
+          <div>
+            <svg class="experience-icon" aria-hidden="true"><use href="#icon-basket"></use></svg>
+            <h3>市場のランチタイムを楽しむ</h3>
+            <p>市場から仕入れた新鮮な食材を使ったトーストセットや4種のパスタ、手作りデザートを味わえます。</p>
+            <p class="img-caption">※イメージ画像です</p>
+          </div>
+        </li>
+        <li class="experience-photo-item">
+          <img class="photo" src="images/07_takeaway.webp" alt="コーヒー豆の袋と発送用の箱を並べた、持ち帰り・オンライン注文のイメージ写真" loading="lazy" width="900" height="600">
+          <div>
+            <svg class="experience-icon" aria-hidden="true"><use href="#icon-bean"></use></svg>
+            <h3>豆を持ち帰る、オンラインで届く</h3>
+            <p>気に入った豆は店頭で購入できるほか、オンラインショップや定期便でも継続して楽しめます。</p>
+            <p class="img-caption">※イメージ画像です</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 動く新サービス試作 -->
+  <section id="prototype" class="proto">
+    <div class="container">
+      <div class="proto-inner">
+        <span class="proto-label">動く新サービス試作／INTERACTIVE PROTOTYPE</span>
+        <h2>コーヒー豆診断</h2>
+        <p class="proto-lead">苦味・酸味・香り・飲みごこちの好みを選ぶと、おすすめのコーヒー豆をご紹介します。実際に操作できる試作版を別ページで公開しています。</p>
+
+        <div class="proto-notice">
+          本機能は店舗運営者向けの試作デモです。<br>
+          現在提供中の正式サービスではありません。<br>
+          入力内容の保存・送信は行いません。
+        </div>
+
+        <div class="proto-target">
+          <p><strong>対象のお客様：</strong>豆の種類が多く、どれを選べばよいか迷っている方や、はじめて購入する方</p>
+          <p><strong>解決したいこと：</strong>７種類あるコーヒー豆の中から、好みに近い一杯を見つけやすくすること</p>
+          <p><strong>小さく始める方法：</strong>オンラインショップの商品一覧ページやレジ横のQRコードから、この診断へご案内する形で試すことができます。</p>
+        </div>
+
+        <div class="proto-cta">
+          <a class="btn btn-accent" href="https://coffee-diagnosis-app.netlify.app/index.html" target="_blank" rel="noopener noreferrer">コーヒー豆診断を試してみる（別ウィンドウで開きます）</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section id="store-info" class="store-info">
+    <div class="container">
+      <p class="section-eyebrow">STORE INFO</p>
+      <h2>店舗情報</h2>
+      <ul class="info-list">
+        <li>
+          <span class="info-label">店舗名</span>
+          <span>どるず珈琲店</span>
+        </li>
+        <li>
+          <span class="info-label">住所</span>
+          <span>〒010-0001　秋田市中通4-7-35　秋田市民市場内（サンクス側入口、広場隣）<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A4-7-35%E7%A7%8B%E7%94%B0%E5%B8%82%E6%B0%91%E5%B8%82%E5%A0%B4%E5%86%85" target="_blank" rel="noopener noreferrer">地図を見る</a>
+          </span>
+        </li>
+        <li>
+          <span class="info-label">電話</span>
+          <span><a href="tel:0188935996">018-893-5996</a></span>
+        </li>
+        <li>
+          <span class="info-label">営業時間</span>
+          <span>9:00〜16:00</span>
+        </li>
+        <li>
+          <span class="info-label">定休日</span>
+          <span>日曜日</span>
+        </li>
+        <li>
+          <span class="info-label">決済方法</span>
+          <span>各種クレジットカード、電子マネーに対応</span>
+        </li>
+        <li>
+          <span class="info-label">公式サイト</span>
+          <span><a href="https://ec.dolls-coffee.jp/" target="_blank" rel="noopener noreferrer">ec.dolls-coffee.jp</a></span>
+        </li>
+        <li>
+          <span class="info-label">Instagram</span>
+          <span><a href="https://www.instagram.com/dolls.coffee/" target="_blank" rel="noopener noreferrer">@dolls.coffee</a></span>
+        </li>
+        <li>
+          <span class="info-label">Facebook</span>
+          <span><a href="https://facebook.com/dolls.akita" target="_blank" rel="noopener noreferrer">facebook.com/dolls.akita</a></span>
+        </li>
+        <li>
+          <span class="info-label">ブログ</span>
+          <span><a href="https://ameblo.jp/55gumbo" target="_blank" rel="noopener noreferrer">ameblo.jp/55gumbo</a></span>
+        </li>
+      </ul>
+      <p class="info-note">上記は公式オンラインショップ（ec.dolls-coffee.jp）で確認できた情報です。発送は注文から7日以内、返品は商品到着後7日以内に対応しています。最新情報は店舗の公式案内をご確認ください。</p>
+    </div>
+  </section>
+
+  <!-- 最終CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <p class="section-eyebrow">CONTACT</p>
+      <h2>どるず珈琲店について、もっと知る</h2>
+      <p style="color:var(--color-on-band-muted);">豆のラインナップやご購入は、公式オンラインショップからご覧いただけます。</p>
+      <div class="final-cta-buttons">
+        <a class="btn btn-accent" href="https://ec.dolls-coffee.jp/" target="_blank" rel="noopener noreferrer">オンラインショップを見る</a>
+        <a class="btn btn-outline-light" href="https://www.instagram.com/dolls.coffee/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+        <a class="btn btn-outline-light" href="tel:0188935996">電話をかける</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- フッター -->
+<footer class="site-footer">
+  <div class="container">
+    <p>どるず珈琲店</p>
+    <p>© どるず珈琲店. All Rights Reserved.</p>
+    <a class="top-link" href="#main-content">ページの先頭へ戻る</a>
+  </div>
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MuseumCafe&amp;Shop 光風｜安藤忠雄建築の美術館で、川連漆器の器と過ごす｜提案用ページ</title>
+<meta name="description" content="秋田県立美術館2階のミュージアムカフェ「光風」。安藤忠雄建築研究所が設計した館内で、水庭と千秋公園を眺めながら、美術館オリジナルの川連漆器の器でコーヒーとケーキを味わえます。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2b2724">
+<style>
+/* ============================================================
+   MuseumCafe&Shop 光風 — 店舗提案用コンセプトLP
+   配色は美術館の素材感（打ち放しコンクリート・和紙・漆）から構成
+   ============================================================ */
+:root{
+  --color-primary:#2b2724;
+  --color-secondary:#ffffff;
+  --color-accent:#8c3b2c;
+  --color-background:#faf8f5;
+  --color-surface:#f1ede7;
+  --color-proposal:#eef1ee;
+  --color-text:#2b2724;
+  --color-muted:#5f5952;
+  --color-border:#ddd6cc;
+  --mincho:"Yu Mincho","YuMincho","Hiragino Mincho ProN","游明朝",serif;
+  --gothic:"Yu Gothic","YuGothic","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif;
+  --space:8px;
+  --maxw:1040px;
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  font-family:var(--gothic);
+  font-size:16px;
+  line-height:1.9;
+  color:var(--color-text);
+  background:var(--color-background);
+  overflow-wrap:break-word;
+}
+img{max-width:100%;width:100%;height:auto;display:block;}
+a{color:var(--color-accent);}
+a:focus-visible,button:focus-visible{
+  outline:3px solid var(--color-accent);
+  outline-offset:3px;
+}
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:16px;}
+.section{padding-block:clamp(40px,9vw,80px);}
+.section--surface{background:var(--color-surface);}
+.eyebrow{
+  font-size:12px;letter-spacing:.18em;font-weight:700;
+  color:var(--color-accent);margin:0 0 8px;
+}
+h2{
+  font-family:var(--mincho);
+  font-size:clamp(21px,5.4vw,32px);
+  line-height:1.5;margin:0 0 8px;font-weight:600;
+}
+h3{font-size:clamp(17px,4.2vw,20px);line-height:1.6;margin:0 0 8px;}
+p{margin:0 0 16px;}
+.lead{color:var(--color-muted);margin-bottom:32px;}
+
+/* --- 提案用ラベル --- */
+.ribbon{
+  background:var(--color-primary);color:#f4f1ec;
+  font-size:13px;line-height:1.6;padding:10px 16px;text-align:center;
+}
+.ribbon strong{letter-spacing:.16em;font-weight:700;}
+.ribbon span{display:inline-block;}
+
+/* --- スキップリンク --- */
+.skip{
+  position:absolute;left:0;top:0;width:1px;height:1px;overflow:hidden;
+  clip-path:inset(50%);white-space:nowrap;
+  background:var(--color-primary);color:#fff;padding:12px 16px;z-index:50;
+}
+.skip:focus{width:auto;height:auto;clip-path:none;}
+
+/* --- ファーストビュー --- */
+.hero{
+  position:relative;
+  min-height:100svh;
+  display:flex;align-items:center;
+  padding-block:clamp(48px,12vw,96px);
+  background:
+    linear-gradient(180deg,rgba(250,248,245,.2) 0%,rgba(250,248,245,.85) 68%,var(--color-background) 100%),
+    linear-gradient(112deg,#cfd6cf 0%,#e6e1d8 42%,#d9cec2 100%);
+}
+.hero-bg{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;z-index:0;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(250,248,245,.72) 0%,rgba(250,248,245,.86) 55%,var(--color-background) 100%);
+  pointer-events:none;
+}
+.hero-credit{
+  position:absolute;right:16px;bottom:12px;z-index:2;
+  font-size:12px;color:var(--color-muted);
+}
+.hero .wrap{position:relative;z-index:2;}
+.hero-inner{max-width:620px;}
+.hero-brand{
+  font-family:var(--mincho);
+  font-size:clamp(18px,4.8vw,24px);
+  font-weight:600;letter-spacing:.04em;
+  margin:0 0 12px;padding-bottom:12px;
+  border-bottom:1px solid rgba(43,39,36,.28);
+  display:inline-block;
+}
+.hero h1{
+  font-family:var(--mincho);
+  font-size:clamp(28px,8.4vw,52px);
+  line-height:1.42;margin:0 0 16px;font-weight:600;
+}
+.hero-copy{font-size:clamp(15px,3.9vw,17px);margin-bottom:32px;}
+.hero-note{font-size:13px;color:var(--color-muted);margin-bottom:24px;}
+
+/* --- ボタン --- */
+.btn-row{display:flex;flex-direction:column;gap:12px;}
+.btn{
+  display:flex;align-items:center;justify-content:center;
+  min-height:52px;padding:12px 24px;
+  font-family:var(--gothic);font-size:15px;font-weight:700;
+  text-decoration:none;text-align:center;
+  border-radius:2px;border:1px solid var(--color-primary);
+  background:transparent;color:var(--color-primary);
+  cursor:pointer;transition:background .2s ease,color .2s ease;
+}
+.btn:hover{background:var(--color-primary);color:#fff;}
+.btn--fill{background:var(--color-primary);color:#fff;}
+.btn--fill:hover{background:#000;}
+.btn--accent{background:var(--color-accent);border-color:var(--color-accent);color:#fff;}
+.btn--accent:hover{background:#73301f;}
+.btn[disabled]{opacity:.45;cursor:not-allowed;}
+
+/* --- 画像 --- */
+figure{margin:0;}
+.fig{margin:0 0 24px;}
+.fig img{
+  width:100%;height:auto;display:block;
+  border:1px solid var(--color-border);
+}
+.fig--16x9 img{aspect-ratio:16/9;object-fit:cover;}
+.fig--4x3 img{aspect-ratio:4/3;object-fit:cover;}
+.fig figcaption{
+  font-size:13px;color:var(--color-muted);
+  margin-top:8px;line-height:1.7;
+}
+.card .fig{margin:0 0 20px;}
+.card .fig img{border:none;}
+
+/* --- 強み --- */
+.strengths{display:grid;gap:16px;}
+.strengths--two{max-width:760px;margin-inline:auto;}
+.card{
+  background:var(--color-secondary);
+  border:1px solid var(--color-border);
+  border-radius:2px;
+  padding:24px;
+  box-shadow:0 1px 3px rgba(43,39,36,.05);
+  display:flex;flex-direction:column;
+}
+.card h3{min-height:calc(1.6em * 2);}
+.card > p:not(.value){flex:0 0 auto;}
+.card .tag{
+  display:inline-block;align-self:flex-start;
+  font-size:12px;letter-spacing:.14em;font-weight:700;
+  color:var(--color-accent);border:1px solid var(--color-accent);
+  padding:2px 10px;border-radius:2px;margin-bottom:12px;
+}
+.card p:last-child{margin-bottom:0;}
+.value{
+  margin-top:auto;padding-top:16px;border-top:1px dashed var(--color-border);
+  font-size:14px;color:var(--color-muted);margin-bottom:0;
+}
+.value strong{color:var(--color-text);}
+
+/* --- 背景セクション --- */
+.story p{max-width:64ch;}
+.timeline{list-style:none;margin:24px 0 0;padding:0;}
+.timeline li{
+  border-left:2px solid var(--color-border);
+  padding:0 0 20px 20px;position:relative;
+}
+.timeline li::before{
+  content:"";position:absolute;left:-6px;top:9px;
+  width:10px;height:10px;border-radius:50%;background:var(--color-accent);
+}
+.timeline li:last-child{padding-bottom:0;}
+.timeline b{display:block;font-size:14px;letter-spacing:.06em;color:var(--color-accent);}
+
+/* --- 注目の一品 --- */
+.feature{
+  background:var(--color-secondary);
+  border:1px solid var(--color-border);
+  border-top:4px solid var(--color-accent);
+  padding:clamp(24px,6vw,40px);
+}
+.feature h3{font-family:var(--mincho);font-size:clamp(19px,5vw,26px);margin-bottom:16px;}
+.spec-list{margin:24px 0 0;padding:0;list-style:none;border-top:1px solid var(--color-border);}
+.spec-list div{
+  display:grid;grid-template-columns:1fr;gap:2px;
+  padding:14px 0;border-bottom:1px solid var(--color-border);
+}
+.spec-list dt{font-size:13px;letter-spacing:.08em;color:var(--color-muted);font-weight:700;margin:0;}
+.spec-list dd{margin:0;font-size:15px;}
+
+/* --- 過ごし方 --- */
+.scenes{display:grid;gap:16px;}
+.scene{border-left:3px solid var(--color-accent);padding-left:16px;}
+.scene h3{margin-bottom:4px;}
+.scene p{font-size:15px;color:var(--color-muted);margin-bottom:0;}
+
+/* --- 提案セクション（未導入） --- */
+.proposal{background:var(--color-proposal);border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;letter-spacing:.16em;font-weight:700;
+  background:var(--color-primary);color:#fff;
+  padding:6px 14px;border-radius:2px;margin-bottom:16px;
+}
+.badge::before{content:"";width:8px;height:8px;background:#b7d0bd;border-radius:50%;}
+.disclaimer{
+  background:var(--color-secondary);
+  border:1px solid var(--color-accent);
+  border-radius:2px;padding:16px;
+  font-size:14px;line-height:1.8;color:var(--color-text);
+  margin-bottom:24px;
+}
+.disclaimer b{display:block;margin-bottom:4px;}
+
+/* --- 診断デモ --- */
+.demo{
+  background:var(--color-secondary);
+  border:1px solid var(--color-border);
+  padding:clamp(20px,5vw,32px);
+}
+.demo-head{border-bottom:1px solid var(--color-border);padding-bottom:16px;margin-bottom:24px;}
+.demo-head h3{font-family:var(--mincho);font-size:clamp(19px,5vw,24px);margin-bottom:8px;}
+.demo-head p{font-size:15px;color:var(--color-muted);margin-bottom:0;}
+.progress{font-size:13px;letter-spacing:.08em;color:var(--color-muted);margin-bottom:8px;}
+.progress-bar{height:4px;background:var(--color-surface);margin-bottom:24px;}
+.progress-bar span{display:block;height:100%;background:var(--color-accent);transition:width .3s ease;}
+.q-title{font-family:var(--mincho);font-size:clamp(18px,4.6vw,22px);margin:0 0 16px;line-height:1.6;}
+.options{display:grid;gap:10px;margin-bottom:24px;}
+.opt{
+  display:flex;align-items:flex-start;gap:12px;
+  width:100%;min-height:56px;padding:14px 16px;text-align:left;
+  background:var(--color-background);
+  border:1px solid var(--color-border);border-radius:2px;
+  font-family:inherit;font-size:15px;line-height:1.6;color:var(--color-text);
+  cursor:pointer;
+}
+.opt:hover{border-color:var(--color-accent);}
+.opt .mark{
+  flex:0 0 22px;width:22px;height:22px;margin-top:2px;
+  border:1px solid var(--color-muted);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;color:transparent;
+}
+.opt[aria-pressed="true"]{border-color:var(--color-accent);background:#fbf4f1;box-shadow:inset 0 0 0 1px var(--color-accent);}
+.opt[aria-pressed="true"] .mark{background:var(--color-accent);border-color:var(--color-accent);color:#fff;}
+.opt[aria-pressed="true"] .label::after{content:"（選択中）";font-size:12px;color:var(--color-accent);margin-left:6px;}
+.demo-nav{display:flex;flex-direction:column;gap:10px;}
+.alert{
+  font-size:14px;color:#8c2c2c;background:#fbf1ef;
+  border:1px solid #d9a79c;padding:12px 14px;border-radius:2px;margin-bottom:16px;
+}
+.hidden{display:none;}
+.result-name{font-family:var(--mincho);font-size:clamp(20px,5.2vw,28px);color:var(--color-accent);margin:0 0 8px;}
+.result-sum{font-size:16px;font-weight:700;margin-bottom:16px;}
+.result-block{border-top:1px solid var(--color-border);padding-top:16px;margin-top:16px;}
+.result-block h4{font-size:14px;letter-spacing:.08em;color:var(--color-muted);margin:0 0 8px;}
+.result-block ul{margin:0;padding-left:1.2em;}
+.result-block li{margin-bottom:6px;}
+.merit-grid{display:grid;gap:16px;margin-top:24px;}
+.merit-grid section{background:var(--color-proposal);border:1px solid var(--color-border);padding:20px;}
+.merit-grid h3{font-size:15px;margin:0 0 8px;}
+.merit-grid ul{margin:0;padding-left:1.2em;font-size:14px;color:var(--color-muted);}
+
+/* --- 店舗情報 --- */
+.info dl{margin:0;border-top:1px solid var(--color-border);}
+.info dl div{padding:16px 0;border-bottom:1px solid var(--color-border);}
+.info dt{font-size:13px;letter-spacing:.08em;color:var(--color-muted);font-weight:700;margin:0 0 4px;}
+.info dd{margin:0;font-size:15px;}
+.info dd a{
+  overflow-wrap:anywhere;
+  display:inline-flex;align-items:center;min-height:44px;
+}
+.site-footer a{display:inline-flex;align-items:center;min-height:44px;}
+.skip{min-height:44px;align-items:center;}
+.notes{
+  font-size:14px;color:var(--color-muted);margin-top:32px;
+  background:var(--color-secondary);border:1px solid var(--color-border);
+  padding:20px;
+}
+.notes > p{font-weight:700;color:var(--color-text);margin-bottom:8px;}
+.notes ul{margin:0;padding-left:1.2em;}
+.notes li{margin-bottom:6px;}
+.notes li:last-child{margin-bottom:0;}
+
+/* --- フッター --- */
+.site-footer{background:var(--color-primary);color:#e8e3dc;padding-block:40px;}
+.site-footer .wrap{display:grid;gap:16px;}
+.site-footer p{margin:0;font-size:14px;}
+.site-footer .name{font-family:var(--mincho);font-size:18px;}
+.site-footer a{color:#e8e3dc;}
+
+@media (min-width:768px){
+  .btn-row{flex-direction:row;flex-wrap:wrap;}
+  .btn{min-width:220px;}
+  .strengths{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .strengths--two{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .scenes{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .merit-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .spec-list div{grid-template-columns:150px 1fr;gap:16px;align-items:baseline;}
+  .info dl div{display:grid;grid-template-columns:170px 1fr;gap:16px;align-items:baseline;}
+  .info dt{margin-bottom:0;}
+  .demo-nav{flex-direction:row;}
+  .demo-nav .btn{min-width:0;flex:1;}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main-content">本文へ移動する</a>
+
+<!-- ============ 提案用ラベル ============ -->
+<div class="ribbon">
+  <span><strong>CONCEPT LP</strong>　店舗向け提案用ページ</span>
+  <span>／　本ページには未導入の提案が含まれます</span>
+</div>
+
+<main id="main-content">
+
+<!-- ============ ファーストビュー ============ -->
+<section class="hero">
+  <img class="hero-bg" src="images/01_hero_light_water.jpg" alt="光の差し込むコンクリートの空間と、窓の外の水辺を思わせるイメージ画像" width="1920" height="1080" fetchpriority="high">
+  <div class="wrap">
+    <div class="hero-inner">
+      <p class="hero-brand">MuseumCafe&amp;Shop 光風</p>
+      <p class="eyebrow">秋田市中通・秋田県立美術館 2階</p>
+      <h1>絵を見たあとの一杯は、<br>漆の器で。</h1>
+      <p class="hero-copy">安藤忠雄建築研究所が設計した美術館の2階。水庭と千秋公園を望む窓辺で、秋田の伝統的工芸品・川連漆器の器に注がれた一杯を味わえるミュージアムカフェです。</p>
+      <p class="hero-note">※ 本ページは店舗運営者様へのご提案用に作成したもので、公式サイトではありません。</p>
+      <div class="btn-row">
+        <a class="btn btn--fill" href="#feature">注目の一杯を見る</a>
+        <a class="btn" href="https://www.akita-museum-of-art.jp/index.htm" target="_blank" rel="noopener noreferrer">秋田県立美術館 公式サイトを見る</a>
+      </div>
+    </div>
+  </div>
+  <p class="hero-credit">※ 掲載写真はすべてイメージ画像です</p>
+</section>
+
+<!-- ============ コンセプト ============ -->
+<section class="section" id="concept">
+  <div class="wrap">
+    <p class="eyebrow">CONCEPT</p>
+    <h2>美術館の時間が、<br>そのまま続いていく場所。</h2>
+    <p class="lead">展示を見終えたあと、感じたことを言葉にする前のしずかな時間。光風は、その余韻ごと受けとめる場所にあります。</p>
+    <figure class="fig fig--16x9">
+      <img src="images/06_concept_texture.jpg" alt="コンクリートの壁と光を捉えた抽象的なイメージ画像" width="1920" height="1080" loading="lazy">
+      <figcaption>イメージ画像です。実際の店内を撮影したものではありません。</figcaption>
+    </figure>
+    <p>秋田県立美術館は、安藤忠雄建築研究所の設計、清水建設株式会社の施工により建てられた、地下1階・地上3階の建物です。2階には大壁画ギャラリーとミュージアムラウンジが配置され、光風はその階にあります。</p>
+    <p>館内では持ち込みの飲食をご遠慮いただいているため、この建物のなかで一息つける場所は光風だけです。展示のあいだの休憩にも、鑑賞後のしめくくりにも使えます。</p>
+  </div>
+</section>
+
+<!-- ============ 企業・店舗の強み ============ -->
+<section class="section section--surface" id="strength">
+  <div class="wrap">
+    <p class="eyebrow">STRENGTH</p>
+    <h2>公式情報から見える、<br>光風の3つの強み</h2>
+    <p class="lead">秋田県立美術館の公式案内で確認できる内容をもとに整理しました。</p>
+    <div class="strengths">
+
+      <article class="card">
+        <span class="tag">01 器</span>
+        <figure class="fig fig--4x3">
+          <img src="images/05_cake_plate.jpg" alt="漆の皿に載せた菓子のイメージ画像" width="1600" height="1200" loading="lazy">
+        </figure>
+        <h3>美術館オリジナルの<br>川連漆器で味わう</h3>
+        <p>カフェで使用しているコーヒーカップとケーキ皿は、当美術館オリジナルのもの。国の伝統的工芸品である川連漆器が使われています。</p>
+        <p class="value"><strong>お客様にとっての価値：</strong>器そのものが秋田の工芸品。飲みものを頼むだけで、手のなかで工芸に触れる時間になります。</p>
+      </article>
+
+      <article class="card">
+        <span class="tag">02 建築</span>
+        <figure class="fig fig--4x3">
+          <img src="images/03_window_view.jpg" alt="窓辺の席から水辺と緑を望むイメージ画像" width="1600" height="1200" loading="lazy">
+        </figure>
+        <h3>安藤忠雄建築の<br>なかで過ごす</h3>
+        <p>建物は安藤忠雄建築研究所の設計。2階には大壁画ギャラリーとミュージアムラウンジがあり、光風は水庭と千秋公園を望む位置にあります。</p>
+        <p class="value"><strong>お客様にとっての価値：</strong>席に着くこと自体が体験になります。建築と景色を、腰を落ち着けて味わえます。</p>
+      </article>
+
+      <article class="card">
+        <span class="tag">03 品揃え</span>
+        <figure class="fig fig--4x3">
+          <img src="images/04_crafts.jpg" alt="木や漆の工芸品が並ぶ棚のイメージ画像" width="1600" height="1200" loading="lazy">
+        </figure>
+        <h3>秋田の手仕事が<br>並ぶショップ</h3>
+        <p>併設のショップでは、樺細工、曲げわっぱ、川連漆器など、秋田が誇る伝統工芸品を陳列・販売しています。</p>
+        <p class="value"><strong>お客様にとっての価値：</strong>カフェで使った器の産地や作りを、そのまま隣で見て選べます。贈りもの探しの場としても使えます。</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ ブランドの背景 ============ -->
+<section class="section story" id="background">
+  <div class="wrap">
+    <p class="eyebrow">BACKGROUND</p>
+    <h2>この場所が生まれた背景</h2>
+    <p class="lead">創業者個人のエピソードは公式情報で確認できなかったため、確認できた事実にもとづき、店舗の成り立ちと大切にされていることを整理しました。</p>
+    <ul class="timeline">
+      <li>
+        <b>1987年</b>
+        <p>運営会社である株式会社光風舎が設立されます。</p>
+      </li>
+      <li>
+        <b>2011年1月〜2012年6月</b>
+        <p>秋田県立美術館の新館が建設されます。設計は安藤忠雄建築研究所、施工は清水建設株式会社。鉄筋コンクリート造、地下1階・地上3階、延床面積3,746.66平方メートル。</p>
+      </li>
+      <li>
+        <b>2013年9月</b>
+        <p>秋田県立美術館が現在地へ移転・リニューアル。あわせて MuseumCafe&amp;Shop 光風 が開店します。</p>
+      </li>
+    </ul>
+    <p style="margin-top:24px;">美術館の一部として生まれた店であることが、光風の性格をよく表しています。器に川連漆器を選び、ショップに樺細工や曲げわっぱを並べる。そのどちらも、秋田の手仕事を訪れた人に手渡すという、美術館と同じ方向を向いた選び方です。</p>
+  </div>
+</section>
+
+<!-- ============ 特に注目したい商品・サービス ============ -->
+<section class="section section--surface" id="feature">
+  <div class="wrap">
+    <p class="eyebrow">PICK UP</p>
+    <h2>特に注目したい<br>商品・サービス</h2>
+    <p class="lead">公式情報で最も特徴的に紹介されている要素をもとに、1つを選びました。</p>
+
+    <div class="feature">
+      <figure class="fig fig--4x3">
+        <img src="images/02_urushi_cup.jpg" alt="漆塗りの器に注がれたコーヒーのイメージ画像" width="1600" height="1200" loading="lazy">
+        <figcaption>イメージ画像です。実際に提供されている器・メニューを撮影したものではありません。</figcaption>
+      </figure>
+      <h3>川連漆器の器で味わう、<br>コーヒーとケーキ</h3>
+      <p>光風では、各種お飲物のほか、ケーキを用意しています。そして使われるコーヒーカップとケーキ皿は、美術館オリジナルの川連漆器です。</p>
+      <p>川連漆器は国の伝統的工芸品。漆の器は手にしたときの軽さと、口あたりのやわらかさが陶器とは違います。同じコーヒーでも、飲み終えるまでの時間が少し変わります。</p>
+      <p>展示を見たあとに、工芸の器で一杯を飲む。この流れが1つの建物のなかで完結することが、光風のいちばんの持ち味だと考えます。</p>
+
+      <dl class="spec-list">
+        <div>
+          <dt>確認できる内容</dt>
+          <dd>各種お飲物／ケーキ</dd>
+        </div>
+        <div>
+          <dt>使用する器</dt>
+          <dd>美術館オリジナルのコーヒーカップ・ケーキ皿（国の伝統的工芸品 川連漆器）</dd>
+        </div>
+        <div>
+          <dt>向いている場面</dt>
+          <dd>展覧会を見たあとの休憩／窓辺でゆっくり過ごしたいとき／秋田の工芸に触れてみたいとき</dd>
+        </div>
+        <div>
+          <dt>営業時間</dt>
+          <dd>美術館の開館時間に準じます。ラストオーダーは閉館30分前です。<br>最新の開館時間は、美術館の公式案内をご確認ください。</dd>
+        </div>
+      </dl>
+
+      <div class="btn-row" style="margin-top:32px;">
+        <a class="btn btn--accent" href="https://www.akita-museum-of-art.jp/contents/contents_show.php?contents_id=74" target="_blank" rel="noopener noreferrer">館内施設サービスの公式案内を見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 過ごし方 ============ -->
+<section class="section" id="scene">
+  <div class="wrap">
+    <p class="eyebrow">HOW TO SPEND</p>
+    <h2>光風での過ごし方</h2>
+    <p class="lead">公式情報で確認できる範囲で、3つの使い方を整理しました。</p>
+    <div class="scenes">
+      <div class="scene">
+        <h3>鑑賞のあとに</h3>
+        <p>大壁画ギャラリーと同じ2階。見たものの余韻が残っているうちに座れます。閉館30分前のラストオーダーにご注意ください。</p>
+      </div>
+      <div class="scene">
+        <h3>景色を眺めに</h3>
+        <p>水庭と千秋公園を望む窓辺。季節によって見えるものが変わるので、同じ席でも違う時間になります。</p>
+      </div>
+      <div class="scene">
+        <h3>贈りものを探しに</h3>
+        <p>併設ショップには樺細工・曲げわっぱ・川連漆器が並びます。カフェで実際に使った器から選べるのは、この場所ならではです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 動く新サービス試作（未導入の提案） ============ -->
+<section class="section proposal" id="prototype">
+  <div class="wrap">
+    <span class="badge">INTERACTIVE PROTOTYPE ／ 動く新サービス試作</span>
+    <h2>光風の過ごし方診断</h2>
+    <p class="lead">はじめて訪れる方が「どう過ごせばいいか」を決めやすくするための、5つの質問に答える案内サービスの試作です。実際にこのページ上で操作できます。</p>
+
+    <div class="disclaimer">
+      <b>本機能は店舗運営者向けの試作デモです。</b>
+      現在提供中の正式サービスではありません。入力内容の保存・送信は行いません。
+    </div>
+
+    <div class="merit-grid" style="margin-bottom:32px;">
+      <section>
+        <h3>解決したい課題</h3>
+        <ul>
+          <li>はじめての来館者が、カフェに入ってよいのか、どのくらい過ごせるのか分かりにくい</li>
+          <li>川連漆器の器やショップの品揃えという強みが、席に着くまで伝わらない</li>
+        </ul>
+      </section>
+      <section>
+        <h3>想定するお客様</h3>
+        <ul>
+          <li>展覧会を目的に来館し、時間が余った方</li>
+          <li>秋田を訪れて、短い時間で地域らしさに触れたい方</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="demo">
+      <div class="demo-head">
+        <h3>5つの質問で、今日の過ごし方をご案内します</h3>
+        <p>所要およそ1分。個人情報の入力はありません。</p>
+      </div>
+
+      <noscript>
+        <p class="alert">この試作デモは、お使いの環境ではご利用いただけません（JavaScriptが無効になっています）。店舗情報や商品のご案内は、そのままご覧いただけます。</p>
+      </noscript>
+
+      <!-- 開始画面 -->
+      <div id="demo-start">
+        <p>「絵を見たあとに寄りたい」「景色を眺めたい」「贈りものを探したい」——目的によって、光風での過ごし方は変わります。いくつかの質問から、今日に合う過ごし方をご案内します。</p>
+        <div class="btn-row">
+          <button class="btn btn--accent" type="button" id="btn-start">試してみる</button>
+        </div>
+      </div>
+
+      <!-- 質問画面 -->
+      <div id="demo-quiz" class="hidden">
+        <p class="progress" id="progress-text">質問 1 / 5</p>
+        <div class="progress-bar"><span id="progress-fill" style="width:20%"></span></div>
+        <h4 class="q-title" id="q-title">　</h4>
+        <div class="options" id="q-options"></div>
+        <p class="alert hidden" id="q-alert" role="alert">選択肢を1つお選びください。</p>
+        <div class="demo-nav">
+          <button class="btn" type="button" id="btn-prev">戻る</button>
+          <button class="btn btn--fill" type="button" id="btn-next">次へ</button>
+        </div>
+      </div>
+
+      <!-- 結果画面 -->
+      <div id="demo-result" class="hidden" aria-live="polite">
+        <p class="eyebrow">診断結果</p>
+        <h4 class="result-name" id="r-name">　</h4>
+        <p class="result-sum" id="r-sum">　</p>
+        <div class="result-block">
+          <h4>この結果になった理由</h4>
+          <p id="r-reason" style="margin-bottom:0;"></p>
+        </div>
+        <div class="result-block">
+          <h4>おすすめ候補</h4>
+          <ul id="r-items"></ul>
+        </div>
+        <div class="result-block">
+          <h4>光風の強みとのつながり</h4>
+          <p id="r-link" style="margin-bottom:0;"></p>
+        </div>
+        <div class="btn-row" style="margin-top:32px;">
+          <a class="btn btn--accent" id="r-cta" href="#feature">注目の一杯を見る</a>
+          <button class="btn" type="button" id="btn-restart">最初からやり直す</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="merit-grid">
+      <section>
+        <h3>お客様のメリット</h3>
+        <ul>
+          <li>迷わず席に着ける</li>
+          <li>器や工芸という背景を知ってから注文できる</li>
+          <li>閉館時刻に対して、残り時間の目安がつく</li>
+        </ul>
+      </section>
+      <section>
+        <h3>店舗側のメリット</h3>
+        <ul>
+          <li>強みを、口頭で説明しなくても伝えられる</li>
+          <li>ショップへの導線が自然につくれる</li>
+          <li>回答の傾向から、来館者の関心を把握できる</li>
+        </ul>
+      </section>
+      <section>
+        <h3>小さく始める方法</h3>
+        <ul>
+          <li>まずはレジ横に案内カードを1枚置くところから</li>
+          <li>1つの展覧会の会期中だけ試す</li>
+          <li>紙のカードで内容を固めてから、画面化する</li>
+        </ul>
+      </section>
+      <section>
+        <h3>実施前の確認事項</h3>
+        <ul>
+          <li>美術館側の掲示・広報ルールの確認</li>
+          <li>案内内容と実際の提供内容のすり合わせ</li>
+          <li>閉館時刻・ラストオーダーの案内方法</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 今後の展開案（未導入の提案） ============ -->
+<section class="section" id="idea">
+  <div class="wrap">
+    <p class="eyebrow">IDEA ／ 今後の展開案</p>
+    <h2>あわせて検討できる<br>2つのアイデア</h2>
+    <p class="lead">いずれも現在提供されているサービスではありません。店舗運営者様向けの提案です。</p>
+    <div class="strengths strengths--two">
+      <article class="card">
+        <span class="tag">提案 A</span>
+        <h3>展覧会に合わせた<br>期間限定メニュー</h3>
+        <p>開催中の展覧会をテーマにした飲みもの・菓子を、会期のあいだだけ提供する案です。展示を見た人がそのまま話題にできる形をつくれます。</p>
+        <p class="value"><strong>相性のよさ：</strong>光風は美術館の内部にあり、来店者と展覧会の来場者がほぼ重なります。展示替えのたびに来店理由が生まれます。</p>
+      </article>
+      <article class="card">
+        <span class="tag">提案 B</span>
+        <h3>受取時間を指定できる<br>事前注文</h3>
+        <p>スマートフォンから注文し、受け取る時間を指定できる仕組みの案です。展示を見る前に注文しておき、見終えた時間に受け取る使い方を想定しています。</p>
+        <p class="value"><strong>相性のよさ：</strong>ラストオーダーが閉館30分前のため、鑑賞に集中していると間に合わないことがあります。その取りこぼしを減らせます。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 店舗情報 ============ -->
+<section class="section section--surface info" id="info">
+  <div class="wrap">
+    <p class="eyebrow">INFORMATION</p>
+    <h2>店舗情報</h2>
+    <p class="lead">秋田県立美術館の公式案内で確認できた内容を掲載しています。</p>
+    <dl>
+      <div>
+        <dt>店舗名</dt>
+        <dd>MuseumCafe&amp;Shop 光風</dd>
+      </div>
+      <div>
+        <dt>所在地</dt>
+        <dd>秋田県立美術館 2階<br>〒010-0001 秋田県秋田市中通一丁目4番2号</dd>
+      </div>
+      <div>
+        <dt>電話番号（美術館）</dt>
+        <dd><a href="tel:018-853-8686">018-853-8686</a>／<a href="tel:018-833-5809">018-833-5809</a></dd>
+      </div>
+      <div>
+        <dt>営業時間</dt>
+        <dd>美術館の開館時間に準じます。ラストオーダーは閉館30分前です。<br>最新の開館時間・休館日は、公式案内をご確認ください。</dd>
+      </div>
+      <div>
+        <dt>取り扱い</dt>
+        <dd>各種お飲物、ケーキ／ショップでは樺細工、曲げわっぱ、川連漆器などの秋田の伝統工芸品</dd>
+      </div>
+      <div>
+        <dt>アクセス</dt>
+        <dd>秋田駅より徒歩10分</dd>
+      </div>
+      <div>
+        <dt>駐車場</dt>
+        <dd>美術館専用の駐車場はありません。近隣の有料駐車場をご利用ください。</dd>
+      </div>
+      <div>
+        <dt>公式サイト</dt>
+        <dd><a href="https://www.akita-museum-of-art.jp/index.htm" target="_blank" rel="noopener noreferrer">秋田県立美術館 公式サイト</a></dd>
+      </div>
+    </dl>
+
+    <div class="notes">
+      <p>ご来館時のお願い（美術館公式案内より）</p>
+      <ul>
+        <li>館内での持ちこみ飲食は、飴やガムも含めご遠慮ください。</li>
+        <li>ペットの入館はご遠慮ください。</li>
+        <li>館内と、秋田県立美術館を含むエリアなかいちは全区画禁煙です。</li>
+        <li>展示室内、ミュージアムラウンジでは、携帯電話での通話はご遠慮ください。</li>
+      </ul>
+    </div>
+
+    <div class="btn-row" style="margin-top:32px;">
+      <a class="btn btn--fill" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A%E4%B8%80%E4%B8%81%E7%9B%AE4%E7%95%AA2%E5%8F%B7" target="_blank" rel="noopener noreferrer">地図で場所を見る</a>
+      <a class="btn" href="https://www.akita-museum-of-art.jp/otoiawase/index.php" target="_blank" rel="noopener noreferrer">美術館へ問い合わせる</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ フッター ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="name">MuseumCafe&amp;Shop 光風</p>
+    <p>秋田県立美術館 2階／秋田県秋田市中通一丁目4番2号</p>
+    <p>本ページは店舗運営者様へのご提案用に作成したコンセプトLPです。未導入の提案が含まれます。</p>
+    <p><a href="#main-content">ページの先頭へ戻る</a></p>
+    <p>&copy; MuseumCafe&amp;Shop 光風. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  /* 質問と配点。キーは結果ID、値は加点。 */
+  var QUESTIONS = [
+    {
+      title: "きょう、光風に立ち寄る一番の理由は？",
+      options: [
+        { label: "展覧会を見に来た", score: { yoin: 2, utsuwa: 1 } },
+        { label: "景色を眺めて過ごしたい", score: { nagame: 2 } },
+        { label: "待ち合わせ・ひと休み", score: { tachiyori: 2 } },
+        { label: "贈りものを探したい", score: { okurimono: 2 } },
+        { label: "はじめてなので、ひととおり", score: { yoin: 1, nagame: 1, utsuwa: 1 } }
+      ]
+    },
+    {
+      title: "どのくらい時間がありますか？",
+      options: [
+        { label: "15分ほど", score: { tachiyori: 2 } },
+        { label: "30分くらい", score: { tachiyori: 1, nagame: 1 } },
+        { label: "1時間ほど", score: { yoin: 1, nagame: 1, utsuwa: 1 } },
+        { label: "時間は気にせず、ゆっくり", score: { yoin: 2, utsuwa: 1 } }
+      ]
+    },
+    {
+      title: "席では、どんな時間を過ごしたいですか？",
+      options: [
+        { label: "静けさのなかで、見たものを思い返したい", score: { yoin: 2 } },
+        { label: "窓の外を眺めていたい", score: { nagame: 2 } },
+        { label: "器や手ざわりを味わいたい", score: { utsuwa: 2 } },
+        { label: "連れと話したい", score: { tachiyori: 1, okurimono: 1 } }
+      ]
+    },
+    {
+      title: "楽しみにしているものは？",
+      options: [
+        { label: "一杯のコーヒー", score: { utsuwa: 1, yoin: 1 } },
+        { label: "ケーキ", score: { utsuwa: 2 } },
+        { label: "窓からの景色", score: { nagame: 2 } },
+        { label: "ショップの品揃え", score: { okurimono: 2 } },
+        { label: "まだ決めていない", score: { tachiyori: 1 } }
+      ]
+    },
+    {
+      title: "秋田の伝統工芸に、どのくらい関心がありますか？",
+      options: [
+        { label: "器を間近で見てみたい", score: { utsuwa: 2 } },
+        { label: "持ち帰りたい・贈りたい", score: { okurimono: 3 } },
+        { label: "名前を聞いたことがある程度", score: { yoin: 1 } },
+        { label: "特に意識していない", score: { tachiyori: 1, nagame: 1 } }
+      ]
+    }
+  ];
+
+  /* 同点時はこの並び順で先にあるものを優先する。 */
+  var ORDER = ["utsuwa", "nagame", "yoin", "okurimono", "tachiyori"];
+
+  var RESULTS = {
+    utsuwa: {
+      name: "器を味わう時間",
+      sum: "川連漆器の器で、一杯をゆっくり味わう過ごし方が向いています。",
+      reason: "器や手ざわりへの関心が高く、腰を落ち着けられる時間もお持ちのようです。光風のコーヒーカップとケーキ皿は美術館オリジナルの川連漆器なので、注文がそのまま工芸に触れる機会になります。",
+      items: ["お飲みものとケーキを一緒に", "漆の器の軽さ・口あたりを確かめながら", "気に入ったら、ショップで同じ産地の品を見てみる"],
+      link: "強み01「美術館オリジナルの川連漆器で味わう」に直接つながる過ごし方です。",
+      cta: { label: "注目の一杯を見る", href: "#feature" }
+    },
+    nagame: {
+      name: "景色を眺める時間",
+      sum: "水庭と千秋公園を望む窓辺で、外を眺めて過ごす時間が向いています。",
+      reason: "席から見えるものを楽しみたいというお気持ちと、ある程度の滞在時間がそろっています。光風は安藤忠雄建築研究所が設計した建物の2階にあり、窓の外の景色ごと味わえる場所です。",
+      items: ["まずはお飲みものを1杯", "季節によって変わる景色を眺めながら", "時間が許せば、大壁画ギャラリーもあわせて"],
+      link: "強み02「安藤忠雄建築のなかで過ごす」につながる過ごし方です。",
+      cta: { label: "光風での過ごし方を見る", href: "#scene" }
+    },
+    yoin: {
+      name: "鑑賞の余韻をたどる時間",
+      sum: "展示を見たあとの気持ちが落ち着くまで、静かに座る過ごし方が向いています。",
+      reason: "展覧会が来館の中心にあり、静けさのなかで過ごしたいというお答えでした。光風は大壁画ギャラリーと同じ2階にあり、見終えてすぐ座れる位置にあります。",
+      items: ["温かいお飲みものを1杯", "混み合う時間を避けて、ゆっくりと", "閉館30分前のラストオーダーにご注意を"],
+      link: "館内で唯一の飲食できる場所という、この建物ならではの役割につながります。",
+      cta: { label: "この場所について読む", href: "#concept" }
+    },
+    okurimono: {
+      name: "贈りものを探す時間",
+      sum: "カフェのあとに、併設ショップで秋田の手仕事を選ぶ過ごし方が向いています。",
+      reason: "工芸を持ち帰りたい・贈りたいというお気持ちが強く出ていました。光風のショップには、樺細工、曲げわっぱ、川連漆器などが並びます。",
+      items: ["まずカフェで器を実際に使ってみる", "気に入った手ざわりを手がかりにショップで探す", "贈る相手の暮らしに合う大きさを選ぶ"],
+      link: "強み03「秋田の手仕事が並ぶショップ」につながる過ごし方です。",
+      cta: { label: "光風の強みを見る", href: "#strength" }
+    },
+    tachiyori: {
+      name: "短く立ち寄る時間",
+      sum: "短い滞在で、無理なくひと息つく過ごし方が向いています。",
+      reason: "滞在できる時間が短めで、休憩や待ち合わせが目的というお答えでした。短い時間でも、席に着けば建物と景色は味わえます。",
+      items: ["お飲みものを1杯だけ", "窓辺の席が空いていれば、そちらへ", "ラストオーダーは閉館30分前です"],
+      link: "館内で持ちこみ飲食ができないため、休憩場所として確かな選択肢になります。",
+      cta: { label: "店舗情報を見る", href: "#info" }
+    }
+  };
+
+  var startEl   = document.getElementById("demo-start");
+  var quizEl    = document.getElementById("demo-quiz");
+  var resultEl  = document.getElementById("demo-result");
+  var titleEl   = document.getElementById("q-title");
+  var optionsEl = document.getElementById("q-options");
+  var alertEl   = document.getElementById("q-alert");
+  var progText  = document.getElementById("progress-text");
+  var progFill  = document.getElementById("progress-fill");
+  var btnStart  = document.getElementById("btn-start");
+  var btnPrev   = document.getElementById("btn-prev");
+  var btnNext   = document.getElementById("btn-next");
+  var btnReset  = document.getElementById("btn-restart");
+
+  var current = 0;
+  var answers = new Array(QUESTIONS.length).fill(null);
+
+  function show(el) { el.classList.remove("hidden"); }
+  function hide(el) { el.classList.add("hidden"); }
+
+  function renderQuestion() {
+    var q = QUESTIONS[current];
+    titleEl.textContent = q.title;
+    progText.textContent = "質問 " + (current + 1) + " / " + QUESTIONS.length;
+    progFill.style.width = ((current + 1) / QUESTIONS.length * 100) + "%";
+    hide(alertEl);
+    optionsEl.textContent = "";
+
+    q.options.forEach(function (opt, i) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "opt";
+      b.setAttribute("aria-pressed", answers[current] === i ? "true" : "false");
+      var mark = document.createElement("span");
+      mark.className = "mark";
+      mark.setAttribute("aria-hidden", "true");
+      mark.textContent = "✓";
+      var label = document.createElement("span");
+      label.className = "label";
+      label.textContent = opt.label;
+      b.appendChild(mark);
+      b.appendChild(label);
+      b.addEventListener("click", function () {
+        answers[current] = i;
+        Array.prototype.forEach.call(optionsEl.children, function (c, ci) {
+          c.setAttribute("aria-pressed", ci === i ? "true" : "false");
+        });
+        hide(alertEl);
+      });
+      optionsEl.appendChild(b);
+    });
+
+    btnPrev.disabled = (current === 0);
+    btnNext.textContent = (current === QUESTIONS.length - 1) ? "結果を見る" : "次へ";
+  }
+
+  function judge() {
+    var total = {};
+    ORDER.forEach(function (k) { total[k] = 0; });
+    answers.forEach(function (ai, qi) {
+      if (ai === null) { return; }
+      var sc = QUESTIONS[qi].options[ai].score;
+      Object.keys(sc).forEach(function (k) { total[k] += sc[k]; });
+    });
+    var best = ORDER[0];
+    ORDER.forEach(function (k) {
+      if (total[k] > total[best]) { best = k; }
+    });
+    return best;
+  }
+
+  function renderResult() {
+    var r = RESULTS[judge()];
+    document.getElementById("r-name").textContent = r.name;
+    document.getElementById("r-sum").textContent = r.sum;
+    document.getElementById("r-reason").textContent = r.reason;
+    var ul = document.getElementById("r-items");
+    ul.textContent = "";
+    r.items.forEach(function (t) {
+      var li = document.createElement("li");
+      li.textContent = t;
+      ul.appendChild(li);
+    });
+    document.getElementById("r-link").textContent = r.link;
+    var cta = document.getElementById("r-cta");
+    cta.textContent = r.cta.label;
+    cta.setAttribute("href", r.cta.href);
+    hide(quizEl);
+    show(resultEl);
+  }
+
+  btnStart.addEventListener("click", function () {
+    current = 0;
+    hide(startEl);
+    show(quizEl);
+    renderQuestion();
+    titleEl.focus && titleEl.setAttribute("tabindex", "-1");
+  });
+
+  btnNext.addEventListener("click", function () {
+    if (answers[current] === null) {
+      show(alertEl);
+      return;
+    }
+    if (current === QUESTIONS.length - 1) {
+      renderResult();
+      return;
+    }
+    current += 1;
+    renderQuestion();
+  });
+
+  btnPrev.addEventListener("click", function () {
+    if (current === 0) { return; }
+    current -= 1;
+    renderQuestion();
+  });
+
+  btnReset.addEventListener("click", function () {
+    current = 0;
+    answers = new Array(QUESTIONS.length).fill(null);
+    hide(resultEl);
+    show(startEl);
+  });
+})();
+</script>
+
+</body>
+</html>

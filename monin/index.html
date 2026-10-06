@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ジャズカフェ モーニン｜１万枚のLPと過ごす、癒しと和みの喫茶｜提案用ページ</title>
+<meta name="description" content="秋田市手形のジャズカフェ「モーニン」。約１万枚のLPレコードを所蔵し、コーヒーやお酒を楽しみながらジャズに浸れる空間です。2011年から営業を続ける、手形の隠れ家的な喫茶店です。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#c67a3a">
+
+<style>
+  :root {
+    --color-ink: #251b14;
+    --color-cream: #f1e6d3;
+    --color-surface: #e6d6b8;
+    --color-club: #1c140f;
+    --color-club-surface: #2a1f16;
+    --color-accent: #b56a2e;
+    --color-accent-deep: #8a4d1f;
+    --color-accent-on-band: #cf8041;
+    --color-accent-btn: #c57332;
+    --color-muted: #695742;
+    --color-on-club-muted: #cbb99b;
+    --color-border: #d3bd93;
+    --color-proposal: #efe6cf;
+    --color-proposal-border: #a05f28;
+    --color-on-club: #f3e9d8;
+    --font-display: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-body: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 48px;
+    --space-6: 64px;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background-color: var(--color-cream);
+    background-image:
+      repeating-radial-gradient(circle at center, rgba(181, 106, 46, 0.10) 0px, rgba(181, 106, 46, 0.10) 1.5px, transparent 1.5px, transparent 15px),
+      repeating-radial-gradient(circle at center, rgba(37, 27, 20, 0.06) 0px, rgba(37, 27, 20, 0.06) 1.5px, transparent 1.5px, transparent 18px);
+    background-size: 360px 360px, 440px 440px;
+    background-repeat: no-repeat, no-repeat;
+    background-position: -70px -70px, calc(100% + 90px) 480px;
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+
+  a { color: var(--color-accent-deep); }
+  a:hover { color: var(--color-accent); }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0 0 var(--space-2);
+    letter-spacing: 0.03em;
+  }
+
+  p { margin: 0 0 var(--space-2); }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 max(14px, 5vw);
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--color-accent);
+    color: #1c140f;
+    padding: 10px 16px;
+    z-index: 100;
+    border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus {
+    left: 0;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  /* ===== 提案用ラベル ===== */
+  .proposal-banner {
+    background: var(--color-club-surface);
+    color: var(--color-on-club-muted);
+    text-align: center;
+    padding: 10px var(--space-2);
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    overflow-wrap: anywhere;
+  }
+  .proposal-banner strong { color: var(--color-on-club); font-weight: 600; }
+
+  /* ===== ヒーロー（ジャズクラブ調） ===== */
+  .hero {
+    position: relative;
+    background:
+      linear-gradient(rgba(20, 14, 10, 0.84), rgba(20, 14, 10, 0.90)),
+      url('images/01_hero_record_cafe.jpg') center 35% / cover no-repeat;
+    color: var(--color-on-club);
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    /* padding の一括指定にすると .container の左右余白まで 0 に上書きされ、
+       文字が画面の端に貼りついてしまうため、上下だけを指定する。 */
+    padding-block: var(--space-6);
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--color-accent);
+    border: 1px solid rgba(198, 122, 58, 0.5);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    margin-bottom: var(--space-1);
+    color: #fbf4e6;
+  }
+  .hero h1 .en {
+    display: block;
+    font-size: clamp(0.85rem, 3vw, 1.05rem);
+    letter-spacing: 0.3em;
+    color: var(--color-on-club-muted);
+    font-family: var(--font-body);
+    margin-top: var(--space-1);
+  }
+  .hero-copy {
+    font-size: clamp(1rem, 3.6vw, 1.15rem);
+    color: #f3e9d8;
+    max-width: 32em;
+    margin-bottom: var(--space-4);
+  }
+  .hero-lead {
+    color: var(--color-on-club-muted);
+    max-width: 34em;
+    margin-bottom: var(--space-4);
+  }
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: 320px;
+  }
+
+  /* ===== ボタン ===== */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 12px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    text-align: center;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-family: var(--font-body);
+  }
+  .btn-accent {
+    background: var(--color-accent);
+    color: #1c140f;
+    font-weight: 700;
+  }
+  .btn-accent:hover,
+  .btn-accent:focus-visible { background: #d98d4d; color: #1c140f; }
+  .btn-outline {
+    background: transparent;
+    border-color: rgba(243, 233, 216, 0.5);
+    color: var(--color-on-club);
+  }
+  .btn-outline:hover,
+  .btn-outline:focus-visible {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+  .btn-line {
+    background: transparent;
+    border-color: var(--color-accent-deep);
+    color: var(--color-accent-deep);
+  }
+  .btn-line:hover,
+  .btn-line:focus-visible {
+    background: var(--color-accent-deep);
+    color: #fff;
+  }
+
+  /* ===== セクション共通 ===== */
+  section { padding: var(--space-6) 0; }
+  .section-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--color-accent-deep);
+    margin-bottom: var(--space-1);
+  }
+  .section-lead {
+    color: var(--color-muted);
+    max-width: 36em;
+  }
+
+  .divider {
+    width: 46px;
+    height: 46px;
+    margin: 0 auto var(--space-3);
+    border-radius: 50%;
+    background:
+      repeating-radial-gradient(circle at center,
+        rgba(198, 122, 58, 0.35) 0px,
+        rgba(198, 122, 58, 0.35) 1.5px,
+        transparent 1.5px,
+        transparent 5px);
+  }
+  .divider.left { margin: 0 0 var(--space-3); }
+
+  /* ===== 写真 ===== */
+  .content-image {
+    margin-top: var(--space-4);
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+  }
+  .content-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ===== コンセプト ===== */
+  .concept { background: var(--color-cream); }
+
+  /* ===== 強み ===== */
+  .strengths { background: var(--color-surface); }
+  .strength-list {
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+  .strength-card {
+    background: var(--color-cream);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: var(--space-3);
+    min-width: 0;
+  }
+  .strength-num {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--color-accent-deep);
+    display: block;
+    margin-bottom: var(--space-1);
+  }
+  .strength-card h3 { font-size: 1.1rem; margin-bottom: var(--space-1); }
+  .strength-card .strength-value {
+    font-size: 0.92rem;
+    color: var(--color-muted);
+    margin-bottom: 0;
+  }
+
+  /* ===== ブランドの背景 ===== */
+  .story { background: var(--color-cream); }
+  .story-body { max-width: 40em; }
+  .story-body p { margin-bottom: var(--space-2); }
+
+  /* ===== 特に注目したい商品・サービス ===== */
+  .special {
+    background: var(--color-club);
+    color: var(--color-on-club);
+  }
+  .special .section-eyebrow { color: var(--color-accent); }
+  .special .section-lead { color: var(--color-on-club-muted); }
+  .special-card {
+    margin-top: var(--space-4);
+    background: var(--color-club-surface);
+    border: 1px solid rgba(198, 122, 58, 0.35);
+    border-radius: 12px;
+    padding: 0;
+    overflow: hidden;
+  }
+  .special-card-image {
+    aspect-ratio: 16 / 9;
+  }
+  .special-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .special-card-body {
+    padding: var(--space-4);
+  }
+  .special-card h3 {
+    color: #fbf4e6;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+  }
+  .special-meta {
+    display: grid;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid rgba(243, 233, 216, 0.2);
+  }
+  .special-meta dt {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 4px;
+  }
+  .special-meta dd { margin: 0 0 var(--space-2); color: var(--color-on-club-muted); }
+  .special-cta { margin-top: var(--space-3); display: flex; flex-direction: column; gap: var(--space-2); }
+
+  /* ===== その他のメニュー ===== */
+  .menu-section { background: var(--color-surface); }
+  .menu-grid {
+    display: grid;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+    grid-template-columns: 1fr;
+  }
+  .menu-group {
+    background: var(--color-cream);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: var(--space-3);
+    min-width: 0;
+  }
+  .menu-group h3 { font-size: 1rem; margin-bottom: var(--space-2); }
+  .menu-group ul { list-style: none; margin: 0; padding: 0; }
+  .menu-group li {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--color-border);
+    font-size: 0.92rem;
+  }
+  .menu-group li:last-child { border-bottom: none; }
+  .menu-note {
+    margin-top: var(--space-3);
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+
+  /* ===== 過ごし方 ===== */
+  .experience { background: var(--color-cream); }
+  .experience-list {
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+  .experience-list li {
+    border-left: 3px solid var(--color-accent);
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-surface);
+    border-radius: 0 10px 10px 0;
+    min-width: 0;
+  }
+  .experience-list h3 { font-size: 1rem; margin-bottom: 4px; }
+  .experience-list p { margin-bottom: 0; font-size: 0.92rem; color: var(--color-muted); }
+
+  /* ===== 動く新サービス試作 ===== */
+  .proto {
+    background: var(--color-club);
+    color: var(--color-on-club);
+  }
+  .proto-inner {
+    background: var(--color-club-surface);
+    border: 2px dashed var(--color-proposal-border);
+    border-radius: 14px;
+    padding: var(--space-4);
+  }
+  .proto-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: #1c140f;
+    background: var(--color-accent);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: var(--space-2);
+  }
+  .proto h2 { color: #fbf4e6; }
+  .proto-lead { color: var(--color-on-club-muted); }
+  .proto-notice {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    background: rgba(198, 122, 58, 0.12);
+    border: 1px solid rgba(198, 122, 58, 0.4);
+    border-radius: 8px;
+    padding: var(--space-2) var(--space-3);
+    color: var(--color-on-club);
+    margin: var(--space-3) 0;
+  }
+  .proto-target {
+    font-size: 0.9rem;
+    color: var(--color-on-club-muted);
+    margin-bottom: var(--space-3);
+  }
+  .proto-target p { margin-bottom: var(--space-1); }
+  .proto-noscript {
+    background: rgba(198, 122, 58, 0.18);
+    border-radius: 8px;
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.9rem;
+  }
+
+  .proto-app {
+    background: var(--color-club);
+    border-radius: 10px;
+    padding: var(--space-3);
+    margin-top: var(--space-2);
+  }
+  .proto-progress {
+    font-size: 0.82rem;
+    color: var(--color-accent);
+    letter-spacing: 0.08em;
+    margin-bottom: var(--space-2);
+  }
+  #proto-q-title {
+    font-size: clamp(1.05rem, 4vw, 1.3rem);
+    margin-bottom: var(--space-3);
+  }
+  .proto-options {
+    display: grid;
+    gap: var(--space-2);
+    margin-bottom: var(--space-2);
+  }
+  .proto-option {
+    text-align: left;
+    width: 100%;
+    min-height: 44px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(243, 233, 216, 0.35);
+    background: rgba(243, 233, 216, 0.04);
+    color: var(--color-on-club);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    cursor: pointer;
+    position: relative;
+    padding-left: 40px;
+  }
+  .proto-option::before {
+    content: "";
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid rgba(243, 233, 216, 0.5);
+  }
+  .proto-option.is-selected {
+    border-color: var(--color-accent);
+    background: rgba(198, 122, 58, 0.18);
+  }
+  .proto-option.is-selected::before {
+    border-color: var(--color-accent);
+    background: var(--color-accent);
+    box-shadow: inset 0 0 0 3px var(--color-club-surface);
+  }
+  .proto-option:hover,
+  .proto-option:focus-visible {
+    border-color: var(--color-accent);
+  }
+  .proto-warning {
+    color: #ffd7a8;
+    background: rgba(198, 122, 58, 0.2);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    margin-bottom: var(--space-2);
+  }
+  .proto-nav {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+  .proto-nav .btn { flex: 1 1 120px; }
+
+  .proto-result h3 {
+    color: var(--color-accent);
+    font-size: clamp(1.2rem, 4.5vw, 1.5rem);
+  }
+  .proto-result dl {
+    display: grid;
+    gap: var(--space-1);
+    margin: var(--space-3) 0;
+  }
+  .proto-result dt {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin-top: var(--space-2);
+  }
+  .proto-result dd {
+    margin: 4px 0 0;
+    color: var(--color-on-club-muted);
+    font-size: 0.94rem;
+  }
+  .proto-result-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+  }
+
+  /* ===== 店舗情報 ===== */
+  .store-info { background: var(--color-surface); }
+  .info-list {
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+  .info-list li {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: var(--space-2);
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.94rem;
+  }
+  .info-list li:last-child { border-bottom: none; }
+  .info-list dt, .info-list .info-label {
+    color: var(--color-muted);
+    font-size: 0.85rem;
+  }
+  .info-note {
+    margin-top: var(--space-3);
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+
+  /* ===== 最終CTA ===== */
+  .final-cta {
+    background: var(--color-club);
+    color: var(--color-on-club);
+    text-align: center;
+  }
+  .final-cta h2 { color: #fbf4e6; }
+  .final-cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: 320px;
+    margin: var(--space-4) auto 0;
+  }
+
+  /* ===== フッター ===== */
+  .site-footer {
+    background: var(--color-club-surface);
+    color: var(--color-on-club-muted);
+    padding: var(--space-4) 0;
+    font-size: 0.85rem;
+  }
+  .site-footer .container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .site-footer a { color: var(--color-accent); }
+
+  @media (min-width: 640px) {
+    .strength-list { grid-template-columns: repeat(3, 1fr); }
+    .menu-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-cta { flex-direction: row; max-width: none; }
+    .final-cta-buttons { flex-direction: row; max-width: none; justify-content: center; }
+    .proto-nav .btn { flex: 0 0 auto; min-width: 140px; }
+  }
+
+  /* ===== 濃い帯・写真の上のアクセント色（コントラスト比 4.5 以上を確保） ===== */
+  .hero-eyebrow,
+  .special .section-eyebrow,
+  .proto .section-eyebrow,
+  .final-cta .section-eyebrow,
+  .special-meta dt,
+  .proto-result dt,
+  .site-footer a,
+  .top-link { color: var(--color-accent-on-band); }
+  .hero-eyebrow { border-color: rgba(207, 128, 65, 0.6); }
+
+
+  /* ===== べた塗り背景のボタン・ラベル（コントラスト比 4.5 以上を確保） ===== */
+  .btn-accent,
+  .proto-label,
+  .special-badge { background: var(--color-accent-btn); }
+
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">本文へ移動</a>
+
+<!-- 提案用ラベル -->
+<div class="proposal-banner">
+  <strong>CONCEPT LP</strong>／店舗向け提案用ページです。本ページには未導入の提案が含まれます。掲載写真はすべてイメージ画像です。
+</div>
+
+<main id="main-content">
+
+  <!-- ファーストビュー -->
+  <div class="hero">
+    <div class="container hero-inner">
+      <span class="hero-eyebrow">AKITA TEGATA / JAZZ CAFÉ</span>
+      <h1>ジャズカフェ モーニン<span class="en">MOANIN'</span></h1>
+      <p class="hero-copy">１万枚のLPと過ごす、癒しと和みのジャズ喫茶。</p>
+      <p class="hero-lead">秋田市手形で2011年から営業する、約１万枚のLPレコードを所蔵するジャズ喫茶です。コーヒーやお酒を片手に、レコードの音に浸る時間をお楽しみいただけます。</p>
+      <div class="hero-cta">
+        <a class="btn btn-accent" href="#special">注目の一杯を見る</a>
+        <a class="btn btn-outline" href="http://moanin.web.fc2.com/index.html" target="_blank" rel="noopener noreferrer">公式サイトを見る</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- コンセプト -->
+  <section id="concept" class="concept">
+    <div class="container">
+      <div class="divider left" aria-hidden="true"></div>
+      <p class="section-eyebrow">CONCEPT</p>
+      <h2>癒しと和みの空間</h2>
+      <p class="section-lead">公式サイトでは、モーニンを「癒しと和みの空間」として案内しています。約１万枚のLPレコードから流れるジャズを聴きながら、コーヒーやお酒をゆっくり楽しめる、手形の落ち着いた喫茶店です。</p>
+      <div class="content-image">
+        <img src="images/02_interior_records.jpg" alt="天井まで届く棚に約１万枚のLPレコードが並ぶモーニンの店内" loading="lazy" decoding="async" width="1672" height="941">
+      </div>
+    </div>
+  </section>
+
+  <!-- 企業・店舗の強み -->
+  <section id="strengths" class="strengths">
+    <div class="container">
+      <p class="section-eyebrow">STRENGTHS</p>
+      <h2>公式情報から見える、モーニンの強み</h2>
+      <p class="section-lead">公式サイトと公式ブログから確認できる情報をもとに、３つの強みとして整理しました。</p>
+      <ul class="strength-list">
+        <li class="strength-card">
+          <span class="strength-num">STRENGTH 01</span>
+          <h3>約１万枚のLPが並ぶ、本格的な音の世界</h3>
+          <p class="strength-value">公式サイトに「所蔵LPは１万枚」と明記されています。ジャンルや年代にとらわれない幅広い選曲の中から、その日の気分に合う一枚に出会えます。</p>
+        </li>
+        <li class="strength-card">
+          <span class="strength-num">STRENGTH 02</span>
+          <h3>マスター自らが語る、レコードの物語</h3>
+          <p class="strength-value">公式ブログでは、入手したレコード一枚ごとのエピソードが日々紹介されています。音楽だけでなく、その背景まで含めて楽しめる時間になります。</p>
+        </li>
+        <li class="strength-card">
+          <span class="strength-num">STRENGTH 03</span>
+          <h3>2011年から続く、手形の落ち着いた空間</h3>
+          <p class="strength-value">公式サイトに2011年からの表記があり、長く手形の地で営業を続けています。慌ただしい日常から離れ、ゆっくり腰を落ち着けて過ごせます。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ブランドの背景（創業者情報が確認できないための代替セクション） -->
+  <section id="story" class="story">
+    <div class="container">
+      <div class="divider left" aria-hidden="true"></div>
+      <p class="section-eyebrow">BRAND STORY</p>
+      <h2>ブランドの背景</h2>
+      <div class="story-body">
+        <p>ジャズカフェ モーニンは、2011年から秋田市手形の地で営業を続けています。店の魅力を支えているのは、長い時間をかけて集められた約１万枚のLPレコードです。</p>
+        <p>公式ブログでは、日々選ばれた一枚のレコードとともに、その背景やエピソードが紹介されています。レコードにまつわる話を来店した方と分かち合う、そんな時間が大切にされています。</p>
+        <p>不定期で開かれるレコード鑑賞会も、一枚一枚への想いを来店者と共有する場になっています。こうした積み重ねが、公式サイトが伝える「癒しと和みの空間」につながっています。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 特に注目したい商品・サービス -->
+  <section id="special" class="special">
+    <div class="container">
+      <p class="section-eyebrow">FEATURED</p>
+      <h2>特に注目したい商品・サービス</h2>
+      <p class="section-lead">公式サイトのメニューと店舗コンセプトから、モーニンならではの体験として整理しました。</p>
+      <div class="special-card">
+        <div class="special-card-image">
+          <img src="images/03_coffee_and_record.jpg" alt="ターンテーブルとレコードジャケットのそばに置かれた一杯のコーヒー" loading="lazy" decoding="async" width="1672" height="941">
+        </div>
+        <div class="special-card-body">
+          <h3>コーヒーを片手に、LPが奏でるジャズの世界へ</h3>
+          <p>公式サイトでは、コーヒー・紅茶を中心としたメニューと、約１万枚のLPレコードから流れるジャズを楽しめる空間が案内されています。一杯のコーヒーとともに過ごす時間そのものが、モーニンならではの体験です。</p>
+          <dl class="special-meta">
+            <div>
+              <dt>価格</dt>
+              <dd>コーヒー・紅茶　￥500（公式メニューより）</dd>
+            </div>
+            <div>
+              <dt>向いている場面</dt>
+              <dd>一人でゆっくり読書や物思いに浸りたいとき、静かに会話を重ねたいとき</dd>
+            </div>
+          </dl>
+          <div class="special-cta">
+            <a class="btn btn-accent" href="http://moanin.web.fc2.com/menu.html" target="_blank" rel="noopener noreferrer">メニューを見る</a>
+            <a class="btn btn-outline" href="http://moanin.web.fc2.com/open_close.html" target="_blank" rel="noopener noreferrer">営業時間を見る</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- その他のメニュー -->
+  <section id="menu" class="menu-section">
+    <div class="container">
+      <p class="section-eyebrow">MENU</p>
+      <h2>メニュー</h2>
+      <p class="section-lead">公式サイトに掲載されているメニューです。</p>
+      <div class="menu-grid">
+        <div class="menu-group">
+          <h3>喫茶メニュー</h3>
+          <ul>
+            <li><span>コーヒー・紅茶</span><span>￥500</span></li>
+            <li><span>追加コーヒー</span><span>￥300</span></li>
+            <li><span>カフェオレ・カプチーノ</span><span>￥600</span></li>
+            <li><span>ジュース・コーラ</span><span>￥500</span></li>
+            <li><span>おやつ</span><span>￥300</span></li>
+            <li><span>トースト</span><span>￥200</span></li>
+            <li><span>ピザトースト</span><span>￥300</span></li>
+            <li><span>コーヒー回数券（11杯分）</span><span>￥5,000</span></li>
+          </ul>
+        </div>
+        <div class="menu-group">
+          <h3>お酒メニュー</h3>
+          <ul>
+            <li><span>もっきり（精・吟）</span><span>￥600</span></li>
+            <li><span>ビール</span><span>￥600</span></li>
+            <li><span>ウイスキー</span><span>￥600</span></li>
+            <li><span>ブランデー</span><span>￥600</span></li>
+            <li><span>バーボン</span><span>￥600</span></li>
+            <li><span>ワイン（赤・白）</span><span>￥600</span></li>
+            <li><span>チャージ</span><span>￥300</span></li>
+            <li><span>おつまみ</span><span>￥300</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="menu-note">価格は公式サイトのメニューページに基づきます。最新情報は店舗の公式案内をご確認ください。</p>
+    </div>
+  </section>
+
+  <!-- 店舗での過ごし方 -->
+  <section id="how-to-enjoy" class="experience">
+    <div class="container">
+      <div class="divider left" aria-hidden="true"></div>
+      <p class="section-eyebrow">HOW TO ENJOY</p>
+      <h2>モーニンでの過ごし方</h2>
+      <div class="content-image">
+        <img src="images/04_evening_coffee_whisky.jpg" alt="コーヒーとウイスキーが並ぶ、イブニングタイムのテーブル" loading="lazy" decoding="async" width="1672" height="941">
+      </div>
+      <ul class="experience-list">
+        <li>
+          <h3>アフタヌーンタイム（13:00〜17:00）</h3>
+          <p>コーヒーを飲みながら、読書や物思いにふけるゆったりとした時間。</p>
+        </li>
+        <li>
+          <h3>イブニングタイム（19:00〜23:00）</h3>
+          <p>ウイスキーやワインなどのお酒とともに、じっくりレコードに耳を傾ける大人の時間。</p>
+        </li>
+        <li>
+          <h3>レコード鑑賞会に参加する</h3>
+          <p>不定期で開かれるレコード鑑賞会に参加し、テーマに沿った一枚をまとめて楽しむ時間。開催予定は公式ブログで案内されています。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 動く新サービス試作 -->
+  <section id="prototype" class="proto">
+    <div class="container">
+      <div class="proto-inner">
+        <span class="proto-label">動く新サービス試作／INTERACTIVE PROTOTYPE</span>
+        <h2>ジャズ&amp;コーヒー診断</h2>
+        <p class="proto-lead">今日の気分を５つの質問で選ぶと、モーニンでの過ごし方タイプをご紹介します。</p>
+
+        <div class="proto-notice">
+          本機能は店舗運営者向けの試作デモです。<br>
+          現在提供中の正式サービスではありません。<br>
+          入力内容の保存・送信は行いません。
+        </div>
+
+        <div class="proto-target">
+          <p><strong>対象のお客様：</strong>初めて来店される方や、その日の気分に合う過ごし方を知りたい方</p>
+          <p><strong>解決したいこと：</strong>約１万枚のLPと多彩なメニューの中から、何を選べばよいか迷う場面のサポート</p>
+          <p><strong>小さく始める方法：</strong>店内タブレットや公式サイト上に、まずはこの５問診断だけを設置して試すことができます。</p>
+        </div>
+
+        <noscript>
+          <p class="proto-noscript">この試作デモの利用には JavaScript が必要です。JavaScript を有効にしてページを再度お読み込みください。店舗の情報は JavaScript がなくても、そのままご覧いただけます。</p>
+        </noscript>
+
+        <div class="proto-app">
+
+          <!-- 開始画面 -->
+          <div id="proto-intro">
+            <p style="color:var(--color-on-club-muted); margin-bottom:var(--space-3);">全５問、選択式です。所要時間は１分ほどです。</p>
+            <button type="button" id="proto-start" class="btn btn-accent">試してみる</button>
+          </div>
+
+          <!-- 質問画面 -->
+          <div id="proto-question" hidden>
+            <p id="proto-progress" class="proto-progress" aria-live="polite">質問 1 / 5</p>
+            <h3 id="proto-q-title">質問文がここに表示されます</h3>
+            <div id="proto-options" class="proto-options" role="radiogroup" aria-labelledby="proto-q-title"></div>
+            <p id="proto-warning" class="proto-warning" role="alert" hidden></p>
+            <div class="proto-nav">
+              <button type="button" id="proto-back" class="btn btn-outline">戻る</button>
+              <button type="button" id="proto-next" class="btn btn-accent">次へ</button>
+            </div>
+          </div>
+
+          <!-- 結果画面 -->
+          <div id="proto-result" class="proto-result" hidden aria-live="polite">
+            <h3 id="proto-result-title">結果タイプ名</h3>
+            <dl>
+              <div>
+                <dt>要約</dt>
+                <dd id="proto-result-summary"></dd>
+              </div>
+              <div>
+                <dt>この結果になった理由</dt>
+                <dd id="proto-result-reason"></dd>
+              </div>
+              <div>
+                <dt>おすすめ候補（公式メニューより）</dt>
+                <dd id="proto-result-recommend"></dd>
+              </div>
+              <div>
+                <dt>店舗の強みとのつながり</dt>
+                <dd id="proto-result-connection"></dd>
+              </div>
+            </dl>
+            <div class="proto-result-actions">
+              <a id="proto-result-cta" class="btn btn-accent" href="http://moanin.web.fc2.com/menu.html" target="_blank" rel="noopener noreferrer">メニューを見る</a>
+              <button type="button" id="proto-restart" class="btn btn-outline">最初からやり直す</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section id="store-info" class="store-info">
+    <div class="container">
+      <p class="section-eyebrow">STORE INFO</p>
+      <h2>店舗情報</h2>
+      <div class="content-image">
+        <img src="images/05_exterior_evening.jpg" alt="夕暮れどきに灯がともる、モーニンの店構え" loading="lazy" decoding="async" width="1672" height="941">
+      </div>
+      <ul class="info-list">
+        <li>
+          <span class="info-label">店舗名</span>
+          <span>ジャズカフェ モーニン（JAZZ CAFÉ MOANIN'）</span>
+        </li>
+        <li>
+          <span class="info-label">エリア</span>
+          <span>秋田市手形　※詳しい道案内は公式サイトのアクセスページをご確認ください</span>
+        </li>
+        <li>
+          <span class="info-label">営業時間</span>
+          <span>アフタヌーン 13:00〜17:00／イブニング 19:00〜23:00</span>
+        </li>
+        <li>
+          <span class="info-label">定休日</span>
+          <span>月曜日</span>
+        </li>
+        <li>
+          <span class="info-label">創業</span>
+          <span>2011年〜</span>
+        </li>
+        <li>
+          <span class="info-label">公式サイト</span>
+          <span><a href="http://moanin.web.fc2.com/index.html" target="_blank" rel="noopener noreferrer">moanin.web.fc2.com</a></span>
+        </li>
+        <li>
+          <span class="info-label">公式ブログ</span>
+          <span><a href="http://moanin.blog.fc2.com/" target="_blank" rel="noopener noreferrer">moanin.blog.fc2.com</a></span>
+        </li>
+      </ul>
+      <p class="info-note">上記は公式サイト・公式ブログで確認できた情報です。電話番号・メールアドレス・Instagramは公式媒体上で確認できなかったため、掲載しておりません。最新情報は店舗の公式案内をご確認ください。</p>
+    </div>
+  </section>
+
+  <!-- 最終CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <p class="section-eyebrow">CONTACT</p>
+      <h2>モーニンについて、もっと知る</h2>
+      <p style="color:var(--color-on-club-muted);">営業時間やメニュー、日々のレコード紹介は公式サイト・公式ブログでご覧いただけます。</p>
+      <div class="final-cta-buttons">
+        <a class="btn btn-accent" href="http://moanin.web.fc2.com/index.html" target="_blank" rel="noopener noreferrer">公式サイトを見る</a>
+        <a class="btn btn-outline" href="http://moanin.web.fc2.com/access.html" target="_blank" rel="noopener noreferrer">アクセスを見る</a>
+        <a class="btn btn-outline" href="http://moanin.blog.fc2.com/" target="_blank" rel="noopener noreferrer">公式ブログを見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- フッター -->
+<footer class="site-footer">
+  <div class="container">
+    <p>ジャズカフェ モーニン</p>
+    <p>© ジャズカフェ モーニン. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  // 質問データ。各選択肢に category（C/D/V/A/S）を割り当てる。
+  // 5カテゴリのうち各設問で1カテゴリのみ非表示にし、全カテゴリが5問中4問で
+  // 選択可能になるよう設計（判定ロジックの根拠は下部コメントを参照）。
+  var questions = [
+    {
+      title: '今日はどんな時間を過ごしたい気分ですか？',
+      options: [
+        { label: '静かに一人でじっくり音に浸りたい', category: 'D' },
+        { label: '誰かと会話を楽しみながら過ごしたい', category: 'V' },
+        { label: '夜更けにゆったりお酒と過ごしたい', category: 'A' },
+        { label: '気負わずのんびりくつろぎたい', category: 'S' }
+      ]
+    },
+    {
+      title: '好きな音の感じに近いのは？',
+      options: [
+        { label: '軽やかで爽やかな響き', category: 'C' },
+        { label: '骨太でじっくりしたリズム', category: 'D' },
+        { label: '歌心のあるなめらかな音', category: 'V' },
+        { label: 'ゆったりとしたスイング感', category: 'S' }
+      ]
+    },
+    {
+      title: '一緒に楽しみたい飲み物は？',
+      options: [
+        { label: 'すっきりとしたコーヒー', category: 'C' },
+        { label: 'おかわりしながらじっくり味わうコーヒー', category: 'D' },
+        { label: 'カフェオレやカプチーノ', category: 'V' },
+        { label: 'ウイスキーやワインなどのお酒', category: 'A' }
+      ]
+    },
+    {
+      title: '来店したい時間帯のイメージは？',
+      options: [
+        { label: '昼下がりに気軽に立ち寄りたい', category: 'C' },
+        { label: 'その日の気分で時間を決めたい', category: 'V' },
+        { label: '夜、イブニングタイムにゆっくり', category: 'A' },
+        { label: '特に決めず、のんびり過ごしたい', category: 'S' }
+      ]
+    },
+    {
+      title: 'モーニンで過ごしたい目的に近いのは？',
+      options: [
+        { label: '初めてジャズ喫茶を体験してみたい', category: 'C' },
+        { label: 'レコードの音そのものにじっくり浸りたい', category: 'D' },
+        { label: '特別な夜のひとときにしたい', category: 'A' },
+        { label: '気軽に肩の力を抜いて過ごしたい', category: 'S' }
+      ]
+    }
+  ];
+
+  var results = {
+    C: {
+      name: 'クール&モダンタイプ',
+      summary: '軽やかで都会的な響きを楽しみたい気分の方向けのタイプです。',
+      reason: '「軽やかな響き」「すっきりしたコーヒー」「気軽に立ち寄りたい」など、身軽で爽やかな選択が多く見られました。',
+      recommend: 'すっきりとしたコーヒー・紅茶（￥500）',
+      connection: '約１万枚のLPの中から、軽やかな響きのレコードが流れるアフタヌーンタイムに向いています。',
+      ctaLabel: 'メニューを見る',
+      ctaHref: 'http://moanin.web.fc2.com/menu.html'
+    },
+    D: {
+      name: 'じっくり深みタイプ',
+      summary: 'コクのある一杯とともに、音の深みにじっくり浸りたい方向けのタイプです。',
+      reason: '「じっくり音に浸りたい」「骨太なリズム」「おかわりしながら」など、時間をかけて味わう選択が中心でした。',
+      recommend: '追加コーヒー（￥300）やコーヒー回数券（11杯分／￥5,000）',
+      connection: '公式ブログで日々紹介される一枚一枚のレコードを、じっくり聴き込む過ごし方に向いています。',
+      ctaLabel: '公式ブログを見る',
+      ctaHref: 'http://moanin.blog.fc2.com/'
+    },
+    V: {
+      name: '温かいボーカル&会話タイプ',
+      summary: '誰かとの会話を楽しみながら、温かみのある音を味わいたい方向けのタイプです。',
+      reason: '「会話を楽しみたい」「歌心のある音」「カフェオレやカプチーノ」など、人とのひとときを大切にする選択が多く見られました。',
+      recommend: 'カフェオレ・カプチーノ（￥600）',
+      connection: '落ち着いた店内で、連れの方と会話をしながら過ごす時間に向いています。',
+      ctaLabel: 'メニューを見る',
+      ctaHref: 'http://moanin.web.fc2.com/menu.html'
+    },
+    A: {
+      name: '大人のイブニングタイプ',
+      summary: '夜の静けさの中で、お酒とともにジャズに浸りたい方向けのタイプです。',
+      reason: '「夜更けにゆったり」「ウイスキーやワイン」「特別な夜」など、イブニングタイムならではの選択が中心でした。',
+      recommend: 'ウイスキー・ワイン・もっきりなどのお酒（各￥600）',
+      connection: '19:00〜23:00のイブニングタイムに、お酒とレコードを合わせて楽しむ過ごし方です。',
+      ctaLabel: '営業時間を見る',
+      ctaHref: 'http://moanin.web.fc2.com/open_close.html'
+    },
+    S: {
+      name: 'のんびりスウィングタイプ',
+      summary: '気負わず、ゆったりとしたスイング感の中でくつろぎたい方向けのタイプです。',
+      reason: '「気負わずのんびり」「ゆったりとしたスイング感」「肩の力を抜いて」など、リラックスした選択が中心でした。',
+      recommend: 'ジュース・コーラ、おやつ、トーストなどの軽食メニュー',
+      connection: '決まった予定を作らず、アフタヌーンタイムにふらりと立ち寄る過ごし方に向いています。',
+      ctaLabel: 'アクセスを見る',
+      ctaHref: 'http://moanin.web.fc2.com/access.html'
+    }
+  };
+
+  // 同点時の判定優先順位（先に登場するカテゴリを優先する）
+  var priorityOrder = ['C', 'D', 'V', 'A', 'S'];
+
+  var state = {
+    current: 0,
+    answers: new Array(questions.length).fill(null)
+  };
+
+  function byId(id) { return document.getElementById(id); }
+
+  function resetAnswers() {
+    state.current = 0;
+    state.answers = new Array(questions.length).fill(null);
+  }
+
+  function hideWarning() {
+    var w = byId('proto-warning');
+    w.hidden = true;
+    w.textContent = '';
+  }
+
+  function showWarning() {
+    var w = byId('proto-warning');
+    w.textContent = '選択肢を1つ選んでください。';
+    w.hidden = false;
+  }
+
+  function renderQuestion() {
+    var q = questions[state.current];
+    byId('proto-progress').textContent = '質問 ' + (state.current + 1) + ' / ' + questions.length;
+    byId('proto-q-title').textContent = q.title;
+
+    var container = byId('proto-options');
+    container.innerHTML = '';
+
+    q.options.forEach(function (opt) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'proto-option';
+      btn.textContent = opt.label;
+      btn.setAttribute('role', 'radio');
+      var selected = state.answers[state.current] === opt.category;
+      btn.setAttribute('aria-checked', selected ? 'true' : 'false');
+      if (selected) { btn.classList.add('is-selected'); }
+
+      btn.addEventListener('click', function () {
+        state.answers[state.current] = opt.category;
+        hideWarning();
+        renderQuestion();
+      });
+
+      container.appendChild(btn);
+    });
+
+    byId('proto-back').disabled = state.current === 0;
+    byId('proto-next').textContent = (state.current === questions.length - 1) ? '結果を見る' : '次へ';
+  }
+
+  function computeResultKey() {
+    var scores = { C: 0, D: 0, V: 0, A: 0, S: 0 };
+    state.answers.forEach(function (cat) {
+      if (cat) { scores[cat] += 1; }
+    });
+    var best = priorityOrder[0];
+    priorityOrder.forEach(function (cat) {
+      if (scores[cat] > scores[best]) { best = cat; }
+    });
+    return best;
+  }
+
+  function showResult() {
+    var key = computeResultKey();
+    var r = results[key];
+
+    byId('proto-question').hidden = true;
+
+    byId('proto-result-title').textContent = r.name;
+    byId('proto-result-summary').textContent = r.summary;
+    byId('proto-result-reason').textContent = r.reason;
+    byId('proto-result-recommend').textContent = r.recommend;
+    byId('proto-result-connection').textContent = r.connection;
+
+    var cta = byId('proto-result-cta');
+    cta.textContent = r.ctaLabel;
+    cta.href = r.ctaHref;
+
+    var resultPanel = byId('proto-result');
+    resultPanel.hidden = false;
+    resultPanel.setAttribute('tabindex', '-1');
+    resultPanel.focus();
+  }
+
+  byId('proto-start').addEventListener('click', function () {
+    resetAnswers();
+    byId('proto-intro').hidden = true;
+    byId('proto-result').hidden = true;
+    byId('proto-question').hidden = false;
+    renderQuestion();
+  });
+
+  byId('proto-next').addEventListener('click', function () {
+    if (!state.answers[state.current]) {
+      showWarning();
+      return;
+    }
+    hideWarning();
+    if (state.current === questions.length - 1) {
+      showResult();
+      return;
+    }
+    state.current += 1;
+    renderQuestion();
+  });
+
+  byId('proto-back').addEventListener('click', function () {
+    if (state.current === 0) { return; }
+    state.current -= 1;
+    hideWarning();
+    renderQuestion();
+  });
+
+  byId('proto-restart').addEventListener('click', function () {
+    resetAnswers();
+    byId('proto-result').hidden = true;
+    byId('proto-question').hidden = true;
+    byId('proto-intro').hidden = false;
+    byId('proto-start').focus();
+  });
+})();
+</script>
+
+</body>
+</html>

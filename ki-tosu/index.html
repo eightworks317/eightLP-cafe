@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>喫茶キートス｜おもかげ橋のすぐ横、川沿いの喫茶店｜提案用ページ</title>
+<meta name="description" content="喫茶キートスは、秋田市八橋のおもかげ橋すぐ横にある喫茶店です。川沿いの静かな空間でコーヒーや食事を楽しめ、夏は「氷きいとす」としてかき氷を提供しています。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#c65a72">
+
+<style>
+  :root {
+    --color-ink: #23303a;
+    --color-cream: #f6f1e7;
+    --color-surface: #eae2d0;
+    --color-band: #22343a;
+    --color-band-surface: #2d4149;
+    --color-accent: #c65a72;
+    --color-accent-deep: #9c3f54;
+    --color-accent-btn: var(--color-accent-deep);
+    --color-accent-on-band: #dfa1af;
+    --color-river: #4f7c82;
+    --color-muted: #645a50;
+    --color-border: #ddd0b8;
+    --color-proposal-border: #4f7c82;
+    --color-on-band: #f3ece0;
+    --color-on-band-muted: #c9d6d4;
+    --font-heading: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-body: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 48px;
+    --space-6: 64px;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background-color: var(--color-cream);
+    background-image:
+      repeating-linear-gradient(100deg, rgba(79, 124, 130, 0.07) 0px, rgba(79, 124, 130, 0.07) 2px, transparent 2px, transparent 46px),
+      repeating-linear-gradient(80deg, rgba(79, 124, 130, 0.05) 0px, rgba(79, 124, 130, 0.05) 1px, transparent 1px, transparent 30px);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: var(--color-accent-deep); }
+  a:hover { color: var(--color-accent); }
+
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0 0 var(--space-2);
+    letter-spacing: 0.03em;
+  }
+  p { margin: 0 0 var(--space-2); }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 max(14px, 5vw);
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--color-accent);
+    color: #fff;
+    padding: 10px 16px;
+    z-index: 100;
+    border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus { left: 0; }
+
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: -0.15em;
+    flex-shrink: 0;
+  }
+  .heading-with-icon {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  .heading-with-icon .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--color-river);
+  }
+  .experience-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    color: var(--color-river);
+    margin-bottom: 6px;
+  }
+  .special .heading-with-icon .icon,
+  .special .experience-icon,
+  .proto .icon {
+    color: var(--color-accent);
+  }
+  .divider {
+    width: 36px;
+    height: 36px;
+    margin: 0 0 var(--space-3);
+    color: var(--color-river);
+    display: block;
+  }
+
+  /* ===== 提案用ラベル ===== */
+  .proposal-banner {
+    background: var(--color-band);
+    color: var(--color-on-band-muted);
+    text-align: center;
+    padding: 10px var(--space-2);
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+    overflow-wrap: anywhere;
+  }
+  .proposal-banner strong { color: var(--color-on-band); font-weight: 700; }
+
+  /* ===== 写真 ===== */
+  .figure { margin: 0 0 var(--space-3); }
+  .photo {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(35, 48, 58, 0.16);
+    display: block;
+  }
+  .img-caption {
+    font-size: 0.78rem;
+    color: var(--color-muted);
+    margin: 6px 0 0;
+  }
+  .special .img-caption,
+  .proto .img-caption { color: var(--color-on-band-muted); }
+  .experience-photo-item { display: grid; gap: var(--space-2); }
+  .experience-photo-item .photo { aspect-ratio: 16 / 10; }
+  @media (min-width: 640px) {
+    .experience-photo-item {
+      grid-template-columns: 170px 1fr;
+      align-items: start;
+    }
+    .experience-photo-item .photo { aspect-ratio: 4 / 3; }
+  }
+  .top-link {
+    font-size: 0.8rem;
+    color: var(--color-accent);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+  .top-link:hover { color: var(--color-on-band); }
+
+  /* ===== ボタン ===== */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 12px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    text-align: center;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-weight: 700;
+  }
+  .btn-accent { background: var(--color-accent); color: #fff; }
+  .btn-accent:hover, .btn-accent:focus-visible { background: var(--color-accent-deep); color: #fff; }
+  .btn-outline {
+    background: transparent;
+    border-color: var(--color-accent-deep);
+    color: var(--color-accent-deep);
+  }
+  .btn-outline:hover, .btn-outline:focus-visible {
+    background: var(--color-accent-deep);
+    color: #fff;
+  }
+  .btn-outline-light {
+    background: transparent;
+    border-color: rgba(243, 236, 224, 0.5);
+    color: var(--color-on-band);
+  }
+  .btn-outline-light:hover, .btn-outline-light:focus-visible {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  /* ===== ヒーロー ===== */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    background: var(--color-band);
+    overflow: hidden;
+  }
+  .hero-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(34, 52, 58, 0.50) 0%, rgba(34, 52, 58, 0.76) 60%, rgba(34, 52, 58, 0.90) 100%);
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    /* padding の一括指定にすると .container の左右余白まで 0 に上書きされ、
+       320px幅で文字が画面の端に貼りついてしまうため、上下だけを指定する。 */
+    padding-block: var(--space-6);
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    color: #9fc4c6;
+    border: 1px solid rgba(159, 196, 198, 0.6);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 {
+    font-size: clamp(1.9rem, 7.5vw, 3rem);
+    margin-bottom: var(--space-1);
+    color: var(--color-on-band);
+  }
+  .hero h1 .en {
+    display: block;
+    font-size: clamp(0.75rem, 2.6vw, 0.95rem);
+    letter-spacing: 0.2em;
+    color: var(--color-on-band-muted);
+    font-family: var(--font-body);
+    font-weight: 400;
+    margin-top: var(--space-1);
+  }
+  .hero-copy {
+    font-size: clamp(1.25rem, 4.5vw, 1.6rem);
+    line-height: 1.6;
+    color: #f8f2e6;
+    max-width: 24em;
+    margin-bottom: var(--space-3);
+    font-weight: 700;
+  }
+  .hero-lead {
+    color: var(--color-on-band-muted);
+    max-width: 34em;
+    margin-bottom: var(--space-4);
+  }
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: 320px;
+  }
+
+  /* ===== セクション共通 ===== */
+  section { padding: var(--space-6) 0; }
+  .section-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    color: var(--color-accent-deep);
+    margin-bottom: var(--space-1);
+  }
+  .section-lead { color: var(--color-muted); max-width: 36em; }
+
+  /* ===== コンセプト ===== */
+  .concept { background: var(--color-cream); }
+
+  /* ===== 強み ===== */
+  .strengths { background: var(--color-surface); }
+  .strength-list {
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+  .strength-card {
+    background: var(--color-cream);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: var(--space-3);
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .strength-num {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--color-accent-deep);
+    display: block;
+    margin-bottom: var(--space-1);
+    font-weight: 700;
+  }
+  .strength-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: var(--space-1);
+  }
+  .strength-card p { font-size: 0.92rem; color: var(--color-muted); margin-bottom: 0; }
+
+  /* ===== ブランドの背景 ===== */
+  .story { background: var(--color-cream); }
+  .story-body { max-width: 40em; }
+  .story-body p { margin-bottom: var(--space-2); }
+
+  /* ===== 一押し商品・サービス ===== */
+  .special { background: var(--color-band); color: var(--color-on-band); }
+  .special .section-eyebrow { color: var(--color-accent); }
+  .special .section-lead { color: var(--color-on-band-muted); }
+  .special-card {
+    margin-top: var(--space-4);
+    background: rgba(243, 236, 224, 0.06);
+    border: 1px solid rgba(198, 90, 114, 0.4);
+    border-radius: 14px;
+    padding: var(--space-4);
+  }
+  .special-card h3 {
+    color: #f8eee1;
+    font-size: clamp(1.15rem, 4vw, 1.45rem);
+  }
+  .special-badge {
+    display: inline-block;
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: var(--space-2);
+    font-family: var(--font-body);
+  }
+  .special-meta {
+    display: grid;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid rgba(243, 236, 224, 0.2);
+  }
+  .special-meta dt {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin-bottom: 4px;
+  }
+  .special-meta dd { margin: 0 0 var(--space-2); color: var(--color-on-band-muted); }
+  .special-cta { margin-top: var(--space-3); display: flex; flex-direction: column; gap: var(--space-2); }
+
+  /* ===== その他の商品・サービス ===== */
+  .menu-section { background: var(--color-surface); }
+  .menu-card {
+    margin-top: var(--space-4);
+    background: var(--color-cream);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: var(--space-3);
+  }
+  .menu-card h3 { font-size: 1.05rem; margin-bottom: var(--space-1); }
+  .menu-card p { font-size: 0.92rem; color: var(--color-muted); margin-bottom: var(--space-2); }
+  .menu-note { margin-top: var(--space-3); font-size: 0.85rem; color: var(--color-muted); }
+
+  /* ===== 過ごし方 ===== */
+  .experience { background: var(--color-cream); }
+  .experience-list {
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+  .experience-list li {
+    border-left: 3px solid var(--color-river);
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-surface);
+    border-radius: 0 12px 12px 0;
+    min-width: 0;
+  }
+  .experience-list h3 { font-size: 1rem; margin-bottom: 4px; }
+  .experience-list p { margin-bottom: 0; font-size: 0.92rem; color: var(--color-muted); }
+
+  /* ===== 動く新サービス試作 ===== */
+  .proto { background: var(--color-band); color: var(--color-on-band); }
+  .proto-inner {
+    background: rgba(243, 236, 224, 0.05);
+    border: 2px dashed var(--color-proposal-border);
+    border-radius: 16px;
+    padding: var(--space-4);
+  }
+  .proto-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: #fff;
+    background: var(--color-accent);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: var(--space-2);
+    font-family: var(--font-body);
+  }
+  .proto h2 { color: #f8eee1; }
+  .proto-lead { color: var(--color-on-band-muted); }
+  .proto-notice {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    background: rgba(198, 90, 114, 0.14);
+    border: 1px solid rgba(198, 90, 114, 0.4);
+    border-radius: 8px;
+    padding: var(--space-2) var(--space-3);
+    color: var(--color-on-band);
+    margin: var(--space-3) 0;
+  }
+  .proto-target { font-size: 0.9rem; color: var(--color-on-band-muted); margin-bottom: var(--space-3); }
+  .proto-target p { margin-bottom: var(--space-1); }
+  .proto-noscript {
+    background: rgba(198, 90, 114, 0.18);
+    border-radius: 8px;
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.9rem;
+  }
+  .proto-app { background: var(--color-band); border-radius: 12px; padding: var(--space-3); margin-top: var(--space-2); }
+  .proto-progress { font-size: 0.82rem; color: var(--color-accent); letter-spacing: 0.08em; margin-bottom: var(--space-2); }
+  #proto-q-title { font-size: clamp(1.02rem, 4vw, 1.25rem); margin-bottom: var(--space-3); font-family: var(--font-body); font-weight: 700; }
+  .proto-options { display: grid; gap: var(--space-2); margin-bottom: var(--space-2); }
+  .proto-option {
+    text-align: left;
+    width: 100%;
+    min-height: 44px;
+    padding: 12px 16px 12px 40px;
+    border-radius: 10px;
+    border: 1px solid rgba(243, 236, 224, 0.35);
+    background: rgba(243, 236, 224, 0.04);
+    color: var(--color-on-band);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    cursor: pointer;
+    position: relative;
+  }
+  .proto-option::before {
+    content: "";
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid rgba(243, 236, 224, 0.5);
+  }
+  .proto-option.is-selected { border-color: var(--color-accent); background: rgba(198, 90, 114, 0.2); }
+  .proto-option.is-selected::before {
+    border-color: var(--color-accent);
+    background: var(--color-accent);
+    box-shadow: inset 0 0 0 3px var(--color-band);
+  }
+  .proto-option:hover, .proto-option:focus-visible { border-color: var(--color-accent); }
+  .proto-warning {
+    color: #f9dfe4;
+    background: rgba(198, 90, 114, 0.28);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    margin-bottom: var(--space-2);
+  }
+  .proto-nav { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+  .proto-nav .btn { flex: 1 1 120px; }
+  .proto-result h3 { color: var(--color-accent); font-size: clamp(1.15rem, 4.5vw, 1.45rem); font-family: var(--font-body); }
+  .proto-result dl { display: grid; gap: var(--space-1); margin: var(--space-3) 0; }
+  .proto-result dt { font-size: 0.78rem; letter-spacing: 0.08em; color: var(--color-accent); margin-top: var(--space-2); }
+  .proto-result dd { margin: 4px 0 0; color: var(--color-on-band-muted); font-size: 0.94rem; }
+  .proto-result-actions { display: flex; flex-direction: column; gap: var(--space-2); margin-top: var(--space-3); }
+
+  /* ===== 店舗情報 ===== */
+  .store-info { background: var(--color-surface); }
+  .info-list { list-style: none; margin: var(--space-4) 0 0; padding: 0; display: grid; gap: var(--space-2); }
+  .info-list li {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: var(--space-2);
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.94rem;
+  }
+  .info-list li:last-child { border-bottom: none; }
+  .info-label { color: var(--color-muted); font-size: 0.85rem; }
+  .info-note { margin-top: var(--space-3); font-size: 0.85rem; color: var(--color-muted); }
+
+  /* ===== 最終CTA ===== */
+  .final-cta { background: var(--color-band); color: var(--color-on-band); text-align: center; }
+  .final-cta h2 { color: #f8eee1; }
+  .final-cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: 320px;
+    margin: var(--space-4) auto 0;
+  }
+
+  /* ===== フッター ===== */
+  .site-footer { background: var(--color-band); color: var(--color-on-band-muted); padding: var(--space-4) 0; font-size: 0.85rem; }
+  .site-footer .container { display: flex; flex-direction: column; gap: var(--space-2); }
+  .site-footer a { color: var(--color-accent); }
+
+  @media (min-width: 640px) {
+    .strength-list { grid-template-columns: repeat(3, 1fr); }
+    .strength-card {
+      display: grid;
+      grid-template-rows: auto 3.6em 1fr;
+    }
+    .hero-cta { flex-direction: row; max-width: none; }
+    .final-cta-buttons { flex-direction: row; max-width: none; justify-content: center; }
+    .proto-nav .btn { flex: 0 0 auto; min-width: 140px; }
+  }
+
+  /* ===== 濃い帯・写真の上のアクセント色（コントラスト比 4.5 以上を確保） ===== */
+  .special .section-eyebrow,
+  .proto .section-eyebrow,
+  .final-cta .section-eyebrow,
+  .special-meta dt,
+  .proto-result dt,
+  .site-footer a,
+  .top-link { color: var(--color-accent-on-band); }
+  .hero-eyebrow { color: #cfe4e5; border-color: rgba(207, 228, 229, 0.6); }
+
+
+  /* ===== べた塗り背景のボタン・ラベル（コントラスト比 4.5 以上を確保） ===== */
+  .btn-accent,
+  .proto-label,
+  .special-badge { background: var(--color-accent-btn); }
+  .btn-accent:hover,
+  .btn-accent:focus-visible { background: var(--color-accent-btn); filter: brightness(0.88); }
+
+</style>
+</head>
+<body>
+
+<!-- アイコン用SVGスプライト（装飾用の自作ベクター画像です） -->
+<svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden;">
+  <symbol id="icon-book" viewBox="0 0 48 48">
+    <path d="M24 13c-4-3-10-4-16-3v25c6-1 12 0 16 3 4-3 10-4 16-3V10c-6-1-12 0-16 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <line x1="24" y1="13" x2="24" y2="38" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+  <symbol id="icon-bridge" viewBox="0 0 48 48">
+    <path d="M6 30c6-10 30-10 36 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <line x1="6" y1="30" x2="6" y2="36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <line x1="42" y1="30" x2="42" y2="36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <line x1="4" y1="38" x2="44" y2="38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="icon-icecone" viewBox="0 0 48 48">
+    <path d="M12 30c0-10 5-18 12-18s12 8 12 18z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M12 30h24l-3 8H15z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M18 16c1 2-1 3 0 5M24 12c1 2-1 3 0 5M30 16c1 2-1 3 0 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </symbol>
+  <symbol id="icon-cup" viewBox="0 0 48 48">
+    <path d="M10 19h23v10a11.5 11.5 0 0 1-11.5 11.5A11.5 11.5 0 0 1 10 29z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M33 22h3.5a5 5 0 0 1 0 10H33" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M17 13c-1.2 1.8 1 2.8 0 4.6M23 13c-1.2 1.8 1 2.8 0 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </symbol>
+</svg>
+
+<a href="#main-content" class="skip-link">本文へ移動</a>
+
+<!-- 提案用ラベル -->
+<div class="proposal-banner">
+  <strong>CONCEPT LP</strong>／店舗向け提案用ページです。本ページには未導入の提案が含まれます。
+</div>
+
+<main id="main-content">
+
+  <!-- ファーストビュー -->
+  <div class="hero">
+    <img class="hero-photo" src="images/01_hero_exterior.jpg" alt="" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <span class="hero-eyebrow">AKITA YABASE / RIVERSIDE KISSA</span>
+      <h1>喫茶キートス<span class="en">KISSA KIITOS</span></h1>
+      <p class="hero-copy">草生津川のほとり、おもかげ橋のすぐそばの喫茶店。</p>
+      <p class="hero-lead">静かな時間を大切にする喫茶店で、コーヒーや食事、スイーツをゆっくり楽しめます。夏は「氷きいとす」としてかき氷も提供しています。</p>
+      <div class="hero-cta">
+        <a class="btn btn-accent" href="#special">夏季のかき氷を見る</a>
+        <a class="btn btn-outline-light" href="https://kissa-kiitos-akita.amebaownd.com/" target="_blank" rel="noopener noreferrer">公式サイトを見る</a>
+      </div>
+      <p class="img-caption" style="color:var(--color-on-band-muted);">※イメージ画像です。実際の店舗外観とは異なります。</p>
+    </div>
+  </div>
+
+  <!-- コンセプト -->
+  <section id="concept" class="concept">
+    <div class="container">
+      <svg class="divider"><use href="#icon-book"></use></svg>
+      <p class="section-eyebrow">CONCEPT</p>
+      <h2 class="heading-with-icon"><svg class="icon"><use href="#icon-cup"></use></svg>川沿いの静かな時間を大切にする喫茶店</h2>
+      <p class="section-lead">公式サイトでは「秋田市八橋のおもかげ橋すぐ横にある喫茶店です」と案内されています。草生津川沿いの落ち着いた立地で、コーヒーや食事、スイーツをゆっくり味わえる時間が大切にされています。</p>
+
+      <figure class="figure">
+        <img class="photo" src="images/02_river_window_seat.jpg" alt="川と橋を望む窓辺の席のイメージ写真" loading="lazy" width="479" height="436">
+        <figcaption class="img-caption">※イメージ画像です。実際の店内とは異なります。</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 企業・店舗の強み -->
+  <section id="strengths" class="strengths">
+    <div class="container">
+      <p class="section-eyebrow">STRENGTHS</p>
+      <h2>公式情報から見える、喫茶キートスの強み</h2>
+      <p class="section-lead">公式サイトの案内をもとに、３つの強みとして整理しました。</p>
+
+      <figure class="figure">
+        <img class="photo" src="images/03_interior.jpg" alt="木のテーブルが並ぶ落ち着いた店内のイメージ写真" loading="lazy" width="508" height="436">
+        <figcaption class="img-caption">※イメージ画像です。実際の店内とは異なります。</figcaption>
+      </figure>
+
+      <ul class="strength-list">
+        <li class="strength-card">
+          <span class="strength-num">STRENGTH 01</span>
+          <h3>おもかげ橋すぐそばの川沿い立地</h3>
+          <p>公式サイトに「おもかげ橋すぐ横」と明記されています。川沿いの落ち着いた環境で、ゆったりとした時間を過ごせます。</p>
+        </li>
+        <li class="strength-card">
+          <span class="strength-num">STRENGTH 02</span>
+          <h3>静かな時間を大切にする店づくり</h3>
+          <p>落ち着いた雰囲気を保つ運営がされており、周囲を気にせず本を読んだりコーヒーを味わったりする時間に集中できます。</p>
+        </li>
+        <li class="strength-card">
+          <span class="strength-num">STRENGTH 03</span>
+          <h3>夏だけ楽しめる「氷きいとす」</h3>
+          <p>公式サイトに「７、８月は屋号を『氷きいとす』に変えてかき氷をご提供いたします」と明記されています。季節ごとに異なる魅力を味わえます。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- お店の背景（創業者情報が確認できないための代替セクション） -->
+  <section id="story" class="story">
+    <div class="container">
+      <svg class="divider"><use href="#icon-book"></use></svg>
+      <p class="section-eyebrow">ABOUT</p>
+      <h2>喫茶キートスが大切にしていること</h2>
+      <div class="story-body">
+        <p>喫茶キートスの店主のお名前や、詳しい開業の経緯については、公式な情報からは確認できません。</p>
+        <p>ただし公式サイトからは、秋田市八橋、おもかげ橋のすぐそばという立地を生かし、川沿いの静かな環境でコーヒーや食事、スイーツをゆっくり楽しめる時間が大切にされていることが伝わります。</p>
+        <p>夏の間だけ「氷きいとす」としてかき氷に専念するなど、季節に合わせた営業スタイルも、この店ならではの特徴のひとつです。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 一押し商品・サービス -->
+  <section id="special" class="special">
+    <div class="container">
+      <p class="section-eyebrow">FEATURED</p>
+      <h2>夏季限定「氷きいとす」のかき氷</h2>
+      <p class="section-lead">公式サイトの案内をもとに、喫茶キートスならではの体験として整理しました。</p>
+      <div class="special-card">
+        <figure class="figure">
+          <img class="photo" src="images/05_kakigori.jpg" alt="川辺のテーブルに置かれたかき氷のイメージ写真" loading="lazy" width="479" height="411">
+          <figcaption class="img-caption">※イメージ画像です。実際に提供されるかき氷とは異なります。</figcaption>
+        </figure>
+        <span class="special-badge">公式サイトで案内されている夏季限定の営業</span>
+        <h3 class="heading-with-icon"><svg class="icon"><use href="#icon-icecone"></use></svg>「氷きいとす」のかき氷</h3>
+        <p>公式サイトでは「７、８月は屋号を『氷きいとす』に変えてかき氷をご提供いたします（喫茶はお休み）」と案内されています。この期間は通常の喫茶営業を休み、かき氷専門の営業に切り替わります。</p>
+        <dl class="special-meta">
+          <div>
+            <dt>営業時間</dt>
+            <dd>12:00〜16:00（なくなり次第閉店）</dd>
+          </div>
+          <div>
+            <dt>向いている場面</dt>
+            <dd>夏に涼みたいとき、川沿いの静かな時間の中でひんやりした一皿を味わいたいとき</dd>
+          </div>
+        </dl>
+        <div class="special-cta">
+          <a class="btn btn-accent" href="https://kissa-kiitos-akita.amebaownd.com/" target="_blank" rel="noopener noreferrer">公式サイトで営業日を見る</a>
+          <a class="btn btn-outline-light" href="https://www.instagram.com/kissakiitos_akita/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- その他の商品・サービス -->
+  <section id="menu" class="menu-section">
+    <div class="container">
+      <p class="section-eyebrow">OTHER SERVICE</p>
+      <h2>通常期の喫茶営業について</h2>
+      <div class="menu-card">
+        <h3 class="heading-with-icon"><svg class="icon"><use href="#icon-cup"></use></svg>コーヒー・食事・スイーツ</h3>
+        <figure class="figure">
+          <img class="photo" src="images/04_lunch_coffee.jpg" alt="コーヒーと食事を並べたイメージ写真" loading="lazy" width="490" height="411">
+          <figcaption class="img-caption">※イメージ画像です。実際のメニューとは異なります。</figcaption>
+        </figure>
+        <p>夏季以外の期間は、通常の喫茶営業でコーヒーや食事、スイーツを提供しています。日々のメニューの雰囲気は、公式サイトの「ある日のお皿」ページで紹介されています。具体的な商品名や価格は公式サイト上で確認できなかったため、ここでは掲載していません。</p>
+        <a class="btn btn-outline" href="https://kissa-kiitos-akita.amebaownd.com/pages/3102790/page_201907301911" target="_blank" rel="noopener noreferrer">ある日のお皿を見る</a>
+      </div>
+      <p class="menu-note">価格・メニュー内容は公式サイト上で確認できた範囲に基づきます。最新情報は店舗の公式案内をご確認ください。</p>
+    </div>
+  </section>
+
+  <!-- 店舗での過ごし方 -->
+  <section id="how-to-enjoy" class="experience">
+    <div class="container">
+      <svg class="divider"><use href="#icon-book"></use></svg>
+      <p class="section-eyebrow">HOW TO ENJOY</p>
+      <h2>喫茶キートスでの過ごし方</h2>
+      <ul class="experience-list">
+        <li>
+          <svg class="experience-icon" aria-hidden="true"><use href="#icon-book"></use></svg>
+          <h3>川沿いの静かな時間を過ごす</h3>
+          <p>12:00〜16:00の営業時間内、おもかげ橋そばの喫茶店で、本を読んだりコーヒーを味わったりしながらゆっくり過ごせます。</p>
+        </li>
+        <li>
+          <svg class="experience-icon" aria-hidden="true"><use href="#icon-icecone"></use></svg>
+          <h3>夏だけの「氷きいとす」でかき氷を楽しむ</h3>
+          <p>7月・8月はかき氷専門の営業に切り替わります。川沿いで涼みながら、季節限定の時間を過ごせます。</p>
+        </li>
+        <li>
+          <svg class="experience-icon" aria-hidden="true"><use href="#icon-bridge"></use></svg>
+          <h3>事前に営業日を確認してから訪れる</h3>
+          <p>お席の予約は受け付けておらず、営業日は公式サイトのカレンダーで案内されています。訪れる前の確認がおすすめです。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 動く新サービス試作 -->
+  <section id="prototype" class="proto">
+    <div class="container">
+      <div class="proto-inner">
+        <span class="proto-label">動く新サービス試作／INTERACTIVE PROTOTYPE</span>
+        <h2>来店プラン診断</h2>
+        <p class="proto-lead">今の気分を５つの質問で選ぶと、喫茶キートスでの過ごし方のタイプをご紹介します。</p>
+
+        <div class="proto-notice">
+          本機能は店舗運営者向けの試作デモです。<br>
+          現在提供中の正式サービスではありません。<br>
+          入力内容の保存・送信は行いません。
+        </div>
+
+        <div class="proto-target">
+          <p><strong>対象のお客様：</strong>はじめて来店される方や、通常期と夏季（氷きいとす）のどちらに合わせて訪れるか迷っている方</p>
+          <p><strong>解決したいこと：</strong>営業日が不定期でお席の予約もできないため、来店前に公式情報を確認する習慣を自然に案内すること</p>
+          <p><strong>今後の展開案：</strong>営業状況やかき氷の売り切れ状況をリアルタイムで確認できる仕組みや、待ち時間の表示、テイクアウトの事前注文があれば、より安心して来店計画を立てやすくなります（これは新サービス提案であり、現在提供中のサービスではありません）。</p>
+        </div>
+
+        <noscript>
+          <p class="proto-noscript">この試作デモの利用には JavaScript が必要です。JavaScript を有効にしてページを再度お読み込みください。店舗の情報は JavaScript がなくても、そのままご覧いただけます。</p>
+        </noscript>
+
+        <div class="proto-app">
+
+          <div id="proto-intro">
+            <p style="color:var(--color-on-band-muted); margin-bottom:var(--space-3);">全５問、選択式です。所要時間は１分ほどです。</p>
+            <button type="button" id="proto-start" class="btn btn-accent">診断してみる</button>
+          </div>
+
+          <div id="proto-question" hidden>
+            <p id="proto-progress" class="proto-progress" aria-live="polite">質問 1 / 5</p>
+            <h3 id="proto-q-title">質問文がここに表示されます</h3>
+            <div id="proto-options" class="proto-options" role="radiogroup" aria-labelledby="proto-q-title"></div>
+            <p id="proto-warning" class="proto-warning" role="alert" hidden></p>
+            <div class="proto-nav">
+              <button type="button" id="proto-back" class="btn btn-outline-light">戻る</button>
+              <button type="button" id="proto-next" class="btn btn-accent">次へ</button>
+            </div>
+          </div>
+
+          <div id="proto-result" class="proto-result" hidden aria-live="polite">
+            <h3 id="proto-result-title">結果タイプ名</h3>
+            <dl>
+              <div>
+                <dt>要約</dt>
+                <dd id="proto-result-summary"></dd>
+              </div>
+              <div>
+                <dt>この結果になった理由</dt>
+                <dd id="proto-result-reason"></dd>
+              </div>
+              <div>
+                <dt>おすすめの過ごし方</dt>
+                <dd id="proto-result-recommend"></dd>
+              </div>
+              <div>
+                <dt>来店前のご案内</dt>
+                <dd id="proto-result-connection"></dd>
+              </div>
+            </dl>
+            <div class="proto-result-actions">
+              <a id="proto-result-cta" class="btn btn-accent" href="https://kissa-kiitos-akita.amebaownd.com/" target="_blank" rel="noopener noreferrer">公式サイトを見る</a>
+              <button type="button" id="proto-restart" class="btn btn-outline-light">最初からやり直す</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section id="store-info" class="store-info">
+    <div class="container">
+      <p class="section-eyebrow">STORE INFO</p>
+      <h2>店舗情報</h2>
+
+      <figure class="figure">
+        <img class="photo" src="images/06_riverside_terrace.jpg" alt="草生津川沿いの遊歩道と橋のイメージ写真" loading="lazy" width="508" height="411">
+        <figcaption class="img-caption">※イメージ画像です。川沿いの雰囲気を表したもので、店舗の設備を示すものではありません。</figcaption>
+      </figure>
+
+      <ul class="info-list">
+        <li>
+          <span class="info-label">店舗名</span>
+          <span>喫茶キートス（夏季は「氷きいとす」）</span>
+        </li>
+        <li>
+          <span class="info-label">住所</span>
+          <span>秋田市八橋本町６丁目１－２（おもかげ橋のすぐ横）<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%85%AB%E6%A9%8B%E6%9C%AC%E7%94%BA6%E4%B8%81%E7%9B%AE1-2" target="_blank" rel="noopener noreferrer">地図を見る</a>
+          </span>
+        </li>
+        <li>
+          <span class="info-label">営業時間</span>
+          <span>12:00〜16:00（なくなり次第閉店）</span>
+        </li>
+        <li>
+          <span class="info-label">営業日</span>
+          <span>不定期のため、公式サイトのカレンダーでご確認ください</span>
+        </li>
+        <li>
+          <span class="info-label">夏季営業</span>
+          <span>7月・8月は「氷きいとす」としてかき氷を提供（喫茶はお休み）</span>
+        </li>
+        <li>
+          <span class="info-label">予約</span>
+          <span>お席のご予約は承っておりません</span>
+        </li>
+        <li>
+          <span class="info-label">駐車場</span>
+          <span>駐車場１：10台（旧国道沿い）／駐車場２：店舗横の三角地に2台</span>
+        </li>
+        <li>
+          <span class="info-label">公式サイト</span>
+          <span><a href="https://kissa-kiitos-akita.amebaownd.com/" target="_blank" rel="noopener noreferrer">kissa-kiitos-akita.amebaownd.com</a></span>
+        </li>
+        <li>
+          <span class="info-label">Instagram</span>
+          <span><a href="https://www.instagram.com/kissakiitos_akita/" target="_blank" rel="noopener noreferrer">@kissakiitos_akita</a></span>
+        </li>
+      </ul>
+      <p class="info-note">上記は公式サイトで確認できた情報です。電話番号・メールアドレスは公式サイト上で確認できなかったため、掲載しておりません。最新情報は店舗の公式案内をご確認ください。</p>
+    </div>
+  </section>
+
+  <!-- 最終CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <p class="section-eyebrow">CONTACT</p>
+      <h2>喫茶キートスについて、もっと知る</h2>
+      <p style="color:var(--color-on-band-muted);">営業日やお店の様子は、公式サイト・Instagramでご覧いただけます。</p>
+      <div class="final-cta-buttons">
+        <a class="btn btn-accent" href="https://kissa-kiitos-akita.amebaownd.com/" target="_blank" rel="noopener noreferrer">公式サイトを見る</a>
+        <a class="btn btn-outline-light" href="https://www.instagram.com/kissakiitos_akita/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- フッター -->
+<footer class="site-footer">
+  <div class="container">
+    <p>喫茶キートス</p>
+    <p>© 喫茶キートス. All Rights Reserved.</p>
+    <a class="top-link" href="#main-content">ページの先頭へ戻る</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  // 質問データ。各選択肢に category（S/Q/R/M/F）を割り当てる。
+  // S=夏のかき氷 Q=静かな読書時間 R=川沿いの景色 M=食事・スイーツ F=はじめて訪れる
+  // 5カテゴリのうち各設問で1カテゴリのみ非表示にし、全カテゴリが5問中4問で
+  // 選択可能になるよう設計（判定ロジックの根拠は下部コメントを参照）。
+  var questions = [
+    {
+      title: '今日はどんな時間を過ごしたい気分ですか？',
+      options: [
+        { label: '静かに本を読みながら過ごしたい', category: 'Q' },
+        { label: '川沿いの景色を眺めながらのんびりしたい', category: 'R' },
+        { label: '食事やスイーツをゆっくり楽しみたい', category: 'M' },
+        { label: 'まずはどんなお店か様子を見てみたい', category: 'F' }
+      ]
+    },
+    {
+      title: '今の気分にしっくりくるのは？',
+      options: [
+        { label: '涼しいかき氷でひと息つきたい', category: 'S' },
+        { label: '水辺の風を感じながら過ごしたい', category: 'R' },
+        { label: 'しっかり食事を楽しみたい', category: 'M' },
+        { label: '初めて訪れる場所を探索したい', category: 'F' }
+      ]
+    },
+    {
+      title: '今回、口にしたいものに近いのは？',
+      options: [
+        { label: '夏らしいひんやりスイーツ', category: 'S' },
+        { label: '静かに集中できる時間', category: 'Q' },
+        { label: '甘いものとゆっくりした時間', category: 'M' },
+        { label: '気になっていたお店の雰囲気', category: 'F' }
+      ]
+    },
+    {
+      title: '訪れるきっかけに近いのは？',
+      options: [
+        { label: '暑い日に涼みに行きたい', category: 'S' },
+        { label: '落ち着いた雰囲気でひとり時間を過ごしたい', category: 'Q' },
+        { label: '散歩の途中で立ち寄りたい', category: 'R' },
+        { label: 'SNSで見かけて気になっている', category: 'F' }
+      ]
+    },
+    {
+      title: '喫茶キートスに期待することは？',
+      options: [
+        { label: '「氷きいとす」の時期に合わせて訪れたい', category: 'S' },
+        { label: '読書や考えごとに集中したい', category: 'Q' },
+        { label: '橋や川の景色も一緒に楽しみたい', category: 'R' },
+        { label: '食事とスイーツ、両方味わいたい', category: 'M' }
+      ]
+    }
+  ];
+
+  var results = {
+    S: {
+      name: '夏のかき氷タイプ',
+      summary: '涼しいかき氷でひと息つきたい方向けのタイプです。',
+      reason: '「涼しいかき氷」「夏らしいひんやりスイーツ」「暑い日に涼みたい」など、夏らしい選択が中心でした。',
+      recommend: '7月・8月は屋号が「氷きいとす」に変わり、かき氷専門の営業になります。',
+      connection: '営業日は公式サイトのカレンダーでご確認のうえ、お出かけください。',
+      ctaLabel: '公式サイトを見る',
+      ctaHref: 'https://kissa-kiitos-akita.amebaownd.com/'
+    },
+    Q: {
+      name: '静かな読書時間タイプ',
+      summary: '静かに本を読んだり、一人の時間に集中したい方向けのタイプです。',
+      reason: '「静かに本を読みながら」「落ち着いた雰囲気でひとり時間」「読書や考えごとに集中」など、静けさを求める選択が中心でした。',
+      recommend: '川沿いの落ち着いた空間で、周囲を気にせずゆっくり過ごせます。',
+      connection: '営業日は公式サイトのカレンダーでご確認のうえ、お出かけください。',
+      ctaLabel: '公式サイトを見る',
+      ctaHref: 'https://kissa-kiitos-akita.amebaownd.com/'
+    },
+    R: {
+      name: '川沿いの景色タイプ',
+      summary: '川沿いの景色や水辺の空気を楽しみたい方向けのタイプです。',
+      reason: '「川沿いの景色」「水辺の風」「橋や川の景色」など、立地そのものを楽しむ選択が中心でした。',
+      recommend: 'おもかげ橋のすぐそば、草生津川沿いという立地を生かした時間を過ごせます。',
+      connection: '営業日は公式サイトのカレンダーでご確認のうえ、お出かけください。',
+      ctaLabel: 'お店の場所を見る',
+      ctaHref: 'https://kissa-kiitos-akita.amebaownd.com/pages/3631813/page_202003031650'
+    },
+    M: {
+      name: '食事・スイーツタイプ',
+      summary: '食事やスイーツをゆっくり楽しみたい方向けのタイプです。',
+      reason: '「食事やスイーツをゆっくり」「しっかり食事」「食事とスイーツ、両方」など、味わうことを重視する選択が中心でした。',
+      recommend: '公式サイトの「ある日のお皿」では、日々提供されているメニューの雰囲気が紹介されています。',
+      connection: '営業日は公式サイトのカレンダーでご確認のうえ、お出かけください。',
+      ctaLabel: 'ある日のお皿を見る',
+      ctaHref: 'https://kissa-kiitos-akita.amebaownd.com/pages/3102790/page_201907301911'
+    },
+    F: {
+      name: 'はじめて訪れるタイプ',
+      summary: 'まずはどんなお店か、様子を見てみたい方向けのタイプです。',
+      reason: '「様子を見てみたい」「初めて訪れる場所を探索」「SNSで見かけて気になっている」など、これから知っていきたいという選択が中心でした。',
+      recommend: '公式サイトやInstagramで、お店の雰囲気を確認してから訪れるのがおすすめです。',
+      connection: '営業日は公式サイトのカレンダーでご確認のうえ、お出かけください。',
+      ctaLabel: 'Instagramを見る',
+      ctaHref: 'https://www.instagram.com/kissakiitos_akita/'
+    }
+  };
+
+  // 同点時の判定優先順位（最終手段としてのみ使用。基本は最後の質問の回答を優先する）
+  var priorityOrder = ['S', 'Q', 'R', 'M', 'F'];
+
+  var state = {
+    current: 0,
+    answers: new Array(questions.length).fill(null)
+  };
+
+  function byId(id) { return document.getElementById(id); }
+
+  function resetAnswers() {
+    state.current = 0;
+    state.answers = new Array(questions.length).fill(null);
+  }
+
+  function hideWarning() {
+    var w = byId('proto-warning');
+    w.hidden = true;
+    w.textContent = '';
+  }
+
+  function showWarning() {
+    var w = byId('proto-warning');
+    w.textContent = '選択肢を1つ選んでください。';
+    w.hidden = false;
+  }
+
+  function renderQuestion() {
+    var q = questions[state.current];
+    byId('proto-progress').textContent = '質問 ' + (state.current + 1) + ' / ' + questions.length;
+    byId('proto-q-title').textContent = q.title;
+
+    var container = byId('proto-options');
+    container.innerHTML = '';
+
+    q.options.forEach(function (opt) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'proto-option';
+      btn.textContent = opt.label;
+      btn.setAttribute('role', 'radio');
+      var selected = state.answers[state.current] === opt.category;
+      btn.setAttribute('aria-checked', selected ? 'true' : 'false');
+      if (selected) { btn.classList.add('is-selected'); }
+
+      btn.addEventListener('click', function () {
+        state.answers[state.current] = opt.category;
+        hideWarning();
+        renderQuestion();
+      });
+
+      container.appendChild(btn);
+    });
+
+    byId('proto-back').disabled = state.current === 0;
+    byId('proto-next').textContent = (state.current === questions.length - 1) ? '結果を見る' : '次へ';
+  }
+
+  function computeResultKey() {
+    var scores = { S: 0, Q: 0, R: 0, M: 0, F: 0 };
+    state.answers.forEach(function (cat) {
+      if (cat) { scores[cat] += 1; }
+    });
+
+    var topScore = -1;
+    priorityOrder.forEach(function (cat) {
+      if (scores[cat] > topScore) { topScore = scores[cat]; }
+    });
+    var tied = priorityOrder.filter(function (cat) { return scores[cat] === topScore; });
+
+    if (tied.length === 1) { return tied[0]; }
+
+    // 同点の場合は、最後の質問（期待すること）の回答を優先するタイブレークとする
+    var lastAnswer = state.answers[state.answers.length - 1];
+    if (lastAnswer && tied.indexOf(lastAnswer) !== -1) { return lastAnswer; }
+
+    // それでも決まらない場合のみ、固定の優先順位で決定する
+    var best = tied[0];
+    tied.forEach(function (cat) {
+      if (priorityOrder.indexOf(cat) < priorityOrder.indexOf(best)) { best = cat; }
+    });
+    return best;
+  }
+
+  function showResult() {
+    var key = computeResultKey();
+    var r = results[key];
+
+    byId('proto-question').hidden = true;
+
+    byId('proto-result-title').textContent = r.name;
+    byId('proto-result-summary').textContent = r.summary;
+    byId('proto-result-reason').textContent = r.reason;
+    byId('proto-result-recommend').textContent = r.recommend;
+    byId('proto-result-connection').textContent = r.connection;
+
+    var cta = byId('proto-result-cta');
+    cta.textContent = r.ctaLabel;
+    cta.href = r.ctaHref;
+
+    var resultPanel = byId('proto-result');
+    resultPanel.hidden = false;
+    resultPanel.setAttribute('tabindex', '-1');
+    resultPanel.focus();
+  }
+
+  byId('proto-start').addEventListener('click', function () {
+    resetAnswers();
+    byId('proto-intro').hidden = true;
+    byId('proto-result').hidden = true;
+    byId('proto-question').hidden = false;
+    renderQuestion();
+  });
+
+  byId('proto-next').addEventListener('click', function () {
+    if (!state.answers[state.current]) {
+      showWarning();
+      return;
+    }
+    hideWarning();
+    if (state.current === questions.length - 1) {
+      showResult();
+      return;
+    }
+    state.current += 1;
+    renderQuestion();
+  });
+
+  byId('proto-back').addEventListener('click', function () {
+    if (state.current === 0) { return; }
+    state.current -= 1;
+    hideWarning();
+    renderQuestion();
+  });
+
+  byId('proto-restart').addEventListener('click', function () {
+    resetAnswers();
+    byId('proto-result').hidden = true;
+    byId('proto-question').hidden = true;
+    byId('proto-intro').hidden = false;
+    byId('proto-start').focus();
+  });
+})();
+</script>
+
+</body>
+</html>

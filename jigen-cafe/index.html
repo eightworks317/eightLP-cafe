@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jigen Cafe｜地域の人がコーヒーを飲みながら交流できる場所｜提案用ページ</title>
+<meta name="description" content="Jigen Cafeは、地域の人がコーヒーを飲みながら交流できる場所です。食事メニューを置かず、コーヒーに特化したシンプルな喫茶店で、水出しアイスコーヒーも提供しています。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#6b8068">
+
+<style>
+  :root {
+    --color-ink: #2f2a22;
+    --color-cream: #f7f3ea;
+    --color-surface: #ece3cd;
+    --color-band: #362c20;
+    --color-band-surface: #4a3c2c;
+    --color-accent: #6b8068;
+    --color-accent-deep: #4f5f4c;
+    --color-accent-btn: var(--color-accent-deep);
+    --color-accent-on-band: #a2b2a0;
+    --color-muted: #625b4d;
+    --color-border: #ddd0ab;
+    --color-proposal-border: #4f5f4c;
+    --color-on-band: #f5f0e2;
+    --color-on-band-muted: #d6cbb2;
+    --font-heading: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+    --font-body: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 48px;
+    --space-6: 64px;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background-color: var(--color-cream);
+    background-image:
+      repeating-linear-gradient(0deg, rgba(107, 128, 104, 0.06) 0px, rgba(107, 128, 104, 0.06) 1px, transparent 1px, transparent 34px),
+      repeating-linear-gradient(90deg, rgba(107, 128, 104, 0.06) 0px, rgba(107, 128, 104, 0.06) 1px, transparent 1px, transparent 34px);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: var(--color-accent-deep); }
+  a:hover { color: var(--color-accent); }
+
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0 0 var(--space-2);
+    letter-spacing: 0.02em;
+  }
+  p { margin: 0 0 var(--space-2); }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 max(14px, 5vw);
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--color-accent);
+    color: #fff;
+    padding: 10px 16px;
+    z-index: 100;
+    border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus { left: 0; }
+
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: -0.15em;
+    flex-shrink: 0;
+  }
+  .heading-with-icon {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  .heading-with-icon .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--color-accent-deep);
+  }
+  .experience-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    color: var(--color-accent-deep);
+    margin-bottom: 6px;
+  }
+  .special .heading-with-icon .icon,
+  .special .experience-icon,
+  .proto .icon {
+    color: var(--color-accent);
+  }
+  .divider {
+    width: 34px;
+    height: 34px;
+    margin: 0 0 var(--space-3);
+    color: var(--color-accent);
+    display: block;
+  }
+
+  /* ===== 写真 ===== */
+  .figure { margin: 0 0 var(--space-3); }
+  .photo {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(47, 42, 34, 0.16);
+    display: block;
+  }
+  .img-caption {
+    font-size: 0.78rem;
+    color: var(--color-muted);
+    margin: 6px 0 0;
+  }
+  .experience-photo-item { display: grid; gap: var(--space-2); }
+  .experience-photo-item .photo { aspect-ratio: 16 / 10; }
+  @media (min-width: 640px) {
+    .experience-photo-item {
+      grid-template-columns: 160px 1fr;
+      align-items: start;
+    }
+    .experience-photo-item .photo { aspect-ratio: 4 / 3; }
+  }
+
+  /* ===== 提案用ラベル ===== */
+  .proposal-banner {
+    background: var(--color-band);
+    color: var(--color-on-band-muted);
+    text-align: center;
+    padding: 10px var(--space-2);
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+    overflow-wrap: anywhere;
+  }
+  .proposal-banner strong { color: var(--color-on-band); font-weight: 700; }
+
+  /* ===== ボタン ===== */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 12px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    text-align: center;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-weight: 700;
+  }
+  .btn-accent { background: var(--color-accent); color: #fff; }
+  .btn-accent:hover, .btn-accent:focus-visible { background: var(--color-accent-deep); color: #fff; }
+  .btn-outline {
+    background: transparent;
+    border-color: var(--color-accent-deep);
+    color: var(--color-accent-deep);
+  }
+  .btn-outline:hover, .btn-outline:focus-visible {
+    background: var(--color-accent-deep);
+    color: #fff;
+  }
+  .btn-outline-light {
+    background: transparent;
+    border-color: rgba(245, 240, 226, 0.5);
+    color: var(--color-on-band);
+  }
+  .btn-outline-light:hover, .btn-outline-light:focus-visible {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  /* ===== ヒーロー（写真＋オーバーレイ） ===== */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    background: var(--color-band);
+    overflow: hidden;
+  }
+  .hero-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(54, 44, 32, 0.60) 0%, rgba(54, 44, 32, 0.78) 60%, rgba(54, 44, 32, 0.90) 100%);
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    /* padding の一括指定にすると .container の左右余白まで 0 に上書きされ、
+       320px幅で文字が画面の端に貼りついてしまうため、上下だけを指定する。 */
+    padding-block: var(--space-6);
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    color: var(--color-accent);
+    border: 1px solid rgba(107, 128, 104, 0.6);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 {
+    font-size: clamp(1.9rem, 7.5vw, 3rem);
+    margin-bottom: var(--space-1);
+    color: var(--color-on-band);
+  }
+  .hero-copy {
+    font-size: clamp(1.25rem, 4.5vw, 1.6rem);
+    line-height: 1.6;
+    color: #f7f2e4;
+    max-width: 24em;
+    margin-bottom: var(--space-3);
+    font-weight: 700;
+  }
+  .hero-lead {
+    color: var(--color-on-band-muted);
+    max-width: 34em;
+    margin-bottom: var(--space-4);
+  }
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: 320px;
+  }
+
+  /* ===== セクション共通 ===== */
+  section { padding: var(--space-6) 0; }
+  .section-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    color: var(--color-accent-deep);
+    margin-bottom: var(--space-1);
+  }
+  .section-lead { color: var(--color-muted); max-width: 36em; }
+
+  /* ===== コンセプト ===== */
+  .concept { background: var(--color-cream); }
+
+  /* ===== 強み ===== */
+  .strengths { background: var(--color-surface); }
+  .strength-list {
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+  .strength-card {
+    background: var(--color-cream);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: var(--space-3);
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .strength-num {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--color-accent-deep);
+    display: block;
+    margin-bottom: var(--space-1);
+    font-weight: 700;
+  }
+  .strength-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: var(--space-1);
+    min-height: 2.8em;
+    display: flex;
+    align-items: flex-start;
+  }
+  .strength-card p { font-size: 0.92rem; color: var(--color-muted); margin-bottom: 0; }
+
+  /* ===== ブランドの背景 ===== */
+  .story { background: var(--color-cream); }
+  .story-body { max-width: 40em; }
+  .story-body p { margin-bottom: var(--space-2); }
+
+  /* ===== 特に注目したい商品・サービス ===== */
+  .special { background: var(--color-band); color: var(--color-on-band); }
+  .special .section-eyebrow { color: var(--color-accent); }
+  .special .section-lead { color: var(--color-on-band-muted); }
+  .special-card {
+    margin-top: var(--space-4);
+    background: rgba(245, 240, 226, 0.06);
+    border: 1px solid rgba(107, 128, 104, 0.4);
+    border-radius: 14px;
+    padding: var(--space-4);
+  }
+  .special-card h3 {
+    color: #f7f2e4;
+    font-size: clamp(1.15rem, 4vw, 1.45rem);
+  }
+  .special-meta {
+    display: grid;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid rgba(245, 240, 226, 0.2);
+  }
+  .special-meta dt {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin-bottom: 4px;
+  }
+  .special-meta dd { margin: 0 0 var(--space-2); color: var(--color-on-band-muted); }
+  .special-cta { margin-top: var(--space-3); display: flex; flex-direction: column; gap: var(--space-2); }
+
+  /* ===== 過ごし方 ===== */
+  .experience { background: var(--color-surface); }
+  .experience-list {
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+  .experience-list li {
+    border-left: 3px solid var(--color-accent);
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-cream);
+    border-radius: 0 12px 12px 0;
+    min-width: 0;
+  }
+  .experience-list h3 { font-size: 1rem; margin-bottom: 4px; }
+  .experience-list p { margin-bottom: 0; font-size: 0.92rem; color: var(--color-muted); }
+
+  /* ===== 動く新サービス試作 ===== */
+  .proto { background: var(--color-band); color: var(--color-on-band); }
+  .proto-inner {
+    background: rgba(245, 240, 226, 0.05);
+    border: 2px dashed var(--color-proposal-border);
+    border-radius: 16px;
+    padding: var(--space-4);
+  }
+  .proto-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: #fff;
+    background: var(--color-accent);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: var(--space-2);
+  }
+  .proto h2 { color: #f7f2e4; }
+  .proto-lead { color: var(--color-on-band-muted); }
+  .proto-notice {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    background: rgba(107, 128, 104, 0.16);
+    border: 1px solid rgba(107, 128, 104, 0.4);
+    border-radius: 8px;
+    padding: var(--space-2) var(--space-3);
+    color: var(--color-on-band);
+    margin: var(--space-3) 0;
+  }
+  .proto-target { font-size: 0.9rem; color: var(--color-on-band-muted); margin-bottom: var(--space-3); }
+  .proto-target p { margin-bottom: var(--space-1); }
+  .proto-noscript {
+    background: rgba(107, 128, 104, 0.22);
+    border-radius: 8px;
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.9rem;
+  }
+  .proto-app { background: var(--color-band); border-radius: 12px; padding: var(--space-3); margin-top: var(--space-2); }
+  .proto-progress { font-size: 0.82rem; color: var(--color-accent); letter-spacing: 0.08em; margin-bottom: var(--space-2); }
+  #proto-q-title { font-size: clamp(1.02rem, 4vw, 1.25rem); margin-bottom: var(--space-3); }
+  .proto-options { display: grid; gap: var(--space-2); margin-bottom: var(--space-2); }
+  .proto-option {
+    text-align: left;
+    width: 100%;
+    min-height: 44px;
+    padding: 12px 16px 12px 40px;
+    border-radius: 10px;
+    border: 1px solid rgba(245, 240, 226, 0.35);
+    background: rgba(245, 240, 226, 0.04);
+    color: var(--color-on-band);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    cursor: pointer;
+    position: relative;
+  }
+  .proto-option::before {
+    content: "";
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid rgba(245, 240, 226, 0.5);
+  }
+  .proto-option.is-selected { border-color: var(--color-accent); background: rgba(107, 128, 104, 0.22); }
+  .proto-option.is-selected::before {
+    border-color: var(--color-accent);
+    background: var(--color-accent);
+    box-shadow: inset 0 0 0 3px var(--color-band);
+  }
+  .proto-option:hover, .proto-option:focus-visible { border-color: var(--color-accent); }
+  .proto-warning {
+    color: #e7f0e4;
+    background: rgba(107, 128, 104, 0.3);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    margin-bottom: var(--space-2);
+  }
+  .proto-nav { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+  .proto-nav .btn { flex: 1 1 120px; }
+  .proto-result h3 { color: var(--color-accent); font-size: clamp(1.15rem, 4.5vw, 1.45rem); }
+  .proto-result dl { display: grid; gap: var(--space-1); margin: var(--space-3) 0; }
+  .proto-result dt { font-size: 0.78rem; letter-spacing: 0.08em; color: var(--color-accent); margin-top: var(--space-2); }
+  .proto-result dd { margin: 4px 0 0; color: var(--color-on-band-muted); font-size: 0.94rem; }
+  .proto-result-actions { display: flex; flex-direction: column; gap: var(--space-2); margin-top: var(--space-3); }
+
+  /* ===== 店舗情報 ===== */
+  .store-info { background: var(--color-cream); }
+  .info-list { list-style: none; margin: var(--space-4) 0 0; padding: 0; display: grid; gap: var(--space-2); }
+  .info-list li {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: var(--space-2);
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.94rem;
+  }
+  /* 長いURLが列幅を押し広げて画面からはみ出すのを防ぐ。
+     grid の子要素は既定で min-width:auto のため、明示的に 0 を指定する。 */
+  .info-list li > * { min-width: 0; overflow-wrap: anywhere; }
+  /* 320px幅では見出し96pxを確保すると値が狭くなりすぎるので、縦積みにする */
+  @media (max-width: 359px) {
+    .info-list li { grid-template-columns: 1fr; gap: 4px; }
+  }
+  .info-list li:last-child { border-bottom: none; }
+  .info-label { color: var(--color-muted); font-size: 0.85rem; }
+  .info-note { margin-top: var(--space-3); font-size: 0.85rem; color: var(--color-muted); }
+
+  /* ===== 最終CTA ===== */
+  .final-cta { background: var(--color-band); color: var(--color-on-band); text-align: center; }
+  .final-cta h2 { color: #f7f2e4; }
+  .final-cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: 320px;
+    margin: var(--space-4) auto 0;
+  }
+
+  /* ===== フッター ===== */
+  .site-footer { background: var(--color-band); color: var(--color-on-band-muted); padding: var(--space-4) 0; font-size: 0.85rem; }
+  .site-footer .container { display: flex; flex-direction: column; gap: var(--space-2); }
+  .site-footer a { color: var(--color-accent); }
+  .top-link { color: var(--color-accent); text-decoration: none; overflow-wrap: anywhere; }
+  .top-link:hover { color: var(--color-on-band); }
+
+  @media (min-width: 640px) {
+    .strength-list { grid-template-columns: repeat(3, 1fr); }
+    .hero-cta { flex-direction: row; max-width: none; }
+    .final-cta-buttons { flex-direction: row; max-width: none; justify-content: center; }
+    .proto-nav .btn { flex: 0 0 auto; min-width: 140px; }
+  }
+
+  /* ===== 濃い帯・写真の上のアクセント色（コントラスト比 4.5 以上を確保） ===== */
+  .hero-eyebrow,
+  .special .section-eyebrow,
+  .proto .section-eyebrow,
+  .final-cta .section-eyebrow,
+  .special-meta dt,
+  .proto-result dt,
+  .site-footer a,
+  .top-link { color: var(--color-accent-on-band); }
+  .hero-eyebrow { border-color: rgba(162, 178, 160, 0.6); }
+
+
+  /* ===== べた塗り背景のボタン・ラベル（コントラスト比 4.5 以上を確保） ===== */
+  .btn-accent,
+  .proto-label,
+  .special-badge { background: var(--color-accent-btn); }
+  .btn-accent:hover,
+  .btn-accent:focus-visible { background: var(--color-accent-btn); filter: brightness(0.88); }
+
+</style>
+</head>
+<body>
+
+<!-- アイコン用SVGスプライト（装飾用の自作ベクター画像です） -->
+<svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden;">
+  <symbol id="icon-cup" viewBox="0 0 48 48">
+    <path d="M10 19h23v10a11.5 11.5 0 0 1-11.5 11.5A11.5 11.5 0 0 1 10 29z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M33 22h3.5a5 5 0 0 1 0 10H33" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M17 13c-1.2 1.8 1 2.8 0 4.6M23 13c-1.2 1.8 1 2.8 0 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </symbol>
+  <symbol id="icon-chat" viewBox="0 0 48 48">
+    <path d="M8 10h32a2 2 0 0 1 2 2v18a2 2 0 0 1-2 2H20l-8 8v-8h-4a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="icon-drop" viewBox="0 0 48 48">
+    <path d="M24 6C24 6 12 22 12 30a12 12 0 0 0 24 0C36 22 24 6 24 6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="icon-leaf" viewBox="0 0 48 48">
+    <path d="M10 38C10 20 26 8 40 8c0 18-14 30-30 30-2 0-4 0-6 0z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M12 36c8-6 16-14 22-24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </symbol>
+</svg>
+
+<a href="#main-content" class="skip-link">本文へ移動</a>
+
+<!-- 提案用ラベル -->
+<div class="proposal-banner">
+  <strong>CONCEPT LP</strong>／店舗向け提案用ページです。本ページには未導入の提案が含まれます。
+</div>
+
+<main id="main-content">
+
+  <!-- ファーストビュー -->
+  <div class="hero">
+    <img class="hero-photo" src="images/01_hero_storefront.jpg" alt="" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <span class="hero-eyebrow">AKITA / COMMUNITY COFFEE</span>
+      <h1>Jigen Cafe</h1>
+      <p class="hero-copy">コーヒーを飲みながら、地域の人と交流できる場所。</p>
+      <p class="hero-lead">食事メニューを置かず、コーヒーに特化したシンプルな喫茶店です。気さくな店主や地域の人との会話を楽しみながら、ゆっくり過ごせる時間を提供しています。</p>
+      <div class="hero-cta">
+        <a class="btn btn-accent" href="#special">お店について見る</a>
+        <a class="btn btn-outline-light" href="https://www.facebook.com/people/Jigen-Cafe/61559789277045/" target="_blank" rel="noopener noreferrer">公式Facebookを見る</a>
+      </div>
+      <p class="img-caption" style="color:var(--color-on-band-muted);">※イメージ画像です。実際の店舗外観とは異なります。</p>
+    </div>
+  </div>
+
+  <!-- コンセプト -->
+  <section id="concept" class="concept">
+    <div class="container">
+      <svg class="divider"><use href="#icon-leaf"></use></svg>
+      <p class="section-eyebrow">CONCEPT</p>
+      <h2 class="heading-with-icon"><svg class="icon"><use href="#icon-chat"></use></svg>地域の人がコーヒーを飲みながら交流できる場所</h2>
+      <p class="section-lead">公式Facebookでは、地域の人がコーヒーを飲みながら交流できる場所として案内されています。食事メニューを置かず、コーヒーに特化することで、会話やゆったりとした時間そのものを大切にする空間になっています。</p>
+
+      <figure class="figure">
+        <img class="photo" src="images/02_conversation_scene.jpg" alt="コーヒーを飲みながら会話を楽しむ様子のイメージ写真" loading="lazy" width="760" height="570">
+        <figcaption class="img-caption">※イメージ画像です。実際の店舗の様子とは異なります。</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 企業・店舗の強み -->
+  <section id="strengths" class="strengths">
+    <div class="container">
+      <p class="section-eyebrow">STRENGTHS</p>
+      <h2>公式情報から見える、Jigen Cafeの強み</h2>
+      <p class="section-lead">公式Facebookから確認できる情報をもとに、３つの強みとして整理しました。</p>
+      <ul class="strength-list">
+        <li class="strength-card">
+          <span class="strength-num">STRENGTH 01</span>
+          <h3>コーヒーに特化したシンプルなスタイル</h3>
+          <p>食事メニューを置かず、コーヒーのみを提供しています。注文に迷わず、コーヒーそのものに集中できる時間を過ごせます。</p>
+        </li>
+        <li class="strength-card">
+          <span class="strength-num">STRENGTH 02</span>
+          <h3>地域の人との交流を楽しめる空間</h3>
+          <p>「地域の人がコーヒーを飲みながら交流できる場所」がコンセプトです。気さくな店主との会話も楽しめます。</p>
+        </li>
+        <li class="strength-card">
+          <span class="strength-num">STRENGTH 03</span>
+          <h3>手間をかけた水出しアイスコーヒー</h3>
+          <p>アイスコーヒーは水出しで提供しています。じっくり時間をかけて抽出した一杯を楽しめます。</p>
+        </li>
+      </ul>
+
+      <figure class="figure" style="margin-top: var(--space-4);">
+        <img class="photo" src="images/03_cold_brew_iced_coffee.jpg" alt="水出しアイスコーヒーのイメージ写真" loading="lazy" width="760" height="570">
+        <figcaption class="img-caption">※イメージ画像です</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ブランドの背景（創業者情報が確認できないための代替セクション） -->
+  <section id="story" class="story">
+    <div class="container">
+      <svg class="divider"><use href="#icon-leaf"></use></svg>
+      <p class="section-eyebrow">ABOUT</p>
+      <h2>Jigen Cafeが大切にしていること</h2>
+      <div class="story-body">
+        <p>Jigen Cafeの創業者名や詳しい開業の経緯は、公式情報からは確認できません。ただし公式Facebookでは、地域の人がコーヒーを飲みながら交流できる場所として、このお店がオープンしたことが案内されています。</p>
+        <p>食事メニューを置かず、コーヒーだけを提供するシンプルなスタイルは、コーヒーを介した会話や、そうした時間を大切にする店づくりとして捉えることができます。気さくな店主との会話も、Jigen Cafeで過ごす時間の魅力のひとつです。</p>
+      </div>
+
+      <figure class="figure">
+        <img class="photo" src="images/04_barista_counter.jpg" alt="コーヒーを丁寧に淹れる様子のイメージ写真" loading="lazy" width="760" height="570">
+        <figcaption class="img-caption">※イメージ画像です。実際のスタッフとは異なります。</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 特に注目したい商品・サービス -->
+  <section id="special" class="special">
+    <div class="container">
+      <p class="section-eyebrow">FEATURED</p>
+      <h2>特に注目したい商品・サービス</h2>
+      <p class="section-lead">公式Facebookの情報と店舗コンセプトから、Jigen Cafeならではの体験として整理しました。</p>
+      <div class="special-card">
+        <h3 class="heading-with-icon"><svg class="icon"><use href="#icon-cup"></use></svg>コーヒーと、会話を楽しむ時間</h3>
+        <p>Jigen Cafeでは食事メニューを置かず、コーヒーのみを提供するシンプルなスタイルを取っています。店主や地域の人との会話を楽しみながら、ゆっくりコーヒーを味わえる交流型の喫茶サービスです。</p>
+        <dl class="special-meta">
+          <div>
+            <dt>向いている場面</dt>
+            <dd>誰かと会話を楽しみたいとき、地域の人とつながりを持ちたいとき</dd>
+          </div>
+          <div>
+            <dt>もう一つの楽しみ方</dt>
+            <dd>手間をかけた水出しアイスコーヒーで、ひと息つく時間にも</dd>
+          </div>
+        </dl>
+        <div class="special-cta">
+          <a class="btn btn-accent" href="https://www.facebook.com/people/Jigen-Cafe/61559789277045/" target="_blank" rel="noopener noreferrer">公式Facebookを見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗での過ごし方 -->
+  <section id="how-to-enjoy" class="experience">
+    <div class="container">
+      <svg class="divider"><use href="#icon-leaf"></use></svg>
+      <p class="section-eyebrow">HOW TO ENJOY</p>
+      <h2>Jigen Cafeでの過ごし方</h2>
+      <ul class="experience-list">
+        <li class="experience-photo-item">
+          <img class="photo" src="images/06_community_talk.jpg" alt="複数人でコーヒーを囲んで会話する様子のイメージ写真" loading="lazy" width="700" height="525">
+          <div>
+            <svg class="experience-icon" aria-hidden="true"><use href="#icon-chat"></use></svg>
+            <h3>店主や地域の人と会話を楽しむ</h3>
+            <p>気さくな店主や、居合わせた地域の人との会話を楽しみながら過ごせます。</p>
+            <p class="img-caption">※イメージ画像です。実際のスタッフ・お客様とは異なります。</p>
+          </div>
+        </li>
+        <li class="experience-photo-item">
+          <img class="photo" src="images/07_cold_brew_pour.jpg" alt="水出しコーヒーの抽出器具とグラスのイメージ写真" loading="lazy" width="700" height="525">
+          <div>
+            <svg class="experience-icon" aria-hidden="true"><use href="#icon-drop"></use></svg>
+            <h3>水出しアイスコーヒーでひと息つく</h3>
+            <p>手間をかけて抽出した水出しアイスコーヒーで、ゆっくりひと休みできます。</p>
+            <p class="img-caption">※イメージ画像です。</p>
+          </div>
+        </li>
+        <li class="experience-photo-item">
+          <img class="photo" src="images/05_quiet_window_time.jpg" alt="窓辺でコーヒーを味わう様子のイメージ写真" loading="lazy" width="700" height="525">
+          <div>
+            <svg class="experience-icon" aria-hidden="true"><use href="#icon-cup"></use></svg>
+            <h3>コーヒーだけに集中した、シンプルな時間</h3>
+            <p>食事メニューがない分、コーヒーそのものに集中して味わう時間になります。</p>
+            <p class="img-caption">※イメージ画像です。実際のお客様とは異なります。</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 動く新サービス試作 -->
+  <section id="prototype" class="proto">
+    <div class="container">
+      <div class="proto-inner">
+        <span class="proto-label">動く新サービス試作／INTERACTIVE PROTOTYPE</span>
+        <h2>来店タイミング診断</h2>
+        <p class="proto-lead">今日の気分を５つの質問で選ぶと、Jigen Cafeでの過ごし方のタイプをご紹介します。</p>
+
+        <div class="proto-notice">
+          本機能は店舗運営者向けの試作デモです。<br>
+          現在提供中の正式サービスではありません。<br>
+          入力内容の保存・送信は行いません。
+        </div>
+
+        <div class="proto-target">
+          <p><strong>対象のお客様：</strong>はじめて来店される方や、今日のJigen Cafeの雰囲気を知りたい方</p>
+          <p><strong>解決したいこと：</strong>営業日が店主の都合で変わることがあるため、来店前に公式Facebookで営業状況を確認する習慣を自然に案内すること</p>
+          <p><strong>今後の展開案：</strong>今日営業しているかをその場で確認できる表示や、豆・水出しコーヒーの取り置き予約サービスがあれば、より安心して来店計画を立てやすくなります（これは新サービス提案であり、現在提供中のサービスではありません）。</p>
+        </div>
+
+        <noscript>
+          <p class="proto-noscript">この試作デモの利用には JavaScript が必要です。JavaScript を有効にしてページを再度お読み込みください。店舗の情報は JavaScript がなくても、そのままご覧いただけます。</p>
+        </noscript>
+
+        <div class="proto-app">
+
+          <div id="proto-intro">
+            <p style="color:var(--color-on-band-muted); margin-bottom:var(--space-3);">全５問、選択式です。所要時間は１分ほどです。</p>
+            <button type="button" id="proto-start" class="btn btn-accent">診断してみる</button>
+          </div>
+
+          <div id="proto-question" hidden>
+            <p id="proto-progress" class="proto-progress" aria-live="polite">質問 1 / 5</p>
+            <h3 id="proto-q-title">質問文がここに表示されます</h3>
+            <div id="proto-options" class="proto-options" role="radiogroup" aria-labelledby="proto-q-title"></div>
+            <p id="proto-warning" class="proto-warning" role="alert" hidden></p>
+            <div class="proto-nav">
+              <button type="button" id="proto-back" class="btn btn-outline-light">戻る</button>
+              <button type="button" id="proto-next" class="btn btn-accent">次へ</button>
+            </div>
+          </div>
+
+          <div id="proto-result" class="proto-result" hidden aria-live="polite">
+            <h3 id="proto-result-title">結果タイプ名</h3>
+            <dl>
+              <div>
+                <dt>要約</dt>
+                <dd id="proto-result-summary"></dd>
+              </div>
+              <div>
+                <dt>この結果になった理由</dt>
+                <dd id="proto-result-reason"></dd>
+              </div>
+              <div>
+                <dt>おすすめの過ごし方</dt>
+                <dd id="proto-result-recommend"></dd>
+              </div>
+              <div>
+                <dt>来店前のご案内</dt>
+                <dd id="proto-result-connection"></dd>
+              </div>
+            </dl>
+            <div class="proto-result-actions">
+              <a id="proto-result-cta" class="btn btn-accent" href="https://www.facebook.com/people/Jigen-Cafe/61559789277045/" target="_blank" rel="noopener noreferrer">公式Facebookを見る</a>
+              <button type="button" id="proto-restart" class="btn btn-outline-light">最初からやり直す</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section id="store-info" class="store-info">
+    <div class="container">
+      <p class="section-eyebrow">STORE INFO</p>
+      <h2>店舗情報</h2>
+      <ul class="info-list">
+        <li>
+          <span class="info-label">店舗名</span>
+          <span>Jigen Cafe</span>
+        </li>
+        <li>
+          <span class="info-label">営業日</span>
+          <span>店主の都合により変わることがあります。最新の営業状況は公式Facebookでご確認ください。</span>
+        </li>
+        <li>
+          <span class="info-label">公式Facebook</span>
+          <span><a href="https://www.facebook.com/people/Jigen-Cafe/61559789277045/" target="_blank" rel="noopener noreferrer">facebook.com/people/Jigen-Cafe</a></span>
+        </li>
+      </ul>
+      <p class="info-note">住所・電話番号・営業時間など、上記以外の情報は公式Facebook上で確認できなかったため掲載しておりません。最新情報は店舗の公式案内をご確認ください。</p>
+    </div>
+  </section>
+
+  <!-- 最終CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <p class="section-eyebrow">CONTACT</p>
+      <h2>Jigen Cafeについて、もっと知る</h2>
+      <p style="color:var(--color-on-band-muted);">営業状況やお店の様子は、公式Facebookでご覧いただけます。</p>
+      <div class="final-cta-buttons">
+        <a class="btn btn-accent" href="https://www.facebook.com/people/Jigen-Cafe/61559789277045/" target="_blank" rel="noopener noreferrer">公式Facebookを見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- フッター -->
+<footer class="site-footer">
+  <div class="container">
+    <p>Jigen Cafe</p>
+    <p>© Jigen Cafe. All Rights Reserved.</p>
+    <a class="top-link" href="#main-content">ページの先頭へ戻る</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  // 質問データ。各選択肢に category（T/H/C/F/R）を割り当てる。
+  // T=おしゃべり重視 H=ひとり時間 C=涼みたい F=ふらっと立ち寄り R=常連になりたい
+  // 5カテゴリのうち各設問で1カテゴリのみ非表示にし、全カテゴリが5問中4問で
+  // 選択可能になるよう設計（判定ロジックの根拠は下部コメントを参照）。
+  var questions = [
+    {
+      title: '今日はどんな時間を過ごしたい気分ですか？',
+      options: [
+        { label: '静かに一人でゆっくりしたい', category: 'H' },
+        { label: 'すっきり涼みたい気分', category: 'C' },
+        { label: 'ちょっと立ち寄れれば十分', category: 'F' },
+        { label: '顔なじみになるくらい通いたい', category: 'R' }
+      ]
+    },
+    {
+      title: 'コーヒーを飲むときに大事にしたいことは？',
+      options: [
+        { label: '会話を楽しみながら飲みたい', category: 'T' },
+        { label: 'すっきりした後味を楽しみたい', category: 'C' },
+        { label: '深く考えずサッと飲みたい', category: 'F' },
+        { label: '通うほどに馴染む味を見つけたい', category: 'R' }
+      ]
+    },
+    {
+      title: 'お店に行く目的に近いのは？',
+      options: [
+        { label: '店主や地域の人と話したい', category: 'T' },
+        { label: '一人の時間を持ちたい', category: 'H' },
+        { label: '用事のついでに寄りたい', category: 'F' },
+        { label: '定期的に顔を出したい', category: 'R' }
+      ]
+    },
+    {
+      title: '今日の気分にしっくりくるのは？',
+      options: [
+        { label: 'にぎやかな会話がある方がいい', category: 'T' },
+        { label: '静かで落ち着いた雰囲気がいい', category: 'H' },
+        { label: '冷たい一杯でひと息つきたい', category: 'C' },
+        { label: 'いつも通りの安心感がほしい', category: 'R' }
+      ]
+    },
+    {
+      title: 'Jigen Cafeにどんな印象を持っていますか？',
+      options: [
+        { label: '交流できる場所という印象', category: 'T' },
+        { label: '一人でも入りやすそうな印象', category: 'H' },
+        { label: 'シンプルにコーヒーが飲める印象', category: 'C' },
+        { label: '気軽に立ち寄れそうな印象', category: 'F' }
+      ]
+    }
+  ];
+
+  var results = {
+    T: {
+      name: 'おしゃべり重視タイプ',
+      summary: '店主や地域の人との会話を楽しみたい方向けのタイプです。',
+      reason: '「会話を楽しみながら」「交流できる場所」など、人との時間を大事にする選択が中心でした。',
+      recommend: '食事メニューを置かないコーヒー専門のスタイルだからこそ、会話に集中しやすい空間です。',
+      connection: '営業日は店主の都合で変わることがあるため、来店前に公式Facebookで営業状況をご確認いただくのがおすすめです。'
+    },
+    H: {
+      name: 'ひとり時間タイプ',
+      summary: '静かに一人の時間を過ごしたい方向けのタイプです。',
+      reason: '「静かにゆっくり」「一人の時間を持ちたい」など、落ち着いた選択が中心でした。',
+      recommend: 'コーヒーに特化したシンプルな空間なので、一人でも過ごしやすい時間になります。',
+      connection: '営業日は店主の都合で変わることがあるため、来店前に公式Facebookで営業状況をご確認いただくのがおすすめです。'
+    },
+    C: {
+      name: '涼みたいタイプ',
+      summary: 'すっきり涼みたい、冷たい一杯でひと息つきたい方向けのタイプです。',
+      reason: '「涼みたい」「冷たい一杯」「すっきりした後味」など、爽やかな選択が中心でした。',
+      recommend: '手間をかけて抽出する水出しアイスコーヒーが用意されているので、ゆっくり抽出された一杯を楽しめます。',
+      connection: '営業日は店主の都合で変わることがあるため、来店前に公式Facebookで営業状況をご確認いただくのがおすすめです。'
+    },
+    F: {
+      name: 'ふらっと立ち寄りタイプ',
+      summary: '用事のついでに、気軽に立ち寄りたい方向けのタイプです。',
+      reason: '「ついでに寄りたい」「サッと飲みたい」「気軽に立ち寄れそう」など、軽やかな選択が中心でした。',
+      recommend: 'コーヒーのみのシンプルなメニューだから、注文に迷わずすぐに一杯を楽しめます。',
+      connection: '営業日は店主の都合で変わることがあるため、立ち寄る前に公式Facebookで営業状況をご確認いただくのがおすすめです。'
+    },
+    R: {
+      name: '常連になりたいタイプ',
+      summary: '何度も通って、店主や地域の人と顔なじみになりたい方向けのタイプです。',
+      reason: '「顔なじみになるくらい通いたい」「いつも通りの安心感」など、継続した関わりを求める選択が中心でした。',
+      recommend: '地域の人がコーヒーを飲みながら交流できる場所というコンセプトは、通うほどに馴染んでいく関係づくりに向いています。',
+      connection: '営業日は店主の都合で変わることがあるため、来店前に公式Facebookで営業状況をご確認いただくのがおすすめです。'
+    }
+  };
+
+  // 同点時の判定優先順位（最終手段としてのみ使用。基本は最後の質問の回答を優先する）
+  var priorityOrder = ['T', 'H', 'C', 'F', 'R'];
+
+  var state = {
+    current: 0,
+    answers: new Array(questions.length).fill(null)
+  };
+
+  function byId(id) { return document.getElementById(id); }
+
+  function resetAnswers() {
+    state.current = 0;
+    state.answers = new Array(questions.length).fill(null);
+  }
+
+  function hideWarning() {
+    var w = byId('proto-warning');
+    w.hidden = true;
+    w.textContent = '';
+  }
+
+  function showWarning() {
+    var w = byId('proto-warning');
+    w.textContent = '選択肢を1つ選んでください。';
+    w.hidden = false;
+  }
+
+  function renderQuestion() {
+    var q = questions[state.current];
+    byId('proto-progress').textContent = '質問 ' + (state.current + 1) + ' / ' + questions.length;
+    byId('proto-q-title').textContent = q.title;
+
+    var container = byId('proto-options');
+    container.innerHTML = '';
+
+    q.options.forEach(function (opt) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'proto-option';
+      btn.textContent = opt.label;
+      btn.setAttribute('role', 'radio');
+      var selected = state.answers[state.current] === opt.category;
+      btn.setAttribute('aria-checked', selected ? 'true' : 'false');
+      if (selected) { btn.classList.add('is-selected'); }
+
+      btn.addEventListener('click', function () {
+        state.answers[state.current] = opt.category;
+        hideWarning();
+        renderQuestion();
+      });
+
+      container.appendChild(btn);
+    });
+
+    byId('proto-back').disabled = state.current === 0;
+    byId('proto-next').textContent = (state.current === questions.length - 1) ? '結果を見る' : '次へ';
+  }
+
+  function computeResultKey() {
+    var scores = { T: 0, H: 0, C: 0, F: 0, R: 0 };
+    state.answers.forEach(function (cat) {
+      if (cat) { scores[cat] += 1; }
+    });
+
+    var topScore = -1;
+    priorityOrder.forEach(function (cat) {
+      if (scores[cat] > topScore) { topScore = scores[cat]; }
+    });
+    var tied = priorityOrder.filter(function (cat) { return scores[cat] === topScore; });
+
+    if (tied.length === 1) { return tied[0]; }
+
+    // 同点の場合は、最後の質問（来店目的の印象）の回答を優先するタイブレークとする
+    var lastAnswer = state.answers[state.answers.length - 1];
+    if (lastAnswer && tied.indexOf(lastAnswer) !== -1) { return lastAnswer; }
+
+    // それでも決まらない場合のみ、固定の優先順位で決定する
+    var best = tied[0];
+    tied.forEach(function (cat) {
+      if (priorityOrder.indexOf(cat) < priorityOrder.indexOf(best)) { best = cat; }
+    });
+    return best;
+  }
+
+  function showResult() {
+    var key = computeResultKey();
+    var r = results[key];
+
+    byId('proto-question').hidden = true;
+
+    byId('proto-result-title').textContent = r.name;
+    byId('proto-result-summary').textContent = r.summary;
+    byId('proto-result-reason').textContent = r.reason;
+    byId('proto-result-recommend').textContent = r.recommend;
+    byId('proto-result-connection').textContent = r.connection;
+
+    var resultPanel = byId('proto-result');
+    resultPanel.hidden = false;
+    resultPanel.setAttribute('tabindex', '-1');
+    resultPanel.focus();
+  }
+
+  byId('proto-start').addEventListener('click', function () {
+    resetAnswers();
+    byId('proto-intro').hidden = true;
+    byId('proto-result').hidden = true;
+    byId('proto-question').hidden = false;
+    renderQuestion();
+  });
+
+  byId('proto-next').addEventListener('click', function () {
+    if (!state.answers[state.current]) {
+      showWarning();
+      return;
+    }
+    hideWarning();
+    if (state.current === questions.length - 1) {
+      showResult();
+      return;
+    }
+    state.current += 1;
+    renderQuestion();
+  });
+
+  byId('proto-back').addEventListener('click', function () {
+    if (state.current === 0) { return; }
+    state.current -= 1;
+    hideWarning();
+    renderQuestion();
+  });
+
+  byId('proto-restart').addEventListener('click', function () {
+    resetAnswers();
+    byId('proto-result').hidden = true;
+    byId('proto-question').hidden = true;
+    byId('proto-intro').hidden = false;
+    byId('proto-start').focus();
+  });
+})();
+</script>
+
+</body>
+</html>

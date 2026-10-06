@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>マチノミナト COFFEEHOUSE｜自家焙煎コーヒーと秋田の夜が出会う場所｜提案用ページ</title>
+<meta name="description" content="秋田市アトレデルタ1階、マチノミナト COFFEEHOUSE。自家焙煎とダイレクトトレードの豆によるハンドドリップコーヒーを、昼はカフェで、夜は日本酒やクラフトビールと共にパブとして提供。地域と旅人が出会う場所を紹介する提案用ページです。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2b2118">
+<style>
+  :root {
+    --color-primary: #2b2118;
+    --color-secondary: #f4ead8;
+    --color-accent: #b6552f;
+    --color-accent-text: #994727;  /* 明るい地の上に置く文字用 */
+    --color-night: #23303a;
+    --color-night-accent: #e0a94a;
+    --color-surface: #ece0c8;
+    --color-proposal: #eaf1e9;
+    --color-proposal-border: #9fb8a3;
+    --color-text: #2a2016;
+    --color-muted: #6f5d46;
+    --color-border: #ddccae;
+    --font-serif: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-sans: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--color-secondary);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+
+  a { color: inherit; }
+
+  .container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding-left: clamp(14px, 4vw, 32px);
+    padding-right: clamp(14px, 4vw, 32px);
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--color-accent);
+    color: #fff;
+    padding: 10px 16px;
+    z-index: 200;
+    border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus {
+    left: 0;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  /* ---------- Proposal label ---------- */
+  .proposal-bar {
+    background: var(--color-primary);
+    color: var(--color-secondary);
+    text-align: center;
+    padding: 8px 14px;
+    font-size: clamp(12px, 3vw, 13px);
+    letter-spacing: 0.06em;
+    line-height: 1.5;
+  }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-secondary);
+  }
+  .site-header .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .site-title {
+    font-family: var(--font-serif);
+    font-size: clamp(16px, 4.2vw, 20px);
+    letter-spacing: 0.03em;
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+  .site-title span {
+    display: block;
+    font-size: 11px;
+    color: var(--color-muted);
+    font-family: var(--font-sans);
+    letter-spacing: 0.12em;
+    margin-top: 2px;
+  }
+  .header-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    font-size: 13px;
+  }
+  .header-nav a {
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding: 4px 2px;
+  }
+  .header-nav a:hover { border-bottom-color: currentColor; }
+
+  /* ---------- Hero (signature: day -> night split) ---------- */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 96px 0 56px;
+    background: var(--color-primary);
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(43,33,24,0.50) 0%,
+      rgba(43,33,24,0.62) 55%,
+      rgba(43,33,24,0.86) 100%
+    );
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+  }
+  .hero-eyebrow {
+    font-size: clamp(12px, 3vw, 13px);
+    letter-spacing: 0.16em;
+    color: var(--color-secondary);
+    margin: 0 0 14px;
+  }
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(28px, 8vw, 46px);
+    line-height: 1.35;
+    margin: 0 0 18px;
+    color: var(--color-secondary);
+    overflow-wrap: anywhere;
+  }
+  .hero-lead {
+    font-size: clamp(14px, 3.8vw, 17px);
+    max-width: 34em;
+    margin: 0 0 30px;
+    color: var(--color-secondary);
+  }
+  .hero-daynight {
+    display: flex;
+    gap: 10px;
+    margin: 0 0 30px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--color-secondary);
+  }
+  .hero-daynight span {
+    border: 1px solid rgba(244,234,216,0.5);
+    border-radius: 999px;
+    padding: 6px 14px;
+    background: rgba(43,33,24,0.35);
+  }
+  .cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 340px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    border: 1px solid transparent;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .btn-primary {
+    background: var(--color-primary);
+    color: var(--color-secondary);
+  }
+  .btn-outline {
+    background: transparent;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+  .hero .btn-primary {
+    background: var(--color-secondary);
+    color: var(--color-primary);
+  }
+  .hero .btn-outline {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+    background: rgba(43, 33, 24, 0.25);
+  }
+  @media (min-width: 560px) {
+    .cta-group { flex-direction: row; max-width: none; }
+  }
+
+  /* ---------- Sections generic ---------- */
+  section { padding: clamp(48px, 9vw, 88px) 0; }
+  .section-alt { background: var(--color-surface); }
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    color: var(--color-accent-text);
+    margin: 0 0 10px;
+    font-family: var(--font-sans);
+  }
+  h2 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(22px, 6vw, 30px);
+    margin: 0 0 20px;
+    line-height: 1.5;
+  }
+  h3 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(17px, 4.6vw, 20px);
+    margin: 0 0 10px;
+    line-height: 1.6;
+  }
+  p { margin: 0 0 14px; }
+  .lead-text {
+    max-width: 40em;
+    color: var(--color-muted);
+  }
+
+  /* ---------- Strength cards ---------- */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 28px;
+  }
+  @media (min-width: 700px) {
+    .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  }
+  .card {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 22px;
+    min-width: 0;
+    box-shadow: 0 2px 10px rgba(43,33,24,0.05);
+  }
+  .card .num {
+    font-size: 12px;
+    color: var(--color-accent-text);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .card p { font-size: 14.5px; color: var(--color-text); margin-bottom: 8px; }
+  .card .value {
+    font-size: 13.5px;
+    color: var(--color-muted);
+    border-top: 1px dashed var(--color-border);
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+
+  /* ---------- Story ---------- */
+  .story {
+    display: grid;
+    gap: 24px;
+  }
+  @media (min-width: 760px) {
+    .story { grid-template-columns: 1fr 1fr; align-items: start; }
+  }
+  .story-photo {
+    border-radius: 10px;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    min-width: 0;
+  }
+  .concept-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 22px;
+  }
+  .concept-gallery img {
+    border-radius: 10px;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    min-width: 0;
+  }
+  .image-note {
+    font-size: 12.5px;
+    color: var(--color-muted);
+    margin-top: 10px;
+  }
+  .card-photo {
+    border-radius: 8px;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    margin-bottom: 14px;
+  }
+
+  /* ---------- Highlight product ---------- */
+  .highlight {
+    background: var(--color-primary);
+    color: var(--color-secondary);
+  }
+  .highlight .eyebrow { color: var(--color-night-accent); }
+  .highlight-grid {
+    display: grid;
+    gap: 28px;
+    align-items: center;
+  }
+  @media (min-width: 760px) {
+    .highlight-grid { grid-template-columns: 1.1fr 1fr; }
+  }
+  .highlight-visual {
+    border-radius: 10px;
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    object-fit: cover;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .highlight-list {
+    list-style: none;
+    padding: 0;
+    margin: 18px 0 24px;
+    font-size: 14.5px;
+  }
+  .highlight-list li {
+    padding: 10px 0;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .highlight-list li:first-child { border-top: none; }
+  .highlight-list b { display: block; margin-bottom: 4px; font-size: 13px; color: var(--color-night-accent); letter-spacing: 0.04em; }
+
+  /* ---------- Day/Night usage ---------- */
+  .usage-grid {
+    display: grid;
+    gap: 18px;
+    margin-top: 28px;
+  }
+  @media (min-width: 700px) {
+    .usage-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .usage-card {
+    border-radius: 10px;
+    padding: 24px;
+    min-width: 0;
+  }
+  .usage-card.day {
+    background: linear-gradient(160deg, #fbf7ef 0%, #f3e6cd 100%);
+    border: 1px solid var(--color-border);
+  }
+  .usage-card.night {
+    background: linear-gradient(160deg, #2c3a3f 0%, var(--color-night) 100%);
+    color: var(--color-secondary);
+  }
+  .usage-card .eyebrow.on-dark { color: var(--color-night-accent); }
+
+  /* ---------- Proposal / prototype section ---------- */
+  .proposal-section {
+    background: var(--color-proposal);
+    border-top: 3px solid var(--color-proposal-border);
+    border-bottom: 3px solid var(--color-proposal-border);
+  }
+  .proposal-tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    background: var(--color-proposal-border);
+    color: #10221b;
+    padding: 5px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+  .proposal-note {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-proposal-border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 13.5px;
+    color: var(--color-muted);
+    margin: 22px 0 30px;
+    line-height: 1.75;
+  }
+  .proto-meta-grid {
+    display: grid;
+    gap: 14px;
+    margin: 22px 0 30px;
+  }
+  @media (min-width: 700px) {
+    .proto-meta-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .proto-meta {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .proto-meta h3 {
+    margin: 0 0 6px;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    color: var(--color-accent-text);
+  }
+  .proto-meta p { font-size: 14px; margin: 0; }
+
+  .proto-cta { margin-top: 8px; }
+  [hidden] { display: none !important; }
+
+  /* ---------- Store info ---------- */
+  .info-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 0;
+    display: grid;
+    gap: 0;
+    border-top: 1px solid var(--color-border);
+  }
+  .info-list li {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 14.5px;
+  }
+  .info-list dt, .info-list .term {
+    color: var(--color-muted);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+  .info-list a { overflow-wrap: anywhere; text-decoration: underline; }
+
+  /* ---------- Final CTA ---------- */
+  .final-cta {
+    background: var(--color-primary);
+    color: var(--color-secondary);
+    text-align: center;
+  }
+  .final-cta .cta-group { margin: 26px auto 0; justify-content: center; }
+  .final-cta .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); }
+
+  /* ---------- Footer ---------- */
+  .site-footer {
+    padding: 32px 0 40px;
+    text-align: center;
+    font-size: 12.5px;
+    color: var(--color-muted);
+    border-top: 1px solid var(--color-border);
+  }
+  .site-footer a { text-decoration: underline; }
+  .site-footer p { margin: 6px 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
+<!-- 提案用ラベル -->
+<div class="proposal-bar" role="note">
+  CONCEPT LP ／ 店舗向け提案用ページです。本ページには未導入の新サービス提案・試作デモが含まれます。<br>
+  ※本ページの掲載画像は、店舗の世界観を表現したイメージ画像です。
+</div>
+
+<main id="main-content">
+
+  <!-- ファーストビュー -->
+  <section class="hero">
+    <img class="hero-bg" src="images/hero_exterior_main_16x9.webp" alt="マチノミナト COFFEEHOUSEの外観イメージ" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <p class="hero-eyebrow">マチノミナト COFFEEHOUSE — Atle DELTA 1F</p>
+      <h1>暮らしの中に、旅の出会いと偶然を。</h1>
+      <p class="hero-lead">
+        自家焙煎とダイレクトトレードの豆で淹れるハンドドリップコーヒーを、昼はカフェで、
+        夜は秋田の日本酒やクラフトビールとともにパブとして提供。地域の人と旅人が出会う場所です。
+      </p>
+      <p class="hero-daynight">
+        <span>DAY：CAFE</span>
+        <span>NIGHT：PUB</span>
+      </p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="#strengths">店舗について見る</a>
+        <a class="btn btn-outline" href="https://www.instagram.com/machinominato/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- コンセプト -->
+  <section aria-labelledby="concept-heading">
+    <div class="container">
+      <div class="story">
+        <div>
+          <p class="eyebrow">CONCEPT</p>
+          <h2 id="concept-heading">世界と地域が出会う、まちの入り口</h2>
+          <p class="lead-text">
+            マチノミナト COFFEEHOUSEは、複合拠点「Atle DELTA」の1階にあるコーヒーハウスです。
+            世界の食文化を秋田の食材と掛け合わせ、旅人も地元の常連さんも、誰もが立ち寄れる場所として営業しています。
+            昼はコーヒーをゆっくり楽しむ時間、夜は日本酒やクラフトビールを片手に会話が生まれる時間へと、
+            1つの空間が姿を変えていきます。
+          </p>
+        </div>
+        <img class="story-photo" src="images/interior_wide_4x3.webp" alt="マチノミナト COFFEEHOUSEの店内の様子" loading="lazy">
+      </div>
+      <div class="concept-gallery">
+        <img src="images/food_avocado_toast_4x3.webp" alt="コーヒーとともに楽しめる軽食のイメージ画像" loading="lazy">
+        <img src="images/dessert_latte_4x3.webp" alt="ラテとスイーツのイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 企業・店舗の強み -->
+  <section id="strengths" class="section-alt" aria-labelledby="strengths-heading">
+    <div class="container">
+      <p class="eyebrow">公式情報から見える、この店舗の強み</p>
+      <h2 id="strengths-heading">企業・店舗の強み</h2>
+      <p class="lead-text">競合との比較ではなく、公式に確認できる特徴だけを根拠に整理しています。</p>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <span class="num">STRENGTH 01</span>
+          <h3>産地のストーリーごと届けるコーヒー</h3>
+          <p>店内で自家焙煎した豆や、生産者から直接仕入れたダイレクトトレードの豆を使用。</p>
+          <p class="value">お客様にとっての価値：一杯のコーヒーとともに、豆が育った産地の背景まで味わえます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/exterior_front_4x3.webp" alt="昼のマチノミナト COFFEEHOUSE外観のイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 02</span>
+          <h3>昼と夜で表情を変える一つの空間</h3>
+          <p>昼はコーヒーハウス、夜は秋田県内の日本酒やクラフトビールを楽しめるパブとして営業。</p>
+          <p class="value">お客様にとっての価値：目的や時間帯に合わせて、同じ場所を違う気分で利用できます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/customer_scene_4x3.webp" alt="店内でくつろぐお客様の様子のイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 03</span>
+          <h3>地域住民と旅人がまじわる場所</h3>
+          <p>宿泊者やコワーキング利用者、地域住民が同じ空間で自然に行き交うAtle DELTAの1階に位置します。</p>
+          <p class="value">お客様にとっての価値：一人でも、知らない誰かとの会話が生まれる可能性を楽しめます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ブランドストーリー -->
+  <section id="story" aria-labelledby="story-heading">
+    <div class="container">
+      <div class="story">
+        <div>
+          <p class="eyebrow">BRAND STORY</p>
+          <h2 id="story-heading">ブランドの背景にある、代表の歩み</h2>
+          <p>
+            運営会社である株式会社アウトクロップの代表取締役・栗原エミル氏は、ドイツ生まれ、京都育ち。
+            大学進学を機に秋田へ移り住みました。
+          </p>
+          <p>
+            秋田で制作した短編映画をきっかけに、この土地に残ることを決意。2020年、地域に新しい流れを
+            生み出す拠点をつくる思いから、株式会社アウトクロップを共同創業しました。
+          </p>
+          <p>
+            その拠点の一つとして展開しているのが、複合施設「Atle DELTA」であり、
+            1階のマチノミナト COFFEEHOUSEも、その考え方の延長線上にあります。
+          </p>
+        </div>
+        <img class="story-photo" src="images/exterior_night_4x3.webp" alt="夜のマチノミナト COFFEEHOUSE外観のイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 一押し商品 -->
+  <section id="highlight" class="highlight" aria-labelledby="highlight-heading">
+    <div class="container">
+      <div class="highlight-grid">
+        <div>
+          <p class="eyebrow">特に注目したい商品</p>
+          <h2 id="highlight-heading">自家焙煎・ダイレクトトレード豆の<br>ハンドドリップコーヒー</h2>
+          <p style="color:#e7dfd0;">
+            店舗のコンセプトを最も象徴する一杯です。豆の生産地や生産者のストーリーとともに、
+            ゆっくりとした時間を楽しめます。
+          </p>
+          <ul class="highlight-list">
+            <li><b>特徴</b>店内焙煎の豆と、生産者から直接仕入れたダイレクトトレードの豆を使用したハンドドリップ。</li>
+            <li><b>おすすめの利用場面</b>昼のカフェタイムに、産地のストーリーを聞きながらゆっくり過ごしたいとき。</li>
+            <li><b>店舗の強みとのつながり</b>「産地のストーリーごと届けるコーヒー」という強みを最も体感できるメニューです。</li>
+          </ul>
+          <div class="cta-group">
+            <a class="btn btn-outline" style="border-color:#fff;color:#fff;" href="https://atledelta.com/eat-and-talk/" target="_blank" rel="noopener noreferrer">公式サイトで見る</a>
+          </div>
+        </div>
+        <img class="highlight-visual" src="images/barista_pour_over_4x3.webp" alt="ハンドドリップコーヒーを淹れる様子のイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 過ごし方 -->
+  <section class="section-alt" aria-labelledby="usage-heading">
+    <div class="container">
+      <p class="eyebrow">USAGE SCENE</p>
+      <h2 id="usage-heading">店舗での過ごし方</h2>
+      <div class="usage-grid">
+        <div class="usage-card day" id="usage-day">
+          <img class="card-photo" src="images/food_avocado_toast_4x3.webp" alt="昼のカフェタイムに提供される軽食のイメージ画像" loading="lazy">
+          <p class="eyebrow">DAY：CAFE</p>
+          <h3>昼は、コーヒーとともにゆっくりと</h3>
+          <p style="font-size:14.5px;">
+            自家焙煎やダイレクトトレードの豆で淹れた本格コーヒーを、産地のストーリーとともに楽しめる時間です。
+          </p>
+        </div>
+        <div class="usage-card night" id="usage-night">
+          <img class="card-photo" src="images/exterior_night_4x3.webp" alt="夜、パブとして営業する時間帯のイメージ画像" loading="lazy">
+          <p class="eyebrow on-dark">NIGHT：PUB</p>
+          <h3>夜は、パブとして会話が生まれる時間へ</h3>
+          <p style="font-size:14.5px;">
+            秋田県内の日本酒やクラフトビールを楽しみながら、地域の人と旅人が自然に言葉を交わす時間に変わります。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 動く新サービス試作 -->
+  <section id="proto" class="proposal-section" aria-labelledby="proto-heading">
+    <div class="container">
+      <span class="proposal-tag">INTERACTIVE PROTOTYPE ／ 動く新サービス試作</span>
+      <h2 id="proto-heading">コーヒー豆診断（新サービス提案）</h2>
+      <p class="lead-text">
+        好みの味わいから、お客様に合うコーヒー豆を案内する新サービスの提案です。
+        店舗運営者向けに、実際に操作できる試作版を別ページで公開しています。
+      </p>
+
+      <div class="proto-meta-grid">
+        <div class="proto-meta">
+          <h3>対象顧客</h3>
+          <p>初めて来店する方や、豆の選び方に迷う旅行者・地域のお客様。</p>
+        </div>
+        <div class="proto-meta">
+          <h3>解決する課題</h3>
+          <p>豆の種類が多く選びにくいという悩みに対し、好みから傾向を絞り込める入口をつくります。</p>
+        </div>
+        <div class="proto-meta">
+          <h3>店舗の強みとの相性</h3>
+          <p>産地のストーリーを届けるという強みを、診断という体験を通じて伝えやすくします。</p>
+        </div>
+        <div class="proto-meta">
+          <h3>小さく始める方法</h3>
+          <p>まずは店頭のQRコードやSNSからこの診断へご案内し、反応を見ながら質問内容を調整する形が考えられます。</p>
+        </div>
+      </div>
+
+      <p class="proposal-note">
+        本機能は店舗運営者向けの試作デモです。現在提供中の正式サービスではありません。入力内容の保存・送信は行いません。
+      </p>
+
+      <div class="proto-cta">
+        <a class="btn btn-primary" href="https://coffee-diagnosis-app.netlify.app/index.html" target="_blank" rel="noopener noreferrer">コーヒー豆診断を試してみる（別ウィンドウで開きます）</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section id="info" aria-labelledby="info-heading">
+    <div class="container">
+      <p class="eyebrow">STORE INFORMATION</p>
+      <h2 id="info-heading">店舗情報</h2>
+      <ul class="info-list">
+        <li>
+          <span class="term">店舗名</span>
+          <span>マチノミナト COFFEEHOUSE（Atle DELTA 1F）</span>
+        </li>
+        <li>
+          <span class="term">住所</span>
+          <span>〒010-0904 秋田県秋田市保戸野原の町7-68 Atle DELTA<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%BF%9D%E6%88%B8%E9%87%8E%E5%8E%9F%E3%81%AE%E7%94%BA7-68%20Atle%20DELTA" target="_blank" rel="noopener noreferrer">Googleマップで見る</a>
+          </span>
+        </li>
+        <li>
+          <span class="term">営業時間</span>
+          <span>最新の営業時間は公式Instagramでの情報発信をご確認ください。</span>
+        </li>
+        <li>
+          <span class="term">公式サイト</span>
+          <span><a href="https://atledelta.com/eat-and-talk/" target="_blank" rel="noopener noreferrer">atledelta.com/eat-and-talk</a></span>
+        </li>
+        <li>
+          <span class="term">Instagram</span>
+          <span><a href="https://www.instagram.com/machinominato/" target="_blank" rel="noopener noreferrer">https://www.instagram.com/machinominato/</a></span>
+        </li>
+        <li>
+          <span class="term">運営会社</span>
+          <span>株式会社アウトクロップ</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 最終CTA -->
+  <section class="final-cta" aria-labelledby="final-cta-heading">
+    <div class="container">
+      <h2 id="final-cta-heading">最新情報は、公式のご案内をご確認ください</h2>
+      <p style="color:#e7dfd0;">来店・営業時間・お問い合わせについては、公式サイトまたはInstagramをご覧ください。</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" style="background:#fff;color:var(--color-primary);" href="https://atledelta.com/eat-and-talk/" target="_blank" rel="noopener noreferrer">公式サイトを見る</a>
+        <a class="btn btn-outline" href="https://www.instagram.com/machinominato/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- フッター -->
+<footer class="site-footer">
+  <div class="container">
+    <p>マチノミナト COFFEEHOUSE（Atle DELTA）</p>
+    <p>© マチノミナト COFFEEHOUSE. All Rights Reserved.</p>
+    <p><a href="#main-content">ページの先頭へ戻る</a></p>
+  </div>
+</footer>
+
+
+</body>
+</html>
