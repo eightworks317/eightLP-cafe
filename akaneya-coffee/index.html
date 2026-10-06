@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>茜屋珈琲店｜秋田駅前で、変わらぬ一杯を｜提案用ページ</title>
+<meta name="description" content="秋田駅西口から徒歩約3分。カウンターとテーブル席が並ぶ、昔ながらの喫茶店・茜屋珈琲店の魅力と可能性をまとめた提案用ページです。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1c130f">
+<style>
+  :root {
+    --color-bg: #1c130f;
+    --color-bg-alt: #241a14;
+    --color-surface: #2b1f18;
+    --color-surface-2: #33251c;
+    --color-primary: #f4e9da;
+    --color-secondary: #cbb89c;
+    --color-accent: #b3492f;
+    --color-accent-btn: #a6442c;
+    --color-accent-light: #d3684a;
+    --color-gold: #c9a24a;
+    --color-proposal-bg: #1c2b25;
+    --color-proposal-border: #5c8d74;
+    --color-proposal-text: #cfe3d8;
+    --color-border: #3c2e24;
+    --color-muted: #a9998a;
+    --font-serif: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-sans: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 48px;
+    --space-6: 64px;
+    --space-7: 96px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background-color: var(--color-bg);
+    color: var(--color-primary);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.8;
+    overflow-x: hidden;
+    background-image:
+      repeating-linear-gradient(135deg, rgba(201, 162, 74, 0.05) 0px, rgba(201, 162, 74, 0.05) 1px, transparent 1px, transparent 26px),
+      repeating-linear-gradient(45deg, rgba(179, 73, 47, 0.045) 0px, rgba(179, 73, 47, 0.045) 1px, transparent 1px, transparent 26px),
+      radial-gradient(ellipse at top, rgba(201, 162, 74, 0.08), transparent 60%);
+    background-attachment: scroll;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--color-accent);
+    color: var(--color-primary);
+    padding: var(--space-2) var(--space-3);
+    z-index: 100;
+    border-radius: 4px;
+  }
+  .skip-link:focus {
+    left: var(--space-2);
+    top: var(--space-2);
+  }
+
+  a { color: var(--color-gold); }
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  label:focus-within {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 var(--space-3);
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0 0 var(--space-2);
+  }
+
+  h2 {
+    font-size: clamp(1.35rem, 1.1rem + 1vw, 1.9rem);
+    padding-bottom: var(--space-1);
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--space-3);
+  }
+
+  h3 {
+    font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.3rem);
+    color: var(--color-gold);
+  }
+
+  p { margin: 0 0 var(--space-2); }
+  p:last-child { margin-bottom: 0; }
+
+  .muted { color: var(--color-muted); }
+
+  section {
+    padding: var(--space-6) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  section:last-of-type { border-bottom: none; }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    color: var(--color-gold);
+    border: 1px solid var(--color-gold);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: var(--space-2);
+  }
+
+  /* ===== Hero ===== */
+  #hero {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-6);
+    position: relative;
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .hero-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      linear-gradient(180deg, rgba(28,19,15,0.55) 0%, rgba(28,19,15,0.8) 55%, rgba(28,19,15,0.95) 100%);
+  }
+
+  #hero .wrap {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ===== Photo blocks (cards / sections) ===== */
+  .photo-block {
+    margin-bottom: var(--space-2);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+  }
+  .photo-block img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+  }
+  .img-caption {
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    margin-top: 4px;
+    letter-spacing: 0.03em;
+  }
+  .special-card .photo-block,
+  .scene-card .photo-block {
+    margin-top: 0;
+    margin-bottom: var(--space-2);
+  }
+
+  .proposal-banner {
+    background: var(--color-surface);
+    border: 1px solid var(--color-gold);
+    color: var(--color-secondary);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    padding: var(--space-1) var(--space-2);
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: var(--space-3);
+  }
+
+  .hero-title {
+    font-size: clamp(2.1rem, 1.6rem + 2.4vw, 3.4rem);
+    letter-spacing: 0.04em;
+  }
+
+  .hero-copy {
+    font-family: var(--font-serif);
+    font-size: clamp(1.1rem, 1rem + 0.5vw, 1.4rem);
+    color: var(--color-secondary);
+    margin-bottom: var(--space-2);
+  }
+
+  .hero-lead {
+    max-width: 30ch;
+    color: var(--color-secondary);
+    line-height: 1.9;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  .steam-cup {
+    width: 84px;
+    height: auto;
+    margin: var(--space-4) 0 var(--space-3);
+    overflow: visible;
+  }
+  .steam-line {
+    stroke: var(--color-gold);
+    stroke-width: 2.5;
+    fill: none;
+    stroke-linecap: round;
+    opacity: 0.85;
+    transform-origin: center bottom;
+    animation: steam-rise 4s ease-in-out infinite;
+  }
+  .steam-line.s2 { animation-delay: .6s; }
+  .steam-line.s3 { animation-delay: 1.2s; }
+  @keyframes steam-rise {
+    0%   { opacity: 0; transform: translateY(4px) scaleY(0.9); }
+    30%  { opacity: 0.85; }
+    80%  { opacity: 0; transform: translateY(-14px) scaleY(1.1); }
+    100% { opacity: 0; transform: translateY(-14px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .steam-line { animation: none; opacity: 0.6; }
+  }
+
+  .cta-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+    max-width: 360px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: var(--space-2) var(--space-3);
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    font-size: 0.98rem;
+    text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    line-height: 1.4;
+  }
+  .btn-primary {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+  .btn-primary:hover { background: var(--color-accent-light); }
+  .btn-outline {
+    background: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-gold);
+  }
+  .btn-outline:hover { background: rgba(201,162,74,0.12); }
+
+  /* ===== Strength cards ===== */
+  .strength-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    align-items: stretch;
+  }
+  .strength-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-width: 0;
+  }
+  .strength-card .card-head {
+    margin-bottom: var(--space-2);
+  }
+  .strength-card .label {
+    font-size: 0.75rem;
+    color: var(--color-gold);
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .strength-card .card-head h3 {
+    font-size: 1.18rem;
+    line-height: 1.45;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .strength-card .card-summary {
+    margin-bottom: var(--space-2);
+    color: var(--color-secondary);
+    font-size: 0.98rem;
+    line-height: 1.85;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .nowrap { white-space: nowrap; }
+  .value-line {
+    margin-top: auto;
+    padding-top: var(--space-2);
+    border-top: 1px dashed var(--color-border);
+    color: var(--color-secondary);
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  /* ===== Story ===== */
+  .story-box {
+    background: var(--color-bg-alt);
+    border-left: 3px solid var(--color-gold);
+    padding: var(--space-3) var(--space-3);
+    border-radius: 4px;
+  }
+
+  /* ===== Special product ===== */
+  .special-card {
+    background: linear-gradient(160deg, var(--color-surface-2), var(--color-surface));
+    border: 1px solid var(--color-gold);
+    border-radius: 12px;
+    padding: var(--space-4);
+    position: relative;
+  }
+  .special-card .eyebrow { background: rgba(201,162,74,0.12); }
+  .special-name {
+    font-family: var(--font-serif);
+    font-size: clamp(1.4rem, 1.2rem + 1vw, 1.9rem);
+    color: var(--color-primary);
+    margin-bottom: var(--space-2);
+  }
+  .special-list {
+    margin: var(--space-3) 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: var(--space-2);
+  }
+  .special-list li {
+    padding-left: var(--space-3);
+    position: relative;
+    color: var(--color-secondary);
+  }
+  .special-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+
+  /* ===== Scenes ===== */
+  .scene-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  .scene-card {
+    background: var(--color-surface);
+    border-radius: 10px;
+    padding: var(--space-3);
+    border: 1px solid var(--color-border);
+    min-width: 0;
+  }
+  .scene-num {
+    font-family: var(--font-serif);
+    color: var(--color-gold);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* ===== Proposal / prototype ===== */
+  .proposal-block {
+    background: var(--color-proposal-bg);
+    border-top: 1px dashed var(--color-proposal-border);
+    border-bottom: 1px dashed var(--color-proposal-border);
+  }
+  .proposal-block h2 { color: var(--color-primary); border-bottom-color: var(--color-proposal-border); }
+  .proto-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    color: var(--color-proposal-text);
+    border: 1px solid var(--color-proposal-border);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: var(--space-2);
+  }
+  .proto-intro {
+    color: var(--color-proposal-text);
+    max-width: 56ch;
+  }
+  .proto-notice {
+    background: rgba(0,0,0,0.2);
+    border: 1px solid var(--color-proposal-border);
+    border-radius: 8px;
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.95rem;
+    color: var(--color-proposal-text);
+    margin: var(--space-3) 0;
+  }
+
+  .proto-panel {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-proposal-border);
+    border-radius: 12px;
+    padding: var(--space-3);
+    margin-top: var(--space-3);
+  }
+
+  .proto-progress {
+    font-size: 0.85rem;
+    color: var(--color-proposal-text);
+    margin-bottom: var(--space-2);
+  }
+
+  .quiz-step { display: none; }
+  .quiz-step.is-active { display: block; }
+
+  .quiz-step legend {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    padding: 0;
+    margin-bottom: var(--space-2);
+  }
+
+  .option-list { display: grid; gap: var(--space-2); margin: 0; padding: 0; }
+
+  .option-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    border: 1px solid var(--color-proposal-border);
+    border-radius: 8px;
+    padding: var(--space-2) var(--space-2);
+    cursor: pointer;
+    background: rgba(255,255,255,0.02);
+  }
+  .option-label:hover { background: rgba(92,141,116,0.15); }
+  .option-label input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--color-gold);
+    flex-shrink: 0;
+  }
+  .option-label:has(input:checked) {
+    border-color: var(--color-gold);
+    background: rgba(201,162,74,0.12);
+  }
+  .option-label input:checked + span { font-weight: 600; }
+
+  .quiz-nav {
+    display: flex;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .quiz-error {
+    color: #f0b0a0;
+    font-size: 0.9rem;
+    margin-top: var(--space-2);
+    min-height: 1.4em;
+  }
+
+  .result-panel { display: none; }
+  .result-panel.is-active { display: block; }
+
+  .result-name {
+    font-family: var(--font-serif);
+    font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem);
+    color: var(--color-primary);
+    margin-bottom: var(--space-1);
+  }
+
+  .result-fact-box {
+    background: rgba(0,0,0,0.18);
+    border-radius: 8px;
+    padding: var(--space-2) var(--space-2);
+    margin: var(--space-2) 0;
+    font-size: 0.95rem;
+    color: var(--color-proposal-text);
+  }
+
+  .result-proposal-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: #1c130f;
+    background: var(--color-gold);
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-bottom: var(--space-2);
+  }
+
+  /* ===== Info ===== */
+  .info-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+  .info-list dt {
+    font-size: 0.78rem;
+    color: var(--color-gold);
+    letter-spacing: 0.06em;
+  }
+  .info-list dd {
+    margin: 2px 0 var(--space-2);
+    color: var(--color-secondary);
+    overflow-wrap: anywhere;
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    padding: var(--space-5) 0 var(--space-6);
+    text-align: center;
+    color: var(--color-muted);
+    font-size: 0.85rem;
+  }
+  footer a { color: var(--color-secondary); }
+
+  @media (min-width: 640px) {
+    .strength-grid { grid-template-columns: repeat(3, 1fr); }
+    .scene-grid { grid-template-columns: repeat(3, 1fr); }
+    .cta-row { flex-direction: row; max-width: none; }
+    .quiz-nav .btn { min-width: 120px; }
+    .strength-card .card-head { min-height: 5.7rem; }
+    .strength-card .card-summary { min-height: 9.2rem; }
+    .strength-card .value-line { min-height: 9.7rem; }
+  }
+
+  @media (max-width: 639px) {
+    .strength-card .card-head,
+    .strength-card .card-head h3,
+    .strength-card .card-summary,
+    .strength-card .value-line {
+      min-height: auto;
+    }
+  }
+
+  /* ===== べた塗り背景のボタン・ラベル（コントラスト比 4.5 以上を確保） ===== */
+  .btn-primary { background: var(--color-accent-btn); }
+  .btn-primary:hover { background: var(--color-accent-btn); filter: brightness(0.88); }
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">本文へスキップ</a>
+
+<main id="main-content">
+
+  <!-- ===== ファーストビュー ===== -->
+  <section id="hero">
+    <img class="hero-bg-img" src="images/01_hero_exterior.jpg" alt="茜屋珈琲店の店構えのイメージ" width="1600" height="900" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="wrap">
+      <span class="proposal-banner">CONCEPT LP ／ 本ページには未導入の提案が含まれます</span>
+      <h1 class="hero-title">茜屋珈琲店</h1>
+      <p class="hero-copy">秋田駅前で、変わらぬ一杯を。</p>
+      <p class="hero-lead">秋田駅西口から徒歩約3分。<wbr>カウンター席とテーブル席が並ぶ、<wbr>昔ながらの喫茶店です。</p>
+
+      <svg class="steam-cup" viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <path class="steam-line s1" d="M35 30 C 32 22, 40 18, 37 10" />
+        <path class="steam-line s2" d="M50 30 C 47 22, 55 18, 52 10" />
+        <path class="steam-line s3" d="M65 30 C 62 22, 70 18, 67 10" />
+        <path d="M20 40 h55 v18 c0 12 -12 20 -27.5 20 S20 70 20 58 Z" fill="none" stroke="#c9a24a" stroke-width="2.5"/>
+        <path d="M75 45 c14 -4 14 20 0 18" fill="none" stroke="#c9a24a" stroke-width="2.5"/>
+        <line x1="14" y1="78" x2="86" y2="78" stroke="#c9a24a" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#special">一押しのコーヒーを見る</a>
+        <a class="btn btn-outline" href="#proto">自分に合う過ごし方を診断する</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 企業・店舗の強み ===== -->
+  <section id="strength" aria-labelledby="strength-heading">
+    <div class="wrap">
+      <span class="eyebrow">公式情報から見える、この店舗の強み</span>
+      <h2 id="strength-heading">茜屋珈琲店ならではの魅力</h2>
+      <div class="strength-grid">
+        <div class="strength-card">
+          <div class="photo-block">
+            <img src="images/01_hero_exterior.jpg" alt="茜屋珈琲店の外観のイメージ" width="1600" height="900" loading="lazy">
+          </div>
+          <p class="img-caption">イメージ画像</p>
+          <div class="card-head">
+            <p class="label">立地</p>
+            <h3>秋田駅から<wbr>すぐの好立地</h3>
+          </div>
+          <p class="card-summary">秋田駅西口から<span class="nowrap">徒歩約3分</span>の場所にあります。</p>
+          <p class="value-line">待ち合わせの前後や、外出のついでにも<span class="nowrap">立ち寄りやすい</span>距離です。</p>
+        </div>
+        <div class="strength-card">
+          <div class="photo-block">
+            <img src="images/02_signature_cup.jpg" alt="茜屋珈琲店の店内の様子のイメージ" width="1600" height="900" loading="lazy">
+          </div>
+          <p class="img-caption">イメージ画像</p>
+          <div class="card-head">
+            <p class="label">空間</p>
+            <h3>落ち着いた<wbr>喫茶店の空間</h3>
+          </div>
+          <p class="card-summary">クラシックで<span class="nowrap">落ち着いた</span>、昔ながらの<span class="nowrap">喫茶店らしい</span>店内です。</p>
+          <p class="value-line">せわしない一日の中でも、ゆったりとした<span class="nowrap">時間の流れ</span>を感じられます。</p>
+        </div>
+        <div class="strength-card">
+          <div class="photo-block">
+            <img src="images/04_window_break.jpg" alt="茜屋珈琲店のカウンター席のイメージ" width="1600" height="900" loading="lazy">
+          </div>
+          <p class="img-caption">イメージ画像</p>
+          <div class="card-head">
+            <p class="label">客席</p>
+            <h3>ひとりでも<wbr>過ごせる客席</h3>
+          </div>
+          <p class="card-summary"><span class="nowrap">カウンター席</span>と<span class="nowrap">テーブル席</span>の両方があります。</p>
+          <p class="value-line">おひとり様でもコーヒーをゆっくり楽しみやすい造りです。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ブランドの背景（創業者ストーリー代替） ===== -->
+  <section id="story" aria-labelledby="story-heading">
+    <div class="wrap">
+      <span class="eyebrow">地域とのつながり</span>
+      <h2 id="story-heading">秋田駅前で続いてきた時間</h2>
+      <div class="story-box">
+        <p>創業者や開業当時の経緯について、信頼できる公開情報は確認できていません。ただし、少なくとも2007年には店舗の記録が残っており、秋田駅前で長く営業を続けてきた喫茶店であることが分かっています。</p>
+        <p class="muted">駅前という場所柄、通勤・通学の合間や旅先の一息に、これまで多くの時間がこの店内で流れてきたと考えられます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 一押し商品・サービス ===== -->
+  <section id="special" aria-labelledby="special-heading">
+    <div class="wrap">
+      <h2 id="special-heading" style="border-bottom:none; margin-bottom:var(--space-2);">特に注目したい一杯</h2>
+      <div class="special-card">
+        <div class="photo-block">
+          <img src="images/03_counter_time.jpg" alt="茜屋珈琲店の茜屋ぶれんどコーヒーのイメージ" width="1600" height="900" loading="lazy">
+        </div>
+        <p class="img-caption">イメージ画像</p>
+        <span class="eyebrow">一押し商品</span>
+        <p class="special-name">茜屋ぶれんどコーヒー</p>
+        <p>利用者から店舗を代表するコーヒーとして紹介されており、丁寧にペーパードリップで淹れるスタイルが言及されています。</p>
+        <ul class="special-list">
+          <li>ひとつひとつ丁寧に、ペーパードリップで淹れられた一杯</li>
+          <li>落ち着いたクラシックな店内で、ゆっくりと味わえる</li>
+          <li>ひとりの時間にも、誰かと過ごす時間にも合わせやすい</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 店舗での過ごし方 ===== -->
+  <section id="scenes" aria-labelledby="scenes-heading">
+    <div class="wrap">
+      <span class="eyebrow">この店舗ならではの魅力</span>
+      <h2 id="scenes-heading">茜屋珈琲店での過ごし方</h2>
+      <div class="scene-grid">
+        <div class="scene-card">
+          <div class="photo-block">
+            <img src="images/04_window_break.jpg" alt="茜屋珈琲店のカウンター席のイメージ" width="1600" height="900" loading="lazy">
+          </div>
+          <p class="img-caption">イメージ画像</p>
+          <p class="scene-num">01</p>
+          <h3>カウンターでひとり時間を</h3>
+          <p>カウンター席で、丁寧に淹れられた一杯とともに静かなひとときを。</p>
+        </div>
+        <div class="scene-card">
+          <div class="photo-block">
+            <img src="images/02_signature_cup.jpg" alt="茜屋珈琲店のテーブル席のイメージ" width="1600" height="900" loading="lazy">
+          </div>
+          <p class="img-caption">イメージ画像</p>
+          <p class="scene-num">02</p>
+          <h3>テーブル席でゆったり会話を</h3>
+          <p>テーブル席では、友人や家族と落ち着いて話しながら過ごせます。</p>
+        </div>
+        <div class="scene-card">
+          <div class="photo-block">
+            <img src="images/05_interior_wide.jpg" alt="茜屋珈琲店の窓際の席のイメージ" width="1600" height="900" loading="lazy">
+          </div>
+          <p class="img-caption">イメージ画像</p>
+          <p class="scene-num">03</p>
+          <h3>秋田駅前でのちょっとした休憩に</h3>
+          <p>駅から徒歩約3分という立地を生かし、外出の合間に立ち寄る一杯にも。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 動く新サービス試作 ===== -->
+  <section id="proto" class="proposal-block" aria-labelledby="proto-heading">
+    <div class="wrap">
+      <span class="proto-eyebrow">INTERACTIVE PROTOTYPE ／ 動く新サービス試作</span>
+      <h2 id="proto-heading">あなたに合う、茜屋の過ごし方診断</h2>
+      <p class="proto-intro">5つの質問から、その日の気分に合う茜屋珈琲店での過ごし方をご案内する試作デモです。店舗運営者の方が、新しいお客様案内サービスの導入イメージをつかむための試作として制作しました。</p>
+
+      <div class="proto-notice">
+        本機能は店舗運営者向けの試作デモです。現在提供中の正式サービスではありません。入力内容の保存・送信は行いません。
+      </div>
+
+      <noscript>
+        <p class="proto-intro">この診断デモの体験にはJavaScriptが必要です。JavaScriptを有効にすると、質問に答えて診断結果を確認できます。店舗情報や他のセクションはJavaScriptが無効な状態でも閲覧いただけます。</p>
+      </noscript>
+
+      <div class="proto-panel" id="protoPanel">
+        <div id="protoIntroStep">
+          <p>対象：お店選びに迷っている方／これから来店を検討している方</p>
+          <p>解決したい課題：どんな過ごし方が自分に合うか、来店前にイメージしにくいこと</p>
+          <button type="button" class="btn btn-primary" id="quizStartBtn">試してみる</button>
+        </div>
+
+        <div id="quizArea" hidden>
+          <p class="proto-progress" id="quizProgress" aria-live="polite">質問 1 / 5</p>
+
+          <fieldset class="quiz-step is-active" data-step="0">
+            <legend>今日はどんな時間を過ごしたい？</legend>
+            <div class="option-list">
+              <label class="option-label"><input type="radio" name="q1" value="counterAlone:2"><span>のんびりひとりで過ごしたい</span></label>
+              <label class="option-label"><input type="radio" name="q1" value="tableTogether:2"><span>誰かと会話しながら過ごしたい</span></label>
+              <label class="option-label"><input type="radio" name="q1" value="quickStop:2"><span>さくっと一息つきたい</span></label>
+              <label class="option-label"><input type="radio" name="q1" value="focusReading:2"><span>集中して読書や作業をしたい</span></label>
+              <label class="option-label"><input type="radio" name="q1" value="takeoutBusy:2"><span>今日は店に行く時間がなさそう</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="quiz-step" data-step="1">
+            <legend>座るならどっち？</legend>
+            <div class="option-list">
+              <label class="option-label"><input type="radio" name="q2" value="counterAlone:1,focusReading:1"><span>カウンター席</span></label>
+              <label class="option-label"><input type="radio" name="q2" value="tableTogether:1"><span>テーブル席</span></label>
+              <label class="option-label"><input type="radio" name="q2" value="quickStop:1"><span>どちらでも／こだわらない</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="quiz-step" data-step="2">
+            <legend>一緒に行くのは？</legend>
+            <div class="option-list">
+              <label class="option-label"><input type="radio" name="q3" value="counterAlone:1,focusReading:1"><span>ひとり</span></label>
+              <label class="option-label"><input type="radio" name="q3" value="tableTogether:1"><span>友人や家族</span></label>
+              <label class="option-label"><input type="radio" name="q3" value="quickStop:1"><span>職場の同僚など</span></label>
+              <label class="option-label"><input type="radio" name="q3" value="takeoutBusy:1"><span>まだ決めていない（持ち帰りも検討中）</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="quiz-step" data-step="3">
+            <legend>コーヒーを飲むタイミングは？</legend>
+            <div class="option-list">
+              <label class="option-label"><input type="radio" name="q4" value="quickStop:1"><span>到着してすぐ</span></label>
+              <label class="option-label"><input type="radio" name="q4" value="counterAlone:1,tableTogether:1"><span>少し滞在してから</span></label>
+              <label class="option-label"><input type="radio" name="q4" value="takeoutBusy:2"><span>持ち帰ってあとで</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="quiz-step" data-step="4">
+            <legend>今日、店にいられる時間は？</legend>
+            <div class="option-list">
+              <label class="option-label"><input type="radio" name="q5" value="counterAlone:1,tableTogether:1,focusReading:1"><span>たっぷりある</span></label>
+              <label class="option-label"><input type="radio" name="q5" value="quickStop:2"><span>少しだけ</span></label>
+              <label class="option-label"><input type="radio" name="q5" value="takeoutBusy:2"><span>今日は行けないかもしれない</span></label>
+            </div>
+          </fieldset>
+
+          <p class="quiz-error" id="quizError" role="alert"></p>
+
+          <div class="quiz-nav">
+            <button type="button" class="btn btn-outline" id="quizBackBtn">戻る</button>
+            <button type="button" class="btn btn-primary" id="quizNextBtn">次へ</button>
+          </div>
+        </div>
+
+        <div id="resultArea" tabindex="-1" hidden aria-live="polite">
+          <div class="result-panel" data-result="counterAlone">
+            <p class="result-name">カウンターでひとり時間を楽しむタイプ</p>
+            <p>誰にも気兼ねなく、自分のペースで一杯を味わいたい方に近い結果です。ひとりでの利用や、じっくり過ごせる時間帯を選んでいたことから、このタイプになりました。</p>
+            <div class="result-fact-box">
+              <strong>おすすめ：</strong>茜屋ぶれんどコーヒーを、カウンター席でじっくりと。<br>
+              <strong>強みとのつながり：</strong>カウンター席があり、おひとり様でも過ごしやすい客席が用意されています。
+            </div>
+            <a class="btn btn-outline" href="#special">一押しのコーヒーを見る</a>
+          </div>
+
+          <div class="result-panel" data-result="tableTogether">
+            <p class="result-name">テーブル席で会話を楽しむタイプ</p>
+            <p>誰かと一緒に過ごす時間を大切にしたい方に近い結果です。友人や家族との利用や、テーブル席を選んでいたことから、このタイプになりました。</p>
+            <div class="result-fact-box">
+              <strong>おすすめ：</strong>テーブル席で、茜屋ぶれんどコーヒーを囲みながら。<br>
+              <strong>強みとのつながり：</strong>テーブル席のある、落ち着いた喫茶店らしい空間です。
+            </div>
+            <a class="btn btn-outline" href="#scenes">過ごし方の一覧を見る</a>
+          </div>
+
+          <div class="result-panel" data-result="quickStop">
+            <p class="result-name">さくっと一息つきたいタイプ</p>
+            <p>短い時間でも気軽に立ち寄りたい方に近い結果です。短時間の利用や、到着してすぐの一杯を選んでいたことから、このタイプになりました。</p>
+            <div class="result-fact-box">
+              <strong>おすすめ：</strong>到着後すぐに味わえる、茜屋ぶれんどコーヒー。<br>
+              <strong>強みとのつながり：</strong>秋田駅西口から徒歩約3分という立地です。
+            </div>
+            <a class="btn btn-outline" href="#info">アクセス情報を見る</a>
+          </div>
+
+          <div class="result-panel" data-result="focusReading">
+            <p class="result-name">読書や作業の合間に一息つきたいタイプ</p>
+            <p>静かな時間に集中したい方に近い結果です。集中したい時間や、ひとりでの利用を選んでいたことから、このタイプになりました。</p>
+            <div class="result-fact-box">
+              <strong>おすすめ：</strong>カウンター席で、落ち着いて味わう一杯。<br>
+              <strong>強みとのつながり：</strong>クラシックで落ち着いた、昔ながらの喫茶店らしい空間です。
+            </div>
+            <a class="btn btn-outline" href="#strength">店舗の強みを見る</a>
+          </div>
+
+          <div class="result-panel" data-result="takeoutBusy">
+            <span class="result-proposal-tag">新サービス提案（未導入）</span>
+            <p class="result-name">忙しくて店内滞在が難しいタイプ</p>
+            <p>ゆっくり店内で過ごす時間が取りにくい方に近い結果です。店に行く時間が少ない、または持ち帰りを検討する回答から、このタイプになりました。</p>
+            <div class="result-fact-box">
+              <strong>新サービス提案：</strong>今後、公式SNSや簡易Webページを新たに開設し、営業日や限定コーヒー・スイーツ情報を発信できるようにすると、来店前に情報を確認しやすくなります。あわせて、コーヒーやテイクアウト商品の取り置き受付につなげる方法も考えられます。<br><br>
+              ※現在提供されているサービスではありません。
+            </div>
+          </div>
+
+          <div class="quiz-nav">
+            <button type="button" class="btn btn-outline" id="quizRestartBtn">最初からやり直す</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 店舗情報 ===== -->
+  <section id="info" aria-labelledby="info-heading">
+    <div class="wrap">
+      <h2 id="info-heading">店舗情報</h2>
+      <dl class="info-list">
+        <div>
+          <dt>店舗名</dt>
+          <dd>茜屋珈琲店</dd>
+        </div>
+        <div>
+          <dt>立地</dt>
+          <dd>秋田駅西口から徒歩約3分</dd>
+        </div>
+        <div>
+          <dt>客席</dt>
+          <dd>カウンター席・テーブル席</dd>
+        </div>
+      </dl>
+      <p class="muted">住所・電話番号・営業時間・定休日などの詳細情報は、確認できた公開情報がないため掲載しておりません。来店前は店舗へ直接ご確認ください。</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>茜屋珈琲店</p>
+    <p>&copy; 茜屋珈琲店. All Rights Reserved.</p>
+    <p><a href="../../../">トップページへ戻る</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var introStep = document.getElementById('protoIntroStep');
+  var quizArea = document.getElementById('quizArea');
+  var resultArea = document.getElementById('resultArea');
+  var startBtn = document.getElementById('quizStartBtn');
+  var nextBtn = document.getElementById('quizNextBtn');
+  var backBtn = document.getElementById('quizBackBtn');
+  var restartBtn = document.getElementById('quizRestartBtn');
+  var errorEl = document.getElementById('quizError');
+  var progressEl = document.getElementById('quizProgress');
+  var steps = Array.prototype.slice.call(document.querySelectorAll('.quiz-step'));
+  var resultPanels = Array.prototype.slice.call(document.querySelectorAll('.result-panel'));
+  var totalSteps = steps.length;
+  var currentStep = 0;
+
+  var priorityOrder = ['counterAlone', 'tableTogether', 'quickStop', 'focusReading', 'takeoutBusy'];
+
+  function showStep(index) {
+    steps.forEach(function (step, i) {
+      step.classList.toggle('is-active', i === index);
+    });
+    progressEl.textContent = '質問 ' + (index + 1) + ' / ' + totalSteps;
+    backBtn.disabled = (index === 0);
+    nextBtn.textContent = (index === totalSteps - 1) ? '結果を見る' : '次へ';
+    errorEl.textContent = '';
+  }
+
+  function currentStepHasAnswer(index) {
+    var step = steps[index];
+    return !!step.querySelector('input[type="radio"]:checked');
+  }
+
+  function collectScores() {
+    var scores = { counterAlone: 0, tableTogether: 0, quickStop: 0, focusReading: 0, takeoutBusy: 0 };
+    var checked = document.querySelectorAll('#quizArea input[type="radio"]:checked');
+    checked.forEach(function (input) {
+      input.value.split(',').forEach(function (pair) {
+        var parts = pair.split(':');
+        var key = parts[0];
+        var points = parseInt(parts[1], 10) || 0;
+        if (Object.prototype.hasOwnProperty.call(scores, key)) {
+          scores[key] += points;
+        }
+      });
+    });
+    return scores;
+  }
+
+  function pickResult(scores) {
+    var best = priorityOrder[0];
+    var bestScore = -1;
+    priorityOrder.forEach(function (key) {
+      if (scores[key] > bestScore) {
+        bestScore = scores[key];
+        best = key;
+      }
+    });
+    return best;
+  }
+
+  function showResult() {
+    var scores = collectScores();
+    var resultKey = pickResult(scores);
+    resultPanels.forEach(function (panel) {
+      panel.classList.toggle('is-active', panel.getAttribute('data-result') === resultKey);
+    });
+    quizArea.hidden = true;
+    resultArea.hidden = false;
+    resultArea.focus && resultArea.focus();
+  }
+
+  startBtn.addEventListener('click', function () {
+    introStep.hidden = true;
+    quizArea.hidden = false;
+    currentStep = 0;
+    showStep(currentStep);
+  });
+
+  nextBtn.addEventListener('click', function () {
+    if (!currentStepHasAnswer(currentStep)) {
+      errorEl.textContent = 'いずれかの選択肢を選んでください。';
+      return;
+    }
+    errorEl.textContent = '';
+    if (currentStep === totalSteps - 1) {
+      showResult();
+      return;
+    }
+    currentStep += 1;
+    showStep(currentStep);
+  });
+
+  backBtn.addEventListener('click', function () {
+    if (currentStep === 0) { return; }
+    currentStep -= 1;
+    showStep(currentStep);
+  });
+
+  restartBtn.addEventListener('click', function () {
+    document.querySelectorAll('#quizArea input[type="radio"]:checked').forEach(function (input) {
+      input.checked = false;
+    });
+    resultArea.hidden = true;
+    introStep.hidden = false;
+    quizArea.hidden = true;
+    currentStep = 0;
+  });
+})();
+</script>
+
+</body>
+</html>

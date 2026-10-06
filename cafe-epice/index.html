@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cafe Epice｜古材とアンティークに囲まれて、手作りのお菓子と過ごす｜提案用ページ</title>
+<meta name="description" content="秋田市・川反。古い印刷工場をリノベーションした建物の中にある Cafe Epice。古材やアンティークを生かした静かな空間で、手作りの季節のお菓子とコーヒーをゆっくり楽しめるカフェです。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#3b342c">
+<style>
+  /* ============================================================
+     カラーとサイズの共通設定
+     古い印刷工場のリノベーション・古材・アンティークという特徴に合わせ、
+     墨色 / 生成り / 古材の茶 を軸にした落ち着いた配色にしています。
+  ============================================================ */
+  :root {
+    --color-ink: #2f2a24;
+    --color-text: #3b342c;
+    --color-muted: #6d6156;
+    --color-background: #fbf8f2;
+    --color-surface: #f2ece0;
+    --color-accent: #8a6a3f;
+    --color-accent-deep: #6b5130;
+    --color-border: #ded3c0;
+    --color-proposal: #eaeee7;
+    --color-proposal-border: #9aa892;
+
+    --font-heading: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-body: "Yu Gothic", "YuGothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 48px;
+    --space-6: 64px;
+
+    --radius: 6px;
+    --shadow: 0 2px 10px rgba(47, 42, 36, .07);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.9;
+    overflow-wrap: break-word;
+  }
+
+  img { display: block; width: 100%; max-width: 100%; height: auto; }
+
+  a { color: var(--color-accent-deep); }
+
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--color-ink);
+    color: #fff;
+    padding: 12px 16px;
+    z-index: 10;
+  }
+  .skip-link:focus-visible { left: 0; }
+
+  .container {
+    width: 100%;
+    max-width: 960px;
+    margin-inline: auto;
+    padding-inline: max(16px, env(safe-area-inset-left));
+    padding-inline-end: max(16px, env(safe-area-inset-right));
+  }
+
+  .section { padding-block: var(--space-6); }
+  .section--surface { background-color: var(--color-surface); }
+
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 12.5px;
+    letter-spacing: .18em;
+    color: var(--color-accent-deep);
+    margin: 0 0 var(--space-1);
+  }
+
+  h1, h2, h3 { font-family: var(--font-heading); font-weight: 600; line-height: 1.5; }
+
+  h2 {
+    font-size: clamp(21px, 5.2vw, 29px);
+    margin: 0 0 var(--space-3);
+    color: var(--color-ink);
+  }
+
+  h3 { font-size: clamp(17px, 4vw, 20px); margin: 0 0 var(--space-1); color: var(--color-ink); }
+
+  p { margin: 0 0 var(--space-2); }
+  p:last-child { margin-bottom: 0; }
+
+  .lead { color: var(--color-muted); max-width: 40em; }
+
+  /* ============================================================
+     写真
+     縦横比をあらかじめ指定して、読み込み時に文章の位置がずれないようにしています。
+  ============================================================ */
+  .fig { margin: var(--space-4) 0 0; }
+  .fig img {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    object-fit: cover;
+  }
+  .fig--16x9 img { aspect-ratio: 16 / 9; }
+  .fig--4x3 img { aspect-ratio: 4 / 3; }
+  .fig figcaption {
+    margin-top: var(--space-1);
+    font-size: 13px;
+    color: var(--color-muted);
+  }
+
+  /* ============================================================
+     提案用であることを示す帯
+  ============================================================ */
+  .notice-bar {
+    background-color: var(--color-ink);
+    color: #f4efe6;
+    font-size: 12.5px;
+    letter-spacing: .06em;
+    padding: 10px 0;
+    text-align: center;
+  }
+  .notice-bar span { display: inline-block; }
+
+  /* ============================================================
+     ファーストビュー
+     使用できる写真がないため、CSSの罫線と色面で構成しています。
+  ============================================================ */
+  .hero {
+    position: relative;
+    isolation: isolate;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding-block: var(--space-6);
+    background-color: var(--color-background);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 縦長の画面では中央だけが切り出されて壁だけになるため、
+       窓の光が入る位置まで寄せています。 */
+    object-position: 30% 50%;
+    z-index: -2;
+  }
+
+  /* 写真の左側に窓の格子が入っていて文字が読みにくいため、
+     生成り色の膜を左から重ねて、文章の下だけ静かにしています。 */
+  .hero-veil {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg,
+      rgba(251, 248, 242, .90) 0%,
+      rgba(251, 248, 242, .87) 58%,
+      rgba(251, 248, 242, .62) 100%);
+  }
+
+  .hero-inner { width: 100%; }
+
+  .hero-brand {
+    font-family: var(--font-heading);
+    font-size: clamp(26px, 7.6vw, 42px);
+    letter-spacing: .04em;
+    color: var(--color-ink);
+    margin: 0 0 var(--space-1);
+  }
+
+  .hero-place {
+    font-size: 13px;
+    letter-spacing: .12em;
+    /* 写真の上に乗る小さな文字なので、通常のアクセント色より濃くしています */
+    color: #54401f;
+    margin: 0 0 var(--space-3);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .hero h1 {
+    font-size: clamp(25px, 7.4vw, 40px);
+    letter-spacing: .02em;
+    margin: 0 0 var(--space-3);
+    color: var(--color-ink);
+  }
+
+  /* 写真の上に乗るため、薄い文字色ではなく本文色を使って読みやすさを確保しています */
+  .hero-text { max-width: 34em; color: var(--color-text); }
+
+  .hero-note {
+    margin-top: var(--space-3);
+    font-size: 13.5px;
+    color: var(--color-text);
+  }
+
+  /* ============================================================
+     ボタン
+  ============================================================ */
+  .btn-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+    max-width: 420px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 22px;
+    border: 1px solid var(--color-accent-deep);
+    border-radius: var(--radius);
+    font-size: 15.5px;
+    font-family: var(--font-body);
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color .18s ease, color .18s ease;
+  }
+
+  .btn-primary {
+    background-color: var(--color-accent-deep);
+    color: #fdfbf7;
+  }
+  .btn-primary:hover { background-color: var(--color-ink); border-color: var(--color-ink); }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--color-accent-deep);
+  }
+  .btn-outline:hover { background-color: rgba(138,106,63,.09); }
+
+  .btn-quiet {
+    background-color: transparent;
+    color: var(--color-muted);
+    border-color: var(--color-border);
+  }
+  .btn-quiet:hover { background-color: rgba(109,97,86,.07); }
+
+  /* ============================================================
+     カード（強み・過ごし方）
+  ============================================================ */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: var(--space-3);
+  }
+
+  .section--surface .card { background-color: #fdfbf7; }
+
+  .card .tag {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 12.5px;
+    letter-spacing: .1em;
+    color: var(--color-accent-deep);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 2px 12px;
+    margin-bottom: var(--space-2);
+  }
+
+  .card p { font-size: 15px; color: var(--color-muted); }
+
+  .card .value {
+    margin-top: auto;
+    padding-top: var(--space-2);
+    border-top: 1px dashed var(--color-border);
+    font-size: 14.5px;
+    color: var(--color-text);
+  }
+
+  /* ============================================================
+     ストーリー
+  ============================================================ */
+  .story-body { max-width: 38em; }
+  .story-body p { color: var(--color-muted); }
+
+  .story-facts {
+    margin: var(--space-4) 0 0;
+    padding: var(--space-3);
+    border-left: 3px solid var(--color-accent);
+    background-color: #fdfbf7;
+    font-size: 15px;
+  }
+  .story-facts dl { margin: 0; display: grid; gap: var(--space-1); }
+  .story-facts dt {
+    font-size: 12.5px;
+    letter-spacing: .1em;
+    color: var(--color-accent-deep);
+  }
+  .story-facts dd { margin: 0 0 var(--space-2); color: var(--color-text); }
+  .story-facts dd:last-child { margin-bottom: 0; }
+
+  /* ============================================================
+     一押し
+  ============================================================ */
+  .pickup {
+    background-color: #fdfbf7;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: var(--space-4) var(--space-3);
+    margin-top: var(--space-4);
+  }
+
+  /* 一押しセクションの写真は見出しより先に置くため、上の余白を消しています */
+  .fig--pickup { margin-top: 0; margin-bottom: var(--space-3); }
+
+  .pickup h3 {
+    font-size: clamp(20px, 5.4vw, 27px);
+    margin-bottom: var(--space-2);
+  }
+
+  .pickup-lead { color: var(--color-muted); max-width: 36em; }
+
+  .pickup-points {
+    list-style: none;
+    margin: var(--space-3) 0 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+  .pickup-points li {
+    position: relative;
+    padding-left: 22px;
+    font-size: 15px;
+    color: var(--color-text);
+  }
+  .pickup-points li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: .78em;
+    width: 8px;
+    height: 8px;
+    border: 1px solid var(--color-accent);
+    transform: rotate(45deg);
+  }
+
+  .pickup-scene {
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border);
+    font-size: 15px;
+    color: var(--color-muted);
+  }
+
+  /* ============================================================
+     動く新サービス試作（提案）
+     確認済みの店舗情報と区別するため、背景色・枠線・ラベルの3つで分けています。
+  ============================================================ */
+  .proposal {
+    background-color: var(--color-proposal);
+    border-top: 1px solid var(--color-proposal-border);
+    border-bottom: 1px solid var(--color-proposal-border);
+  }
+
+  .proposal-tag {
+    display: inline-block;
+    font-size: 12.5px;
+    letter-spacing: .12em;
+    color: #37432f;
+    background-color: #d8e0d1;
+    border: 1px solid var(--color-proposal-border);
+    border-radius: 999px;
+    padding: 4px 14px;
+    margin-bottom: var(--space-2);
+  }
+
+  .proposal-note {
+    background-color: #fdfbf7;
+    border: 1px dashed var(--color-proposal-border);
+    border-radius: var(--radius);
+    padding: var(--space-2) var(--space-3);
+    font-size: 14.5px;
+    color: var(--color-text);
+    margin: var(--space-3) 0;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+    margin: var(--space-3) 0;
+  }
+  .meta-grid > div {
+    min-width: 0;
+    background-color: #fdfbf7;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-2) var(--space-3);
+  }
+  .meta-grid h3 {
+    font-family: var(--font-body);
+    font-size: 13px;
+    letter-spacing: .08em;
+    color: var(--color-accent-deep);
+    margin-bottom: 4px;
+  }
+  .meta-grid p { font-size: 14.5px; color: var(--color-muted); }
+
+  /* 試作デモ本体 */
+  .demo {
+    background-color: #fdfbf7;
+    border: 1px solid var(--color-proposal-border);
+    border-radius: var(--radius);
+    padding: var(--space-4) var(--space-3);
+    margin-top: var(--space-3);
+  }
+
+  .demo-intro p { color: var(--color-muted); font-size: 15px; }
+
+  .demo-progress {
+    font-size: 13px;
+    letter-spacing: .08em;
+    color: var(--color-accent-deep);
+    margin-bottom: var(--space-2);
+  }
+
+  .demo-options {
+    display: grid;
+    gap: var(--space-2);
+    margin: var(--space-3) 0;
+  }
+
+  .demo-option {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    text-align: left;
+    padding: 13px 16px 13px 46px;
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    cursor: pointer;
+  }
+  .demo-option:hover { border-color: var(--color-accent); }
+
+  .demo-option .mark {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--color-muted);
+    border-radius: 50%;
+  }
+
+  .demo-option[aria-pressed="true"] {
+    border-color: var(--color-accent-deep);
+    background-color: #f4ece0;
+  }
+  .demo-option[aria-pressed="true"] .mark {
+    border-color: var(--color-accent-deep);
+    background-color: var(--color-accent-deep);
+  }
+  .demo-option[aria-pressed="true"] .mark::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 6px;
+    width: 8px;
+    height: 4px;
+    border-left: 2px solid #fdfbf7;
+    border-bottom: 2px solid #fdfbf7;
+    transform: rotate(-45deg);
+  }
+  /* 色だけで選択状態を伝えないよう、文字でも示します */
+  .demo-option .state {
+    display: block;
+    font-size: 12.5px;
+    color: var(--color-accent-deep);
+    margin-top: 2px;
+  }
+
+  .demo-warning {
+    margin: 0 0 var(--space-2);
+    padding: 10px 14px;
+    background-color: #f6e9df;
+    border: 1px solid #c9a48a;
+    border-radius: var(--radius);
+    font-size: 14.5px;
+    color: #6b3f24;
+  }
+
+  .demo-nav { display: flex; flex-direction: column; gap: var(--space-2); }
+
+  .demo-result h3 { font-size: clamp(19px, 5vw, 24px); }
+  .demo-result-summary { color: var(--color-muted); }
+  .demo-result dl { margin: var(--space-3) 0 0; display: grid; gap: var(--space-1); }
+  .demo-result dt {
+    font-size: 12.5px;
+    letter-spacing: .1em;
+    color: var(--color-accent-deep);
+    margin-top: var(--space-2);
+  }
+  .demo-result dd { margin: 2px 0 0; font-size: 15px; }
+
+  .demo-noscript {
+    background-color: #fdfbf7;
+    border: 1px solid var(--color-proposal-border);
+    border-radius: var(--radius);
+    padding: var(--space-2) var(--space-3);
+    font-size: 14.5px;
+  }
+
+  /* ============================================================
+     店舗情報
+  ============================================================ */
+  .info-list { margin: var(--space-4) 0 0; }
+  .info-list div {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .info-list dt {
+    font-size: 12.5px;
+    letter-spacing: .1em;
+    color: var(--color-accent-deep);
+  }
+  .info-list dd { margin: 0; overflow-wrap: anywhere; }
+  /* 指で押しやすいよう、文中のリンクにも高さを確保しています */
+  .info-list dd a,
+  .site-footer a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .info-caution {
+    margin-top: var(--space-3);
+    font-size: 14.5px;
+    color: var(--color-muted);
+  }
+
+  /* ============================================================
+     フッター
+  ============================================================ */
+  .site-footer {
+    background-color: var(--color-ink);
+    color: #e9e2d6;
+    padding-block: var(--space-5);
+    font-size: 14px;
+  }
+  .site-footer a { color: #e9e2d6; }
+  .site-footer .name { font-family: var(--font-heading); font-size: 18px; margin-bottom: var(--space-2); }
+  .site-footer .copyright { color: #b6ab9c; font-size: 13px; margin-top: var(--space-3); }
+
+  [hidden] { display: none !important; }
+
+  /* ============================================================
+     画面が広いとき
+  ============================================================ */
+  @media (min-width: 700px) {
+    .card-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    /* 横並びのとき、カード同士で「ラベル・見出し・説明・価値」の各段を
+       そろえます。まず、対応していないブラウザ向けに見出しの高さを確保します。 */
+    .card h3 { min-height: calc(1.5em * 2); }
+
+    /* subgrid が使えるブラウザでは、各段の高さをカード間で共有できるため、
+       見出しが1行でも2行でも自動でそろいます。高さの決め打ちは外します。 */
+    @supports (grid-template-rows: subgrid) {
+      .card-grid { grid-template-rows: auto auto auto auto; }
+      .card {
+        display: grid;
+        grid-template-rows: subgrid;
+        grid-row: span 4;
+        align-content: start;
+      }
+      /* 段の間隔はカード側で決めます（そのままだとカード同士の隙間が中にも入るため） */
+      .card { row-gap: 0; }
+      /* ラベルは横に伸びると丸みが崩れるので、左端で自分の幅に収めます */
+      .card .tag { justify-self: start; }
+      .card h3 { min-height: 0; }
+      .card .value { margin-top: 0; align-self: start; }
+    }
+    .meta-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .btn-row { flex-direction: row; max-width: none; }
+    .btn { flex: 0 1 auto; }
+    .demo-nav { flex-direction: row; }
+    .demo-nav .btn { min-width: 140px; }
+    .info-list div { grid-template-columns: 180px 1fr; gap: var(--space-2); align-items: baseline; }
+    /* 画面が広いときは、文章が写真の明るい側に乗るよう膜を横方向にします */
+    /* 縦長の写真は画面が広いと大きくなりすぎるため、幅を抑えて中央に置きます */
+    .fig--4x3 { max-width: 720px; margin-inline: auto; }
+    .hero-bg { object-position: 50% 50%; }
+    .hero-veil {
+      background: linear-gradient(96deg,
+        rgba(251, 248, 242, .95) 0%,
+        rgba(251, 248, 242, .90) 46%,
+        rgba(251, 248, 242, .55) 72%,
+        rgba(251, 248, 242, .30) 100%);
+    }
+    .pickup { padding: var(--space-5) var(--space-4); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  }
+
+  /* ===== 写真の上の文字を読めるようにする ===== */
+  /* ファーストビューは薄い膜なので、枠線ボタンの文字だけ一段濃くする */
+  .hero .btn-outline { color: #4a3720; border-color: #4a3720; }
+
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">本文へ移動する</a>
+
+<!-- ============ 提案用ラベル ============ -->
+<div class="notice-bar">
+  <span>CONCEPT LP ／ 店舗向け提案用ページ</span>
+</div>
+
+<main id="main-content">
+
+  <!-- ============ ファーストビュー ============ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <img class="hero-bg" src="images/01_hero_room_light.jpg" alt="古い建物の室内に自然光が差し込む様子のイメージ画像" width="1920" height="1080" fetchpriority="high">
+    <div class="hero-veil" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <p class="hero-brand">Cafe Epice</p>
+      <p class="hero-place">秋田市・川反</p>
+      <h1 id="hero-title">古い建物の静けさと、<br>手作りのお菓子と。</h1>
+      <p class="hero-text">古い印刷工場をリノベーションした建物の中にあるカフェです。古材やアンティークに囲まれた静かな空間で、手作りのお菓子とコーヒーの時間を過ごせます。</p>
+      <p class="hero-note">※ 本ページは店舗運営者様へのご提案用に作成したもので、公式サイトではありません。<br>※ 掲載している写真はすべてイメージ画像です。</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#pickup">注目したいお菓子を見る</a>
+        <a class="btn btn-outline" href="https://www.instagram.com/p/DbeYjd3SMcz/" target="_blank" rel="noopener noreferrer">Instagramの投稿を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ コンセプト ============ -->
+  <section class="section" id="concept" aria-labelledby="concept-title">
+    <div class="container">
+      <p class="eyebrow">CONCEPT</p>
+      <h2 id="concept-title">お菓子とコーヒーと、ひと息つける場所</h2>
+      <p class="lead">Cafe Epice が大切にしているのは、手作りのお菓子とコーヒーだけではありません。ホッとできる時間や居場所そのものを届けること。古材とアンティークが生む静かな空気が、その時間を支えています。</p>
+
+      <figure class="fig fig--16x9">
+        <img src="images/02_old_wood_texture.jpg" alt="時間を重ねた古材の質感を表したイメージ画像" width="1600" height="900" loading="lazy">
+        <figcaption>イメージ画像</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 企業・店舗の強み ============ -->
+  <section class="section section--surface" id="strengths" aria-labelledby="strengths-title">
+    <div class="container">
+      <p class="eyebrow">STRENGTH</p>
+      <h2 id="strengths-title">この店舗ならではの魅力</h2>
+      <p class="lead">いただいた店舗情報から整理した、Cafe Epice の魅力を支える3つの要素です。</p>
+
+      <figure class="fig fig--4x3">
+        <img src="images/03_antique_corner.jpg" alt="古道具やアンティークが並ぶ静かな一角のイメージ画像" width="1600" height="1200" loading="lazy">
+        <figcaption>イメージ画像</figcaption>
+      </figure>
+
+      <div class="card-grid">
+        <article class="card">
+          <span class="tag">建物</span>
+          <h3>印刷工場だった建物の中に</h3>
+          <p>古い印刷工場を生まれ変わらせた川反中央ビルの中にあります。建物そのものに時間の積み重ねがあります。</p>
+          <p class="value">お客様にとっての価値：新しく作られた内装では出せない、落ち着いた空気の中で過ごせます。</p>
+        </article>
+
+        <article class="card">
+          <span class="tag">しつらえ</span>
+          <h3>古材とアンティークの設え</h3>
+          <p>古材やアンティークを生かした設えで、静かに過ごせる空間づくりを大切にしています。</p>
+          <p class="value">お客様にとっての価値：会話も読書も、自分のペースで過ごせる時間になります。</p>
+        </article>
+
+        <article class="card">
+          <span class="tag">過ごし方</span>
+          <h3>「居場所」を届ける考え方</h3>
+          <p>商品を提供するだけでなく、ホッとできる時間や居場所そのものを届けることを大切にしています。</p>
+          <p class="value">お客様にとっての価値：用がなくても立ち寄れる、日常の逃げ場のような場所になります。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 創業者ストーリー ============ -->
+  <section class="section" id="story" aria-labelledby="story-title">
+    <div class="container">
+      <p class="eyebrow">STORY</p>
+      <h2 id="story-title">「自分で店をするなら、地元・秋田で」</h2>
+      <div class="story-body">
+        <p>Cafe Epice を営むのは高坂千代子さん。前身となる石田珈琲店で働いた経験を持ち、そこで培ったものを土台に、自分の店を持つなら地元・秋田で、と考えて開業しました。</p>
+        <p>選んだのは、古い印刷工場をリノベーションした建物の一角。新しく整えるのではなく、すでにあるものの時間を生かす場所です。その考え方は、古材やアンティークを生かした店内の設えにもつながっています。</p>
+        <p>現在もお菓子作りから接客まで、自身の手で続けています。だからこそ、その日その日のお菓子に作り手の判断がそのまま表れます。</p>
+      </div>
+
+      <div class="story-facts">
+        <dl>
+          <dt>店主</dt>
+          <dd>高坂 千代子 さん（お菓子作りから接客まで担当）</dd>
+          <dt>オープン</dt>
+          <dd>2013年9月9日（ご本人の発信による）</dd>
+          <dt>前身との関わり</dt>
+          <dd>石田珈琲店での勤務経験</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 一押し商品・サービス ============ -->
+  <section class="section section--surface" id="pickup" aria-labelledby="pickup-title">
+    <div class="container">
+      <p class="eyebrow">PICK UP</p>
+      <h2 id="pickup-title">特に注目したい商品</h2>
+
+      <div class="pickup">
+        <figure class="fig fig--4x3 fig--pickup">
+          <img src="images/04_seasonal_sweets.jpg" alt="皿にのせた手作りのお菓子のイメージ画像" width="1600" height="1200" loading="lazy">
+          <figcaption>イメージ画像です。実際にお出ししているお菓子は季節によって変わります。</figcaption>
+        </figure>
+
+        <h3>手作りの季節のお菓子</h3>
+        <p class="pickup-lead">季節ごとに内容が変わる、店主の手作りのお菓子です。その時期に扱える素材に合わせて作られるため、同じ月でも並ぶものが変わります。</p>
+
+        <ul class="pickup-points">
+          <li>店主自身が作っているため、内容がその時々で変わります</li>
+          <li>季節の素材を生かした構成で、訪れるたびに違う一皿に出会えます</li>
+          <li>静かな空間とあわせて、ゆっくり味わう時間として楽しめます</li>
+        </ul>
+
+        <p class="pickup-scene">こんな場面に：ひとりで気持ちを落ち着けたいとき／気の置けない相手とゆっくり話したいとき／季節の変わり目に、その時期らしいものを食べたいとき。</p>
+
+        <div class="btn-row">
+          <a class="btn btn-primary" href="https://www.instagram.com/p/DbeYjd3SMcz/" target="_blank" rel="noopener noreferrer">Instagramで様子を見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 店舗での過ごし方 ============ -->
+  <section class="section" id="how-to-spend" aria-labelledby="how-title">
+    <div class="container">
+      <p class="eyebrow">HOW TO SPEND</p>
+      <h2 id="how-title">店内での過ごし方</h2>
+      <p class="lead">空間そのものを楽しんでもらうための店づくりがされています。</p>
+
+      <figure class="fig fig--4x3">
+        <img src="images/05_quiet_seat.jpg" alt="窓辺の席にコーヒーと本が置かれた様子のイメージ画像" width="1600" height="1200" loading="lazy">
+        <figcaption>イメージ画像</figcaption>
+      </figure>
+
+      <div class="card-grid">
+        <article class="card">
+          <span class="tag">ひとりで</span>
+          <h3>静かに過ごす時間として</h3>
+          <p>古材とアンティークに囲まれた店内で、コーヒーとお菓子とともに自分の時間を持てます。</p>
+          <p class="value">向いている方：ひと息つきたい方、静かな場所を探している方。</p>
+        </article>
+
+        <article class="card">
+          <span class="tag">ふたりで</span>
+          <h3>落ち着いて話す時間として</h3>
+          <p>賑やかさより落ち着きを大切にした空間なので、話の中身に集中できます。</p>
+          <p class="value">向いている方：じっくり話したい相手と訪れる方。</p>
+        </article>
+
+        <article class="card">
+          <span class="tag">お願い</span>
+          <h3>撮影についてのお願い</h3>
+          <p>店内での撮影には制限があります。写真を撮ることより、その場の時間を楽しんでもらうための配慮です。</p>
+          <p class="value">お客様にとっての価値：他のお客様の時間も守られ、静けさが保たれます。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 動く新サービス試作（未導入の提案） ============ -->
+  <section class="section proposal" id="prototype" aria-labelledby="prototype-title">
+    <div class="container">
+      <span class="proposal-tag">INTERACTIVE PROTOTYPE ／ 動く新サービス試作</span>
+      <h2 id="prototype-title">本日のお菓子・取り置き案内（新サービス提案）</h2>
+      <p class="lead">その日のお菓子と売り切れ状況を来店前に確認でき、取り置きやテイクアウトを事前にお願いできる仕組みの提案です。まずは、お客様がどの使い方に近いかを案内する部分を、実際に操作できる試作として用意しました。</p>
+
+      <figure class="fig fig--16x9">
+        <img src="images/06_paper_and_pen.jpg" alt="紙と印刷を思わせる質感のイメージ画像" width="1600" height="900" loading="lazy">
+        <figcaption>イメージ画像</figcaption>
+      </figure>
+
+      <div class="meta-grid">
+        <div>
+          <h3>対象のお客様</h3>
+          <p>目当てのお菓子があるものの、売り切れが心配で来店をためらってしまう方。</p>
+        </div>
+        <div>
+          <h3>解決したいこと</h3>
+          <p>内容が日ごとに変わるお菓子について、来店前に状況が分からないという不便を減らします。</p>
+        </div>
+        <div>
+          <h3>店舗の強みとの相性</h3>
+          <p>季節ごとに変わる手作りのお菓子という特徴を、来店前の楽しみとして届けやすくなります。</p>
+        </div>
+        <div>
+          <h3>お客様のメリット</h3>
+          <p>空振りの不安が減り、目的を持って来店しやすくなります。</p>
+        </div>
+        <div>
+          <h3>店舗側のメリット</h3>
+          <p>お問い合わせ対応の負担を抑えつつ、その日の見込みを把握しやすくなります。</p>
+        </div>
+        <div>
+          <h3>小さく始める方法</h3>
+          <p>まずは既存のInstagram投稿に「本日のお菓子」の形式を決めて載せるところから試せます。</p>
+        </div>
+        <div>
+          <h3>実施前に確認したいこと</h3>
+          <p>取り置きの受付時間、当日キャンセルの扱い、対応できる個数の上限。</p>
+        </div>
+        <div>
+          <h3>この試作でできること</h3>
+          <p>5つの質問に答えると、5通りの使い方のうち近いものをご案内します。所要時間は1分ほどです。</p>
+        </div>
+      </div>
+
+      <p class="proposal-note">
+        本機能は店舗運営者向けの試作デモです。<br>
+        現在提供中の正式サービスではありません。<br>
+        入力内容の保存・送信は行いません。
+      </p>
+
+      <noscript>
+        <p class="demo-noscript">この試作デモの利用には JavaScript が必要です。JavaScript を有効にしてページを再度お読み込みください。店舗の情報やその他のセクションは、JavaScript がなくてもそのままご覧いただけます。</p>
+      </noscript>
+
+      <div class="demo" id="demo">
+
+        <div class="demo-intro" id="demo-intro">
+          <h3>お菓子の楽しみ方 かんたん案内</h3>
+          <p>全5問、選択式です。回答は保存も送信もされません。</p>
+          <div class="btn-row">
+            <button type="button" class="btn btn-primary" id="demo-start">試してみる</button>
+          </div>
+        </div>
+
+        <div id="demo-quiz" hidden>
+          <p class="demo-progress" id="demo-progress" aria-live="polite">質問 1 / 5</p>
+          <h3 id="demo-question">　</h3>
+          <div class="demo-options" id="demo-options" role="group" aria-labelledby="demo-question"></div>
+          <p class="demo-warning" id="demo-warning" role="alert" hidden></p>
+          <div class="demo-nav">
+            <button type="button" class="btn btn-quiet" id="demo-back">戻る</button>
+            <button type="button" class="btn btn-primary" id="demo-next">次へ</button>
+          </div>
+        </div>
+
+        <div class="demo-result" id="demo-result" tabindex="-1" hidden aria-live="polite">
+          <p class="eyebrow">RESULT</p>
+          <h3 id="demo-result-name">　</h3>
+          <p class="demo-result-summary" id="demo-result-summary"></p>
+          <dl>
+            <div>
+              <dt>この結果になった理由</dt>
+              <dd id="demo-result-reason"></dd>
+            </div>
+            <div>
+              <dt>おすすめ候補</dt>
+              <dd id="demo-result-recommend"></dd>
+            </div>
+            <div>
+              <dt>店舗の強みとのつながり</dt>
+              <dd id="demo-result-connection"></dd>
+            </div>
+          </dl>
+          <div class="btn-row">
+            <a class="btn btn-primary" id="demo-result-cta" href="#pickup">注目したいお菓子を見る</a>
+            <button type="button" class="btn btn-quiet" id="demo-restart">最初からやり直す</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 店舗情報 ============ -->
+  <section class="section" id="info" aria-labelledby="info-title">
+    <div class="container">
+      <p class="eyebrow">INFORMATION</p>
+      <h2 id="info-title">店舗情報</h2>
+
+      <dl class="info-list">
+        <div>
+          <dt>店舗名</dt>
+          <dd>Cafe Epice</dd>
+        </div>
+        <div>
+          <dt>エリア</dt>
+          <dd>秋田市・川反（川反中央ビル内）</dd>
+        </div>
+        <div>
+          <dt>Instagram</dt>
+          <dd><a href="https://www.instagram.com/p/DbeYjd3SMcz/" target="_blank" rel="noopener noreferrer">Instagramの投稿を見る（外部サイトへ移動します）</a></dd>
+        </div>
+      </dl>
+
+      <p class="info-caution">住所・電話番号・営業時間・定休日は、確認できた公式の案内がないため掲載していません。最新情報は店舗の公式案内をご確認ください。</p>
+
+      <div class="btn-row">
+        <a class="btn btn-outline" href="../../../">トップページへ戻る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ フッター ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <p class="name">Cafe Epice</p>
+    <p><a href="../../../">トップページへ戻る</a></p>
+    <p class="copyright">© Cafe Epice. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  /* 各選択肢に、5つの結果のいずれかのカテゴリを割り当てています。
+     A = 店内でゆっくり派 / B = 確実に食べたい派 / C = 持ち帰り派
+     D = 贈りもの・手みやげ派 / E = その日の様子を見て決める派
+     どの結果にも到達できるよう、各設問で4カテゴリずつ登場させ、
+     5問を通して全カテゴリが同じ回数だけ選べる配分にしています。 */
+  var QUESTIONS = [
+    {
+      title: "お店に行くとしたら、何を一番楽しみにしますか？",
+      options: [
+        { label: "静かな席で過ごす時間そのもの", cat: "A" },
+        { label: "目当てのお菓子を食べること", cat: "B" },
+        { label: "家や職場でゆっくり味わうこと", cat: "C" },
+        { label: "誰かに渡すものを選ぶこと", cat: "D" }
+      ]
+    },
+    {
+      title: "お菓子が売り切れていたら、どうしますか？",
+      options: [
+        { label: "その場にあるものを選び直す", cat: "A" },
+        { label: "できれば事前に取っておきたい", cat: "B" },
+        { label: "渡す相手がいるので、日を改めたい", cat: "D" },
+        { label: "そのときの様子を見て決める", cat: "E" }
+      ]
+    },
+    {
+      title: "訪れるとしたら、どんな予定の中でですか？",
+      options: [
+        { label: "時間に余裕のある日にゆっくり", cat: "A" },
+        { label: "用事のついでに短時間だけ", cat: "C" },
+        { label: "渡す相手と会う日の前に", cat: "D" },
+        { label: "特に決めず、通りかかったとき", cat: "E" }
+      ]
+    },
+    {
+      title: "季節ごとに内容が変わることについては？",
+      options: [
+        { label: "その日にあるものを楽しみたい", cat: "E" },
+        { label: "気になるものが出た日に行きたい", cat: "B" },
+        { label: "季節のものを持ち帰りたい", cat: "C" },
+        { label: "季節感のあるものを人に贈りたい", cat: "D" }
+      ]
+    },
+    {
+      title: "来店前に情報があるとしたら、何が知りたいですか？",
+      options: [
+        { label: "店内の混み具合や落ち着き具合", cat: "A" },
+        { label: "本日のお菓子と残りの数", cat: "B" },
+        { label: "持ち帰りができるかどうか", cat: "C" },
+        { label: "特になし。行ってから決めたい", cat: "E" }
+      ]
+    }
+  ];
+
+  /* 同点になった場合は、この並び順で先に登場するカテゴリを採用します。
+     提案する仕組みを使う側（B・C・D）を優先すると結果が偏って見えるため、
+     予約をしない使い方（E・A）を先に置き、控えめな案内になるようにしています。 */
+  var TIE_ORDER = ["E", "A", "D", "C", "B"];
+
+  var RESULTS = {
+    A: {
+      name: "店内でゆっくり過ごしたいタイプ",
+      summary: "お菓子そのものより、静かな時間の過ごし方を大切にする選び方です。",
+      reason: "席での過ごし方や店内の落ち着きを重視する回答が多く選ばれました。",
+      recommend: "その日に店頭にあるお菓子から選ぶ楽しみ方。事前の取り置きよりも、来店してから決める使い方が向いています。",
+      connection: "古材とアンティークを生かした静かな空間という強みを、いちばん受け取りやすい過ごし方です。",
+      ctaText: "店内での過ごし方を見る",
+      ctaHref: "#how-to-spend"
+    },
+    B: {
+      name: "食べたいものを確実に楽しみたいタイプ",
+      summary: "目当てのお菓子を逃したくない、という気持ちが強い選び方です。",
+      reason: "売り切れを避けたい、本日のお菓子を事前に知りたいという回答が多く選ばれました。",
+      recommend: "取り置きのお願いという使い方。この試作で提案している「本日のお菓子・取り置き案内」が最も役立つタイプです。",
+      connection: "季節ごとに内容が変わる手作りのお菓子だからこそ、事前に分かることの価値が大きくなります。",
+      ctaText: "注目したいお菓子を見る",
+      ctaHref: "#pickup"
+    },
+    C: {
+      name: "持ち帰ってゆっくり味わいたいタイプ",
+      summary: "その場で過ごすより、自分の場所で味わうことを選ぶ使い方です。",
+      reason: "持ち帰りや、用事のついでの短時間の来店を選ぶ回答が多く選ばれました。",
+      recommend: "テイクアウトの事前予約という使い方。立ち寄れる時間が短くても、目当てのものを受け取れます。",
+      connection: "手作りで数が限られるお菓子について、来店の前に見通しが立つと動きやすくなります。",
+      ctaText: "注目したいお菓子を見る",
+      ctaHref: "#pickup"
+    },
+    D: {
+      name: "誰かに贈るために選びたいタイプ",
+      summary: "自分のためというより、渡す相手を思い浮かべて選ぶ使い方です。",
+      reason: "贈りものや手みやげとして選びたいという回答が多く選ばれました。",
+      recommend: "渡す日に合わせた事前のご相談という使い方。季節感のあるものを、日付を決めて用意してもらう形が向いています。",
+      connection: "季節の素材を生かした手作りという特徴が、贈る相手への説明にそのままなります。",
+      ctaText: "Cafe Epice の魅力を見る",
+      ctaHref: "#strengths"
+    },
+    E: {
+      name: "その日の様子を見て決めたいタイプ",
+      summary: "あらかじめ決めずに、そのときの出会いを楽しむ選び方です。",
+      reason: "特に決めずに立ち寄りたい、その日にあるものを楽しみたいという回答が多く選ばれました。",
+      recommend: "本日のお菓子の案内を見てから決めるという使い方。予約はせず、情報だけ受け取る形が向いています。",
+      connection: "その時々で内容が変わるという特徴を、いちばん気楽に楽しめる関わり方です。",
+      ctaText: "店内での過ごし方を見る",
+      ctaHref: "#how-to-spend"
+    }
+  };
+
+  var byId = function (id) { return document.getElementById(id); };
+
+  var introEl = byId("demo-intro");
+  var quizEl = byId("demo-quiz");
+  var resultEl = byId("demo-result");
+  var progressEl = byId("demo-progress");
+  var questionEl = byId("demo-question");
+  var optionsEl = byId("demo-options");
+  var warningEl = byId("demo-warning");
+  var backBtn = byId("demo-back");
+  var nextBtn = byId("demo-next");
+  var startBtn = byId("demo-start");
+  var restartBtn = byId("demo-restart");
+  var ctaEl = byId("demo-result-cta");
+
+  if (!introEl || !quizEl || !resultEl) { return; }
+
+  var current = 0;
+  var answers = [];
+
+  function hideWarning() {
+    warningEl.hidden = true;
+    warningEl.textContent = "";
+  }
+
+  function showWarning(message) {
+    warningEl.textContent = message;
+    warningEl.hidden = false;
+  }
+
+  function renderQuestion() {
+    var q = QUESTIONS[current];
+    progressEl.textContent = "質問 " + (current + 1) + " / " + QUESTIONS.length;
+    questionEl.textContent = q.title;
+    optionsEl.textContent = "";
+    hideWarning();
+
+    q.options.forEach(function (opt, index) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "demo-option";
+      var selected = answers[current] === index;
+      btn.setAttribute("aria-pressed", selected ? "true" : "false");
+
+      var mark = document.createElement("span");
+      mark.className = "mark";
+      btn.appendChild(mark);
+
+      var text = document.createElement("span");
+      text.textContent = opt.label;
+      btn.appendChild(text);
+
+      var state = document.createElement("span");
+      state.className = "state";
+      state.textContent = selected ? "選択中" : "";
+      btn.appendChild(state);
+
+      btn.addEventListener("click", function () {
+        answers[current] = index;
+        hideWarning();
+        renderQuestion();
+        /* 選び直すと選択肢を作り直すため、キーボード操作の位置が失われないよう
+           同じ選択肢へフォーカスを戻します。 */
+        var again = optionsEl.children[index];
+        if (again) { again.focus(); }
+      });
+
+      optionsEl.appendChild(btn);
+    });
+
+    backBtn.disabled = (current === 0);
+    nextBtn.textContent = (current === QUESTIONS.length - 1) ? "結果を見る" : "次へ";
+  }
+
+  function decide() {
+    var score = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+    answers.forEach(function (answerIndex, questionIndex) {
+      var cat = QUESTIONS[questionIndex].options[answerIndex].cat;
+      score[cat] += 1;
+    });
+
+    var best = TIE_ORDER[0];
+    TIE_ORDER.forEach(function (cat) {
+      if (score[cat] > score[best]) { best = cat; }
+    });
+    return best;
+  }
+
+  function showResult() {
+    var key = decide();
+    var r = RESULTS[key];
+
+    byId("demo-result-name").textContent = r.name;
+    byId("demo-result-summary").textContent = r.summary;
+    byId("demo-result-reason").textContent = r.reason;
+    byId("demo-result-recommend").textContent = r.recommend;
+    byId("demo-result-connection").textContent = r.connection;
+    ctaEl.textContent = r.ctaText;
+    ctaEl.setAttribute("href", r.ctaHref);
+
+    quizEl.hidden = true;
+    introEl.hidden = true;
+    resultEl.hidden = false;
+    resultEl.focus();
+  }
+
+  startBtn.addEventListener("click", function () {
+    current = 0;
+    answers = [];
+    introEl.hidden = true;
+    resultEl.hidden = true;
+    quizEl.hidden = false;
+    renderQuestion();
+  });
+
+  nextBtn.addEventListener("click", function () {
+    if (typeof answers[current] !== "number") {
+      showWarning("選択肢をひとつ選んでから、次へお進みください。");
+      return;
+    }
+    if (current === QUESTIONS.length - 1) {
+      showResult();
+      return;
+    }
+    current += 1;
+    renderQuestion();
+  });
+
+  backBtn.addEventListener("click", function () {
+    if (current === 0) { return; }
+    current -= 1;
+    renderQuestion();
+  });
+
+  restartBtn.addEventListener("click", function () {
+    current = 0;
+    answers = [];
+    resultEl.hidden = true;
+    quizEl.hidden = true;
+    introEl.hidden = false;
+    startBtn.focus();
+  });
+})();
+</script>
+
+</body>
+</html>
