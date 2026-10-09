@@ -125,8 +125,10 @@ section{padding:calc(var(--space)*7) 0;}
   .scenes .card-body h3{min-height:auto;}
 }
 @media(min-width:760px){
-  .sub-item h3{min-height:1.6em;}
-  .sub-item .roast{min-height:1.6em;}
+  /* ★ 2026-10-09 修正：見出しや日付が2行になる項目があると段がずれるため、
+     2行ぶんの高さを確保して、本文の始まりを横一列に揃えます。 */
+  .sub-item h3{min-height:3em;}
+  .sub-item .roast{min-height:3.6em;}
 }
 @media(min-width:860px){
   .merit h3{min-height:1.6em;}
@@ -319,7 +321,7 @@ dl.info dd a,.site-footer p a{display:inline-block;padding:14px 0;line-height:1.
           <span class="num">01</span>
           <h3>定番の二つに、季節のブレンドが加わる</h3>
           <p>公式オンラインストアには、中煎りの「仄月」と深煎りの「凪ぐ空を」が定番の豆として並びます。これに、春夏の浅煎り「囀り」、12月の「雪花ひとひら」という季節のブレンドが加わります。それぞれに使う生産国と、目指した飲み心地が書き分けられています。</p>
-          <p class="value">お客様にとっての価値：その日の気分や時間帯に合わせて、焙煎の違いから一杯を選べます。季節のブレンドは、その時期だけの楽しみになります。</p>
+          <p class="value">お客様にとっての価値：その日の気分や時間帯に合わせて、焙煎の違いから一杯を選べます。</p>
         </div>
       </div>
 
