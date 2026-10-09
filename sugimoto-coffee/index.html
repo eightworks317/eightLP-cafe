@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>杉本珈琲店｜通町商店街の自家焙煎コーヒー専門店｜提案用ページ</title>
-<meta name="description" content="秋田市通町商店街の自家焙煎コーヒー専門店・杉本珈琲店の強みと一押し「千秋ブレンド」を紹介し、新しいコーヒー豆診断サービスを提案するコンセプトページです。">
+<meta name="description" content="秋田市通町商店街の自家焙煎コーヒー専門店・杉本珈琲店の強みと一押し「千秋ブレンド」を紹介し、新しいコーヒー豆診断サービスを提案するコンセプトページです。オリジナルブレンド4種・ストレート9種・カフェインレス1種の全14種類を100g単位で扱っています。">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#2a221c">
 <style>
@@ -438,6 +438,24 @@
   }
 
   /* ---- store info ---- */
+  .bean-group { margin-bottom: 1.6em; }
+  .bean-group h3 { font-size: 1rem; margin: 0 0 0.5em; }
+  .bean-list { list-style: none; margin: 0; padding: 0; }
+  .bean-list li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3em 0.8em;
+    align-items: baseline;
+    padding: 0.55em 0;
+    border-bottom: 1px dashed var(--color-border);
+    font-size: 0.94rem;
+  }
+  .bean-list li:last-child { border-bottom: none; }
+  .bean-list .bean-name { flex: 1 1 180px; }
+  .bean-list .bean-roast { color: var(--color-muted); font-size: 0.85rem; flex: 0 0 auto; }
+  .bean-list .bean-yen { color: var(--color-accent); font-variant-numeric: tabular-nums; flex: 0 0 auto; }
+  .bean-note { font-size: 0.85rem; color: var(--color-muted); margin-top: 1.2em; }
+
   .info-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -613,6 +631,53 @@
     </div>
   </section>
 
+  <!-- beans lineup -->
+  <section id="beans">
+    <div class="wrap">
+      <span class="eyebrow">BEANS</span>
+      <h2>14種類の豆から選べます</h2>
+      <p>オリジナルブレンド4種と世界各地のストレート9種、カフェインレス1種。浅煎りから深煎りまでそろい、どれも店内での一杯と、100g単位の豆の持ち帰りの両方で用意されています。</p>
+
+      <div class="bean-group">
+        <h3>オリジナルブレンド</h3>
+        <ul class="bean-list">
+          <li><span class="bean-name">高清水の風</span><span class="bean-roast">浅めの中煎り／無農薬の豆がベース</span><span class="bean-yen">カップ500円・100g 700円</span></li>
+          <li><span class="bean-name">千秋（Sensyuu）</span><span class="bean-roast">中煎り／バランスの取れた風味</span><span class="bean-yen">カップ500円・100g 700円</span></li>
+          <li><span class="bean-name">太平（Taihei）</span><span class="bean-roast">中深煎り／高地産の豆・ややビターな甘みとコク</span><span class="bean-yen">カップ500円・100g 700円</span></li>
+          <li><span class="bean-name">深煎りブレンド</span><span class="bean-roast">深煎り／アイスコーヒーにも</span><span class="bean-yen">カップ550円・100g 800円</span></li>
+        </ul>
+      </div>
+
+      <div class="bean-group">
+        <h3>世界各地のストレート</h3>
+        <ul class="bean-list">
+          <li><span class="bean-name">ブラジル ランチョ サン ベネディート</span><span class="bean-yen">カップ550円・100g 800円</span></li>
+          <li><span class="bean-name">コロンビア CGLE トリマブランコ</span><span class="bean-yen">カップ550円・100g 800円</span></li>
+          <li><span class="bean-name">グァテマラ アンティグア ソレダーFW</span><span class="bean-yen">カップ550円・100g 800円</span></li>
+          <li><span class="bean-name">ペルー チリノス生産者組合</span><span class="bean-yen">カップ550円・100g 800円</span></li>
+          <li><span class="bean-name">コスタリカ ジャガー ハニー SHB</span><span class="bean-yen">カップ550円・100g 800円</span></li>
+          <li><span class="bean-name">ケニア AB ングルエリ</span><span class="bean-yen">カップ550円・100g 800円</span></li>
+          <li><span class="bean-name">エチオピア イルガチェフ G1 Gedeb ウォッシュド</span><span class="bean-yen">カップ550円・100g 800円</span></li>
+          <li><span class="bean-name">タンザニア AA Karatu Estate</span><span class="bean-yen">カップ550円・100g 800円</span></li>
+          <li><span class="bean-name">インドネシア マンデリン グランブルー</span><span class="bean-yen">カップ550円・100g 800円</span></li>
+        </ul>
+      </div>
+
+      <div class="bean-group">
+        <h3>カフェインレス</h3>
+        <ul class="bean-list">
+          <li><span class="bean-name">エチオピア イルガチェフェ マウンテンウオーター G2</span><span class="bean-roast">カフェインレス</span><span class="bean-yen">カップ600円・100g 800円</span></li>
+        </ul>
+      </div>
+
+      <p class="bean-note">豆の種類と価格は、公式サイトのメニューページに掲載されている内容にもとづいています。価格は掲載時点のもので、変わることがあります。最新の内容は公式サイトをご確認ください。</p>
+      <div class="cta-row">
+        <a class="btn btn-ghost" href="https://www.sugicafe.net/menu/index.html" target="_blank" rel="noopener noreferrer">公式のメニューを見る</a>
+        <a class="btn btn-accent" href="#diagnosis">合う豆を診断で探す</a>
+      </div>
+    </div>
+  </section>
+
   <!-- usage scenes -->
   <section style="background:var(--color-surface); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);">
     <div class="wrap">
@@ -625,7 +690,7 @@
             <figcaption>イメージ画像：モーニングセット</figcaption>
           </figure>
           <h3>朝はモーニングセットで</h3>
-          <p>トーストと千秋ブレンドのモーニングセットで、一日を落ち着いてスタートできます。</p>
+          <p>トーストと千秋ブレンドのモーニングセット（650円・8:30〜10:00）で、一日を落ち着いてスタートできます。</p>
         </div>
         <div class="scene-card">
           <h3>気分に合わせた一杯を</h3>
@@ -710,7 +775,15 @@
         </div>
         <div class="info-row">
           <dt>所在地</dt>
-          <dd>秋田県秋田市 通町商店街</dd>
+          <dd>秋田県秋田市保戸野通町5-34（通町商店街）</dd>
+        </div>
+        <div class="info-row">
+          <dt>営業時間</dt>
+          <dd>8:30〜18:00（平日・日曜・祝日）<br>モーニングセットは8:30〜10:00</dd>
+        </div>
+        <div class="info-row">
+          <dt>定休日</dt>
+          <dd>月曜日</dd>
         </div>
         <div class="info-row">
           <dt>公式サイト</dt>
