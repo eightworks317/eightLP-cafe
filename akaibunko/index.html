@@ -431,6 +431,88 @@
     color: var(--color-muted);
   }
 
+  /* ------- giving（2026-10-13 追加）------- */
+  .giving-quote {
+    margin: 22px 0 0;
+    padding: 18px 20px;
+    border-left: 3px solid var(--color-accent);
+    background: var(--color-paper-deep);
+    border-radius: 0 8px 8px 0;
+    font-size: 15.5px;
+    line-height: 1.9;
+  }
+  .giving-quote cite {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+    font-style: normal;
+    color: var(--color-muted);
+  }
+  .giving-figures {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 22px;
+  }
+  @media (min-width: 720px) {
+    .giving-figures { grid-template-columns: repeat(2, 1fr); }
+  }
+  .giving-fig {
+    padding: 18px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-paper-deep);
+  }
+  .giving-fig .fig-label { display: block; font-size: 13px; color: var(--color-muted); margin-bottom: 6px; }
+  .giving-fig .fig-yen { display: block; font-size: 24px; font-weight: 600; color: var(--color-accent); }
+  .giving-fig p { font-size: 14px; margin: 8px 0 0; }
+  .giving-note { margin-top: 16px; font-size: 13.5px; color: var(--color-muted); }
+
+  /* ------- beans（2026-10-13 追加）------- */
+  .bean-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 22px;
+  }
+  @media (min-width: 720px) {
+    .bean-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .bean-card {
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+    border-radius: 8px;
+    background: var(--color-paper-deep);
+    border: 1px solid var(--color-border);
+    min-width: 0;
+  }
+  .bean-time {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 12px;
+    letter-spacing: .12em;
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    border-radius: 2px;
+    padding: 2px 8px;
+    margin-bottom: 10px;
+  }
+  .bean-card h3 { font-size: 16px; margin: 0 0 6px; }
+  .bean-origin { font-size: 13px; color: var(--color-muted); margin: 0 0 8px; }
+  .bean-card p { font-size: 14.5px; }
+  .bean-yen {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px dashed var(--color-border);
+    font-size: 14px;
+  }
+  .bean-note {
+    margin-top: 16px;
+    font-size: 13.5px;
+    color: var(--color-muted);
+  }
+
   /* ------- experience ------- */
   .exp-grid {
     display: grid;
@@ -741,7 +823,7 @@
           </div>
           <span class="num">03</span>
           <h3>貸本を通じた社会貢献</h3>
-          <p>店内の貸本コーナーは1冊につき50円の募金制で、集まった募金は全額「絵本を届ける運動」へ寄付されています。</p>
+          <p>店内の貸本コーナーでは、本を借りる方に1冊につき50円以上の募金をお願いしています。集まった募金は、公益社団法人シャンティ国際ボランティア会を通じて「絵本を届ける運動」へ寄付されています。</p>
           <span class="value-tag">本を借りて読むことが、そのまま社会貢献につながります。</span>
         </article>
       </div>
@@ -785,6 +867,35 @@
   </div>
 
   <!-- 一押し商品・サービス -->
+  <!-- 貸本と寄付 -->
+  <section id="giving" aria-labelledby="giving-title">
+    <div class="container">
+      <span class="section-label">GIVING</span>
+      <h2 id="giving-title" class="section-title">借りて読むことが、絵本になる</h2>
+      <p class="section-text">貸本コーナーで本を借りる方に、1冊につき50円以上の募金をお願いしています。集まった募金は、公益社団法人シャンティ国際ボランティア会を通じて、絵本が不足しているアジアの地域の子どもたちへ絵本を届ける活動に寄付されています。</p>
+
+      <blockquote class="giving-quote">
+        絵本は、ただ「読むもの」ではなく、まだ知らない世界を知ったり、想像する楽しさに出会ったり、自分の未来を思い描くきっかけにもなります。
+        <cite>公式Instagram（@cafe_akaibunko）2026年10月の投稿より</cite>
+      </blockquote>
+
+      <div class="giving-figures">
+        <div class="giving-fig">
+          <span class="fig-label">これまでの寄付の合計</span>
+          <span class="fig-yen">49,884円</span>
+          <p>2019年の開店から2026年8月30日までに、貸本コーナーから寄付された金額の合計です。</p>
+        </div>
+        <div class="giving-fig">
+          <span class="fig-label">直近の1年ぶん</span>
+          <span class="fig-yen">28,083円</span>
+          <p>2025年10月から2026年8月までの募金で、2026年10月8日に寄付されました。これまでで最も多い年です。</p>
+        </div>
+      </div>
+
+      <p class="giving-note">※ この節は、公式Instagram（@cafe_akaibunko）2026年10月の投稿に掲載されている内容と金額にもとづいています。</p>
+    </div>
+  </section>
+
   <section id="specialty" class="surface" aria-labelledby="specialty-title">
     <div class="container">
       <span class="section-label">SPECIALTY</span>
@@ -812,6 +923,41 @@
         <p>店内の本を読みながら、注文後に豆を挽いて淹れるハンドドリップコーヒーを楽しめます。貸本の募金は「絵本を届ける運動」へ寄付される仕組みです。</p>
         <p>一人でゆっくり読書したい方、静かに過ごしたい方におすすめです。</p>
       </div>
+    </div>
+  </section>
+
+  <!-- コーヒー豆 -->
+  <section id="beans" aria-labelledby="beans-title">
+    <div class="container">
+      <span class="section-label">BEANS</span>
+      <h2 id="beans-title" class="section-title">珈琲豆は、飲む時間で選べます</h2>
+      <p>赤居文庫の珈琲豆は、産地ではなく「いつ飲むか」で三つに分かれています。いずれも100g 972円（税込）、注文を受けてから焙煎されます。</p>
+
+      <div class="bean-grid">
+        <div class="bean-card">
+          <span class="bean-time">MORNING</span>
+          <h3>グッドモーニングブレンド</h3>
+          <p class="bean-origin">ブラジル・コスタリカ</p>
+          <p>朝にすっきり気持ちを切り替えたいときに、と案内されています。</p>
+          <p class="bean-yen">100g 972円（税込）</p>
+        </div>
+        <div class="bean-card">
+          <span class="bean-time">AFTERNOON</span>
+          <h3>アフタヌーンブレンド</h3>
+          <p class="bean-origin">ブラジル・エルサルバドル・コスタリカ</p>
+          <p>読書や物思いにふけるひとときに、と案内されています。</p>
+          <p class="bean-yen">100g 972円（税込）</p>
+        </div>
+        <div class="bean-card">
+          <span class="bean-time">NIGHT</span>
+          <h3>ナイトブレンド</h3>
+          <p class="bean-origin">エルサルバドル・ブラジル</p>
+          <p>一息つきたいときや、がんばった自分へのご褒美に、と案内されています。</p>
+          <p class="bean-yen">100g 972円（税込）</p>
+        </div>
+      </div>
+
+      <p class="bean-note">※ 豆の種類・価格・説明は、公式オンラインショップ（dlfoods.stores.jp）に掲載されている内容にもとづいています。2026年10月13日時点の表示です。ご注文を受けてから焙煎し、4営業日以内に発送すると案内されています。最新の内容は公式サイトをご確認ください。</p>
     </div>
   </section>
 
