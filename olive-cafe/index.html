@@ -301,6 +301,14 @@
     padding-top: var(--space-1);
     margin-top: var(--space-2);
   }
+  /* ★ 2026-10-14 追加：横に3枚並べたとき、見出しの行数が違うと本文の始まりが
+     ずれるため、見出しに2行ぶんの高さを確保し、「価値」の囲みはカードの下へ
+     そろえます。文の長さをそろえるより、作りで吸収するほうが確実です。 */
+  @media (min-width: 900px) {
+    .card { display: flex; flex-direction: column; }
+    .card h3 { min-height: 2.8em; }
+    .card .card-value { margin-top: auto; }
+  }
 
   /* ---------- ストーリー ---------- */
   .story-block {
@@ -675,16 +683,51 @@
           <img src="images/03_cafe_latte_closeup.webp" alt="ラテアートを施したカフェラテと、添えられた焼き菓子のイメージ画像" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:10px;">
           <span class="visual-caption">イメージ画像（生成画像）</span>
         </div>
-        <h3>カフェラテ</h3>
-        <p>オリジナルブレンドを中心としたコーヒーメニューの一つで、バランスの取れた味わいが紹介されています。</p>
+        <h3>Oliveオリジナルブレンド</h3>
+        <p>お店の説明では、酸味・苦味・甘みのバランスがとてもよく、雑味のない仕上がりとされています。豆本来の味わいも感じられ、ラテにもよく合うとのことです。</p>
+        <p><strong>「酸味が苦手な人にもオススメ」</strong>と案内されています。コーヒーの酸味が苦手で選びづらい、という方にも入り口のある一杯です。</p>
         <div class="feature-meta">
           <span>コーヒー・スイーツ・トースト</span>
           <span>店内利用・テイクアウト対応</span>
         </div>
         <p>落ち着いた店内でゆっくり味わうのはもちろん、テイクアウトで気軽に楽しむこともできます。価格や詳しいメニュー内容は、最新情報を公式Instagramでご確認ください。</p>
+
+        <div class="feature-meta" style="margin-top:1.4em;">
+          <span>人気のモノクロコンビ</span>
+        </div>
+        <p>オレオチーズケーキと、ブラックラテ（ホット）の組み合わせが「人気のモノクロコンビ」として紹介されています。白と黒が並ぶ一皿と一杯です。</p>
+
+        <div class="feature-meta" style="margin-top:1.4em;">
+          <span>OLIVE DRIP BAG COFFEE</span>
+        </div>
+        <p>2026年6月に、オリジナルブレンドのドリップバッグ（1袋11g）ができました。「朝のはじまりに。仕事の合間に。ちょっとした贈り物に。」と案内されています。お店の一杯を持ち帰ったり、人に渡したりできる形です。</p>
+
+        <p class="section-intro" style="margin-top:1.4em;">※ この項目は、公式Instagram（@olive_cafe.akita）の投稿にもとづいています。価格や取り扱いは変わることがあります。最新の内容は公式Instagramをご確認ください。</p>
         <div class="cta-group" style="margin-top: var(--space-2);">
           <a class="btn btn-primary" href="https://www.instagram.com/olive_cafe.akita/" target="_blank" rel="noopener noreferrer">Instagramでメニューを見る</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 催し -->
+  <section id="session">
+    <div class="container">
+      <span class="section-label">SESSION</span>
+      <h2>OLIVE SESSION ― これからの話をしよう。</h2>
+      <p class="section-intro">お店ではじまった、少人数で語り合う会です。</p>
+
+      <div class="feature-panel">
+        <h3>第1回「自分の街に、自分ができることって何だろう。」</h3>
+        <p>秋田のこと、自分が暮らしている街のこと、これからやってみたいこと、いま少し悩んでいること。そうした話を持ち寄って話す会として案内されました。</p>
+        <p>お店の案内文には「普段なんとなく考えているけれど、誰かと話す機会って意外と少ない気がします」とあり、店主ご自身が「これまで一人で考えて、一人で決めて、一人で動くことが多くありました」と書かれています。</p>
+        <div class="feature-meta">
+          <span>2026年10月2日（金）19:00〜20:00</span>
+          <span>定員 4〜6名</span>
+          <span>参加費 1,000円（1ドリンク付き）</span>
+          <span>申込 Instagram DM</span>
+        </div>
+        <p class="section-intro">※ この節は、公式Instagram（@olive_cafe.akita）の投稿にもとづいています。開催済みの回です。今後の予定は公式Instagramをご確認ください。</p>
       </div>
     </div>
   </section>
