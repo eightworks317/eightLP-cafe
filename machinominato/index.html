@@ -300,10 +300,28 @@
      ずれるため、見出しに2行ぶんの高さを確保し、「価値」の囲みはカードの下へ
      そろえます。文の長さをそろえるのではなく、作りで吸収する方式です。 */
   @media (min-width: 700px) {
+    /* ① 支えとなる作り（下端をそろえる）。古いブラウザ用の保険でもあります。 */
     .card-grid.cols-3 .card { display: flex; flex-direction: column; }
-    /* 見出しは1行が文字サイズの1.6倍なので、2行ぶんは 3.2em 必要です */
     .card-grid.cols-3 .card h3 { line-height: 1.6; min-height: 3.2em; }
     .card-grid.cols-3 .card .value { margin-top: auto; }
+  }
+  /* ② ★2026-10-15：ラベル・見出し・本文・価値の4つを、それぞれ別々に高さを
+     そろえます。下端だけをそろえると、本文の長さが違うときに点線の位置がずれます。
+     subgrid に対応していないブラウザでは、上の①の作りがそのまま効きます。 */
+  @supports (grid-template-rows: subgrid) {
+    @media (min-width: 700px) {
+      #events .card-grid.cols-3 .card {
+        display: grid; grid-template-rows: subgrid; grid-row: span 4;
+      }
+      #strengths .card-grid.cols-3 .card {
+        display: grid; grid-template-rows: subgrid; grid-row: span 5;
+      }
+      .card-grid.cols-3 .card h3 { min-height: 0; margin-bottom: 0; }
+      .card-grid.cols-3 .card .value { margin-top: 0; align-self: start; }
+      .card-grid.cols-3 .card p { margin-bottom: 0; }
+      .card-grid.cols-3 .card .num { margin-bottom: 0; }
+      .card-grid.cols-3 .card { row-gap: 10px; }
+    }
   }
 
   /* ---------- Story ---------- */
