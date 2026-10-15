@@ -296,6 +296,15 @@
     padding-top: 10px;
     margin-top: 10px;
   }
+  /* ★ 2026-10-15 追加：横に3枚並べたとき、見出しの行数が違うと本文の始まりが
+     ずれるため、見出しに2行ぶんの高さを確保し、「価値」の囲みはカードの下へ
+     そろえます。文の長さをそろえるのではなく、作りで吸収する方式です。 */
+  @media (min-width: 700px) {
+    .card-grid.cols-3 .card { display: flex; flex-direction: column; }
+    /* 見出しは1行が文字サイズの1.6倍なので、2行ぶんは 3.2em 必要です */
+    .card-grid.cols-3 .card h3 { line-height: 1.6; min-height: 3.2em; }
+    .card-grid.cols-3 .card .value { margin-top: auto; }
+  }
 
   /* ---------- Story ---------- */
   .story {
@@ -560,6 +569,7 @@
       <p class="lead-text">競合との比較ではなく、公式に確認できる特徴だけを根拠に整理しています。</p>
       <div class="card-grid cols-3">
         <div class="card">
+          <img class="card-photo" src="images/barista_pour_over_4x3.webp" alt="ハンドドリップでコーヒーを淹れる様子のイメージ画像" loading="lazy">
           <span class="num">STRENGTH 01</span>
           <h3>産地のストーリーごと届けるコーヒー</h3>
           <p>店内で自家焙煎した豆や、生産者から直接仕入れたダイレクトトレードの豆を使用。</p>
@@ -658,42 +668,57 @@
     </div>
   </section>
 
-  <!-- 動く新サービス試作 -->
-  <section id="proto" class="proposal-section" aria-labelledby="proto-heading">
+  <!-- 催しごと -->
+  <section id="events" class="section-alt" aria-labelledby="events-heading">
     <div class="container">
-      <span class="proposal-tag">INTERACTIVE PROTOTYPE ／ 動く新サービス試作</span>
-      <h2 id="proto-heading">コーヒー豆診断（新サービス提案）</h2>
-      <p class="lead-text">
-        好みの味わいから、お客様に合うコーヒー豆を案内する新サービスの提案です。
-        店舗運営者向けに、実際に操作できる試作版を別ページで公開しています。
-      </p>
-
-      <div class="proto-meta-grid">
-        <div class="proto-meta">
-          <h3>対象顧客</h3>
-          <p>初めて来店する方や、豆の選び方に迷う旅行者・地域のお客様。</p>
+      <p class="eyebrow">EVENTS</p>
+      <h2 id="events-heading">コーヒーを入り口にした、いろいろな集まり</h2>
+      <p class="lead-text">マチノミナトでは、喫茶とパブの営業とあわせて、人が集まる催しが開かれています。ここに挙げたのは、公式Instagramで案内されていたものです。</p>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <span class="num">WORKSHOP</span>
+          <h3>コーヒーワークショップ</h3>
+          <p>コーヒー初心者を対象にした連続ワークショップです。第2回（2026年7月26日）は「おいしいアイスコーヒーを作ろう」、第3回（2026年9月26日）は「飲み比べで好きなコーヒーを見つけよう」でした。講師にはVISTA COFFEE ROASTERSを招いています。</p>
+          <p class="value">第3回のテーマはテイスティング。産地・精製方法・品種・焙煎度のちがいを、2種類ずつ飲み比べながら体験する会でした。「難しいテイスティング用語を覚えることが目的ではありません」と案内されています。</p>
         </div>
-        <div class="proto-meta">
-          <h3>解決する課題</h3>
-          <p>豆の種類が多く選びにくいという悩みに対し、好みから傾向を絞り込める入口をつくります。</p>
+        <div class="card">
+          <span class="num">YOGA &amp; RUN</span>
+          <h3>屋上でMorning Yoga、土曜のランコミュニティ</h3>
+          <p>Atle DELTAの屋上で朝ヨガが開かれています（2026年8月23日は8:30〜9:30、参加費1,300円、定員10名、事前予約制）。「みんなでヨガして美味しいコーヒーを飲みましょう」と案内されました。</p>
+          <p class="value">毎週土曜日にはランコミュニティも行われています。体を動かしたあとの一杯という入り口が用意されています。</p>
         </div>
-        <div class="proto-meta">
-          <h3>店舗の強みとの相性</h3>
-          <p>産地のストーリーを届けるという強みを、診断という体験を通じて伝えやすくします。</p>
-        </div>
-        <div class="proto-meta">
-          <h3>小さく始める方法</h3>
-          <p>まずは店頭のQRコードやSNSからこの診断へご案内し、反応を見ながら質問内容を調整する形が考えられます。</p>
+        <div class="card">
+          <span class="num">BOOK</span>
+          <h3>本をめぐる集まり</h3>
+          <p>秋田市内の本の催し BOOK&amp;WEEKEND 2026 に参加しています。2026年10月11日には、まど・みちおの詩「いちばんぼし」を題材に、読書感想画を描くワークショップが開かれました。</p>
+          <p class="value">2026年10月31日・11月1日には、ヤマキウ南倉庫で開かれるブックフェスにも出店すると案内されています。</p>
         </div>
       </div>
+      <p class="lead-text" style="font-size:.85em;opacity:.8;margin-top:1.2em;">※ この節は、公式Instagram（@machinominato）の投稿にもとづいています。いずれも開催済み、または告知された予定です。最新の内容は公式Instagramをご確認ください。</p>
+    </div>
+  </section>
 
-      <p class="proposal-note">
-        本機能は店舗運営者向けの試作デモです。現在提供中の正式サービスではありません。入力内容の保存・送信は行いません。
-      </p>
-
-      <div class="proto-cta">
-        <a class="btn btn-primary" href="https://coffee-diagnosis-app.netlify.app/index.html" target="_blank" rel="noopener noreferrer">コーヒー豆診断を試してみる（別ウィンドウで開きます）</a>
-      </div>
+  <!-- 旬替わりメニュー -->
+  <section id="lunch" aria-labelledby="lunch-heading">
+    <div class="container">
+      <p class="eyebrow">LUNCH</p>
+      <h2 id="lunch-heading">旬替わりの、サンドイッチと季節のスープ</h2>
+      <p class="lead-text">ランチは内容が入れ替わります。公式Instagramで紹介されていたのは、次のような組み合わせです。</p>
+      <ul class="info-list">
+        <li>
+          <span class="term">季節のスープ</span>
+          <span>その時々の食材で仕込まれます。「角館の桜えのきのポタージュスープ」「紫芋のスープ」などが紹介されました。</span>
+        </li>
+        <li>
+          <span class="term">サンドイッチ</span>
+          <span>マルタベーカリーさんのパンで作られます。「アレックスのプルドポークサンド」などがあります。</span>
+        </li>
+        <li>
+          <span class="term">旬サラダ</span>
+          <span>自家製の豆乳シーザードレッシングがかけられています。</span>
+        </li>
+      </ul>
+      <p class="lead-text" style="font-size:.85em;opacity:.8;margin-top:1.2em;">※ この節は、公式Instagram（@machinominato）の投稿にもとづいています。内容は入れ替わります。最新のメニューは公式Instagramをご確認ください。</p>
     </div>
   </section>
 
@@ -724,6 +749,14 @@
         <li>
           <span class="term">Instagram</span>
           <span><a href="https://www.instagram.com/machinominato/" target="_blank" rel="noopener noreferrer">https://www.instagram.com/machinominato/</a></span>
+        </li>
+        <li>
+          <span class="term">電話</span>
+          <span>070-6981-0717</span>
+        </li>
+        <li>
+          <span class="term">催しのご予約</span>
+          <span>公式InstagramのDM（@machinominato）またはお電話で受け付けられています。</span>
         </li>
         <li>
           <span class="term">運営会社</span>
