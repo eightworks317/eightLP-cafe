@@ -304,9 +304,10 @@
   /* ★ 2026-10-14 追加：横に3枚並べたとき、見出しの行数が違うと本文の始まりが
      ずれるため、見出しに2行ぶんの高さを確保し、「価値」の囲みはカードの下へ
      そろえます。文の長さをそろえるより、作りで吸収するほうが確実です。 */
-  @media (min-width: 900px) {
+  @media (min-width: 700px) {
     .card { display: flex; flex-direction: column; }
-    .card h3 { min-height: 2.8em; }
+    /* 見出しは1行が文字サイズの1.8倍なので、2行ぶんは 3.6em 必要です */
+    .card h3 { line-height: 1.8; min-height: 3.6em; }
     .card .card-value { margin-top: auto; }
   }
 
