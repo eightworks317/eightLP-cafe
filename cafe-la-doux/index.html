@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>café La Doux（カフェ・ラ・ドゥ）｜美味しく食べた料理が、実は低糖質だったら｜提案用ページ</title>
+<meta name="description" content="秋田市中通、クロッセ秋田2階のcafé La Doux（カフェ・ラ・ドゥ）。元パティシエの店主が、砂糖のかわりに天然甘味料ラカンカを使ってつくる低糖質の料理とケーキを紹介する提案用ページです。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2f3a2c">
+<style>
+  :root {
+    --color-primary: #2f3a2c;      /* 深い緑 */
+    --color-secondary: #fbf7ef;    /* 生成り */
+    --color-accent: #8a7a4e;       /* 落ち着いた金茶 */
+    --color-accent-text: #6f6239;  /* 明るい地の上に置く文字用 */
+    --color-berry: #9b4a55;        /* いちご・果実の差し色 */
+    --color-surface: #f1ebdd;
+    --color-proposal: #eaf1e9;
+    --color-proposal-border: #9fb8a3;
+    --color-text: #2b2b26;
+    --color-muted: #6b6a5c;
+    --color-border: #ddd4c0;
+    --font-serif: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-sans: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--color-secondary);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+
+  .container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding-left: clamp(14px, 4vw, 32px);
+    padding-right: clamp(14px, 4vw, 32px);
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -999px; top: 0;
+    background: var(--color-accent);
+    color: #fff;
+    padding: 10px 16px;
+    z-index: 200;
+    border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus { left: 0; }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  /* ---------- 提案用ラベル ---------- */
+  .proposal-bar {
+    background: var(--color-primary);
+    color: var(--color-secondary);
+    text-align: center;
+    padding: 8px 14px;
+    font-size: clamp(12px, 3vw, 13px);
+    letter-spacing: 0.06em;
+    line-height: 1.5;
+  }
+
+  /* ---------- ファーストビュー ---------- */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 96px 0 56px;
+    background: var(--color-primary);
+    overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(47,58,44,0.46) 0%, rgba(47,58,44,0.62) 55%, rgba(47,58,44,0.88) 100%);
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: clamp(12px, 3vw, 13px);
+    letter-spacing: 0.16em;
+    color: var(--color-secondary);
+    margin: 0 0 14px;
+  }
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(26px, 7.4vw, 44px);
+    line-height: 1.4;
+    margin: 0 0 18px;
+    color: var(--color-secondary);
+    overflow-wrap: anywhere;
+  }
+  .hero-lead {
+    font-size: clamp(14px, 3.8vw, 17px);
+    max-width: 34em;
+    margin: 0 0 30px;
+    color: var(--color-secondary);
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin: 0 0 30px;
+    font-size: 12px; letter-spacing: 0.08em;
+    color: var(--color-secondary);
+  }
+  .hero-tags span {
+    border: 1px solid rgba(251,247,239,0.5);
+    border-radius: 999px;
+    padding: 6px 14px;
+    background: rgba(47,58,44,0.35);
+  }
+
+  .cta-group { display: flex; flex-direction: column; gap: 12px; max-width: 340px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 12px 20px;
+    border-radius: 6px; text-decoration: none;
+    font-size: 15px; letter-spacing: 0.02em;
+    border: 1px solid transparent; text-align: center; line-height: 1.4;
+  }
+  .btn-primary { background: var(--color-primary); color: var(--color-secondary); }
+  .btn-outline { background: transparent; border-color: var(--color-primary); color: var(--color-primary); }
+  .hero .btn-primary { background: var(--color-secondary); color: var(--color-primary); }
+  .hero .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); background: rgba(47,58,44,0.25); }
+  @media (min-width: 560px) { .cta-group { flex-direction: row; max-width: none; } }
+
+  /* ---------- 共通 ---------- */
+  section { padding: clamp(48px, 9vw, 88px) 0; }
+  .section-alt { background: var(--color-surface); }
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.14em;
+    color: var(--color-accent-text);
+    margin: 0 0 10px;
+  }
+  h2 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(22px, 6vw, 30px);
+    margin: 0 0 20px; line-height: 1.5;
+  }
+  h3 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(17px, 4.6vw, 20px);
+    margin: 0 0 10px; line-height: 1.6;
+  }
+  p { margin: 0 0 14px; }
+  .lead-text { max-width: 40em; color: var(--color-muted); }
+  .source-note { font-size: .85em; opacity: .8; margin-top: 1.2em; }
+
+  /* ---------- カード ---------- */
+  .card-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
+  @media (min-width: 700px) {
+    .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  }
+  .card {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 22px; min-width: 0;
+    box-shadow: 0 2px 10px rgba(47,58,44,0.05);
+  }
+  .card .num {
+    font-size: 12px; color: var(--color-accent-text);
+    letter-spacing: 0.1em; display: block; margin-bottom: 10px;
+  }
+  .card p { font-size: 14.5px; color: var(--color-text); margin-bottom: 8px; }
+  .card .value {
+    font-size: 13.5px; color: var(--color-muted);
+    border-top: 1px dashed var(--color-border);
+    padding-top: 10px; margin-top: 10px;
+  }
+  .card-photo {
+    border-radius: 8px; width: 100%;
+    aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 14px;
+  }
+
+  /* 横に3枚並べたときの、そろえ方。
+     ① 下端をそろえる作り（subgrid が使えないブラウザ用の保険）
+     このページの見出しは1行が文字サイズの1.6倍なので、2行ぶんは 3.2em です。 */
+  @media (min-width: 700px) {
+    .card-grid.cols-3 .card { display: flex; flex-direction: column; }
+    .card-grid.cols-3 .card h3 { line-height: 1.6; min-height: 3.2em; }
+    .card-grid.cols-3 .card .value { margin-top: auto; }
+  }
+  /* ② ラベル・見出し・本文・価値の4つを、それぞれ別々に高さをそろえます。
+     下端だけをそろえると、本文の長さが違うときに点線の位置がずれます。 */
+  @supports (grid-template-rows: subgrid) {
+    @media (min-width: 700px) {
+      #strengths .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 5; }
+      #sweets .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 4; }
+      .card-grid.cols-3 .card h3 { min-height: 0; margin-bottom: 0; }
+      .card-grid.cols-3 .card .value { margin-top: 0; align-self: start; }
+      .card-grid.cols-3 .card p { margin-bottom: 0; }
+      .card-grid.cols-3 .card .num { margin-bottom: 0; }
+      .card-grid.cols-3 .card { row-gap: 10px; }
+    }
+  }
+
+  /* ---------- ストーリー ---------- */
+  .story { display: grid; gap: 24px; }
+  /* ★2026-10-15：横に並べたとき、写真の下に空きができて文章だけ下に伸びるのを直します。
+     写真を、となりの文章と同じ高さまで伸ばします（はみ出た分は切り取られます）。 */
+  @media (min-width: 760px) {
+    .story { grid-template-columns: 1fr 1fr; align-items: stretch; }
+    .story-photo { height: 100%; min-height: 300px; aspect-ratio: auto; }
+  }
+  .story-photo {
+    border-radius: 10px; width: 100%;
+    aspect-ratio: 4 / 3; object-fit: cover; min-width: 0;
+  }
+  .concept-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 22px; }
+  .concept-gallery img { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+
+  blockquote.quote {
+    margin: 22px 0 0;
+    padding: 18px 20px;
+    background: var(--color-secondary);
+    border-left: 4px solid var(--color-accent);
+    border-radius: 0 8px 8px 0;
+    font-family: var(--font-serif);
+    font-size: clamp(15px, 4vw, 17px);
+    line-height: 1.9;
+  }
+  blockquote.quote cite {
+    display: block; margin-top: 10px;
+    font-family: var(--font-sans); font-style: normal;
+    font-size: 12.5px; color: var(--color-muted);
+  }
+
+  /* ---------- 注目の一品 ---------- */
+  .highlight { background: var(--color-primary); color: var(--color-secondary); }
+  .highlight .eyebrow { color: #d9c88a; }
+  .highlight-grid { display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 760px) { .highlight-grid { grid-template-columns: 1.1fr 1fr; } }
+  .highlight-visual {
+    border-radius: 10px; aspect-ratio: 4 / 3; width: 100%;
+    object-fit: cover; border: 1px solid rgba(255,255,255,0.15);
+  }
+  .highlight-list { list-style: none; padding: 0; margin: 18px 0 24px; font-size: 14.5px; }
+  .highlight-list li { padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.15); }
+  .highlight-list li:first-child { border-top: none; }
+  .highlight-list b { display: block; margin-bottom: 4px; font-size: 13px; color: #d9c88a; letter-spacing: 0.04em; }
+
+  /* ---------- 一覧表 ---------- */
+  .info-list {
+    list-style: none; padding: 0; margin: 24px 0 0;
+    display: grid; gap: 0; border-top: 1px solid var(--color-border);
+  }
+  .info-list li {
+    display: grid; grid-template-columns: 110px 1fr; gap: 12px;
+    padding: 14px 0; border-bottom: 1px solid var(--color-border);
+    font-size: 14.5px;
+  }
+  .info-list .term { color: var(--color-muted); font-size: 13px; letter-spacing: 0.04em; }
+  .info-list a { overflow-wrap: anywhere; text-decoration: underline; }
+
+  /* 週替わりランチの表 */
+  .menu-table { width: 100%; border-collapse: collapse; margin-top: 24px; background: var(--color-secondary); border: 1px solid var(--color-border); border-radius: 10px; overflow: hidden; }
+  .menu-table th, .menu-table td { text-align: left; padding: 12px 14px; font-size: 14.5px; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+  .menu-table thead th { background: var(--color-surface); font-size: 13px; color: var(--color-muted); letter-spacing: .04em; }
+  .menu-table th[scope="row"] { white-space: nowrap; color: var(--color-muted); font-weight: 700; width: 5.5em; }
+  .menu-table tr:last-child th, .menu-table tr:last-child td { border-bottom: none; }
+
+  /* ---------- 試作（診断） ---------- */
+  .proposal-section {
+    background: var(--color-proposal);
+    border-top: 3px solid var(--color-proposal-border);
+    border-bottom: 3px solid var(--color-proposal-border);
+  }
+  .proposal-tag {
+    display: inline-block; font-size: 12px; letter-spacing: 0.1em;
+    background: var(--color-proposal-border); color: #10221b;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .proposal-note {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-proposal-border);
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 13.5px; color: var(--color-muted);
+    margin: 22px 0 30px; line-height: 1.75;
+  }
+  .quiz-app {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 14px; padding: 22px; max-width: 640px;
+  }
+  .quiz-intro h3 { margin: 0 0 12px; font-size: 20px; }
+  .quiz-progress { font-size: 13px; color: var(--color-muted); margin-bottom: 12px; }
+  .quiz-question { font-size: 17px; font-weight: 700; margin: 0 0 12px; }
+  .quiz-options { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 10px; }
+  .quiz-option {
+    width: 100%; text-align: left; padding: 14px 16px; min-height: 44px;
+    border: 1.5px solid var(--color-border); border-radius: 8px;
+    background: var(--color-surface); font-size: 15px;
+    font-family: inherit; color: var(--color-text); cursor: pointer;
+  }
+  .quiz-option[aria-pressed="true"] { border-color: var(--color-accent); background: #f3ead6; font-weight: 700; }
+  .quiz-option[aria-pressed="true"]::before { content: "✓ "; color: var(--color-accent-text); }
+  .quiz-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; }
+  .quiz-nav button { min-height: 44px; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-family: inherit; cursor: pointer; }
+  #quizBack { background: transparent; border: 1px solid var(--color-border); color: var(--color-text); }
+  #quizNext { background: var(--color-accent); border: 1px solid var(--color-accent); color: #fff; }
+  #quizNext:disabled, #quizBack:disabled { opacity: .4; cursor: not-allowed; }
+  .quiz-warning { font-size: 13px; color: #a0432a; margin-top: 6px; min-height: 1.2em; }
+  .quiz-result h3 { font-size: 22px; margin: 0 0 6px; }
+  .quiz-result .result-summary { color: var(--color-muted); margin: 0 0 22px; }
+  .result-detail-list { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 4px; font-size: 14px; }
+  .result-detail-list dt { font-weight: 700; margin-top: 12px; }
+  .result-detail-list dd { margin: 2px 0 0; color: var(--color-muted); }
+  .quiz-result-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .quiz-start-btn {
+    min-height: 44px; padding: 12px 28px;
+    background: var(--color-accent); color: #fff;
+    border: none; border-radius: 6px;
+    font-size: 15px; font-weight: 700; cursor: pointer;
+  }
+  .disclaimer-box {
+    font-size: 13px; line-height: 1.7; color: var(--color-muted);
+    background: var(--color-surface); border: 1px dashed var(--color-border);
+    border-radius: 8px; padding: 14px 16px; margin-top: 22px;
+  }
+
+  /* ---------- 最後のご案内 ---------- */
+  .final-cta { background: var(--color-primary); color: var(--color-secondary); text-align: center; }
+  .final-cta .cta-group { margin: 26px auto 0; justify-content: center; }
+  .final-cta .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); }
+
+  .site-footer {
+    padding: 32px 0 40px; text-align: center;
+    font-size: 12.5px; color: var(--color-muted);
+    border-top: 1px solid var(--color-border);
+  }
+  .site-footer a { text-decoration: underline; }
+  .site-footer p { margin: 6px 0; }
+
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
+<div class="proposal-bar" role="note">
+  CONCEPT LP ／ 店舗向け提案用ページです。本ページには未導入の新サービス提案・試作デモが含まれます。<br>
+  ※本ページの掲載画像は、店舗の世界観を表現したイメージ画像です。
+</div>
+
+<main id="main-content">
+
+  <!-- ファーストビュー -->
+  <section class="hero">
+    <img class="hero-bg" src="images/01_hero_exterior_16x9.webp" alt="café La Douxの店内のイメージ画像" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <p class="hero-eyebrow">café La Doux ／ カフェ・ラ・ドゥ — 秋田駅前・クロッセ秋田 2F</p>
+      <h1>美味しく食べた料理が、<br>実は低糖質だったら。</h1>
+      <p class="hero-lead">
+        元パティシエの店主が、砂糖のかわりに天然甘味料「ラカンカ」を使ってつくる、
+        日替わりの料理とケーキ。がまんの食事ではなく、おいしいと感じたあとで
+        「低糖質だったんだ」と気づく——そんな一皿を出しているお店です。
+      </p>
+      <p class="hero-tags">
+        <span>砂糖不使用のケーキ</span>
+        <span>週替わりの日替わりランチ</span>
+        <span>秋田駅前</span>
+      </p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="#strengths">店舗について見る</a>
+        <a class="btn btn-outline" href="https://www.instagram.com/cafe_la_doux/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- コンセプト -->
+  <section id="concept" aria-labelledby="concept-heading">
+    <div class="container">
+      <div class="story">
+        <div>
+          <p class="eyebrow">CONCEPT</p>
+          <h2 id="concept-heading">「低糖質だから」ではなく、<br>「おいしいから」選ばれる店</h2>
+          <p class="lead-text">
+            café La Douxは、秋田駅前のクロッセ秋田2階にあるカフェです。
+            料理にも甘味にも、砂糖のかわりに植物由来の天然甘味料「ラカンカ」を使っています。
+            ラカンカは、糖として吸収されない甘味料です。
+          </p>
+          <p class="lead-text">
+            低糖質の食事というと、味がもの足りない、選べるものが少ない、という印象を
+            持たれることがあります。このお店が目指しているのは、その逆です。
+            ふつうにおいしく食べたあとで、実は低糖質だったと知る。
+            糖質を気にしている方も、気にしていない方も、同じテーブルで同じものを選べます。
+          </p>
+        </div>
+        <img class="story-photo" src="images/02_interior_window_4x3.webp" alt="窓際の席から通りを見下ろす店内のイメージ画像" loading="lazy">
+      </div>
+      <div class="concept-gallery">
+        <img src="images/03_cheesecake_4x3.webp" alt="砂糖不使用のチーズケーキのイメージ画像" loading="lazy">
+        <img src="images/04_lunch_plate_4x3.webp" alt="日替わりランチのイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 強み -->
+  <section id="strengths" class="section-alt" aria-labelledby="strengths-heading">
+    <div class="container">
+      <p class="eyebrow">公開されている情報から見える、この店舗の強み</p>
+      <h2 id="strengths-heading">お店の強み</h2>
+      <p class="lead-text">他店との比較ではなく、公開されている情報で確認できる特徴だけを根拠に整理しています。</p>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <img class="card-photo" src="images/03_cheesecake_4x3.webp" alt="砂糖不使用のケーキのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 01</span>
+          <h3>元パティシエがつくる、砂糖不使用のケーキ</h3>
+          <p>店主は元パティシエ。チーズケーキもパウンドケーキも、砂糖を使わずにラカンカでつくられています。</p>
+          <p class="value">お客様にとっての価値：糖質を控えている方が、あきらめていたはずのケーキを選べます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/04_lunch_plate_4x3.webp" alt="肉と魚から選べる日替わりランチのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 02</span>
+          <h3>毎日、肉と魚から選べる日替わり</h3>
+          <p>ランチはAランチ（肉）とBランチ（魚）の2種類。一週間ぶんの献立が公式Instagramで先に発表されます。</p>
+          <p class="value">お客様にとっての価値：毎日通っても同じものが続かず、その日の気分で選べます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/05_pound_cake_4x3.webp" alt="テイクアウト用に包まれたパウンドケーキのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 03</span>
+          <h3>秋田駅前という、寄りやすい場所</h3>
+          <p>クロッセ秋田の2階。窓際の席からは秋田のメイン通りを見下ろせます。お弁当のテイクアウトにも対応しています。</p>
+          <p class="value">お客様にとっての価値：仕事の合間でも、買い物のついででも立ち寄れます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ストーリー -->
+  <section id="story" aria-labelledby="story-heading">
+    <div class="container">
+      <div class="story">
+        <div>
+          <p class="eyebrow">STORY</p>
+          <h2 id="story-heading">「無いなら、自分でつくろう」<br>から始まったお店</h2>
+          <p>
+            店主の水澤重寿さんは、もともとパティシエでした。
+            ご自身が糖尿病と向き合うことになったとき、秋田県内に低糖質の食事ができる店がなく、
+            困ったといいます。
+          </p>
+          <p>
+            無いなら自分でつくる。そうして2022年3月22日、クロッセ秋田の2階に
+            café La Douxが開きました。
+          </p>
+          <p>
+            低糖質にすることが目的ではなく、低糖質でも味や甘みがしっかり感じられることを
+            大切にしています。しょうゆのかわりにレモンを添える、ごはんの量を工夫する——
+            そうした一つひとつの積み重ねが、「おいしく食べたら低糖質だった」という
+            体験をつくっています。
+          </p>
+          <p class="source-note">
+            ※ 店主のお名前と開業の経緯は、ABS秋田放送「ラジパル日記」（2022年4月20日）および
+            秋田魁新報（2022年4月15日）に掲載されている内容です。
+          </p>
+        </div>
+        <img class="story-photo" src="images/02_interior_window_4x3.webp" alt="café La Douxの店内のイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 注目の一品 -->
+  <section id="feature" class="highlight" aria-labelledby="feature-heading">
+    <div class="container">
+      <div class="highlight-grid">
+        <div>
+          <p class="eyebrow">特に注目したい一品</p>
+          <h2 id="feature-heading">砂糖不使用の、自家製ケーキ</h2>
+          <p style="color:#e5e0d2;">
+            このお店をいちばんよく表しているのが、店主手づくりのケーキです。
+            砂糖を使わず、ラカンカでつくられています。
+          </p>
+          <ul class="highlight-list">
+            <li><b>甘味料</b>砂糖のかわりに、糖として吸収されない天然甘味料「ラカンカ」を使用しています。</li>
+            <li><b>ランチのケーキセット</b>ランチに250円で付けられます（2026年10月の店頭メニュー表より）。</li>
+            <li><b>季節で入れ替わります</b>秋はかぼちゃのチーズケーキとかぼちゃのパウンドケーキ。冬には、いちごを使った季節限定のケーキが登場した年もあります。</li>
+            <li><b>強みとのつながり</b>「元パティシエがつくる、砂糖不使用のケーキ」という強みを、いちばん体感できる一品です。</li>
+          </ul>
+          <div class="cta-group">
+            <a class="btn btn-outline" style="border-color:#fff;color:#fff;" href="https://www.instagram.com/cafe_la_doux/" target="_blank" rel="noopener noreferrer">Instagramで見る</a>
+          </div>
+        </div>
+        <img class="highlight-visual" src="images/03_cheesecake_4x3.webp" alt="砂糖不使用のチーズケーキのイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 季節のケーキ -->
+  <section id="sweets" class="section-alt" aria-labelledby="sweets-heading">
+    <div class="container">
+      <p class="eyebrow">SWEETS</p>
+      <h2 id="sweets-heading">季節でかわる、デザート</h2>
+      <p class="lead-text">公式Instagramで案内されていたケーキです。季節ごとに内容が入れ替わります。</p>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <span class="num">AUTUMN</span>
+          <h3>かぼちゃのチーズケーキ／パウンドケーキ</h3>
+          <p>秋になると登場します。パウンドケーキは「しっとりふわふわの生パウンドケーキ」として案内されました。</p>
+          <p class="value">2025年10月に案内されたときの価格は250円でした。</p>
+        </div>
+        <div class="card">
+          <span class="num">WINTER</span>
+          <h3>苺のショートケーキ風イチゴのチーズケーキ</h3>
+          <p>2025年12月24日に、クリスマス限定として案内されたケーキです。「もちろん、砂糖不使用で低糖質・低カロリーです」と添えられていました。</p>
+          <p class="value">季節の行事にあわせた限定のケーキが用意されることがあります。</p>
+        </div>
+        <div class="card">
+          <span class="num">SPECIAL</span>
+          <h3>虹色のチーズケーキ</h3>
+          <p>以前つくられていたケーキです。「問い合わせが何件かあった」「待っていたという声もあった」と案内されていました。</p>
+          <p class="value">2026年10月時点では、数量限定で準備することを検討中と案内されています。</p>
+        </div>
+      </div>
+      <p class="lead-text source-note">※ この節は、公式Instagram（@cafe_la_doux）の投稿にもとづいています。内容は入れ替わります。最新のご案内は公式Instagramをご確認ください。</p>
+    </div>
+  </section>
+
+  <!-- ランチ -->
+  <section id="lunch" aria-labelledby="lunch-heading">
+    <div class="container">
+      <p class="eyebrow">LUNCH</p>
+      <h2 id="lunch-heading">一週間ぶんの献立が、先に分かる</h2>
+      <p class="lead-text">
+        ランチはAランチ（肉）とBランチ（魚）の2種類。その週の献立が、公式Instagramで一週間ぶんまとめて案内されます。
+        肉には、脂が少なく赤身のうまみがある「太平山ポーク」が使われています。
+      </p>
+      <table class="menu-table">
+        <caption class="source-note" style="caption-side:bottom;text-align:left;padding-top:10px;">
+          2026年10月12日〜17日の週のメニューです（公式Instagramより）。週ごとに入れ替わります。
+        </caption>
+        <thead>
+          <tr><th scope="col">日</th><th scope="col">Aランチ（肉）</th><th scope="col">Bランチ（魚）</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">13日(火)</th><td>太平山ポークの南蛮揚げ</td><td>白身魚のフライのみぞれ煮</td></tr>
+          <tr><th scope="row">14日(水)</th><td>太平山ポークの角煮</td><td>赤魚の煮付け</td></tr>
+          <tr><th scope="row">15日(木)</th><td>太平山ポークの塩生姜焼き</td><td>鮭の西京焼き風</td></tr>
+          <tr><th scope="row">16日(金)</th><td>太平山ポークの煮込みハンバーグ</td><td>サバの生姜煮</td></tr>
+          <tr><th scope="row">17日(土)</th><td>グリルチキンのトマトソース煮込み</td><td>サワラの生姜煮</td></tr>
+        </tbody>
+      </table>
+      <ul class="info-list">
+        <li><span class="term">ケーキセット</span><span>ランチに250円で付けられます。</span></li>
+        <li><span class="term">テイクアウト</span><span>お弁当のテイクアウトに対応しています。6個以上の場合は、前日までのご連絡をお願いしているとのことです。</span></li>
+        <li><span class="term">季節のこと</span><span>寒くなると煮込み系の献立が増えていきます。</span></li>
+      </ul>
+      <p class="lead-text source-note">※ この節は、公式Instagram（@cafe_la_doux）の投稿と店頭メニュー表にもとづいています。献立は毎週かわります。最新の内容は公式Instagramをご確認ください。</p>
+    </div>
+  </section>
+
+  <!-- 試作（診断） -->
+  <section id="proposal-quiz" class="proposal-section" aria-labelledby="quiz-heading">
+    <div class="container">
+      <span class="proposal-tag">INTERACTIVE PROTOTYPE｜動く新サービス試作</span>
+      <h2 id="quiz-heading">café La Douxの選び方診断（試作）</h2>
+      <p class="lead-text">
+        はじめてのお客様が「自分は何を頼めばいいのか」を決めやすくするための、簡単な診断を試作しました。
+        これは店舗運営者向けの新サービス提案・導入アイデアであり、現在提供中のサービスではありません。
+      </p>
+
+      <div class="proposal-note">
+        この診断結果は、公開されている情報で確認できるcafé La Douxの料理・デザートの種類をもとにした、
+        おおまかな分け方です。特定の商品名や価格を断定するものではなく、効果や人気を保証するものでもありません。
+      </div>
+
+      <div class="quiz-app" id="quizApp">
+        <div id="quizIntro" class="quiz-intro">
+          <h3>対象：ご来店を検討している方／店舗運営者の方</h3>
+          <p>解決したい課題：はじめてのお客様が、自分に合う頼み方をイメージしにくいこと。5つの質問に答えると、近いタイプが分かります。</p>
+          <button type="button" class="quiz-start-btn" id="quizStartBtn">試してみる</button>
+        </div>
+
+        <form id="quizForm" style="display:none;" novalidate>
+          <p class="quiz-progress" id="quizProgress" aria-live="polite"></p>
+          <p class="quiz-question" id="quizQuestionText"></p>
+          <ul class="quiz-options" id="quizOptions"></ul>
+          <p class="quiz-warning" id="quizWarning" role="alert"></p>
+          <div class="quiz-nav">
+            <button type="button" id="quizBack">戻る</button>
+            <button type="button" id="quizNext">次へ</button>
+          </div>
+        </form>
+
+        <div id="quizResult" style="display:none;" class="quiz-result" aria-live="polite">
+          <h3 id="resultName" tabindex="-1"></h3>
+          <p class="result-summary" id="resultSummary"></p>
+          <dl class="result-detail-list">
+            <dt>そのタイプになった理由</dt>
+            <dd id="resultReason"></dd>
+            <dt>おすすめ候補</dt>
+            <dd id="resultRecommend"></dd>
+            <dt>お店の強みとのつながり</dt>
+            <dd id="resultStrength"></dd>
+          </dl>
+          <div class="quiz-result-actions">
+            <a class="btn btn-primary" id="resultCta" href="#feature">関連する節を見る</a>
+            <button type="button" class="btn btn-outline" id="quizRestartBtn">最初からやり直す</button>
+          </div>
+        </div>
+
+        <noscript>
+          <p>この試作デモの操作にはJavaScriptが必要です。JavaScriptが無効な場合でも、店舗情報やメニューのご紹介は、このページの他の節から引き続きご覧いただけます。</p>
+        </noscript>
+
+        <p class="disclaimer-box">本機能は店舗運営者向けの試作デモです。現在提供中の正式サービスではありません。入力内容の保存・送信は行いません。ページを閉じると回答内容は消えます。お名前やご連絡先を入力していただく欄はありません。</p>
+      </div>
+
+      <div class="proposal-note" style="margin-top:32px;">
+        <strong>導入アイデア（今後の展開案）：</strong>この診断の結果画面から、週替わりメニューのお知らせ登録や、
+        お弁当の前日予約（6個以上の場合のご連絡）につなげることで、小さく始められる新サービスとして育てていくことができます。
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section id="info" aria-labelledby="info-heading">
+    <div class="container">
+      <p class="eyebrow">SHOP INFORMATION</p>
+      <h2 id="info-heading">店舗情報</h2>
+      <ul class="info-list">
+        <li><span class="term">店舗名</span><span>café La Doux（カフェ・ラ・ドゥ）</span></li>
+        <li>
+          <span class="term">所在地</span>
+          <span>〒010-0001 秋田県秋田市中通2-5-1 クロッセ秋田 2F<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A2-5-1%20%E3%82%AF%E3%83%AD%E3%83%83%E3%82%BB%E7%A7%8B%E7%94%B0" target="_blank" rel="noopener noreferrer">地図で見る（Googleマップ）</a>
+          </span>
+        </li>
+        <li><span class="term">電話</span><span>018-893-5005</span></li>
+        <li><span class="term">定休日</span><span>日曜日、第2・第4月曜日</span></li>
+        <li><span class="term">営業時間</span><span>ランチ 11:00〜14:00／喫茶 14:00〜16:00／夜 17:30〜20:00（夜は完全予約制と案内されています）<br><span class="source-note" style="display:block;margin-top:4px;">※ 2022年の掲載情報です。最新の営業時間は公式Instagramまたはお電話でご確認ください。</span></span></li>
+        <li><span class="term">席数</span><span>14席（2022年の掲載情報）／駐車場はありません</span></li>
+        <li><span class="term">Instagram</span><span><a href="https://www.instagram.com/cafe_la_doux/" target="_blank" rel="noopener noreferrer">https://www.instagram.com/cafe_la_doux/</a></span></li>
+        <li><span class="term">Threads</span><span><a href="https://www.threads.com/@cafe_la_doux" target="_blank" rel="noopener noreferrer">https://www.threads.com/@cafe_la_doux</a></span></li>
+      </ul>
+      <p class="lead-text source-note">
+        ※ このページは、公式Instagram（@cafe_la_doux）、ABS秋田放送「ラジパル日記」（2022年4月20日）、
+        秋田魁新報（2022年4月15日）、秋田タウン情報（2022年6月2日）、あきたアップル掲載情報をもとに、
+        2026年10月15日時点で整理したものです。価格や営業時間は変わっている場合があります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 最後のご案内 -->
+  <section class="final-cta" aria-labelledby="final-cta-heading">
+    <div class="container">
+      <h2 id="final-cta-heading">最新のご案内は、公式Instagramをご確認ください</h2>
+      <p style="color:#e5e0d2;">今週の献立、季節のケーキ、営業のお知らせは、公式Instagramで発信されています。</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" style="background:#fff;color:var(--color-primary);" href="https://www.instagram.com/cafe_la_doux/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+        <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A2-5-1%20%E3%82%AF%E3%83%AD%E3%83%83%E3%82%BB%E7%A7%8B%E7%94%B0" target="_blank" rel="noopener noreferrer">地図を見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>café La Doux（カフェ・ラ・ドゥ）</p>
+    <p>© café La Doux. All Rights Reserved.</p>
+    <p><a href="#main-content">ページの先頭へ戻る</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var questions = [
+    {
+      text: "お店に来るとしたら、いちばん近いのはどれですか？",
+      options: [
+        { label: "しっかりごはんを食べたい", cat: "A" },
+        { label: "甘いものでほっとひと息つきたい", cat: "B" },
+        { label: "糖質を控えているので、安心して選べる店を探している", cat: "C" },
+        { label: "お弁当を持ち帰りたい", cat: "D" },
+        { label: "季節ごとの新しいものを試したい", cat: "E" }
+      ]
+    },
+    {
+      text: "ふだんの食事で、気にしていることに近いのは？",
+      options: [
+        { label: "量がしっかりあること", cat: "A" },
+        { label: "食後に甘いものがあること", cat: "B" },
+        { label: "糖質やカロリーの数字", cat: "C" },
+        { label: "時間をかけずに済ませられること", cat: "D" },
+        { label: "いつもと違うものに出会えること", cat: "E" }
+      ]
+    },
+    {
+      text: "お店での理想の過ごし方は？",
+      options: [
+        { label: "昼にしっかり食べて午後にそなえる", cat: "A" },
+        { label: "コーヒーとケーキでゆっくり", cat: "B" },
+        { label: "気がねなく、ふつうに外食を楽しむ", cat: "C" },
+        { label: "受け取って、職場や家で食べる", cat: "D" },
+        { label: "その季節だけのものを味わう", cat: "E" }
+      ]
+    },
+    {
+      text: "café La Douxで気になったことに近いのは？",
+      options: [
+        { label: "毎日かわる日替わりの献立", cat: "A" },
+        { label: "砂糖を使っていないケーキ", cat: "B" },
+        { label: "低糖質でもおいしいという考え方", cat: "C" },
+        { label: "お弁当のテイクアウト", cat: "D" },
+        { label: "季節限定のケーキ", cat: "E" }
+      ]
+    },
+    {
+      text: "いま、いちばん知りたいことは？",
+      options: [
+        { label: "今週の献立", cat: "A" },
+        { label: "今あるケーキの種類", cat: "B" },
+        { label: "どんな甘味料を使っているか", cat: "C" },
+        { label: "持ち帰りの頼み方", cat: "D" },
+        { label: "これから出てくる季節のもの", cat: "E" }
+      ]
+    }
+  ];
+
+  var results = {
+    A: {
+      name: "しっかり日替わりタイプ",
+      summary: "昼にきちんと食べたい方です。肉と魚から選べる日替わりランチが向いています。",
+      reason: "量や、毎日の献立に関する回答が多い傾向でした。",
+      recommend: "Aランチ（肉）かBランチ（魚）の日替わりランチ。その週の献立は公式Instagramで先に案内されます。",
+      strength: "「毎日、肉と魚から選べる日替わり」という強みと相性のよいタイプです。",
+      ctaHref: "#lunch",
+      ctaLabel: "今週の献立の例を見る"
+    },
+    B: {
+      name: "デザート目当てタイプ",
+      summary: "食後の甘いものを楽しみにしている方です。砂糖不使用の自家製ケーキが向いています。",
+      reason: "ケーキや、食後の甘いものに関する回答が多い傾向でした。",
+      recommend: "ランチのケーキセット（250円）、または喫茶の時間に自家製ケーキを。",
+      strength: "「元パティシエがつくる、砂糖不使用のケーキ」という強みと相性のよいタイプです。",
+      ctaHref: "#feature",
+      ctaLabel: "注目の一品を見る"
+    },
+    C: {
+      name: "糖質を気にしているタイプ",
+      summary: "糖質を控えていて、外食で選べるものが少ないと感じている方です。このお店は、まさにそのために始まりました。",
+      reason: "糖質や甘味料に関する回答が多い傾向でした。",
+      recommend: "料理も甘味も、砂糖のかわりにラカンカが使われています。献立を選ぶときに我慢をする場面が少なくなります。",
+      strength: "店主自身が糖尿病と向き合った経験から始まった、このお店の成り立ちそのものと相性のよいタイプです。",
+      ctaHref: "#story",
+      ctaLabel: "お店の成り立ちを見る"
+    },
+    D: {
+      name: "持ち帰りタイプ",
+      summary: "お店で過ごすよりも、受け取って職場や家で食べたい方です。",
+      reason: "テイクアウトや、短い時間での利用に関する回答が多い傾向でした。",
+      recommend: "お弁当のテイクアウト。6個以上の場合は、前日までのご連絡をお願いしているとのことです。",
+      strength: "「秋田駅前という、寄りやすい場所」という強みと相性のよいタイプです。",
+      ctaHref: "#lunch",
+      ctaLabel: "テイクアウトについて見る"
+    },
+    E: {
+      name: "季節のものを楽しむタイプ",
+      summary: "その時期だけのものに出会いたい方です。デザートは季節ごとに入れ替わります。",
+      reason: "季節限定のものに関する回答が多い傾向でした。",
+      recommend: "秋はかぼちゃのチーズケーキとパウンドケーキ。冬にはいちごを使った限定のケーキが登場した年もあります。",
+      strength: "季節でかわるデザートと相性のよいタイプです。最新のご案内は公式Instagramで発信されています。",
+      ctaHref: "#sweets",
+      ctaLabel: "季節のデザートを見る"
+    }
+  };
+
+  var priorityOrder = ["A", "B", "C", "D", "E"];
+
+  var currentIndex = 0;
+  var answers = new Array(questions.length).fill(null);
+
+  var quizIntro = document.getElementById("quizIntro");
+  var quizStartBtn = document.getElementById("quizStartBtn");
+  var quizForm = document.getElementById("quizForm");
+  var quizProgress = document.getElementById("quizProgress");
+  var quizQuestionText = document.getElementById("quizQuestionText");
+  var quizOptions = document.getElementById("quizOptions");
+  var quizWarning = document.getElementById("quizWarning");
+  var quizBack = document.getElementById("quizBack");
+  var quizNext = document.getElementById("quizNext");
+  var quizResult = document.getElementById("quizResult");
+  var quizRestartBtn = document.getElementById("quizRestartBtn");
+
+  function renderQuestion() {
+    quizWarning.textContent = "";
+    var q = questions[currentIndex];
+    quizProgress.textContent = "質問 " + (currentIndex + 1) + " / " + questions.length;
+    quizQuestionText.textContent = q.text;
+    quizOptions.innerHTML = "";
+
+    q.options.forEach(function (opt, i) {
+      var li = document.createElement("li");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "quiz-option";
+      btn.textContent = opt.label;
+      var selected = answers[currentIndex] === i;
+      btn.setAttribute("aria-pressed", selected ? "true" : "false");
+      btn.addEventListener("click", function () {
+        answers[currentIndex] = i;
+        var allBtns = quizOptions.querySelectorAll(".quiz-option");
+        allBtns.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+        btn.setAttribute("aria-pressed", "true");
+        quizWarning.textContent = "";
+      });
+      li.appendChild(btn);
+      quizOptions.appendChild(li);
+    });
+
+    quizBack.disabled = currentIndex === 0;
+    quizNext.textContent = currentIndex === questions.length - 1 ? "結果を見る" : "次へ";
+  }
+
+  function startQuiz() {
+    currentIndex = 0;
+    answers = new Array(questions.length).fill(null);
+    quizIntro.style.display = "none";
+    quizResult.style.display = "none";
+    quizForm.style.display = "block";
+    renderQuestion();
+  }
+
+  function showResult() {
+    var scores = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+    answers.forEach(function (ansIndex, qIndex) {
+      if (ansIndex === null) { return; }
+      var cat = questions[qIndex].options[ansIndex].cat;
+      scores[cat] += 1;
+    });
+
+    // 同点の場合は、最後の質問（5問目）で選んだものを優先します。
+    // それでも決まらない場合のみ、A→B→C→D→Eの順を採用します。
+    var lastCat = null;
+    var lastAnswerIndex = answers[answers.length - 1];
+    if (lastAnswerIndex !== null) {
+      lastCat = questions[questions.length - 1].options[lastAnswerIndex].cat;
+    }
+
+    var maxScore = -1;
+    priorityOrder.forEach(function (cat) {
+      if (scores[cat] > maxScore) { maxScore = scores[cat]; }
+    });
+    var topCats = priorityOrder.filter(function (cat) { return scores[cat] === maxScore; });
+
+    var winner;
+    if (topCats.length === 1) {
+      winner = topCats[0];
+    } else if (lastCat !== null && topCats.indexOf(lastCat) !== -1) {
+      winner = lastCat;
+    } else {
+      winner = topCats[0];
+    }
+
+    var r = results[winner];
+    document.getElementById("resultName").textContent = r.name;
+    document.getElementById("resultSummary").textContent = r.summary;
+    document.getElementById("resultReason").textContent = r.reason;
+    document.getElementById("resultRecommend").textContent = r.recommend;
+    document.getElementById("resultStrength").textContent = r.strength;
+    var cta = document.getElementById("resultCta");
+    cta.href = r.ctaHref;
+    cta.textContent = r.ctaLabel;
+
+    quizForm.style.display = "none";
+    quizResult.style.display = "block";
+    document.getElementById("resultName").focus();
+  }
+
+  quizStartBtn.addEventListener("click", startQuiz);
+
+  quizNext.addEventListener("click", function () {
+    if (answers[currentIndex] === null) {
+      quizWarning.textContent = "選択肢を選んでから次へ進んでください。";
+      return;
+    }
+    if (currentIndex === questions.length - 1) {
+      showResult();
+    } else {
+      currentIndex += 1;
+      renderQuestion();
+    }
+  });
+
+  quizBack.addEventListener("click", function () {
+    if (currentIndex > 0) {
+      currentIndex -= 1;
+      renderQuestion();
+    }
+  });
+
+  quizRestartBtn.addEventListener("click", function () {
+    quizResult.style.display = "none";
+    quizIntro.style.display = "block";
+  });
+})();
+</script>
+
+</body>
+</html>
