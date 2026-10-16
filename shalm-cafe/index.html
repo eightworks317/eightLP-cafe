@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shalm café（シャルムカフェ）｜穏やかに、輝く｜提案用ページ</title>
+<meta name="description" content="秋田市下北手の住宅街にあるShalm café（シャルムカフェ）。週替わりの食事と季節で入れ替わる自家製デザート、そして音楽会やワークショップなど、食事以外の入り口がいくつもあるお店を紹介する提案用ページです。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#3b333c">
+<style>
+  :root {
+    --color-primary: #3b333c;      /* 深いすみれ寄りのグレー */
+    --color-secondary: #fcf8f4;    /* 生成り */
+    --color-rose: #a9646b;         /* くすんだローズ */
+    --color-rose-text: #8f4f56;    /* 明るい地の上に置く文字用 */
+    --color-rose-btn: #8a4b52;     /* 白文字をのせるボタンの地色 */
+    --color-leaf: #6e7f63;         /* 生花・ハーブの緑 */
+    --color-surface: #f3ece6;
+    --color-proposal: #eef0ea;
+    --color-proposal-border: #a7b09c;
+    --color-text: #322c32;
+    --color-muted: #6d646a;
+    --color-border: #e0d5cc;
+    --font-serif: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-sans: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  /* ★2026-10-16：背景にうっすら小さな点を散らしています。
+     ローズ色と緑の2色の点を互い違いに並べた、小花を散らしたような柄です。
+     店名の shine（輝く）に合わせて、縞ではなく「散らす」柄にしました。
+     ・濃さ　：rgba の最後の数字（0.10 と 0.07）。1 に近いほど濃くなります
+     ・点の大きさ：1.5px と 1.2px の部分
+     ・点の間隔：26px の部分（13px はずらし幅なので、26px の半分にしてください）
+     ※ 色を敷いている節（強み／デザート／診断）には出ません。
+     　 柄のある節と無い節が交互になり、ページにリズムが出ます。 */
+  body {
+    margin: 0;
+    background-color: var(--color-secondary);
+    background-image:
+      radial-gradient(circle, rgba(169, 100, 107, 0.10) 1.5px, transparent 1.6px),
+      radial-gradient(circle, rgba(110, 127, 99, 0.07) 1.2px, transparent 1.3px);
+    background-size: 26px 26px, 26px 26px;
+    background-position: 0 0, 13px 13px;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+
+  .container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding-left: clamp(14px, 4vw, 32px);
+    padding-right: clamp(14px, 4vw, 32px);
+  }
+
+  .skip-link {
+    position: absolute; left: -999px; top: 0;
+    background: var(--color-rose-btn); color: #fff;
+    padding: 10px 16px; z-index: 200; border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus { left: 0; }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid var(--color-rose);
+    outline-offset: 3px;
+  }
+
+  /* ---------- 提案用ラベル ---------- */
+  .proposal-bar {
+    background: var(--color-primary);
+    color: var(--color-secondary);
+    text-align: center;
+    padding: 8px 14px;
+    font-size: clamp(12px, 3vw, 13px);
+    letter-spacing: 0.06em;
+    line-height: 1.5;
+  }
+
+  /* ---------- ファーストビュー ---------- */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 96px 0 56px;
+    background: var(--color-primary);
+    overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(59,51,60,0.42) 0%, rgba(59,51,60,0.60) 55%, rgba(59,51,60,0.88) 100%);
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: clamp(12px, 3vw, 13px);
+    letter-spacing: 0.16em;
+    color: var(--color-secondary);
+    margin: 0 0 14px;
+  }
+  .hero h1 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(27px, 7.6vw, 45px);
+    line-height: 1.4; margin: 0 0 18px;
+    color: var(--color-secondary);
+    overflow-wrap: anywhere;
+  }
+  .hero-lead {
+    font-size: clamp(14px, 3.8vw, 17px);
+    max-width: 34em; margin: 0 0 30px;
+    color: var(--color-secondary);
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin: 0 0 30px;
+    font-size: 12px; letter-spacing: 0.08em;
+    color: var(--color-secondary);
+  }
+  .hero-tags span {
+    border: 1px solid rgba(252,248,244,0.5);
+    border-radius: 999px; padding: 6px 14px;
+    background: rgba(59,51,60,0.35);
+  }
+
+  .cta-group { display: flex; flex-direction: column; gap: 12px; max-width: 340px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 12px 20px;
+    border-radius: 6px; text-decoration: none;
+    font-size: 15px; letter-spacing: 0.02em;
+    border: 1px solid transparent; text-align: center; line-height: 1.4;
+  }
+  .btn-primary { background: var(--color-rose-btn); color: #fff; }
+  .btn-outline { background: transparent; border-color: var(--color-primary); color: var(--color-primary); }
+  .hero .btn-primary { background: var(--color-secondary); color: var(--color-primary); }
+  .hero .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); background: rgba(59,51,60,0.25); }
+  @media (min-width: 560px) { .cta-group { flex-direction: row; max-width: none; } }
+
+  /* ---------- 共通 ---------- */
+  section { padding: clamp(48px, 9vw, 88px) 0; }
+  .section-alt { background: var(--color-surface); }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; color: var(--color-rose-text); margin: 0 0 10px; }
+  h2 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(22px, 6vw, 30px);
+    margin: 0 0 20px; line-height: 1.5;
+  }
+  h3 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(17px, 4.6vw, 20px);
+    margin: 0 0 10px; line-height: 1.6;
+  }
+  p { margin: 0 0 14px; }
+  .lead-text { max-width: 40em; color: var(--color-muted); }
+  .source-note { font-size: .85em; opacity: .8; margin-top: 1.2em; }
+
+  /* ---------- 店名の由来 ---------- */
+  .name-origin {
+    display: flex; flex-wrap: wrap; align-items: baseline;
+    gap: 6px 10px; margin: 26px 0 0;
+    padding: 22px 24px;
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    font-family: var(--font-serif);
+  }
+  .name-origin .word { font-size: clamp(20px, 5.4vw, 26px); letter-spacing: .04em; }
+  .name-origin .word b { color: var(--color-rose-text); font-weight: 500; }
+  .name-origin .plus, .name-origin .eq { color: var(--color-muted); font-size: 18px; padding: 0 4px; }
+  .name-origin .ja { display: block; width: 100%; font-family: var(--font-sans); font-size: 14px; color: var(--color-muted); margin-top: 8px; }
+
+  /* ---------- カード ---------- */
+  .card-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
+  @media (min-width: 700px) {
+    .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  }
+  .card {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 10px; padding: 22px; min-width: 0;
+    box-shadow: 0 2px 10px rgba(59,51,60,0.05);
+  }
+  .card .num { font-size: 12px; color: var(--color-rose-text); letter-spacing: 0.1em; display: block; margin-bottom: 10px; }
+  .card p { font-size: 14.5px; color: var(--color-text); margin-bottom: 8px; }
+  .card .value {
+    font-size: 13.5px; color: var(--color-muted);
+    border-top: 1px dashed var(--color-border);
+    padding-top: 10px; margin-top: 10px;
+  }
+  .card-photo { border-radius: 8px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 14px; }
+
+  /* 横に3枚並べたときのそろえ方
+     ① 下端をそろえる作り（subgrid が使えないブラウザ用の保険）
+     このページの見出しは1行が文字サイズの1.6倍なので、2行ぶんは 3.2em です。 */
+  @media (min-width: 700px) {
+    .card-grid.cols-3 .card { display: flex; flex-direction: column; }
+    .card-grid.cols-3 .card h3 { line-height: 1.6; min-height: 3.2em; }
+    .card-grid.cols-3 .card .value { margin-top: auto; }
+  }
+  /* ② ラベル・見出し・本文・価値の4つを、それぞれ別々に高さをそろえます。 */
+  @supports (grid-template-rows: subgrid) {
+    @media (min-width: 700px) {
+      #strengths .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 5; }
+      #events .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 4; }
+      .card-grid.cols-3 .card h3 { min-height: 0; margin-bottom: 0; }
+      .card-grid.cols-3 .card .value { margin-top: 0; align-self: start; }
+      .card-grid.cols-3 .card p { margin-bottom: 0; }
+      .card-grid.cols-3 .card .num { margin-bottom: 0; }
+      .card-grid.cols-3 .card { row-gap: 10px; }
+    }
+  }
+
+  /* ---------- ストーリー ---------- */
+  .story { display: grid; gap: 24px; }
+  /* 横に並べたとき、写真をとなりの文章と同じ高さまで伸ばします。 */
+  @media (min-width: 760px) {
+    .story { grid-template-columns: 1fr 1fr; align-items: stretch; }
+    .story-photo { height: 100%; min-height: 300px; aspect-ratio: auto; }
+  }
+  .story-photo { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+  .concept-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 22px; }
+  .concept-gallery img { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+
+  /* ---------- 献立・デザート ---------- */
+  .dish-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+  @media (min-width: 620px) { .dish-grid { grid-template-columns: repeat(2, 1fr); } }
+  .dish {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-rose);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 20px; min-width: 0;
+  }
+  .dish.is-leaf { border-left-color: var(--color-leaf); }
+  .dish .tag { font-size: 12px; letter-spacing: .08em; color: var(--color-rose-text); display: block; }
+  .dish.is-leaf .tag { color: #4f5c47; }
+  .dish .name { font-family: var(--font-serif); font-size: 19px; margin: 2px 0 6px; display: block; }
+  .dish .price { font-size: 15px; font-weight: 700; margin: 0 0 8px; }
+  .dish .desc { font-size: 14px; color: var(--color-muted); margin: 0; }
+
+  .drink-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; padding: 0; list-style: none; }
+  .drink-list li {
+    font-size: 13.5px; color: var(--color-muted);
+    border: 1px solid var(--color-border);
+    background: var(--color-secondary);
+    border-radius: 999px; padding: 5px 14px;
+  }
+
+  /* ---------- 一覧表 ---------- */
+  .info-list {
+    list-style: none; padding: 0; margin: 24px 0 0;
+    display: grid; gap: 0; border-top: 1px solid var(--color-border);
+  }
+  .info-list li {
+    display: grid; grid-template-columns: 110px 1fr; gap: 12px;
+    padding: 14px 0; border-bottom: 1px solid var(--color-border);
+    font-size: 14.5px;
+  }
+  .info-list .term { color: var(--color-muted); font-size: 13px; letter-spacing: 0.04em; }
+  .info-list a { overflow-wrap: anywhere; text-decoration: underline; }
+
+  /* ---------- 試作（診断） ---------- */
+  .proposal-section {
+    background: var(--color-proposal);
+    border-top: 3px solid var(--color-proposal-border);
+    border-bottom: 3px solid var(--color-proposal-border);
+  }
+  .proposal-tag {
+    display: inline-block; font-size: 12px; letter-spacing: 0.1em;
+    background: var(--color-proposal-border); color: #1d2318;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .proposal-note {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-proposal-border);
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 13.5px; color: var(--color-muted);
+    margin: 22px 0 30px; line-height: 1.75;
+  }
+  .quiz-app {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 14px; padding: 22px; max-width: 640px;
+  }
+  .quiz-intro h3 { margin: 0 0 12px; font-size: 20px; }
+  .quiz-progress { font-size: 13px; color: var(--color-muted); margin-bottom: 12px; }
+  .quiz-question { font-size: 17px; font-weight: 700; margin: 0 0 12px; }
+  .quiz-options { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 10px; }
+  .quiz-option {
+    width: 100%; text-align: left; padding: 14px 16px; min-height: 44px;
+    border: 1.5px solid var(--color-border); border-radius: 8px;
+    background: var(--color-surface); font-size: 15px;
+    font-family: inherit; color: var(--color-text); cursor: pointer;
+  }
+  .quiz-option[aria-pressed="true"] { border-color: var(--color-rose); background: #f6e8e8; font-weight: 700; }
+  .quiz-option[aria-pressed="true"]::before { content: "✓ "; color: var(--color-rose-text); }
+  .quiz-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; }
+  .quiz-nav button { min-height: 44px; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-family: inherit; cursor: pointer; }
+  #quizBack { background: transparent; border: 1px solid var(--color-border); color: var(--color-text); }
+  #quizNext { background: var(--color-rose-btn); border: 1px solid var(--color-rose-btn); color: #fff; }
+  #quizNext:disabled, #quizBack:disabled { opacity: .4; cursor: not-allowed; }
+  .quiz-warning { font-size: 13px; color: #a0432a; margin-top: 6px; min-height: 1.2em; }
+  .quiz-result h3 { font-size: 22px; margin: 0 0 6px; }
+  .quiz-result .result-summary { color: var(--color-muted); margin: 0 0 22px; }
+  .result-detail-list { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 4px; font-size: 14px; }
+  .result-detail-list dt { font-weight: 700; margin-top: 12px; }
+  .result-detail-list dd { margin: 2px 0 0; color: var(--color-muted); }
+  .quiz-result-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .quiz-start-btn {
+    min-height: 44px; padding: 12px 28px;
+    background: var(--color-rose-btn); color: #fff;
+    border: none; border-radius: 6px;
+    font-size: 15px; font-weight: 700; cursor: pointer;
+  }
+  .disclaimer-box {
+    font-size: 13px; line-height: 1.7; color: var(--color-muted);
+    background: var(--color-surface); border: 1px dashed var(--color-border);
+    border-radius: 8px; padding: 14px 16px; margin-top: 22px;
+  }
+
+  /* ---------- 最後のご案内 ---------- */
+  .final-cta { background: var(--color-primary); color: var(--color-secondary); text-align: center; }
+  .final-cta .cta-group { margin: 26px auto 0; justify-content: center; }
+  .final-cta .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); }
+
+  .site-footer {
+    padding: 32px 0 40px; text-align: center;
+    font-size: 12.5px; color: var(--color-muted);
+    border-top: 1px solid var(--color-border);
+  }
+  .site-footer a { text-decoration: underline; }
+  .site-footer p { margin: 6px 0; }
+
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
+<div class="proposal-bar" role="note">
+  CONCEPT LP ／ 店舗向け提案用ページです。本ページには未導入の新サービス提案・試作デモが含まれます。<br>
+  ※本ページの掲載画像は、店舗の世界観を表現したイメージ画像です。
+</div>
+
+<main id="main-content">
+
+  <!-- ファーストビュー -->
+  <section class="hero">
+    <img class="hero-bg" src="images/01_hero_interior_16x9.webp" alt="Shalm caféの店内のイメージ画像" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <p class="hero-eyebrow">Shalm café ／ シャルムカフェ — 秋田市下北手</p>
+      <h1>穏やかに、輝く。</h1>
+      <p class="hero-lead">
+        週替わりで変わる食事と、季節で入れ替わる自家製のデザート。
+        そして、音楽会やワークショップ。食事のためだけではない入り口が、
+        いくつもあるお店です。
+      </p>
+      <p class="hero-tags">
+        <span>週替わりの食事</span>
+        <span>季節のデザート</span>
+        <span>催しのあるカフェ</span>
+      </p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="#strengths">店舗について見る</a>
+        <a class="btn btn-outline" href="https://www.instagram.com/shalmcafe/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- コンセプト -->
+  <section id="concept" aria-labelledby="concept-heading">
+    <div class="container">
+      <div class="story">
+        <div>
+          <p class="eyebrow">CONCEPT</p>
+          <h2 id="concept-heading">名前に、お店のぜんぶが<br>入っています</h2>
+          <p class="lead-text">
+            Shalm caféは、秋田市下北手の住宅街にあるカフェです。
+            2021年1月、お客さんに笑顔の魔法をかけたい、という思いから開きました。
+          </p>
+          <p class="lead-text">
+            店名の「Shalm」は、2つの英語を組み合わせた造語です。
+          </p>
+
+          <div class="name-origin">
+            <span class="word"><b>sh</b>ine</span>
+            <span class="plus">＋</span>
+            <span class="word">c<b>alm</b></span>
+            <span class="eq">＝</span>
+            <span class="word"><b>Shalm</b></span>
+            <span class="ja">輝く（shine）と、穏やかな（calm）。その2つを重ねた名前です。</span>
+          </div>
+
+          <p class="lead-text" style="margin-top:22px;">
+            落ち着いた色の店内に、暖かい色のライト。壁や床には遊び心のある落書きがあって、
+            見つけると思わず笑顔になる、と紹介されています。穏やかな場所の中に、
+            小さく輝くものが置いてある。名前のとおりの店です。
+          </p>
+        </div>
+        <img class="story-photo" src="images/05_counter_coffee_4x3.webp" alt="カウンターに置かれたコーヒーのイメージ画像" loading="lazy">
+      </div>
+      <div class="concept-gallery">
+        <img src="images/02_lunch_plate_4x3.webp" alt="週替わりの食事のイメージ画像" loading="lazy">
+        <img src="images/03_dessert_montblanc_4x3.webp" alt="季節のデザートのイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 強み -->
+  <section id="strengths" class="section-alt" aria-labelledby="strengths-heading">
+    <div class="container">
+      <p class="eyebrow">公開されている情報から見える、この店舗の強み</p>
+      <h2 id="strengths-heading">お店の強み</h2>
+      <p class="lead-text">他店との比較ではなく、公開されている情報で確認できる特徴だけを根拠に整理しています。</p>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <img class="card-photo" src="images/02_lunch_plate_4x3.webp" alt="週替わりの食事のイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 01</span>
+          <h3>一週間ごとに、献立が変わる</h3>
+          <p>週替わりのメニューが公式Instagramで告知されます。付け合わせの野菜も、その都度違うと案内されています。</p>
+          <p class="value">お客様にとっての価値：通っても同じものが続かず、「今週は何だろう」が楽しみになります。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/03_dessert_montblanc_4x3.webp" alt="季節のデザートのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 02</span>
+          <h3>デザートが、季節で入れ替わる</h3>
+          <p>自家製のデザートが季節ごとに替わります。さつまいものモンブランが終わると、くりのモンブランが始まる、という具合です。</p>
+          <p class="value">お客様にとっての価値：その時期にしか食べられないものがあり、来る理由になります。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/04_event_flower_4x3.webp" alt="店内で開かれるワークショップのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 03</span>
+          <h3>食事以外の入り口が、いくつもある</h3>
+          <p>音楽会、フラワーアレンジメント、介護美容のワークショップ、朝市への出店。店内でさまざまな催しが開かれています。</p>
+          <p class="value">お客様にとっての価値：ごはんを食べに行く日だけでなく、「何かをしに行く日」があります。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 食事 -->
+  <section id="lunch" aria-labelledby="lunch-heading">
+    <div class="container">
+      <p class="eyebrow">LUNCH</p>
+      <h2 id="lunch-heading">週替わりと、定番と</h2>
+      <p class="lead-text">
+        週替わりのメニューは、公式Instagramで一週間ごとに案内されます。
+        あわせて、黒板にその日のおすすめが書かれています。
+      </p>
+      <div class="dish-grid">
+        <div class="dish">
+          <span class="tag">週替わりメニューの例</span>
+          <span class="name">牛スジ野菜カレー</span>
+          <p class="price">¥1,400</p>
+          <p class="desc">2026年10月10日〜15日の週のメニューです。付け合わせの野菜はその都度違うと案内されています。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">定番</span>
+          <span class="name">ユーリンチー</span>
+          <p class="price">¥1,100</p>
+          <p class="desc">自家製ブイヨンで炊いたごはんに、甘辛いタレの油淋鶏をのせた一皿。サラダとスープが付きます。ランチタイムにはミニシフォンのデザートも付くと紹介されています。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">定番</span>
+          <span class="name">ハンバーグ</span>
+          <p class="price">—</p>
+          <p class="desc">ブイヨンをベースにしたデミグラスソースのハンバーグです。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">定番</span>
+          <span class="name">オムライス</span>
+          <p class="price">—</p>
+          <p class="desc">定番メニューのひとつとして紹介されています。</p>
+        </div>
+      </div>
+      <p class="lead-text source-note">
+        ※ 週替わりメニューは公式Instagram（@shalmcafe）の投稿、定番メニューと価格は秋田タウン情報（2021年2月27日）に掲載されている内容です。
+        2021年時点の価格のため、現在は変わっている場合があります。最新の内容は公式Instagramをご確認ください。
+      </p>
+    </div>
+  </section>
+
+  <!-- デザートと飲みもの -->
+  <section id="dessert" class="section-alt" aria-labelledby="dessert-heading">
+    <div class="container">
+      <p class="eyebrow">DESSERT &amp; DRINK</p>
+      <h2 id="dessert-heading">季節でかわる、自家製のデザート</h2>
+      <p class="lead-text">その時期の果物を使ったデザートが、季節ごとに入れ替わります。</p>
+      <div class="dish-grid">
+        <div class="dish">
+          <span class="tag">2026年10月の季節のデザート</span>
+          <span class="name">くりのモンブラン</span>
+          <p class="price">¥650</p>
+          <p class="desc">さつまいものモンブランが9月で一度終わり、入れ替わりで始まったデザートです。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">2026年9月の季節のデザート</span>
+          <span class="name">ぶどうタルト</span>
+          <p class="price">¥590</p>
+          <p class="desc">巨峰とシャインマスカットを使い、生クリームにブルーベリーソースをかけた一皿。タルトと一緒に、と案内されていました。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">定番</span>
+          <span class="name">シフォンケーキ3種セット</span>
+          <p class="price">¥660</p>
+          <p class="desc">バニラ・抹茶・紅茶の3種類を、バニラアイスとクリームと一緒にワンプレートで。</p>
+        </div>
+        <div class="dish is-leaf">
+          <span class="tag">DRINK</span>
+          <span class="name">コーヒー・紅茶・レモネード</span>
+          <p class="price">—</p>
+          <p class="desc">コーヒー、紅茶、レモネードはホットとアイスの両方があります。デザートに合わせて選べます。</p>
+        </div>
+      </div>
+      <ul class="drink-list">
+        <li>コーヒー（Hot/Ice）</li>
+        <li>紅茶（Hot/Ice）</li>
+        <li>レモネード（Hot/Ice）</li>
+        <li>ウーロン茶</li>
+        <li>コーラ</li>
+        <li>レモンスカッシュ</li>
+        <li>アップルジュース</li>
+        <li>パイナップルジュース</li>
+        <li>オレンジジュース</li>
+      </ul>
+      <p class="lead-text source-note">
+        ※ 季節のデザートと飲みものは公式Instagram（@shalmcafe）の投稿、シフォンケーキ3種セットは秋田タウン情報（2021年2月27日）に掲載されている内容です。
+        デザートは入れ替わります。最新の内容は公式Instagramをご確認ください。
+      </p>
+    </div>
+  </section>
+
+  <!-- 催し -->
+  <section id="events" aria-labelledby="events-heading">
+    <div class="container">
+      <p class="eyebrow">EVENTS</p>
+      <h2 id="events-heading">ごはんのほかに、<br>この店で起きていること</h2>
+      <p class="lead-text">
+        公式Instagramで案内されていた催しです。音楽、花、美容、朝市と、内容がそれぞれ違います。
+        お店の場所を、いろいろな人に開いている、という形です。
+      </p>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <span class="num">MUSIC</span>
+          <h3>Shalmusic ― 音楽の夜</h3>
+          <p>2026年11月21日（土）。OPEN 16:15／START 17:00、3,500円（1Food＋1Drink付き）、限定15席。3人の演奏を、ゆっくり楽しむ会です。</p>
+          <p class="value">当日限定のオリジナルメニューが用意されると案内されています。</p>
+        </div>
+        <div class="card">
+          <span class="num">FLOWER</span>
+          <h3>Christmas Flower Workshop</h3>
+          <p>2026年11月18日（水）10:30〜15:00、5,000円。針葉樹や季節の生花を使って、クリスマスツリー型のアレンジメントを作ります。</p>
+          <p class="value">完成後は、3種類から選べるランチとドリンク付き。クリスマスチャーム1点とリボンも付きます。</p>
+        </div>
+        <div class="card">
+          <span class="num">BEAUTY</span>
+          <h3>【介護美容】体験＆お喋りランチ会</h3>
+          <p>全3回のワークショップの第3回目として、2026年11月4日（水）11:00〜14:00に開かれます。7名募集、お一人2,000円（ランチ代1,500円＋体験会500円）。</p>
+          <p class="value">認定のセラピストによるメイクセラピーとフェイシャルケアを体験する会です。「誰かに会いたくなる」「外に出かけたくなる」につながる時間を、と案内されています。</p>
+        </div>
+        <div class="card">
+          <span class="num">MORNING MARKET</span>
+          <h3>仁井田の朝市への出店</h3>
+          <p>朝7時から9時まで、仁井田の朝市に出店しています。2026年10月10日は台湾バーガー（角煮・エビチリ）を出しました。</p>
+          <p class="value">出店の日は、お店の開店が12時前後になると事前に案内されます。</p>
+        </div>
+        <div class="card">
+          <span class="num">HALLOWEEN</span>
+          <h3>下北手のハロウィン</h3>
+          <p>2026年10月18日（日）、地域のハロウィンイベントに参加しました。仮装した子供たちがお店に来ます。</p>
+          <p class="value">「手を振ってあげてください」と案内されていました。地域の行事の中に、お店が入っています。</p>
+        </div>
+      </div>
+      <p class="lead-text source-note">
+        ※ この節は、公式Instagram（@shalmcafe）の投稿にもとづいています。いずれも開催済み、または告知された予定です。
+        催しによって主催者と申込先が異なります。最新の内容と申込方法は公式Instagramをご確認ください。
+      </p>
+    </div>
+  </section>
+
+  <!-- 試作（診断） -->
+  <section id="proposal-quiz" class="proposal-section" aria-labelledby="quiz-heading">
+    <div class="container">
+      <span class="proposal-tag">INTERACTIVE PROTOTYPE｜動く新サービス試作</span>
+      <h2 id="quiz-heading">Shalm caféでの過ごし方診断（試作）</h2>
+      <p class="lead-text">
+        このお店は、食事・デザート・催しと入り口がいくつもあります。
+        はじめての方が「自分はどの日に行けばいいか」を決めやすくするための診断を試作しました。
+        これは店舗運営者向けの新サービス提案・導入アイデアであり、現在提供中のサービスではありません。
+      </p>
+
+      <div class="proposal-note">
+        この診断結果は、公開されている情報で確認できるShalm caféの食事・デザート・催しをもとにした、おおまかな分け方です。
+        特定の商品名や価格を断定するものではなく、効果や人気を保証するものでもありません。
+      </div>
+
+      <div class="quiz-app" id="quizApp">
+        <div id="quizIntro" class="quiz-intro">
+          <h3>対象：ご来店を検討している方／店舗運営者の方</h3>
+          <p>解決したい課題：入り口が多いぶん、はじめての方が「どの日に、何をしに行くか」を決めにくいこと。</p>
+          <button type="button" class="quiz-start-btn" id="quizStartBtn">試してみる</button>
+        </div>
+
+        <form id="quizForm" style="display:none;" novalidate>
+          <p class="quiz-progress" id="quizProgress" aria-live="polite"></p>
+          <p class="quiz-question" id="quizQuestionText"></p>
+          <ul class="quiz-options" id="quizOptions"></ul>
+          <p class="quiz-warning" id="quizWarning" role="alert"></p>
+          <div class="quiz-nav">
+            <button type="button" id="quizBack">戻る</button>
+            <button type="button" id="quizNext">次へ</button>
+          </div>
+        </form>
+
+        <div id="quizResult" style="display:none;" class="quiz-result" aria-live="polite">
+          <h3 id="resultName" tabindex="-1"></h3>
+          <p class="result-summary" id="resultSummary"></p>
+          <dl class="result-detail-list">
+            <dt>そのタイプになった理由</dt>
+            <dd id="resultReason"></dd>
+            <dt>向いている過ごし方</dt>
+            <dd id="resultRecommend"></dd>
+            <dt>お店の強みとのつながり</dt>
+            <dd id="resultStrength"></dd>
+          </dl>
+          <div class="quiz-result-actions">
+            <a class="btn btn-primary" id="resultCta" href="#lunch">関連する節を見る</a>
+            <button type="button" class="btn btn-outline" id="quizRestartBtn">最初からやり直す</button>
+          </div>
+        </div>
+
+        <noscript>
+          <p>この試作デモの操作にはJavaScriptが必要です。JavaScriptが無効な場合でも、メニューや催しのご紹介は、このページの他の節から引き続きご覧いただけます。</p>
+        </noscript>
+
+        <p class="disclaimer-box">本機能は店舗運営者向けの試作デモです。現在提供中の正式サービスではありません。入力内容の保存・送信は行いません。ページを閉じると回答内容は消えます。お名前やご連絡先を入力していただく欄はありません。</p>
+      </div>
+
+      <div class="proposal-note" style="margin-top:32px;">
+        <strong>導入アイデア（今後の展開案）：</strong>催しは主催者がそれぞれ違い、申込先も店頭だったり別のアカウントだったりします。
+        この診断の結果画面から、その月の催しの予定と申込先を1か所にまとめてご案内できるようにすると、
+        参加したい方の迷いが減り、小さく始められる新サービスとして育てていくことができます。
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section id="info" aria-labelledby="info-heading">
+    <div class="container">
+      <p class="eyebrow">SHOP INFORMATION</p>
+      <h2 id="info-heading">店舗情報</h2>
+      <ul class="info-list">
+        <li><span class="term">店舗名</span><span>Shalm café（シャルムカフェ）</span></li>
+        <li>
+          <span class="term">所在地</span>
+          <span>〒010-0051 秋田県秋田市下北手松崎字家ノ前12-5<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%8B%E5%8C%97%E6%89%8B%E6%9D%BE%E5%B4%8E%E5%AD%97%E5%AE%B6%E3%83%8E%E5%89%8D12-5" target="_blank" rel="noopener noreferrer">地図で見る（Googleマップ）</a>
+          </span>
+        </li>
+        <li><span class="term">電話</span><span>018-853-5262</span></li>
+        <li><span class="term">営業時間</span><span>11:00〜17:00<br>ラストオーダー：食事 16:00／デザート 16:30</span></li>
+        <li>
+          <span class="term">お休み</span>
+          <span>水曜日と、第1・第3木曜日が基本です。<br>
+            <span class="source-note" style="display:block;margin-top:4px;">※ 月によって変わります。催しや朝市の出店にあわせて、開店時刻が変わる日もあります。その月のお休みは、公式Instagramでカレンダーが告知されます。</span>
+          </span>
+        </li>
+        <li><span class="term">席数</span><span>16席（カウンターと2名掛けのテーブル）</span></li>
+        <li><span class="term">駐車場</span><span>あり（催しの告知では、7台までと案内されていました）</span></li>
+        <li><span class="term">Instagram</span><span><a href="https://www.instagram.com/shalmcafe/" target="_blank" rel="noopener noreferrer">@shalmcafe</a></span></li>
+      </ul>
+      <p class="lead-text source-note">
+        ※ このページは、公式Instagram（@shalmcafe）と、秋田タウン情報（2021年2月27日）をもとに、
+        2026年10月16日時点で整理したものです。内容や価格は変わっている場合があります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 最後のご案内 -->
+  <section class="final-cta" aria-labelledby="final-cta-heading">
+    <div class="container">
+      <h2 id="final-cta-heading">最新のご案内は、公式Instagramをご確認ください</h2>
+      <p style="color:#e3dcdd;">今週の献立、季節のデザート、催しの予定とその月のお休みは、公式Instagramで発信されています。</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" style="background:#fff;color:var(--color-primary);" href="https://www.instagram.com/shalmcafe/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+        <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%8B%E5%8C%97%E6%89%8B%E6%9D%BE%E5%B4%8E%E5%AD%97%E5%AE%B6%E3%83%8E%E5%89%8D12-5" target="_blank" rel="noopener noreferrer">地図を見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Shalm café（シャルムカフェ）</p>
+    <p>© Shalm café. All Rights Reserved.</p>
+    <p><a href="#main-content">ページの先頭へ戻る</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var questions = [
+    {
+      text: "このお店に行くとしたら、いちばん近いのはどれですか？",
+      options: [
+        { label: "お昼ごはんをしっかり食べたい", cat: "A" },
+        { label: "甘いものとコーヒーでひと息つきたい", cat: "B" },
+        { label: "何かを作ったり、体験してみたい", cat: "C" },
+        { label: "音楽や、特別な時間を過ごしたい", cat: "D" },
+        { label: "地域の行事や、朝のうちに立ち寄りたい", cat: "E" }
+      ]
+    },
+    {
+      text: "お店に求めるものに近いのは？",
+      options: [
+        { label: "毎回ちがう献立", cat: "A" },
+        { label: "その季節だけのデザート", cat: "B" },
+        { label: "手を動かす時間", cat: "C" },
+        { label: "ふだんと違う夜", cat: "D" },
+        { label: "気軽に寄れること", cat: "E" }
+      ]
+    },
+    {
+      text: "誰と行くことが多いですか？",
+      options: [
+        { label: "ひとりで、ゆっくり", cat: "A" },
+        { label: "友人とおしゃべりしながら", cat: "B" },
+        { label: "同じことに興味のある人と", cat: "C" },
+        { label: "好きなものが同じ人と", cat: "D" },
+        { label: "家族や、ご近所の人と", cat: "E" }
+      ]
+    },
+    {
+      text: "Shalm caféで気になったことに近いのは？",
+      options: [
+        { label: "週替わりのメニュー", cat: "A" },
+        { label: "季節のモンブランやタルト", cat: "B" },
+        { label: "フラワーアレンジメントや介護美容の会", cat: "C" },
+        { label: "Shalmusic という音楽の夜", cat: "D" },
+        { label: "朝市への出店や、地域の行事", cat: "E" }
+      ]
+    },
+    {
+      text: "いま、いちばん知りたいことは？",
+      options: [
+        { label: "今週の献立", cat: "A" },
+        { label: "今あるデザート", cat: "B" },
+        { label: "次のワークショップの日程", cat: "C" },
+        { label: "次の音楽会のこと", cat: "D" },
+        { label: "今月のお休みと開店時刻", cat: "E" }
+      ]
+    }
+  ];
+
+  var results = {
+    A: {
+      name: "週替わりを楽しむタイプ",
+      summary: "お昼をしっかり食べたい方です。毎週かわる献立が向いています。",
+      reason: "食事や、毎回ちがう献立に関する回答が多い傾向でした。",
+      recommend: "週替わりのメニュー。その週の内容は公式Instagramで案内されます。定番のユーリンチーやハンバーグもあります。",
+      strength: "「一週間ごとに、献立が変わる」という強みと相性のよいタイプです。",
+      ctaHref: "#lunch",
+      ctaLabel: "食事のことを見る"
+    },
+    B: {
+      name: "季節のデザートタイプ",
+      summary: "甘いものを目当てに行きたい方です。その時期だけのデザートが向いています。",
+      reason: "デザートや、季節のものに関する回答が多い傾向でした。",
+      recommend: "季節のデザート。秋はくりのモンブラン、その前はぶどうタルトでした。コーヒーや紅茶と合わせて。",
+      strength: "「デザートが、季節で入れ替わる」という強みと相性のよいタイプです。",
+      ctaHref: "#dessert",
+      ctaLabel: "デザートを見る"
+    },
+    C: {
+      name: "手を動かしたいタイプ",
+      summary: "何かを作ったり、体験したりする時間を求めている方です。",
+      reason: "体験や、手を動かすことに関する回答が多い傾向でした。",
+      recommend: "フラワーアレンジメントのワークショップや、介護美容の体験会。どちらもランチが付く形で開かれています。",
+      strength: "「食事以外の入り口が、いくつもある」という強みと相性のよいタイプです。",
+      ctaHref: "#events",
+      ctaLabel: "催しを見る"
+    },
+    D: {
+      name: "特別な夜タイプ",
+      summary: "ふだんと違う時間を過ごしたい方です。",
+      reason: "音楽や、特別な時間に関する回答が多い傾向でした。",
+      recommend: "Shalmusic。限定15席で、当日だけのオリジナルメニューとドリンクが付きます。",
+      strength: "お店の場所を、いろいろな人に開いているという姿勢と相性のよいタイプです。",
+      ctaHref: "#events",
+      ctaLabel: "催しを見る"
+    },
+    E: {
+      name: "ご近所・朝市タイプ",
+      summary: "気軽に立ち寄りたい方、地域の行事と一緒に楽しみたい方です。",
+      reason: "地域の行事や、気軽さに関する回答が多い傾向でした。",
+      recommend: "仁井田の朝市への出店や、地域のハロウィンなどの行事。その月のお休みと開店時刻は公式Instagramで案内されます。",
+      strength: "地域の行事の中にお店が入っている、という在り方と相性のよいタイプです。",
+      ctaHref: "#info",
+      ctaLabel: "店舗情報を見る"
+    }
+  };
+
+  var priorityOrder = ["A", "B", "C", "D", "E"];
+
+  var currentIndex = 0;
+  var answers = new Array(questions.length).fill(null);
+
+  var quizIntro = document.getElementById("quizIntro");
+  var quizStartBtn = document.getElementById("quizStartBtn");
+  var quizForm = document.getElementById("quizForm");
+  var quizProgress = document.getElementById("quizProgress");
+  var quizQuestionText = document.getElementById("quizQuestionText");
+  var quizOptions = document.getElementById("quizOptions");
+  var quizWarning = document.getElementById("quizWarning");
+  var quizBack = document.getElementById("quizBack");
+  var quizNext = document.getElementById("quizNext");
+  var quizResult = document.getElementById("quizResult");
+  var quizRestartBtn = document.getElementById("quizRestartBtn");
+
+  function renderQuestion() {
+    quizWarning.textContent = "";
+    var q = questions[currentIndex];
+    quizProgress.textContent = "質問 " + (currentIndex + 1) + " / " + questions.length;
+    quizQuestionText.textContent = q.text;
+    quizOptions.innerHTML = "";
+
+    q.options.forEach(function (opt, i) {
+      var li = document.createElement("li");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "quiz-option";
+      btn.textContent = opt.label;
+      var selected = answers[currentIndex] === i;
+      btn.setAttribute("aria-pressed", selected ? "true" : "false");
+      btn.addEventListener("click", function () {
+        answers[currentIndex] = i;
+        var allBtns = quizOptions.querySelectorAll(".quiz-option");
+        allBtns.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+        btn.setAttribute("aria-pressed", "true");
+        quizWarning.textContent = "";
+      });
+      li.appendChild(btn);
+      quizOptions.appendChild(li);
+    });
+
+    quizBack.disabled = currentIndex === 0;
+    quizNext.textContent = currentIndex === questions.length - 1 ? "結果を見る" : "次へ";
+  }
+
+  function startQuiz() {
+    currentIndex = 0;
+    answers = new Array(questions.length).fill(null);
+    quizIntro.style.display = "none";
+    quizResult.style.display = "none";
+    quizForm.style.display = "block";
+    renderQuestion();
+  }
+
+  function showResult() {
+    var scores = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+    answers.forEach(function (ansIndex, qIndex) {
+      if (ansIndex === null) { return; }
+      var cat = questions[qIndex].options[ansIndex].cat;
+      scores[cat] += 1;
+    });
+
+    // 同点の場合は、最後の質問（5問目）で選んだものを優先します。
+    // それでも決まらない場合のみ、A→B→C→D→Eの順を採用します。
+    var lastCat = null;
+    var lastAnswerIndex = answers[answers.length - 1];
+    if (lastAnswerIndex !== null) {
+      lastCat = questions[questions.length - 1].options[lastAnswerIndex].cat;
+    }
+
+    var maxScore = -1;
+    priorityOrder.forEach(function (cat) {
+      if (scores[cat] > maxScore) { maxScore = scores[cat]; }
+    });
+    var topCats = priorityOrder.filter(function (cat) { return scores[cat] === maxScore; });
+
+    var winner;
+    if (topCats.length === 1) {
+      winner = topCats[0];
+    } else if (lastCat !== null && topCats.indexOf(lastCat) !== -1) {
+      winner = lastCat;
+    } else {
+      winner = topCats[0];
+    }
+
+    var r = results[winner];
+    document.getElementById("resultName").textContent = r.name;
+    document.getElementById("resultSummary").textContent = r.summary;
+    document.getElementById("resultReason").textContent = r.reason;
+    document.getElementById("resultRecommend").textContent = r.recommend;
+    document.getElementById("resultStrength").textContent = r.strength;
+    var cta = document.getElementById("resultCta");
+    cta.href = r.ctaHref;
+    cta.textContent = r.ctaLabel;
+
+    quizForm.style.display = "none";
+    quizResult.style.display = "block";
+    document.getElementById("resultName").focus();
+  }
+
+  quizStartBtn.addEventListener("click", startQuiz);
+
+  quizNext.addEventListener("click", function () {
+    if (answers[currentIndex] === null) {
+      quizWarning.textContent = "選択肢を選んでから次へ進んでください。";
+      return;
+    }
+    if (currentIndex === questions.length - 1) {
+      showResult();
+    } else {
+      currentIndex += 1;
+      renderQuestion();
+    }
+  });
+
+  quizBack.addEventListener("click", function () {
+    if (currentIndex > 0) {
+      currentIndex -= 1;
+      renderQuestion();
+    }
+  });
+
+  quizRestartBtn.addEventListener("click", function () {
+    quizResult.style.display = "none";
+    quizIntro.style.display = "block";
+  });
+})();
+</script>
+
+</body>
+</html>
