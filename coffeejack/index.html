@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>COFFEEJACK｜朝の顔、昼の味方、夜のおとも｜提案用ページ</title>
+<meta name="description" content="秋田市千秋公園のふもと、COFFEEJACK。無添加の自家製ベーグルと、ニュージーランド発祥ALLPRESSのコーヒー。店頭・卸・ポストに届く定期便まで、届ける道を広げてきたお店を紹介する提案用ページです。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1d2b31">
+<style>
+  :root {
+    --color-primary: #1d2b31;      /* 深いチャコールブルー */
+    --color-secondary: #fbf8f1;    /* 生成り */
+    --color-teal: #0b8f88;         /* ロゴのティール（線や枠に使う） */
+    --color-teal-text: #0a7a74;    /* 明るい地の上に置く文字用 */
+    /* ★2026-10-16：白い文字をのせるボタンの地色。#0b8f88 だと白文字との明暗差が
+       3.96 しかなく読みにくいため、濃くした 5.19 のこちらを使います（4.5以上が目安）。 */
+    --color-teal-btn: #0a7a74;
+    --color-accent: #c4642f;       /* レトロアメリカンの橙 */
+    --color-surface: #f0ebdf;
+    --color-proposal: #e8f1ef;
+    --color-proposal-border: #8fb5b0;
+    --color-text: #25292b;
+    --color-muted: #656c6e;
+    --color-border: #d9d2c2;
+    --font-serif: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-sans: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  /* ★2026-10-16：背景にうっすら斜めのストライプを入れています。
+     アメリカのダイナーの包装紙のような柄です。線の濃さは rgba の最後の数字（0.045）で、
+     1 に近いほど濃くなります。線の間隔は 11px の部分です。
+     ※ 色を敷いている節（strengths / delivery / 診断 / コーヒー）には出ません。
+     　 柄のある節と無い節が交互になり、ページにリズムが出ます。 */
+  body {
+    margin: 0;
+    background-color: var(--color-secondary);
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgba(29, 43, 49, 0.045) 0px,
+      rgba(29, 43, 49, 0.045) 2px,
+      transparent 2px,
+      transparent 11px
+    );
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+
+  .container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding-left: clamp(14px, 4vw, 32px);
+    padding-right: clamp(14px, 4vw, 32px);
+  }
+
+  .skip-link {
+    position: absolute; left: -999px; top: 0;
+    background: var(--color-teal-btn); color: #fff;
+    padding: 10px 16px; z-index: 200; border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus { left: 0; }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid var(--color-teal);
+    outline-offset: 3px;
+  }
+
+  /* ---------- 提案用ラベル ---------- */
+  .proposal-bar {
+    background: var(--color-primary);
+    color: var(--color-secondary);
+    text-align: center;
+    padding: 8px 14px;
+    font-size: clamp(12px, 3vw, 13px);
+    letter-spacing: 0.06em;
+    line-height: 1.5;
+  }
+
+  /* ---------- ファーストビュー ---------- */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 96px 0 56px;
+    background: var(--color-primary);
+    overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(29,43,49,0.44) 0%, rgba(29,43,49,0.62) 55%, rgba(29,43,49,0.88) 100%);
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: clamp(12px, 3vw, 13px);
+    letter-spacing: 0.16em;
+    color: var(--color-secondary);
+    margin: 0 0 14px;
+  }
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(27px, 7.6vw, 45px);
+    line-height: 1.4;
+    margin: 0 0 18px;
+    color: var(--color-secondary);
+    overflow-wrap: anywhere;
+  }
+  .hero-lead {
+    font-size: clamp(14px, 3.8vw, 17px);
+    max-width: 34em; margin: 0 0 30px;
+    color: var(--color-secondary);
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin: 0 0 30px;
+    font-size: 12px; letter-spacing: 0.08em;
+    color: var(--color-secondary);
+  }
+  .hero-tags span {
+    border: 1px solid rgba(251,248,241,0.5);
+    border-radius: 999px; padding: 6px 14px;
+    background: rgba(29,43,49,0.35);
+  }
+
+  .cta-group { display: flex; flex-direction: column; gap: 12px; max-width: 340px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 12px 20px;
+    border-radius: 6px; text-decoration: none;
+    font-size: 15px; letter-spacing: 0.02em;
+    border: 1px solid transparent; text-align: center; line-height: 1.4;
+  }
+  .btn-primary { background: var(--color-teal-btn); color: #fff; }
+  .btn-outline { background: transparent; border-color: var(--color-primary); color: var(--color-primary); }
+  .hero .btn-primary { background: var(--color-secondary); color: var(--color-primary); }
+  .hero .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); background: rgba(29,43,49,0.25); }
+  @media (min-width: 560px) { .cta-group { flex-direction: row; max-width: none; } }
+
+  /* ---------- 共通 ---------- */
+  section { padding: clamp(48px, 9vw, 88px) 0; }
+  .section-alt { background: var(--color-surface); }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; color: var(--color-teal-text); margin: 0 0 10px; }
+  h2 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(22px, 6vw, 30px);
+    margin: 0 0 20px; line-height: 1.5;
+  }
+  h3 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(17px, 4.6vw, 20px);
+    margin: 0 0 10px; line-height: 1.6;
+  }
+  p { margin: 0 0 14px; }
+  .lead-text { max-width: 40em; color: var(--color-muted); }
+  .source-note { font-size: .85em; opacity: .8; margin-top: 1.2em; }
+
+  /* ---------- カード ---------- */
+  .card-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
+  @media (min-width: 700px) {
+    .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  }
+  .card {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 10px; padding: 22px; min-width: 0;
+    box-shadow: 0 2px 10px rgba(29,43,49,0.05);
+  }
+  .card .num { font-size: 12px; color: var(--color-teal-text); letter-spacing: 0.1em; display: block; margin-bottom: 10px; }
+  .card p { font-size: 14.5px; color: var(--color-text); margin-bottom: 8px; }
+  .card .value {
+    font-size: 13.5px; color: var(--color-muted);
+    border-top: 1px dashed var(--color-border);
+    padding-top: 10px; margin-top: 10px;
+  }
+  .card-photo { border-radius: 8px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 14px; }
+
+  /* 横に3枚並べたときのそろえ方
+     ① 下端をそろえる作り（subgrid が使えないブラウザ用の保険）
+     このページの見出しは1行が文字サイズの1.6倍なので、2行ぶんは 3.2em です。 */
+  @media (min-width: 700px) {
+    .card-grid.cols-3 .card { display: flex; flex-direction: column; }
+    .card-grid.cols-3 .card h3 { line-height: 1.6; min-height: 3.2em; }
+    .card-grid.cols-3 .card .value { margin-top: auto; }
+  }
+  /* ② ラベル・見出し・本文・価値の4つを、それぞれ別々に高さをそろえます。 */
+  @supports (grid-template-rows: subgrid) {
+    @media (min-width: 700px) {
+      #strengths .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 5; }
+      #delivery .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 4; }
+      .card-grid.cols-3 .card h3 { min-height: 0; margin-bottom: 0; }
+      .card-grid.cols-3 .card .value { margin-top: 0; align-self: start; }
+      .card-grid.cols-3 .card p { margin-bottom: 0; }
+      .card-grid.cols-3 .card .num { margin-bottom: 0; }
+      .card-grid.cols-3 .card { row-gap: 10px; }
+    }
+  }
+
+  /* ---------- ストーリー ---------- */
+  .story { display: grid; gap: 24px; }
+  /* 横に並べたとき、写真をとなりの文章と同じ高さまで伸ばします。 */
+  @media (min-width: 760px) {
+    .story { grid-template-columns: 1fr 1fr; align-items: stretch; }
+    .story-photo { height: 100%; min-height: 300px; aspect-ratio: auto; }
+  }
+  .story-photo { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+  .concept-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 22px; }
+  .concept-gallery img { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+
+  /* ---------- ベーグル一覧 ---------- */
+  .bagel-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 28px; }
+  @media (min-width: 620px) { .bagel-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 900px) { .bagel-grid { grid-template-columns: repeat(3, 1fr); } }
+  .bagel {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-teal);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 18px; min-width: 0;
+  }
+  .bagel.is-pro { border-left-color: var(--color-accent); }
+  .bagel .en { font-size: 12px; letter-spacing: .08em; color: var(--color-teal-text); display: block; }
+  .bagel.is-pro .en { color: #a8521f; }
+  .bagel .ja { font-family: var(--font-serif); font-size: 18px; margin: 2px 0 4px; display: block; }
+  .bagel .mix { font-size: 14px; color: var(--color-muted); margin: 0 0 8px; }
+  .bagel .price { font-size: 15px; font-weight: 700; margin: 0; }
+  .bagel .note { font-size: 13px; color: var(--color-muted); margin: 8px 0 0; }
+
+  /* ---------- メニュー（ベーグル以外） ---------- */
+  .menu-groups { display: grid; grid-template-columns: 1fr; gap: 26px; margin-top: 28px; }
+  @media (min-width: 620px) { .menu-groups { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 900px) { .menu-groups { grid-template-columns: repeat(3, 1fr); } }
+  .menu-group { min-width: 0; }
+  .menu-group h3 {
+    font-family: var(--font-sans);
+    font-size: 13px; font-weight: 700;
+    letter-spacing: .12em; color: var(--color-teal-text);
+    margin: 0 0 4px; padding-bottom: 8px;
+    border-bottom: 2px solid var(--color-teal);
+  }
+  .menu-group .group-note { font-size: 13px; color: var(--color-muted); margin: 8px 0 0; }
+  .menu-group ul { list-style: none; padding: 0; margin: 0; }
+  .menu-group li {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 10px; padding: 9px 0;
+    border-bottom: 1px dashed var(--color-border);
+    font-size: 14.5px;
+  }
+  .menu-group li .price { white-space: nowrap; color: var(--color-muted); }
+
+  /* ---------- 注目 ---------- */
+  .highlight { background: var(--color-primary); color: var(--color-secondary); }
+  .highlight .eyebrow { color: #6fd0c8; }
+  .highlight-grid { display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 760px) { .highlight-grid { grid-template-columns: 1.1fr 1fr; } }
+  .highlight-visual {
+    border-radius: 10px; aspect-ratio: 4 / 3; width: 100%;
+    object-fit: cover; border: 1px solid rgba(255,255,255,0.15);
+  }
+  .highlight-list { list-style: none; padding: 0; margin: 18px 0 24px; font-size: 14.5px; }
+  .highlight-list li { padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.15); }
+  .highlight-list li:first-child { border-top: none; }
+  .highlight-list b { display: block; margin-bottom: 4px; font-size: 13px; color: #6fd0c8; letter-spacing: 0.04em; }
+
+  /* ---------- 一覧表 ---------- */
+  .info-list {
+    list-style: none; padding: 0; margin: 24px 0 0;
+    display: grid; gap: 0; border-top: 1px solid var(--color-border);
+  }
+  .info-list li {
+    display: grid; grid-template-columns: 110px 1fr; gap: 12px;
+    padding: 14px 0; border-bottom: 1px solid var(--color-border);
+    font-size: 14.5px;
+  }
+  .info-list .term { color: var(--color-muted); font-size: 13px; letter-spacing: 0.04em; }
+  .info-list a { overflow-wrap: anywhere; text-decoration: underline; }
+
+  /* 取扱店 */
+  .shop-table { width: 100%; border-collapse: collapse; margin-top: 24px; background: var(--color-secondary); border: 1px solid var(--color-border); border-radius: 10px; overflow: hidden; }
+  .shop-table th, .shop-table td { text-align: left; padding: 12px 14px; font-size: 14.5px; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+  .shop-table thead th { background: var(--color-surface); font-size: 13px; color: var(--color-muted); letter-spacing: .04em; }
+  .shop-table tr:last-child th, .shop-table tr:last-child td { border-bottom: none; }
+  .shop-table th[scope="row"] { font-weight: 700; width: 38%; }
+
+  /* ---------- 試作（診断） ---------- */
+  .proposal-section {
+    background: var(--color-proposal);
+    border-top: 3px solid var(--color-proposal-border);
+    border-bottom: 3px solid var(--color-proposal-border);
+  }
+  .proposal-tag {
+    display: inline-block; font-size: 12px; letter-spacing: 0.1em;
+    background: var(--color-proposal-border); color: #0c2321;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .proposal-note {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-proposal-border);
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 13.5px; color: var(--color-muted);
+    margin: 22px 0 30px; line-height: 1.75;
+  }
+  .quiz-app {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 14px; padding: 22px; max-width: 640px;
+  }
+  .quiz-intro h3 { margin: 0 0 12px; font-size: 20px; }
+  .quiz-progress { font-size: 13px; color: var(--color-muted); margin-bottom: 12px; }
+  .quiz-question { font-size: 17px; font-weight: 700; margin: 0 0 12px; }
+  .quiz-options { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 10px; }
+  .quiz-option {
+    width: 100%; text-align: left; padding: 14px 16px; min-height: 44px;
+    border: 1.5px solid var(--color-border); border-radius: 8px;
+    background: var(--color-surface); font-size: 15px;
+    font-family: inherit; color: var(--color-text); cursor: pointer;
+  }
+  .quiz-option[aria-pressed="true"] { border-color: var(--color-teal); background: #ddefed; font-weight: 700; }
+  .quiz-option[aria-pressed="true"]::before { content: "✓ "; color: var(--color-teal-text); }
+  .quiz-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; }
+  .quiz-nav button { min-height: 44px; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-family: inherit; cursor: pointer; }
+  #quizBack { background: transparent; border: 1px solid var(--color-border); color: var(--color-text); }
+  #quizNext { background: var(--color-teal-btn); border: 1px solid var(--color-teal-btn); color: #fff; }
+  #quizNext:disabled, #quizBack:disabled { opacity: .4; cursor: not-allowed; }
+  .quiz-warning { font-size: 13px; color: #a0432a; margin-top: 6px; min-height: 1.2em; }
+  .quiz-result h3 { font-size: 22px; margin: 0 0 6px; }
+  .quiz-result .result-summary { color: var(--color-muted); margin: 0 0 22px; }
+  .result-detail-list { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 4px; font-size: 14px; }
+  .result-detail-list dt { font-weight: 700; margin-top: 12px; }
+  .result-detail-list dd { margin: 2px 0 0; color: var(--color-muted); }
+  .quiz-result-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .quiz-start-btn {
+    min-height: 44px; padding: 12px 28px;
+    background: var(--color-teal-btn); color: #fff;
+    border: none; border-radius: 6px;
+    font-size: 15px; font-weight: 700; cursor: pointer;
+  }
+  .disclaimer-box {
+    font-size: 13px; line-height: 1.7; color: var(--color-muted);
+    background: var(--color-surface); border: 1px dashed var(--color-border);
+    border-radius: 8px; padding: 14px 16px; margin-top: 22px;
+  }
+
+  /* ---------- 最後のご案内 ---------- */
+  .final-cta { background: var(--color-primary); color: var(--color-secondary); text-align: center; }
+  .final-cta .cta-group { margin: 26px auto 0; justify-content: center; }
+  .final-cta .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); }
+
+  .site-footer {
+    padding: 32px 0 40px; text-align: center;
+    font-size: 12.5px; color: var(--color-muted);
+    border-top: 1px solid var(--color-border);
+  }
+  .site-footer a { text-decoration: underline; }
+  .site-footer p { margin: 6px 0; }
+
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
+<div class="proposal-bar" role="note">
+  CONCEPT LP ／ 店舗向け提案用ページです。本ページには未導入の新サービス提案・試作デモが含まれます。<br>
+  ※本ページの掲載画像は、店舗の世界観を表現したイメージ画像です。
+</div>
+
+<main id="main-content">
+
+  <!-- ファーストビュー -->
+  <section class="hero">
+    <img class="hero-bg" src="images/01_hero_interior_16x9.webp" alt="COFFEEJACKの店内のイメージ画像" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <p class="hero-eyebrow">COFFEEJACK — 秋田市千秋公園のふもと</p>
+      <h1>朝の顔、昼の味方、<br>夜のおとも。</h1>
+      <p class="hero-lead">
+        無添加の自家製ベーグルと、ニュージーランド発祥のALLPRESSコーヒー。
+        公園を散策する途中に立ち寄れる一軒として、2020年5月に開きました。
+      </p>
+      <p class="hero-tags">
+        <span>自家製ベーグル9種類</span>
+        <span>ALLPRESS COFFEE</span>
+        <span>テイクアウト・配送</span>
+      </p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="#strengths">店舗について見る</a>
+        <a class="btn btn-outline" href="https://www.coffeejackjapan.com/" target="_blank" rel="noopener noreferrer">公式サイトを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- コンセプト -->
+  <section id="concept" aria-labelledby="concept-heading">
+    <div class="container">
+      <div class="story">
+        <div>
+          <p class="eyebrow">CONCEPT</p>
+          <h2 id="concept-heading">散策の途中に、<br>立ち寄れる場所をつくる</h2>
+          <p class="lead-text">
+            COFFEEJACKは、秋田市千秋公園のふもとにあるコーヒーとベーグルの店です。
+            コンセプトは「レトロアメリカン」。照明を少し抑えた店内に、豆を挽く香りと
+            ベーグルの焼ける香りが満ちています。
+          </p>
+          <p class="lead-text">
+            このお店は、千秋公園に足を運ぶきっかけをつくり、まちを元気にしたい、
+            という考えから始まりました。だから、店内でゆっくり過ごす時間も、
+            公園を歩きながらのテイクアウトも、どちらも同じように想定されています。
+          </p>
+          <p class="lead-text">
+            公式サイトでは、ベーグルのことをこう書いています。<strong>「朝の顔、昼の味方、夜のおとも」</strong>。
+            一日のどの時間にも居場所がある食べもの、という意味だと受け取りました。
+          </p>
+        </div>
+        <img class="story-photo" src="images/02_bagel_counter_4x3.webp" alt="焼き上がったベーグルが並ぶカウンターのイメージ画像" loading="lazy">
+      </div>
+      <div class="concept-gallery">
+        <img src="images/03_bagel_sandwich_4x3.webp" alt="ベーグルサンドのイメージ画像" loading="lazy">
+        <img src="images/04_coffee_pour_4x3.webp" alt="コーヒーを淹れる様子のイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 強み -->
+  <section id="strengths" class="section-alt" aria-labelledby="strengths-heading">
+    <div class="container">
+      <p class="eyebrow">公開されている情報から見える、この店舗の強み</p>
+      <h2 id="strengths-heading">お店の強み</h2>
+      <p class="lead-text">他店との比較ではなく、公開されている情報で確認できる特徴だけを根拠に整理しています。</p>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <img class="card-photo" src="images/02_bagel_counter_4x3.webp" alt="自家製ベーグルのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 01</span>
+          <h3>無添加の自家製ベーグルが、9種類</h3>
+          <p>プレーンから、アールグレイ×オレンジ、生姜×ホワイトチョコレートまで。公式サイトには9種類が掲載されています。</p>
+          <p class="value">お客様にとっての価値：通っても選びきれない幅があり、「次はどれにしよう」が続きます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/04_coffee_pour_4x3.webp" alt="ALLPRESSコーヒーのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 02</span>
+          <h3>熱風焙煎で、味がぶれないコーヒー</h3>
+          <p>ニュージーランド発祥のALLPRESSの豆を使用。熱風で焙煎するため味のムラが少なく、いつ飲んでも同じ味になると紹介されています。</p>
+          <p class="value">お客様にとっての価値：「前においしかったあの味」が、次に来たときも同じように出てきます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/05_takeout_bag_4x3.webp" alt="テイクアウトの袋のイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 03</span>
+          <h3>店の外にも、届く道をつくってきた</h3>
+          <p>秋田県内の売店や大学、東京の店舗まで、ベーグルの取扱店が広がっています。ポストに届く配送サービスも用意されています。</p>
+          <p class="value">お客様にとっての価値：お店まで行けない日でも、食べる方法があります。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ベーグル一覧 -->
+  <section id="bagels" aria-labelledby="bagels-heading">
+    <div class="container">
+      <p class="eyebrow">BAGEL</p>
+      <h2 id="bagels-heading">自家製ベーグル</h2>
+      <p class="lead-text">
+        公式サイトに掲載されている9種類です。どれも<strong>「そのまま」と「焼き上げ」を選べます</strong>。
+        すぐ食べるなら焼き上げ、持ち帰って家で焼き直すならそのまま。値段は同じです。
+      </p>
+      <div class="bagel-grid">
+        <div class="bagel">
+          <span class="en">Mr.Bagel</span><span class="ja">ミスターベーグル</span>
+          <p class="mix">プレーン</p><p class="price">¥286</p>
+        </div>
+        <div class="bagel">
+          <span class="en">Volcano</span><span class="ja">ボルケーノ</span>
+          <p class="mix">チーズ×マヨネーズ</p><p class="price">¥319</p>
+        </div>
+        <div class="bagel">
+          <span class="en">Royal O.G.</span><span class="ja">ロイヤルオージー</span>
+          <p class="mix">アールグレイ×オレンジ</p><p class="price">¥319</p>
+        </div>
+        <div class="bagel">
+          <span class="en">Banamon</span><span class="ja">バナモン</span>
+          <p class="mix">バナナ×シナモン</p><p class="price">¥319</p>
+        </div>
+        <div class="bagel">
+          <span class="en">Onion Cap</span><span class="ja">オニオンキャップ</span>
+          <p class="mix">オニオン×ガーリック</p><p class="price">¥319</p>
+        </div>
+        <div class="bagel is-pro">
+          <span class="en">★ BAGEL PRO MILK</span><span class="ja">ベーグルプロ ミルク味</span>
+          <p class="mix">タンパク質17.1gのプロテインベーグル</p><p class="price">¥319</p>
+          <p class="note">食べ応えがあり腹持ちが良く、脂質が低いのでバターなどを添えてもGOOD、と案内されています。</p>
+        </div>
+        <div class="bagel">
+          <span class="en">P.M.B.</span><span class="ja">ピーエムビー</span>
+          <p class="mix">紫いも×メープル</p><p class="price">¥341</p>
+        </div>
+        <div class="bagel">
+          <span class="en">Ginger Life</span><span class="ja">ジンジャーライフ</span>
+          <p class="mix">生姜×ホワイトチョコレート</p><p class="price">¥341</p>
+        </div>
+        <div class="bagel">
+          <span class="en">Graham</span><span class="ja">グラハム</span>
+          <p class="mix">全粒粉</p><p class="price">¥341</p>
+        </div>
+      </div>
+      <p class="lead-text" style="margin-top:28px;">
+        ベーグルには<strong>ディップ（各¥110）</strong>を添えられます。クリームチーズ、発酵バター、ピーナツバター、オーガニックピュアハニーの4種類です。
+      </p>
+      <p class="lead-text source-note">※ 公式サイトのMENUページに掲載されている内容です（2026年10月16日時点）。内容と価格は変わる場合があります。</p>
+    </div>
+  </section>
+
+  <!-- メニュー（ベーグル以外） -->
+  <section id="menu" class="section-alt" aria-labelledby="menu-heading">
+    <div class="container">
+      <p class="eyebrow">MENU</p>
+      <h2 id="menu-heading">ベーグルのほかに、<br>食事もお酒もあります</h2>
+      <p class="lead-text">
+        ベーグルの店という入り口から入ると見落としがちですが、スープもパイもサンドイッチもあります。
+        ビールやワインも置かれています。お昼をしっかり食べる店としても使えます。
+      </p>
+      <div class="menu-groups">
+
+        <div class="menu-group">
+          <h3>COFFEE</h3>
+          <ul>
+            <li><span>ドリップコーヒー</span><span class="price">¥495</span></li>
+            <li><span>フラットホワイト</span><span class="price">¥605</span></li>
+            <li><span>カフェラテ</span><span class="price">¥550</span></li>
+            <li><span>カフェモカ</span><span class="price">¥550</span></li>
+            <li><span>カフェオレ</span><span class="price">¥550</span></li>
+            <li><span>ホットチョコレート</span><span class="price">¥550</span></li>
+            <li><span>アイスコーヒー</span><span class="price">¥550</span></li>
+            <li><span>アイスカフェラテ</span><span class="price">¥605</span></li>
+            <li><span>アイスカフェオレ</span><span class="price">¥605</span></li>
+            <li><span>アイスカフェモカ</span><span class="price">¥605</span></li>
+            <li><span>アイスキャラメルラテ</span><span class="price">¥605</span></li>
+          </ul>
+        </div>
+
+        <div class="menu-group">
+          <h3>DIP</h3>
+          <ul>
+            <li><span>クリームチーズ</span><span class="price">¥110</span></li>
+            <li><span>発酵バター</span><span class="price">¥110</span></li>
+            <li><span>ピーナツバター</span><span class="price">¥110</span></li>
+            <li><span>オーガニックピュアハニー</span><span class="price">¥110</span></li>
+          </ul>
+          <p class="group-note">ベーグルに添えて、食べ方を変えられます。</p>
+        </div>
+
+        <div class="menu-group">
+          <h3>BAGEL SANDWICH</h3>
+          <ul>
+            <li><span>生ハムチーズ</span><span class="price">¥660</span></li>
+            <li><span>スモークサーモン</span><span class="price">¥660</span></li>
+            <li><span>アボカドチキン</span><span class="price">¥660</span></li>
+          </ul>
+        </div>
+
+        <div class="menu-group">
+          <h3>SOUP</h3>
+          <ul>
+            <li><span>クラムチャウダー</span><span class="price">¥473</span></li>
+            <li><span>ミネストローネ</span><span class="price">¥473</span></li>
+          </ul>
+        </div>
+
+        <div class="menu-group">
+          <h3>PIE</h3>
+          <ul>
+            <li><span>チキンクリーム</span><span class="price">¥770</span></li>
+            <li><span>ビーフデミグラス</span><span class="price">¥770</span></li>
+            <li><span>アップルシナモン</span><span class="price">¥770</span></li>
+          </ul>
+          <p class="group-note">パイも「そのまま」と「焼き上げ」を選べます。</p>
+        </div>
+
+        <div class="menu-group">
+          <h3>SWEETS</h3>
+          <ul>
+            <li><span>バニラアイス</span><span class="price">¥220</span></li>
+            <li><span>アフォガード</span><span class="price">¥550</span></li>
+            <li><span>フォンダンショコラ</span><span class="price">¥495</span></li>
+          </ul>
+        </div>
+
+        <div class="menu-group">
+          <h3>SOFT DRINK</h3>
+          <ul>
+            <li><span>自家製レモネード</span><span class="price">¥495</span></li>
+            <li><span>コーラ</span><span class="price">¥440</span></li>
+            <li><span>オレンジジュース</span><span class="price">¥440</span></li>
+            <li><span>ティー</span><span class="price">¥440</span></li>
+          </ul>
+        </div>
+
+        <div class="menu-group">
+          <h3>ALCOHOL</h3>
+          <ul>
+            <li><span>エビス</span><span class="price">¥550</span></li>
+            <li><span>赤ワイン</span><span class="price">¥550</span></li>
+            <li><span>白ワイン</span><span class="price">¥550</span></li>
+          </ul>
+        </div>
+
+        <div class="menu-group">
+          <h3>CHIPS</h3>
+          <ul>
+            <li><span>ポテトチップス</span><span class="price">¥374</span></li>
+          </ul>
+          <p class="group-note">このほか、SALADの区分もあります。</p>
+        </div>
+
+      </div>
+      <p class="lead-text source-note">※ 公式サイトのMENUページに掲載されている内容です（2026年10月16日時点）。内容と価格は変わる場合があります。</p>
+    </div>
+  </section>
+
+  <!-- 注目：コーヒー -->
+  <section id="coffee" class="highlight" aria-labelledby="coffee-heading">
+    <div class="container">
+      <div class="highlight-grid">
+        <div>
+          <p class="eyebrow">特に注目したいもの</p>
+          <h2 id="coffee-heading">ALLPRESS COFFEE</h2>
+          <p style="color:#dfe5e3;">
+            ベーグルと並ぶ、もう一方の柱です。ニュージーランド発祥のロースターの豆を使っています。
+          </p>
+          <ul class="highlight-list">
+            <li><b>焙煎のしかた</b>熱風で焙煎されています。この方法は味のムラが少なく、いつ飲んでも味が変わりにくいと紹介されています。</li>
+            <li><b>ベーグルとの関係</b>甘いベーグルにも、チーズやガーリックのベーグルにも合わせられる一杯であることが、9種類という幅を支えています。</li>
+            <li><b>持ち帰り</b>テイクアウトに対応しています。公園を歩きながら、という使い方が想定されています。</li>
+            <li><b>強みとのつながり</b>「熱風焙煎で、味がぶれないコーヒー」という強みを、そのまま味わえます。</li>
+          </ul>
+          <div class="cta-group">
+            <a class="btn btn-outline" style="border-color:#fff;color:#fff;" href="https://www.coffeejackjapan.com/" target="_blank" rel="noopener noreferrer">公式サイトで見る</a>
+          </div>
+        </div>
+        <img class="highlight-visual" src="images/04_coffee_pour_4x3.webp" alt="ALLPRESSコーヒーのイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 届ける -->
+  <section id="delivery" class="section-alt" aria-labelledby="delivery-heading">
+    <div class="container">
+      <p class="eyebrow">DELIVERY &amp; SHOPS</p>
+      <h2 id="delivery-heading">お店の外でも、食べられるように</h2>
+      <p class="lead-text">COFFEEJACKは、店頭だけでなく、持ち帰り・取扱店・配送と、届ける道を広げてきました。</p>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <span class="num">TAKEOUT</span>
+          <h3>事前予約のテイクアウト</h3>
+          <p>公式サイトから事前に注文・決済でき、店頭での会計が不要になると案内されています。</p>
+          <p class="value">待ち時間を減らして受け取れます。</p>
+        </div>
+        <div class="card">
+          <span class="num">SHOPS</span>
+          <h3>秋田県内と東京の、取扱店</h3>
+          <p>県庁や大学、病院の売店など、日常の動線の中にベーグルが置かれています。東京にも1店あります。</p>
+          <p class="value">お店に来なくても、出会える場所があります。</p>
+        </div>
+        <div class="card">
+          <span class="num">KOALA EXPRESS</span>
+          <h3>ポストに届く、配送のしくみ</h3>
+          <p>自宅の郵便受けに届く配送サービスです。受け取る人がいなくても届くため、留守がちでも受け取れます。</p>
+          <p class="value">最新の取り扱い状況は、公式ショップをご確認ください。</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top:40px;">ベーグル取扱店</h3>
+      <table class="shop-table">
+        <thead>
+          <tr><th scope="col">店舗名</th><th scope="col">所在地</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">NEED THE PLACE</th><td>秋田市南通亀の町4-15</td></tr>
+          <tr><th scope="row">グリーンストア</th><td>山形県飽海郡遊佐町遊佐字京田90-1</td></tr>
+          <tr><th scope="row">秋田県庁売店</th><td>秋田市山王4丁目1-1 地下1F</td></tr>
+          <tr><th scope="row">国際教養大学売店</th><td>秋田市雄和椿川字奥椿岱</td></tr>
+          <tr><th scope="row">秋田県立循環器・脳脊髄センター売店</th><td>秋田市千秋久保田町6-10</td></tr>
+          <tr><th scope="row">mogu mogu oven Dessert lab</th><td>東京都墨田区錦糸1-4-7</td></tr>
+        </tbody>
+      </table>
+      <p class="lead-text source-note">※ 公式サイトに掲載されている取扱店です（2026年10月16日時点）。</p>
+    </div>
+  </section>
+
+  <!-- ストーリー -->
+  <section id="story" aria-labelledby="story-heading">
+    <div class="container">
+      <div class="story">
+        <div>
+          <p class="eyebrow">STORY</p>
+          <h2 id="story-heading">まちを元気にするために、<br>公園のふもとに開いた</h2>
+          <p>
+            COFFEEJACKが開いたのは、2020年5月。千秋公園のすぐそばです。
+          </p>
+          <p>
+            新聞の開店記事では、人が千秋公園に足を運ぶきっかけをつくり、
+            地域を元気にしたいという思いから始まった店として紹介されています。
+            公園の散策の途中に立ち寄って、コーヒーとベーグルを楽しんでほしい——
+            そういう使われ方が、最初から想定されていました。
+          </p>
+          <p>
+            その考え方は、いまのお店にもそのまま残っています。
+            テイクアウトのしやすさ、取扱店の広がり、ポストに届く配送。
+            どれも「来てもらうのを待つ」のではなく、「届く道をつくる」という形です。
+          </p>
+          <p class="source-note">
+            ※ 開店の経緯は、秋田魁新報（2020年7月11日）および秋田タウン情報（2020年6月30日）に
+            掲載されている内容です。
+          </p>
+        </div>
+        <img class="story-photo" src="images/01_hero_interior_16x9.webp" alt="COFFEEJACKの店内のイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 試作（診断） -->
+  <section id="proposal-quiz" class="proposal-section" aria-labelledby="quiz-heading">
+    <div class="container">
+      <span class="proposal-tag">INTERACTIVE PROTOTYPE｜動く新サービス試作</span>
+      <h2 id="quiz-heading">ベーグルの選び方診断（試作）</h2>
+      <p class="lead-text">
+        9種類あると、はじめてのお客様は選びきれません。5つの質問に答えると、
+        近いタイプのベーグルが分かる診断を試作しました。
+        これは店舗運営者向けの新サービス提案・導入アイデアであり、現在提供中のサービスではありません。
+      </p>
+
+      <div class="proposal-note">
+        この診断結果は、公式サイトに掲載されているベーグルの組み合わせをもとにした、おおまかな分け方です。
+        味の保証や、特定の商品をすすめるものではありません。
+      </div>
+
+      <div class="quiz-app" id="quizApp">
+        <div id="quizIntro" class="quiz-intro">
+          <h3>対象：ご来店を検討している方／店舗運営者の方</h3>
+          <p>解決したい課題：はじめてのお客様が、9種類の中から自分に合うものを選びにくいこと。</p>
+          <button type="button" class="quiz-start-btn" id="quizStartBtn">試してみる</button>
+        </div>
+
+        <form id="quizForm" style="display:none;" novalidate>
+          <p class="quiz-progress" id="quizProgress" aria-live="polite"></p>
+          <p class="quiz-question" id="quizQuestionText"></p>
+          <ul class="quiz-options" id="quizOptions"></ul>
+          <p class="quiz-warning" id="quizWarning" role="alert"></p>
+          <div class="quiz-nav">
+            <button type="button" id="quizBack">戻る</button>
+            <button type="button" id="quizNext">次へ</button>
+          </div>
+        </form>
+
+        <div id="quizResult" style="display:none;" class="quiz-result" aria-live="polite">
+          <h3 id="resultName" tabindex="-1"></h3>
+          <p class="result-summary" id="resultSummary"></p>
+          <dl class="result-detail-list">
+            <dt>そのタイプになった理由</dt>
+            <dd id="resultReason"></dd>
+            <dt>近いベーグル</dt>
+            <dd id="resultRecommend"></dd>
+            <dt>お店の強みとのつながり</dt>
+            <dd id="resultStrength"></dd>
+          </dl>
+          <div class="quiz-result-actions">
+            <a class="btn btn-primary" id="resultCta" href="#bagels">関連する節を見る</a>
+            <button type="button" class="btn btn-outline" id="quizRestartBtn">最初からやり直す</button>
+          </div>
+        </div>
+
+        <noscript>
+          <p>この試作デモの操作にはJavaScriptが必要です。JavaScriptが無効な場合でも、ベーグル一覧や店舗情報は、このページの他の節から引き続きご覧いただけます。</p>
+        </noscript>
+
+        <p class="disclaimer-box">本機能は店舗運営者向けの試作デモです。現在提供中の正式サービスではありません。入力内容の保存・送信は行いません。ページを閉じると回答内容は消えます。お名前やご連絡先を入力していただく欄はありません。</p>
+      </div>
+
+      <div class="proposal-note" style="margin-top:32px;">
+        <strong>導入アイデア（今後の展開案）：</strong>この診断の結果画面から、事前予約のテイクアウトや、
+        ポストに届く配送の申し込みにつなげることで、小さく始められる新サービスとして育てていくことができます。
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section id="info" aria-labelledby="info-heading">
+    <div class="container">
+      <p class="eyebrow">SHOP INFORMATION</p>
+      <h2 id="info-heading">店舗情報</h2>
+      <ul class="info-list">
+        <li><span class="term">店舗名</span><span>COFFEEJACK（コーヒージャック）</span></li>
+        <li>
+          <span class="term">所在地</span>
+          <span>〒010-0876 秋田県秋田市千秋公園1-29 1F<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%8D%83%E7%A7%8B%E5%85%AC%E5%9C%921-29" target="_blank" rel="noopener noreferrer">地図で見る（Googleマップ）</a>
+          </span>
+        </li>
+        <li><span class="term">電話</span><span>018-838-7933</span></li>
+        <li><span class="term">営業時間</span><span>朝9:00から<br><span class="source-note" style="display:block;margin-top:4px;">※ 閉店時刻は断定していません。公式サイト内に「18時まで」と「5pm」の二通りの表記があるためです。最新の営業時間は公式サイトまたはお電話でご確認ください。</span></span></li>
+        <li><span class="term">定休日</span><span>水曜日</span></li>
+        <li><span class="term">席数</span><span>25席／駐車場5台</span></li>
+        <li><span class="term">公式サイト</span><span><a href="https://www.coffeejackjapan.com/" target="_blank" rel="noopener noreferrer">https://www.coffeejackjapan.com/</a></span></li>
+        <li><span class="term">お問い合わせ</span><span><a href="https://www.coffeejackjapan.com/contact" target="_blank" rel="noopener noreferrer">公式サイトのお問い合わせフォーム</a></span></li>
+        <li><span class="term">Instagram</span><span><a href="https://www.instagram.com/coffeejack_bagel/" target="_blank" rel="noopener noreferrer">@coffeejack_bagel</a></span></li>
+      </ul>
+      <p class="lead-text source-note">
+        ※ このページは、COFFEEJACK公式サイト、秋田魁新報（2020年7月11日）、
+        秋田タウン情報（2020年6月30日）、ABS秋田放送「ラジパル日記」をもとに、
+        2026年10月16日時点で整理したものです。内容や価格は変わっている場合があります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 最後のご案内 -->
+  <section class="final-cta" aria-labelledby="final-cta-heading">
+    <div class="container">
+      <h2 id="final-cta-heading">最新のご案内は、公式サイトをご確認ください</h2>
+      <p style="color:#dfe5e3;">メニュー、取扱店、配送のご案内は、公式サイトに掲載されています。</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" style="background:#fff;color:var(--color-primary);" href="https://www.coffeejackjapan.com/" target="_blank" rel="noopener noreferrer">公式サイトを見る</a>
+        <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%8D%83%E7%A7%8B%E5%85%AC%E5%9C%921-29" target="_blank" rel="noopener noreferrer">地図を見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>COFFEEJACK（コーヒージャック）</p>
+    <p>© COFFEEJACK. All Rights Reserved.</p>
+    <p><a href="#main-content">ページの先頭へ戻る</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var questions = [
+    {
+      text: "いま食べるとしたら、どちらに近いですか？",
+      options: [
+        { label: "甘いものが食べたい", cat: "A" },
+        { label: "しょっぱいもの・おかず系がいい", cat: "B" },
+        { label: "何も足さない、素のままがいい", cat: "C" },
+        { label: "体にいいもの、腹持ちするものがいい", cat: "D" },
+        { label: "まだ食べたことのない組み合わせを試したい", cat: "E" }
+      ]
+    },
+    {
+      text: "飲みものと一緒に、どんなふうに食べますか？",
+      options: [
+        { label: "コーヒーに甘いものを添えたい", cat: "A" },
+        { label: "食事として、しっかり食べたい", cat: "B" },
+        { label: "コーヒーの味を邪魔しないものがいい", cat: "C" },
+        { label: "朝ごはんや、運動のあとに食べたい", cat: "D" },
+        { label: "香りのあるものを合わせたい", cat: "E" }
+      ]
+    },
+    {
+      text: "好きな味に近いのは？",
+      options: [
+        { label: "果物やシナモンの甘さ", cat: "A" },
+        { label: "チーズやガーリックのうまみ", cat: "B" },
+        { label: "小麦そのものの味", cat: "C" },
+        { label: "ざっくりした穀物の香ばしさ", cat: "D" },
+        { label: "紅茶や生姜のような、効いた香り", cat: "E" }
+      ]
+    },
+    {
+      text: "お店での買い方に近いのは？",
+      options: [
+        { label: "おやつに1つ買って帰る", cat: "A" },
+        { label: "お昼ごはんにする", cat: "B" },
+        { label: "毎回おなじものを買う", cat: "C" },
+        { label: "まとめ買いして、家で焼き直す", cat: "D" },
+        { label: "そのとき気になったものを選ぶ", cat: "E" }
+      ]
+    },
+    {
+      text: "いちばん気になることは？",
+      options: [
+        { label: "甘いベーグルがどんな味か", cat: "A" },
+        { label: "ベーグルサンドにできるか", cat: "B" },
+        { label: "プレーンがおいしいかどうか", cat: "C" },
+        { label: "栄養のこと（タンパク質や全粒粉）", cat: "D" },
+        { label: "めずらしい組み合わせのもの", cat: "E" }
+      ]
+    }
+  ];
+
+  var results = {
+    A: {
+      name: "甘いもの好きタイプ",
+      summary: "コーヒーに甘いベーグルを添えたい方です。おやつとしての一つが向いています。",
+      reason: "甘さや果物に関する回答が多い傾向でした。",
+      recommend: "バナモン（バナナ×シナモン）、ピーエムビー（紫いも×メープル）が近い組み合わせです。",
+      strength: "「無添加の自家製ベーグルが、9種類」という強みと相性のよいタイプです。",
+      ctaHref: "#bagels",
+      ctaLabel: "ベーグル一覧を見る"
+    },
+    B: {
+      name: "食事にするタイプ",
+      summary: "ベーグルを食事として食べたい方です。しょっぱい系が向いています。",
+      reason: "うまみや、お昼ごはんに関する回答が多い傾向でした。",
+      recommend: "ボルケーノ（チーズ×マヨネーズ）、オニオンキャップ（オニオン×ガーリック）が近い組み合わせです。",
+      strength: "ベーグルサンドやサイドメニューもある、食事としての使い方と相性のよいタイプです。",
+      ctaHref: "#bagels",
+      ctaLabel: "ベーグル一覧を見る"
+    },
+    C: {
+      name: "素のままタイプ",
+      summary: "余計なものを足さず、生地そのものを味わいたい方です。",
+      reason: "プレーンや、コーヒーを邪魔しないことに関する回答が多い傾向でした。",
+      recommend: "ミスターベーグル（プレーン）が近いものです。9種類の中でいちばん手に取りやすい値段でもあります。",
+      strength: "「熱風焙煎で、味がぶれないコーヒー」と合わせて、素材そのものを味わえます。",
+      ctaHref: "#coffee",
+      ctaLabel: "コーヒーのことを見る"
+    },
+    D: {
+      name: "体にいいものタイプ",
+      summary: "栄養や腹持ちを気にして選びたい方です。",
+      reason: "栄養や、腹持ちに関する回答が多い傾向でした。",
+      recommend: "ベーグルプロ ミルク味（タンパク質17.1g）、グラハム（全粒粉）が近いものです。",
+      strength: "持ち帰って家で焼き直せる「そのまま」の選び方とも相性のよいタイプです。",
+      ctaHref: "#delivery",
+      ctaLabel: "持ち帰り・配送を見る"
+    },
+    E: {
+      name: "変わり種を試すタイプ",
+      summary: "めずらしい組み合わせに出会いたい方です。",
+      reason: "めずらしさや、香りに関する回答が多い傾向でした。",
+      recommend: "ロイヤルオージー（アールグレイ×オレンジ）、ジンジャーライフ（生姜×ホワイトチョコレート）が近い組み合わせです。",
+      strength: "9種類という幅があるからこそ、通うたびに違うものに出会えます。",
+      ctaHref: "#bagels",
+      ctaLabel: "ベーグル一覧を見る"
+    }
+  };
+
+  var priorityOrder = ["A", "B", "C", "D", "E"];
+
+  var currentIndex = 0;
+  var answers = new Array(questions.length).fill(null);
+
+  var quizIntro = document.getElementById("quizIntro");
+  var quizStartBtn = document.getElementById("quizStartBtn");
+  var quizForm = document.getElementById("quizForm");
+  var quizProgress = document.getElementById("quizProgress");
+  var quizQuestionText = document.getElementById("quizQuestionText");
+  var quizOptions = document.getElementById("quizOptions");
+  var quizWarning = document.getElementById("quizWarning");
+  var quizBack = document.getElementById("quizBack");
+  var quizNext = document.getElementById("quizNext");
+  var quizResult = document.getElementById("quizResult");
+  var quizRestartBtn = document.getElementById("quizRestartBtn");
+
+  function renderQuestion() {
+    quizWarning.textContent = "";
+    var q = questions[currentIndex];
+    quizProgress.textContent = "質問 " + (currentIndex + 1) + " / " + questions.length;
+    quizQuestionText.textContent = q.text;
+    quizOptions.innerHTML = "";
+
+    q.options.forEach(function (opt, i) {
+      var li = document.createElement("li");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "quiz-option";
+      btn.textContent = opt.label;
+      var selected = answers[currentIndex] === i;
+      btn.setAttribute("aria-pressed", selected ? "true" : "false");
+      btn.addEventListener("click", function () {
+        answers[currentIndex] = i;
+        var allBtns = quizOptions.querySelectorAll(".quiz-option");
+        allBtns.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+        btn.setAttribute("aria-pressed", "true");
+        quizWarning.textContent = "";
+      });
+      li.appendChild(btn);
+      quizOptions.appendChild(li);
+    });
+
+    quizBack.disabled = currentIndex === 0;
+    quizNext.textContent = currentIndex === questions.length - 1 ? "結果を見る" : "次へ";
+  }
+
+  function startQuiz() {
+    currentIndex = 0;
+    answers = new Array(questions.length).fill(null);
+    quizIntro.style.display = "none";
+    quizResult.style.display = "none";
+    quizForm.style.display = "block";
+    renderQuestion();
+  }
+
+  function showResult() {
+    var scores = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+    answers.forEach(function (ansIndex, qIndex) {
+      if (ansIndex === null) { return; }
+      var cat = questions[qIndex].options[ansIndex].cat;
+      scores[cat] += 1;
+    });
+
+    // 同点の場合は、最後の質問（5問目）で選んだものを優先します。
+    // それでも決まらない場合のみ、A→B→C→D→Eの順を採用します。
+    var lastCat = null;
+    var lastAnswerIndex = answers[answers.length - 1];
+    if (lastAnswerIndex !== null) {
+      lastCat = questions[questions.length - 1].options[lastAnswerIndex].cat;
+    }
+
+    var maxScore = -1;
+    priorityOrder.forEach(function (cat) {
+      if (scores[cat] > maxScore) { maxScore = scores[cat]; }
+    });
+    var topCats = priorityOrder.filter(function (cat) { return scores[cat] === maxScore; });
+
+    var winner;
+    if (topCats.length === 1) {
+      winner = topCats[0];
+    } else if (lastCat !== null && topCats.indexOf(lastCat) !== -1) {
+      winner = lastCat;
+    } else {
+      winner = topCats[0];
+    }
+
+    var r = results[winner];
+    document.getElementById("resultName").textContent = r.name;
+    document.getElementById("resultSummary").textContent = r.summary;
+    document.getElementById("resultReason").textContent = r.reason;
+    document.getElementById("resultRecommend").textContent = r.recommend;
+    document.getElementById("resultStrength").textContent = r.strength;
+    var cta = document.getElementById("resultCta");
+    cta.href = r.ctaHref;
+    cta.textContent = r.ctaLabel;
+
+    quizForm.style.display = "none";
+    quizResult.style.display = "block";
+    document.getElementById("resultName").focus();
+  }
+
+  quizStartBtn.addEventListener("click", startQuiz);
+
+  quizNext.addEventListener("click", function () {
+    if (answers[currentIndex] === null) {
+      quizWarning.textContent = "選択肢を選んでから次へ進んでください。";
+      return;
+    }
+    if (currentIndex === questions.length - 1) {
+      showResult();
+    } else {
+      currentIndex += 1;
+      renderQuestion();
+    }
+  });
+
+  quizBack.addEventListener("click", function () {
+    if (currentIndex > 0) {
+      currentIndex -= 1;
+      renderQuestion();
+    }
+  });
+
+  quizRestartBtn.addEventListener("click", function () {
+    quizResult.style.display = "none";
+    quizIntro.style.display = "block";
+  });
+})();
+</script>
+
+</body>
+</html>
