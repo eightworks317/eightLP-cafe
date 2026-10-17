@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>食堂カフェ ノルン｜三姉妹の名前を、食堂に。｜提案用ページ</title>
+<meta name="description" content="秋田市雄和下黒瀬の食堂カフェ ノルン。飲食店のなかった地域で、建設会社が空き家を改装して始めた食堂。肉と魚が両方つく日替わり定食と、家族で営む店の名前の由来を紹介する提案用ページです。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2b3844">
+<style>
+  :root {
+    --color-primary: #2b3844;      /* 深いネイビーグレー */
+    --color-secondary: #faf7f1;    /* 生成り */
+    --color-blue: #4a6d8c;         /* 北欧のくすんだ青 */
+    --color-blue-text: #39566f;    /* 明るい地の上に置く文字用 */
+    --color-blue-btn: #345167;     /* 白文字をのせるボタンの地色 */
+    --color-warm: #a8743c;         /* 木と焼き物の茶 */
+    --color-warm-text: #8a5c2a;
+    --color-surface: #ede7dc;
+    --color-proposal: #e9eceb;
+    --color-proposal-border: #93a6a0;
+    --color-text: #262d33;
+    --color-muted: #65707a;
+    --color-border: #d9d0c2;
+    --font-serif: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-sans: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  /* ★2026-10-17：背景にうっすら菱形（ひしがた）の格子を入れています。
+     北欧のニットや織物のような柄です。店名が北欧神話から来ていることに合わせました。
+     ・濃さ　：rgba の最後の数字（0.04）。1 に近いほど濃くなります（2か所とも同じ数字に）
+     ・菱形の大きさ：16px の部分（2か所とも同じ数字に）
+     ※ 色を敷いている節（強み／甘いもの／催し／診断）には出ません。 */
+  body {
+    margin: 0;
+    background-color: var(--color-secondary);
+    background-image:
+      repeating-linear-gradient(45deg, rgba(43, 56, 68, 0.04) 0 1px, transparent 1px 16px),
+      repeating-linear-gradient(-45deg, rgba(43, 56, 68, 0.04) 0 1px, transparent 1px 16px);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 16px; line-height: 1.8; overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+
+  .container {
+    width: 100%; max-width: 960px; margin: 0 auto;
+    padding-left: clamp(14px, 4vw, 32px); padding-right: clamp(14px, 4vw, 32px);
+  }
+
+  .skip-link {
+    position: absolute; left: -999px; top: 0;
+    background: var(--color-blue-btn); color: #fff;
+    padding: 10px 16px; z-index: 200; border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus { left: 0; }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid var(--color-blue); outline-offset: 3px;
+  }
+
+  /* ---------- 提案用ラベル ---------- */
+  .proposal-bar {
+    background: var(--color-primary); color: var(--color-secondary);
+    text-align: center; padding: 8px 14px;
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.06em; line-height: 1.5;
+  }
+
+  /* ---------- ファーストビュー ---------- */
+  .hero {
+    position: relative; min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 96px 0 56px; background: var(--color-primary); overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(43,56,68,0.40) 0%, rgba(43,56,68,0.60) 55%, rgba(43,56,68,0.88) 100%);
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.16em;
+    color: var(--color-secondary); margin: 0 0 14px;
+  }
+  .hero h1 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(27px, 7.6vw, 45px); line-height: 1.4;
+    margin: 0 0 18px; color: var(--color-secondary); overflow-wrap: anywhere;
+  }
+  .hero-lead {
+    font-size: clamp(14px, 3.8vw, 17px); max-width: 34em;
+    margin: 0 0 30px; color: var(--color-secondary);
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 30px;
+    font-size: 12px; letter-spacing: 0.08em; color: var(--color-secondary);
+  }
+  .hero-tags span {
+    border: 1px solid rgba(250,247,241,0.5);
+    border-radius: 999px; padding: 6px 14px; background: rgba(43,56,68,0.35);
+  }
+
+  .cta-group { display: flex; flex-direction: column; gap: 12px; max-width: 340px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 12px 20px; border-radius: 6px;
+    text-decoration: none; font-size: 15px; letter-spacing: 0.02em;
+    border: 1px solid transparent; text-align: center; line-height: 1.4;
+  }
+  .btn-primary { background: var(--color-blue-btn); color: #fff; }
+  .btn-outline { background: transparent; border-color: var(--color-primary); color: var(--color-primary); }
+  .hero .btn-primary { background: var(--color-secondary); color: var(--color-primary); }
+  .hero .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); background: rgba(43,56,68,0.25); }
+  @media (min-width: 560px) { .cta-group { flex-direction: row; max-width: none; } }
+
+  /* ---------- 共通 ---------- */
+  section { padding: clamp(48px, 9vw, 88px) 0; }
+  .section-alt { background: var(--color-surface); }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; color: var(--color-blue-text); margin: 0 0 10px; }
+  h2 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(22px, 6vw, 30px); margin: 0 0 20px; line-height: 1.5; }
+  h3 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(17px, 4.6vw, 20px); margin: 0 0 10px; line-height: 1.6; }
+  p { margin: 0 0 14px; }
+  .lead-text { max-width: 40em; color: var(--color-muted); }
+  .source-note { font-size: .85em; opacity: .8; margin-top: 1.2em; }
+
+  /* ---------- 店名の由来 ---------- */
+  .name-origin {
+    margin: 26px 0 0; padding: 22px 24px;
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-blue);
+    border-radius: 0 12px 12px 0;
+  }
+  .name-origin .en {
+    font-family: var(--font-serif); font-size: clamp(18px, 4.8vw, 24px);
+    letter-spacing: .04em; margin: 0 0 8px; display: block; color: var(--color-blue-text);
+  }
+  .name-origin .ja { font-size: 14.5px; color: var(--color-muted); margin: 0; }
+
+  blockquote.quote {
+    margin: 26px 0 0; padding: 20px 22px;
+    background: var(--color-secondary);
+    border-left: 4px solid var(--color-warm);
+    border-top: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0 10px 10px 0;
+    font-family: var(--font-serif);
+    font-size: clamp(15px, 4vw, 17px); line-height: 1.9;
+  }
+  blockquote.quote cite {
+    display: block; margin-top: 10px; font-family: var(--font-sans);
+    font-style: normal; font-size: 12.5px; color: var(--color-muted);
+  }
+
+  /* ---------- カード ---------- */
+  .card-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
+  @media (min-width: 700px) {
+    .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  }
+  .card {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 10px; padding: 22px; min-width: 0;
+    box-shadow: 0 2px 10px rgba(43,56,68,0.05);
+  }
+  .card .num { font-size: 12px; color: var(--color-blue-text); letter-spacing: 0.1em; display: block; margin-bottom: 10px; }
+  .card p { font-size: 14.5px; color: var(--color-text); margin-bottom: 8px; }
+  .card .value {
+    font-size: 13.5px; color: var(--color-muted);
+    border-top: 1px dashed var(--color-border); padding-top: 10px; margin-top: 10px;
+  }
+  .card-photo { border-radius: 8px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 14px; }
+
+  /* 横に3枚並べたときのそろえ方
+     ① 下端をそろえる作り（subgrid が使えないブラウザ用の保険）
+     このページの見出しは1行が文字サイズの1.6倍なので、2行ぶんは 3.2em です。 */
+  @media (min-width: 700px) {
+    .card-grid.cols-3 .card { display: flex; flex-direction: column; }
+    .card-grid.cols-3 .card h3 { line-height: 1.6; min-height: 3.2em; }
+    .card-grid.cols-3 .card .value { margin-top: auto; }
+  }
+  /* ② ラベル・見出し・本文・価値の4つを、それぞれ別々に高さをそろえます。 */
+  @supports (grid-template-rows: subgrid) {
+    @media (min-width: 700px) {
+      #strengths .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 5; }
+      #seats .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 4; }
+      .card-grid.cols-3 .card h3 { min-height: 0; margin-bottom: 0; }
+      .card-grid.cols-3 .card .value { margin-top: 0; align-self: start; }
+      .card-grid.cols-3 .card p { margin-bottom: 0; }
+      .card-grid.cols-3 .card .num { margin-bottom: 0; }
+      .card-grid.cols-3 .card { row-gap: 10px; }
+    }
+  }
+
+  /* ---------- ストーリー ---------- */
+  .story { display: grid; gap: 24px; }
+  /* 横に並べたとき、写真をとなりの文章と同じ高さまで伸ばします。 */
+  @media (min-width: 760px) {
+    .story { grid-template-columns: 1fr 1fr; align-items: stretch; }
+    .story-photo { height: 100%; min-height: 300px; aspect-ratio: auto; }
+  }
+  .story-photo { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+  .concept-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 22px; }
+  .concept-gallery img { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+
+  /* ---------- 献立 ---------- */
+  .dish-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+  @media (min-width: 620px) { .dish-grid { grid-template-columns: repeat(2, 1fr); } }
+  .dish {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-blue); border-radius: 0 8px 8px 0;
+    padding: 18px 20px; min-width: 0;
+  }
+  .dish.is-warm { border-left-color: var(--color-warm); }
+  .dish .tag { font-size: 12px; letter-spacing: .08em; color: var(--color-blue-text); display: block; }
+  .dish.is-warm .tag { color: var(--color-warm-text); }
+  .dish .name { font-family: var(--font-serif); font-size: 19px; margin: 2px 0 6px; display: block; }
+  .dish .price { font-size: 15px; font-weight: 700; margin: 0 0 8px; }
+  .dish .desc { font-size: 14px; color: var(--color-muted); margin: 0; }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; padding: 0; list-style: none; }
+  .tag-list li {
+    font-size: 13.5px; color: var(--color-muted);
+    border: 1px solid var(--color-border); background: var(--color-secondary);
+    border-radius: 999px; padding: 5px 14px;
+  }
+
+  /* ---------- 地域の節 ---------- */
+  .highlight { background: var(--color-primary); color: var(--color-secondary); }
+  .highlight .eyebrow { color: #9fc3dd; }
+  .highlight-grid { display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 760px) { .highlight-grid { grid-template-columns: 1.1fr 1fr; } }
+  .highlight-visual {
+    border-radius: 10px; aspect-ratio: 4 / 3; width: 100%;
+    object-fit: cover; border: 1px solid rgba(255,255,255,0.15);
+  }
+  .highlight-list { list-style: none; padding: 0; margin: 18px 0 24px; font-size: 14.5px; }
+  .highlight-list li { padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.15); }
+  .highlight-list li:first-child { border-top: none; }
+  .highlight-list b { display: block; margin-bottom: 4px; font-size: 13px; color: #9fc3dd; letter-spacing: 0.04em; }
+
+  /* ---------- 一覧表 ---------- */
+  .info-list {
+    list-style: none; padding: 0; margin: 24px 0 0;
+    display: grid; gap: 0; border-top: 1px solid var(--color-border);
+  }
+  .info-list li {
+    display: grid; grid-template-columns: 120px 1fr; gap: 12px;
+    padding: 14px 0; border-bottom: 1px solid var(--color-border); font-size: 14.5px;
+  }
+  .info-list .term { color: var(--color-muted); font-size: 13px; letter-spacing: 0.04em; }
+  .info-list a { overflow-wrap: anywhere; text-decoration: underline; }
+
+  /* ---------- 試作（診断） ---------- */
+  .proposal-section {
+    background: var(--color-proposal);
+    border-top: 3px solid var(--color-proposal-border);
+    border-bottom: 3px solid var(--color-proposal-border);
+  }
+  .proposal-tag {
+    display: inline-block; font-size: 12px; letter-spacing: 0.1em;
+    background: var(--color-proposal-border); color: #16211f;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .proposal-note {
+    background: var(--color-secondary); border: 1px solid var(--color-proposal-border);
+    border-radius: 8px; padding: 14px 16px; font-size: 13.5px;
+    color: var(--color-muted); margin: 22px 0 30px; line-height: 1.75;
+  }
+  .quiz-app {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 14px; padding: 22px; max-width: 640px;
+  }
+  .quiz-intro h3 { margin: 0 0 12px; font-size: 20px; }
+  .quiz-progress { font-size: 13px; color: var(--color-muted); margin-bottom: 12px; }
+  .quiz-question { font-size: 17px; font-weight: 700; margin: 0 0 12px; }
+  .quiz-options { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 10px; }
+  .quiz-option {
+    width: 100%; text-align: left; padding: 14px 16px; min-height: 44px;
+    border: 1.5px solid var(--color-border); border-radius: 8px;
+    background: var(--color-surface); font-size: 15px;
+    font-family: inherit; color: var(--color-text); cursor: pointer;
+  }
+  .quiz-option[aria-pressed="true"] { border-color: var(--color-blue); background: #e2ebf2; font-weight: 700; }
+  .quiz-option[aria-pressed="true"]::before { content: "✓ "; color: var(--color-blue-text); }
+  .quiz-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; }
+  .quiz-nav button { min-height: 44px; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-family: inherit; cursor: pointer; }
+  #quizBack { background: transparent; border: 1px solid var(--color-border); color: var(--color-text); }
+  #quizNext { background: var(--color-blue-btn); border: 1px solid var(--color-blue-btn); color: #fff; }
+  #quizNext:disabled, #quizBack:disabled { opacity: .4; cursor: not-allowed; }
+  .quiz-warning { font-size: 13px; color: #a0432a; margin-top: 6px; min-height: 1.2em; }
+  .quiz-result h3 { font-size: 22px; margin: 0 0 6px; }
+  .quiz-result .result-summary { color: var(--color-muted); margin: 0 0 22px; }
+  .result-detail-list { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 4px; font-size: 14px; }
+  .result-detail-list dt { font-weight: 700; margin-top: 12px; }
+  .result-detail-list dd { margin: 2px 0 0; color: var(--color-muted); }
+  .quiz-result-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .quiz-start-btn {
+    min-height: 44px; padding: 12px 28px; background: var(--color-blue-btn);
+    color: #fff; border: none; border-radius: 6px; font-size: 15px; font-weight: 700; cursor: pointer;
+  }
+  .disclaimer-box {
+    font-size: 13px; line-height: 1.7; color: var(--color-muted);
+    background: var(--color-surface); border: 1px dashed var(--color-border);
+    border-radius: 8px; padding: 14px 16px; margin-top: 22px;
+  }
+
+  /* ---------- 最後のご案内 ---------- */
+  .final-cta { background: var(--color-primary); color: var(--color-secondary); text-align: center; }
+  .final-cta .cta-group { margin: 26px auto 0; justify-content: center; }
+  .final-cta .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); }
+
+  .site-footer {
+    padding: 32px 0 40px; text-align: center; font-size: 12.5px;
+    color: var(--color-muted); border-top: 1px solid var(--color-border);
+  }
+  .site-footer a { text-decoration: underline; }
+  .site-footer p { margin: 6px 0; }
+
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
+<div class="proposal-bar" role="note">
+  CONCEPT LP ／ 店舗向け提案用ページです。本ページには未導入の新サービス提案・試作デモが含まれます。<br>
+  ※本ページの掲載画像は、店舗の世界観を表現したイメージ画像です。
+</div>
+
+<main id="main-content">
+
+  <!-- ファーストビュー -->
+  <section class="hero">
+    <img class="hero-bg" src="images/01_hero_interior_16x9.webp" alt="食堂カフェ ノルンの店内のイメージ画像" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <p class="hero-eyebrow">食堂カフェ ノルン — 秋田市雄和下黒瀬</p>
+      <h1>姉妹の名前を、<br>食堂に。</h1>
+      <p class="hero-lead">
+        飲食店のなかった地域に、建設会社が空き家を直して開いた食堂です。
+        営んでいるのは、ご夫婦とその姉妹。だから店名は、北欧神話の女神の姉妹から取られました。
+      </p>
+      <p class="hero-tags">
+        <span>肉と魚が両方つく日替わり定食</span>
+        <span>ご飯大盛り無料</span>
+        <span>コーヒーおかわり自由</span>
+      </p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="#strengths">店舗について見る</a>
+        <a class="btn btn-outline" href="https://r.goope.jp/norn-akita/" target="_blank" rel="noopener noreferrer">公式サイトを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- コンセプト -->
+  <section id="concept" aria-labelledby="concept-heading">
+    <div class="container">
+      <div class="story">
+        <div>
+          <p class="eyebrow">CONCEPT</p>
+          <h2 id="concept-heading">名前が、お店の<br>成り立ちそのものです</h2>
+          <p class="lead-text">
+            食堂カフェ ノルンは、秋田市雄和下黒瀬にあります。
+            一見すると民家のような外観で、お店の前の看板が目印です。
+          </p>
+
+          <div class="name-origin">
+            <span class="en">ノルン ＝ 北欧神話の女神の姉妹</span>
+            <p class="ja">ご夫婦とその姉妹が中心になって営んでいることから、北欧神話に登場する女神の姉妹の名前がつけられました。</p>
+          </div>
+
+          <p class="lead-text" style="margin-top:22px;">
+            お店をつくったのは、建設業を本業とする佐善建設です。
+            この地域には飲食店がありませんでした。そこで空き家を改装し、
+            2022年1月にプレ営業、4月28日に本オープンしました。
+          </p>
+
+          <blockquote class="quote">
+            この地域には飲食店がなかったので、地域の交流も増えて元気になればと思ってオープンしました。
+            <cite>ABS秋田放送「ラジパル日記」（2023年3月2日）に掲載された、代表の言葉より</cite>
+          </blockquote>
+
+          <p class="lead-text" style="margin-top:22px;">
+            <strong>家族の名前と、地域のための店。</strong>この二つが、はじめから重なっているお店です。
+          </p>
+        </div>
+        <img class="story-photo" src="images/05_exterior_rose_4x3.webp" alt="民家のような外観とバラのイメージ画像" loading="lazy">
+      </div>
+      <div class="concept-gallery">
+        <img src="images/02_teishoku_4x3.webp" alt="日替わり定食のイメージ画像" loading="lazy">
+        <img src="images/03_parfait_4x3.webp" alt="コーヒーゼリーパフェのイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 強み -->
+  <section id="strengths" class="section-alt" aria-labelledby="strengths-heading">
+    <div class="container">
+      <p class="eyebrow">公開されている情報から見える、この店舗の強み</p>
+      <h2 id="strengths-heading">お店の強み</h2>
+      <p class="lead-text">他店との比較ではなく、公開されている情報で確認できる特徴だけを根拠に整理しています。</p>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <img class="card-photo" src="images/02_teishoku_4x3.webp" alt="日替わり定食のイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 01</span>
+          <h3>肉と魚が、両方つく</h3>
+          <p>日替わり定食は、主菜に肉と魚の両方が並びます。そこに小皿の副菜がいくつも付きます。選ばなくていい、という形です。</p>
+          <p class="value">お客様にとっての価値：「今日は肉か魚か」で迷わずに、どちらも食べられます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/04_counter_cups_4x3.webp" alt="棚に並ぶカップのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 02</span>
+          <h3>食べる人に、合わせてくれる</h3>
+          <p>ご飯の大盛りは無料。コーヒーはおかわり自由で、カップは自分で選べます。席も、テーブル席・個室のソファ席・一人用のカウンターと分かれています。</p>
+          <p class="value">お客様にとっての価値：よく食べる日も、一人の日も、同じ店でおさまります。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/05_exterior_rose_4x3.webp" alt="お店の外観のイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 03</span>
+          <h3>地域ごと元気にするための店</h3>
+          <p>建設会社が、飲食店のなかった地域のために空き家を改装して始めました。地元の農家さんと協力する「ノルン応援隊」という仕組みもあります。</p>
+          <p class="value">お客様にとっての価値：食べることが、そのまま地域を支えることにつながっています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 定食 -->
+  <section id="lunch" aria-labelledby="lunch-heading">
+    <div class="container">
+      <p class="eyebrow">LUNCH</p>
+      <h2 id="lunch-heading">その日の一式が、<br>そのまま出てきます</h2>
+      <p class="lead-text">
+        献立は日替わりです。主菜に肉と魚が並び、小皿の副菜がいくつも付きます。
+        地元の食材がたくさん使われていると紹介されています。
+      </p>
+      <div class="dish-grid">
+        <div class="dish">
+          <span class="tag">看板</span>
+          <span class="name">日替わり定食</span>
+          <p class="price">¥1,200（税込）</p>
+          <p class="desc">2026年4月から、この価格になりました。<strong>ご飯の大盛りは無料</strong>です。テイクアウトもできます。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">ある日の献立の例</span>
+          <span class="name">こんな一式でした</span>
+          <p class="price">—</p>
+          <p class="desc">ハニーマスタードソース唐揚げ／銀鮭の味噌漬焼き／わらびのナムル／春雨サラダ／たけのこの煮物／ご飯／お味噌汁。<strong>肉も魚も、小鉢も</strong>そろいます。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">定食のほかに</span>
+          <span class="name">ナポリタン</span>
+          <p class="price">—</p>
+          <p class="desc">定食以外のメニューもあります。</p>
+        </div>
+        <div class="dish is-warm">
+          <span class="tag">お弁当</span>
+          <span class="name">配達もできます</span>
+          <p class="price">—</p>
+          <p class="desc">お弁当のテイクアウトがあり、<strong>10個以上のご注文は配達も可能</strong>と紹介されています（ご相談のうえ）。</p>
+        </div>
+      </div>
+      <p class="lead-text source-note">
+        ※ 価格は公式サイトのお知らせ（2026年3月25日）に掲載されている内容です。
+        献立の例は公式Instagram（@cafe_norn2021）の投稿、お弁当の配達はABS秋田放送「ラジパル日記」（2023年3月2日）によります。
+        献立は毎日かわります。最新の内容は店頭またはお電話でご確認ください。
+      </p>
+    </div>
+  </section>
+
+  <!-- 甘いものと席 -->
+  <section id="seats" class="section-alt" aria-labelledby="seats-heading">
+    <div class="container">
+      <p class="eyebrow">SWEETS &amp; SEATS</p>
+      <h2 id="seats-heading">食べ終わったあとの時間も、<br>用意されています</h2>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <span class="num">SWEETS</span>
+          <h3>コーヒーゼリーパフェ</h3>
+          <p>自家製のコーヒーゼリーに、<strong>雄和地区で作られたミルクアイス</strong>がのっています。2022年の紹介では350円でした。</p>
+          <p class="value">地元のものを使う、という考え方が甘いものにも及んでいます。</p>
+        </div>
+        <div class="card">
+          <span class="num">COFFEE</span>
+          <h3>おかわり自由、カップは自分で</h3>
+          <p>コーヒーはおかわり自由です。しかも<strong>カップを自分で選べる</strong>と、来店された方が書かれていました。</p>
+          <p class="value">食べ終わってすぐ帰らなくていい、という合図になっています。</p>
+        </div>
+        <div class="card">
+          <span class="num">SEATS</span>
+          <h3>猫の雑貨と、いろいろな席</h3>
+          <p>昭和レトロなテーブル席、個室のソファ席、一人用の奥のカウンター。<strong>猫を中心にした可愛い雑貨</strong>がたくさん飾られています。</p>
+          <p class="value">「クスッと笑ってしまうものもあり、ワクワクする空間」と書かれていました。</p>
+        </div>
+      </div>
+      <p class="lead-text source-note">
+        ※ パフェと席の種類は秋田タウン情報（2022年4月28日）、コーヒーと雑貨のことは
+        公開されている来店者の感想によります。内容は変わっている場合があります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 地域と催し -->
+  <section id="community" class="highlight" aria-labelledby="community-heading">
+    <div class="container">
+      <div class="highlight-grid">
+        <div>
+          <p class="eyebrow">COMMUNITY &amp; EVENTS</p>
+          <h2 id="community-heading">食堂が、<br>集まる場所になる</h2>
+          <p style="color:#d4dde4;">
+            「地域の交流も増えて元気になれば」という始まりかたは、いまのお店の使われ方にも続いています。
+          </p>
+          <ul class="highlight-list">
+            <li><b>ノルン応援隊</b>地元の農家さんと協力する仕組みがあると紹介されています。食材を通じて、地域とつながっています。</li>
+            <li><b>春待ちデュオ・コンサート</b>フルートとクラリネットによる演奏会が、お店で開かれています。2月28日（土）14時開演、入場料1,500円（スイーツ、コーヒーまたは紅茶付き）。当日はランチも11時30分から営業されていました。</li>
+            <li><b>恒例になっています</b>「2026今年も」という案内のしかたから、毎年続いている催しであることが分かります。演奏曲目には、フィガロの結婚、カルメン幻想曲、人生のメリーゴーランド、海の見える街などが並びました。</li>
+            <li><b>お店でバラを育てています</b>「バラもまもなく開花しそうです」という投稿がありました。季節ごとに表情が変わります。</li>
+          </ul>
+          <div class="cta-group">
+            <a class="btn btn-outline" style="border-color:#fff;color:#fff;" href="https://www.instagram.com/cafe_norn2021/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+          </div>
+        </div>
+        <img class="highlight-visual" src="images/05_exterior_rose_4x3.webp" alt="お店とバラのイメージ画像" loading="lazy">
+      </div>
+      <p class="lead-text source-note" style="color:#b9c3cb;">
+        ※ この節は、ABS秋田放送「ラジパル日記」（2023年3月2日）および公式Instagram（@cafe_norn2021）の投稿にもとづいています。
+        記載したコンサートは開催済みです。
+      </p>
+    </div>
+  </section>
+
+  <!-- 試作（診断） -->
+  <section id="proposal-quiz" class="proposal-section" aria-labelledby="quiz-heading">
+    <div class="container">
+      <span class="proposal-tag">INTERACTIVE PROTOTYPE｜動く新サービス試作</span>
+      <h2 id="quiz-heading">ノルンの使い方診断（試作）</h2>
+      <p class="lead-text">
+        定食の店でもあり、カフェでもあり、お弁当の店でもあります。
+        はじめての方が「どう使う店なのか」を決めやすくするための診断を試作しました。
+        これは店舗運営者向けの新サービス提案・導入アイデアであり、現在提供中のサービスではありません。
+      </p>
+
+      <div class="proposal-note">
+        この診断結果は、公開されている情報で確認できる食堂カフェ ノルンの内容をもとにした、おおまかな分け方です。
+        献立は毎日かわるため、特定の料理を保証するものではありません。
+      </div>
+
+      <div class="quiz-app" id="quizApp">
+        <div id="quizIntro" class="quiz-intro">
+          <h3>対象：ご来店を検討している方／店舗運営者の方</h3>
+          <p>解決したい課題：献立が日替わりで、使い方も複数あるため、はじめての方が見当をつけにくいこと。</p>
+          <button type="button" class="quiz-start-btn" id="quizStartBtn">試してみる</button>
+        </div>
+
+        <form id="quizForm" style="display:none;" novalidate>
+          <p class="quiz-progress" id="quizProgress" aria-live="polite"></p>
+          <p class="quiz-question" id="quizQuestionText"></p>
+          <ul class="quiz-options" id="quizOptions"></ul>
+          <p class="quiz-warning" id="quizWarning" role="alert"></p>
+          <div class="quiz-nav">
+            <button type="button" id="quizBack">戻る</button>
+            <button type="button" id="quizNext">次へ</button>
+          </div>
+        </form>
+
+        <div id="quizResult" style="display:none;" class="quiz-result" aria-live="polite">
+          <h3 id="resultName" tabindex="-1"></h3>
+          <p class="result-summary" id="resultSummary"></p>
+          <dl class="result-detail-list">
+            <dt>そのタイプになった理由</dt>
+            <dd id="resultReason"></dd>
+            <dt>向いている使い方</dt>
+            <dd id="resultRecommend"></dd>
+            <dt>お店の強みとのつながり</dt>
+            <dd id="resultStrength"></dd>
+          </dl>
+          <div class="quiz-result-actions">
+            <a class="btn btn-primary" id="resultCta" href="#lunch">関連する節を見る</a>
+            <button type="button" class="btn btn-outline" id="quizRestartBtn">最初からやり直す</button>
+          </div>
+        </div>
+
+        <noscript>
+          <p>この試作デモの操作にはJavaScriptが必要です。JavaScriptが無効な場合でも、お店のご紹介や店舗情報は、このページの他の節から引き続きご覧いただけます。</p>
+        </noscript>
+
+        <p class="disclaimer-box">本機能は店舗運営者向けの試作デモです。現在提供中の正式サービスではありません。入力内容の保存・送信は行いません。ページを閉じると回答内容は消えます。お名前やご連絡先を入力していただく欄はありません。</p>
+      </div>
+
+      <div class="proposal-note" style="margin-top:32px;">
+        <strong>導入アイデア（今後の展開案）：</strong>この診断の結果画面から、
+        その日の献立のご案内や、お弁当（10個以上は配達可）のご相談につなげることができます。
+        営業日とご予約のご案内も、ここからまとめてお伝えできるようにすると、来店前の確認が一度で済みます。
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section id="info" aria-labelledby="info-heading">
+    <div class="container">
+      <p class="eyebrow">SHOP INFORMATION</p>
+      <h2 id="info-heading">店舗情報</h2>
+      <ul class="info-list">
+        <li><span class="term">店舗名</span><span>食堂カフェ ノルン</span></li>
+        <li>
+          <span class="term">所在地</span>
+          <span>〒010-1203 秋田県秋田市雄和下黒瀬字湯野目175-1<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E9%9B%84%E5%92%8C%E4%B8%8B%E9%BB%92%E7%80%AC%E5%AD%97%E6%B9%AF%E9%87%8E%E7%9B%AE175-1" target="_blank" rel="noopener noreferrer">地図で見る（Googleマップ）</a>
+          </span>
+        </li>
+        <li><span class="term">電話</span><span>090-8614-2922</span></li>
+        <li>
+          <span class="term">営業日</span>
+          <span>不定です。<br>
+            <span class="source-note" style="display:block;margin-top:4px;">※ ご来店前に、公式サイトのインフォメーションか、お電話でのご確認がおすすめです。</span>
+          </span>
+        </li>
+        <li>
+          <span class="term">ご予約</span>
+          <span>お電話で受け付けられています。<br>
+            <span class="source-note" style="display:block;margin-top:4px;">※ 公式サイトには「席のご予約は11時最初のお席のみ。その後は順次となります」と案内されています。</span>
+          </span>
+        </li>
+        <li><span class="term">席数</span><span>25席（テーブル席・個室のソファ席・カウンター）／駐車場10台</span></li>
+        <li><span class="term">開店</span><span>2022年1月プレ営業、4月28日本オープン</span></li>
+        <li><span class="term">運営</span><span>佐善建設</span></li>
+        <li><span class="term">公式サイト</span><span><a href="https://r.goope.jp/norn-akita/" target="_blank" rel="noopener noreferrer">https://r.goope.jp/norn-akita/</a></span></li>
+        <li><span class="term">Instagram</span><span><a href="https://www.instagram.com/cafe_norn2021/" target="_blank" rel="noopener noreferrer">@cafe_norn2021</a></span></li>
+      </ul>
+      <p class="lead-text source-note">
+        ※ このページは、公式サイト、公式Instagram（@cafe_norn2021）、
+        秋田タウン情報（2022年4月28日）、ABS秋田放送「ラジパル日記」（2023年3月2日）をもとに、
+        2026年10月17日時点で整理したものです。席数と駐車場は2022年の掲載情報です。
+        内容や価格は変わっている場合があります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 最後のご案内 -->
+  <section class="final-cta" aria-labelledby="final-cta-heading">
+    <div class="container">
+      <h2 id="final-cta-heading">ご来店の前に、ご確認ください</h2>
+      <p style="color:#d4dde4;">営業日は不定です。公式サイトのインフォメーション、またはお電話でご確認いただけます。</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" style="background:#fff;color:var(--color-primary);" href="https://r.goope.jp/norn-akita/" target="_blank" rel="noopener noreferrer">公式サイトを見る</a>
+        <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E9%9B%84%E5%92%8C%E4%B8%8B%E9%BB%92%E7%80%AC%E5%AD%97%E6%B9%AF%E9%87%8E%E7%9B%AE175-1" target="_blank" rel="noopener noreferrer">地図を見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>食堂カフェ ノルン</p>
+    <p>© 食堂カフェ ノルン. All Rights Reserved.</p>
+    <p><a href="#main-content">ページの先頭へ戻る</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var questions = [
+    {
+      text: "お店に行くとしたら、いちばん近いのはどれですか？",
+      options: [
+        { label: "しっかりお昼ごはんを食べたい", cat: "A" },
+        { label: "食べたあと、ゆっくりしたい", cat: "B" },
+        { label: "持ち帰りたい・配達してほしい", cat: "C" },
+        { label: "一人で静かに過ごしたい", cat: "D" },
+        { label: "音楽や催しに参加したい", cat: "E" }
+      ]
+    },
+    {
+      text: "ごはんについて、近いのは？",
+      options: [
+        { label: "肉も魚も食べたい", cat: "A" },
+        { label: "量より、食後の甘いもの", cat: "B" },
+        { label: "職場や家で食べたい", cat: "C" },
+        { label: "ふつうの量でいい", cat: "D" },
+        { label: "その日しだい", cat: "E" }
+      ]
+    },
+    {
+      text: "誰と行きますか？",
+      options: [
+        { label: "よく食べる人と", cat: "A" },
+        { label: "おしゃべりする相手と", cat: "B" },
+        { label: "職場の人数分まとめて", cat: "C" },
+        { label: "ひとりで", cat: "D" },
+        { label: "同じ趣味の人と", cat: "E" }
+      ]
+    },
+    {
+      text: "ノルンで気になったことに近いのは？",
+      options: [
+        { label: "肉と魚が両方つく日替わり定食", cat: "A" },
+        { label: "コーヒーゼリーパフェ", cat: "B" },
+        { label: "お弁当の配達", cat: "C" },
+        { label: "猫の雑貨と、奥のカウンター席", cat: "D" },
+        { label: "店内でのコンサート", cat: "E" }
+      ]
+    },
+    {
+      text: "いま、いちばん知りたいことは？",
+      options: [
+        { label: "今日の献立", cat: "A" },
+        { label: "甘いものの種類", cat: "B" },
+        { label: "お弁当の頼み方", cat: "C" },
+        { label: "空いている時間帯", cat: "D" },
+        { label: "次の催しの予定", cat: "E" }
+      ]
+    }
+  ];
+
+  var results = {
+    A: {
+      name: "しっかり定食タイプ",
+      summary: "お昼をきちんと食べたい方です。",
+      reason: "量や、肉と魚の両方に関する回答が多い傾向でした。",
+      recommend: "日替わり定食（¥1,200税込）。主菜に肉と魚の両方が並び、小皿の副菜も付きます。ご飯の大盛りは無料です。",
+      strength: "「肉と魚が、両方つく」という強みと、いちばん重なるタイプです。",
+      ctaHref: "#lunch",
+      ctaLabel: "定食を見る"
+    },
+    B: {
+      name: "食後をゆっくりタイプ",
+      summary: "食べ終わったあとの時間を大事にしたい方です。",
+      reason: "甘いものや、ゆっくり過ごすことに関する回答が多い傾向でした。",
+      recommend: "コーヒーゼリーパフェ。自家製ゼリーに雄和地区のミルクアイスがのっています。コーヒーはおかわり自由で、カップも自分で選べます。",
+      strength: "「食べる人に、合わせてくれる」という強みと相性のよいタイプです。",
+      ctaHref: "#seats",
+      ctaLabel: "甘いものと席を見る"
+    },
+    C: {
+      name: "持ち帰り・配達タイプ",
+      summary: "職場や家で食べたい方です。",
+      reason: "持ち帰りや、まとまった人数に関する回答が多い傾向でした。",
+      recommend: "お弁当のテイクアウト。10個以上のご注文は配達も可能と紹介されています（ご相談のうえ）。定食のテイクアウトもできます。",
+      strength: "地域の人の日常を支える、というお店の成り立ちと相性のよいタイプです。",
+      ctaHref: "#lunch",
+      ctaLabel: "お弁当のことを見る"
+    },
+    D: {
+      name: "ひとりで静かにタイプ",
+      summary: "一人の時間を過ごしたい方です。",
+      reason: "ひとりで、静かに、という回答が多い傾向でした。",
+      recommend: "奥のカウンター席。昭和レトロなテーブル席や個室のソファ席もあります。猫を中心にした雑貨を眺めながら過ごせます。",
+      strength: "席が何通りも用意されている、という作りと相性のよいタイプです。",
+      ctaHref: "#seats",
+      ctaLabel: "席のことを見る"
+    },
+    E: {
+      name: "催しに行きたいタイプ",
+      summary: "ふだんと違う時間を過ごしたい方です。",
+      reason: "音楽や催しに関する回答が多い傾向でした。",
+      recommend: "フルートとクラリネットのコンサート。入場料にスイーツとドリンクが付きます。毎年続いている催しです。",
+      strength: "「地域の交流も増えて元気になれば」という、お店の始まりかたと重なるタイプです。",
+      ctaHref: "#community",
+      ctaLabel: "地域と催しを見る"
+    }
+  };
+
+  var priorityOrder = ["A", "B", "C", "D", "E"];
+
+  var currentIndex = 0;
+  var answers = new Array(questions.length).fill(null);
+
+  var quizIntro = document.getElementById("quizIntro");
+  var quizStartBtn = document.getElementById("quizStartBtn");
+  var quizForm = document.getElementById("quizForm");
+  var quizProgress = document.getElementById("quizProgress");
+  var quizQuestionText = document.getElementById("quizQuestionText");
+  var quizOptions = document.getElementById("quizOptions");
+  var quizWarning = document.getElementById("quizWarning");
+  var quizBack = document.getElementById("quizBack");
+  var quizNext = document.getElementById("quizNext");
+  var quizResult = document.getElementById("quizResult");
+  var quizRestartBtn = document.getElementById("quizRestartBtn");
+
+  function renderQuestion() {
+    quizWarning.textContent = "";
+    var q = questions[currentIndex];
+    quizProgress.textContent = "質問 " + (currentIndex + 1) + " / " + questions.length;
+    quizQuestionText.textContent = q.text;
+    quizOptions.innerHTML = "";
+
+    q.options.forEach(function (opt, i) {
+      var li = document.createElement("li");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "quiz-option";
+      btn.textContent = opt.label;
+      var selected = answers[currentIndex] === i;
+      btn.setAttribute("aria-pressed", selected ? "true" : "false");
+      btn.addEventListener("click", function () {
+        answers[currentIndex] = i;
+        var allBtns = quizOptions.querySelectorAll(".quiz-option");
+        allBtns.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+        btn.setAttribute("aria-pressed", "true");
+        quizWarning.textContent = "";
+      });
+      li.appendChild(btn);
+      quizOptions.appendChild(li);
+    });
+
+    quizBack.disabled = currentIndex === 0;
+    quizNext.textContent = currentIndex === questions.length - 1 ? "結果を見る" : "次へ";
+  }
+
+  function startQuiz() {
+    currentIndex = 0;
+    answers = new Array(questions.length).fill(null);
+    quizIntro.style.display = "none";
+    quizResult.style.display = "none";
+    quizForm.style.display = "block";
+    renderQuestion();
+  }
+
+  function showResult() {
+    var scores = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+    answers.forEach(function (ansIndex, qIndex) {
+      if (ansIndex === null) { return; }
+      var cat = questions[qIndex].options[ansIndex].cat;
+      scores[cat] += 1;
+    });
+
+    // 同点の場合は、最後の質問（5問目）で選んだものを優先します。
+    // それでも決まらない場合のみ、A→B→C→D→Eの順を採用します。
+    var lastCat = null;
+    var lastAnswerIndex = answers[answers.length - 1];
+    if (lastAnswerIndex !== null) {
+      lastCat = questions[questions.length - 1].options[lastAnswerIndex].cat;
+    }
+
+    var maxScore = -1;
+    priorityOrder.forEach(function (cat) {
+      if (scores[cat] > maxScore) { maxScore = scores[cat]; }
+    });
+    var topCats = priorityOrder.filter(function (cat) { return scores[cat] === maxScore; });
+
+    var winner;
+    if (topCats.length === 1) {
+      winner = topCats[0];
+    } else if (lastCat !== null && topCats.indexOf(lastCat) !== -1) {
+      winner = lastCat;
+    } else {
+      winner = topCats[0];
+    }
+
+    var r = results[winner];
+    document.getElementById("resultName").textContent = r.name;
+    document.getElementById("resultSummary").textContent = r.summary;
+    document.getElementById("resultReason").textContent = r.reason;
+    document.getElementById("resultRecommend").textContent = r.recommend;
+    document.getElementById("resultStrength").textContent = r.strength;
+    var cta = document.getElementById("resultCta");
+    cta.href = r.ctaHref;
+    cta.textContent = r.ctaLabel;
+
+    quizForm.style.display = "none";
+    quizResult.style.display = "block";
+    document.getElementById("resultName").focus();
+  }
+
+  quizStartBtn.addEventListener("click", startQuiz);
+
+  quizNext.addEventListener("click", function () {
+    if (answers[currentIndex] === null) {
+      quizWarning.textContent = "選択肢を選んでから次へ進んでください。";
+      return;
+    }
+    if (currentIndex === questions.length - 1) {
+      showResult();
+    } else {
+      currentIndex += 1;
+      renderQuestion();
+    }
+  });
+
+  quizBack.addEventListener("click", function () {
+    if (currentIndex > 0) {
+      currentIndex -= 1;
+      renderQuestion();
+    }
+  });
+
+  quizRestartBtn.addEventListener("click", function () {
+    quizResult.style.display = "none";
+    quizIntro.style.display = "block";
+  });
+})();
+</script>
+
+</body>
+</html>
