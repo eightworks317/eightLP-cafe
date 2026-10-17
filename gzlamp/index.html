@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAFE&amp;BAR GZLAMP（ジーズランプ）｜「好き」を詰め込んだ一軒家｜提案用ページ</title>
+<meta name="description" content="秋田市添川のCAFE&amp;BAR GZLAMP（ジーズランプ）。11種類のスパイスを独自にブレンドしたオリジナルスパイスカレーと、車とバイクが集まるアメリカンビンテージ調の一軒家。店舗向けの提案用ページです。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1f1d1b">
+<style>
+  :root {
+    --color-primary: #1f1d1b;      /* 鉄のような黒 */
+    --color-secondary: #f7f4ee;    /* 生成り */
+    --color-amber: #d99a2b;        /* エジソンランプの琥珀 */
+    --color-amber-text: #96640f;   /* 明るい地の上に置く文字用 */
+    --color-red: #a8342c;          /* ビンテージの赤 */
+    --color-red-btn: #8f2c25;      /* 白文字をのせるボタンの地色 */
+    --color-surface: #ebe5da;
+    --color-proposal: #e9edec;
+    --color-proposal-border: #8fa3a0;
+    --color-text: #262321;
+    --color-muted: #6a635c;
+    --color-border: #d8cfc0;
+    --font-serif: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-sans: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  /* ★2026-10-17：背景にうっすら細かい格子を入れています。
+     ガレージの床や方眼紙のような柄です。アメリカンビンテージ調の店内に合わせました。
+     ・濃さ　：rgba の最後の数字（0.04）。1 に近いほど濃くなります
+     ・マスの大きさ：22px の部分（2か所とも同じ数字にしてください）
+     ※ 色を敷いている節（強み／ドリンク／催し／診断）には出ません。 */
+  body {
+    margin: 0;
+    background-color: var(--color-secondary);
+    background-image:
+      linear-gradient(to right, rgba(31, 29, 27, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(31, 29, 27, 0.04) 1px, transparent 1px);
+    background-size: 22px 22px, 22px 22px;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+
+  .container {
+    width: 100%; max-width: 960px; margin: 0 auto;
+    padding-left: clamp(14px, 4vw, 32px);
+    padding-right: clamp(14px, 4vw, 32px);
+  }
+
+  .skip-link {
+    position: absolute; left: -999px; top: 0;
+    background: var(--color-red-btn); color: #fff;
+    padding: 10px 16px; z-index: 200; border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus { left: 0; }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid var(--color-amber);
+    outline-offset: 3px;
+  }
+
+  /* ---------- 提案用ラベル ---------- */
+  .proposal-bar {
+    background: var(--color-primary); color: var(--color-secondary);
+    text-align: center; padding: 8px 14px;
+    font-size: clamp(12px, 3vw, 13px);
+    letter-spacing: 0.06em; line-height: 1.5;
+  }
+
+  /* ---------- ファーストビュー ---------- */
+  .hero {
+    position: relative; min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 96px 0 56px; background: var(--color-primary); overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(31,29,27,0.40) 0%, rgba(31,29,27,0.62) 55%, rgba(31,29,27,0.90) 100%);
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.16em;
+    color: var(--color-secondary); margin: 0 0 14px;
+  }
+  .hero h1 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(27px, 7.6vw, 45px); line-height: 1.4;
+    margin: 0 0 18px; color: var(--color-secondary); overflow-wrap: anywhere;
+  }
+  .hero-lead {
+    font-size: clamp(14px, 3.8vw, 17px); max-width: 34em;
+    margin: 0 0 30px; color: var(--color-secondary);
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 30px;
+    font-size: 12px; letter-spacing: 0.08em; color: var(--color-secondary);
+  }
+  .hero-tags span {
+    border: 1px solid rgba(247,244,238,0.5);
+    border-radius: 999px; padding: 6px 14px; background: rgba(31,29,27,0.35);
+  }
+
+  .cta-group { display: flex; flex-direction: column; gap: 12px; max-width: 340px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 12px 20px; border-radius: 6px;
+    text-decoration: none; font-size: 15px; letter-spacing: 0.02em;
+    border: 1px solid transparent; text-align: center; line-height: 1.4;
+  }
+  .btn-primary { background: var(--color-red-btn); color: #fff; }
+  .btn-outline { background: transparent; border-color: var(--color-primary); color: var(--color-primary); }
+  .hero .btn-primary { background: var(--color-secondary); color: var(--color-primary); }
+  .hero .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); background: rgba(31,29,27,0.25); }
+  @media (min-width: 560px) { .cta-group { flex-direction: row; max-width: none; } }
+
+  /* ---------- 共通 ---------- */
+  section { padding: clamp(48px, 9vw, 88px) 0; }
+  .section-alt { background: var(--color-surface); }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; color: var(--color-amber-text); margin: 0 0 10px; }
+  h2 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(22px, 6vw, 30px); margin: 0 0 20px; line-height: 1.5;
+  }
+  h3 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(17px, 4.6vw, 20px); margin: 0 0 10px; line-height: 1.6;
+  }
+  p { margin: 0 0 14px; }
+  .lead-text { max-width: 40em; color: var(--color-muted); }
+  .source-note { font-size: .85em; opacity: .8; margin-top: 1.2em; }
+
+  /* ---------- 店名の由来 ---------- */
+  .name-origin {
+    margin: 26px 0 0; padding: 22px 24px;
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-amber);
+    border-radius: 0 12px 12px 0;
+  }
+  .name-origin .en {
+    font-family: var(--font-serif);
+    font-size: clamp(18px, 4.8vw, 24px);
+    letter-spacing: .04em; margin: 0 0 8px; display: block;
+    color: var(--color-amber-text);
+  }
+  .name-origin .ja { font-size: 14.5px; color: var(--color-muted); margin: 0; }
+
+  /* ---------- カード ---------- */
+  .card-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
+  @media (min-width: 700px) {
+    .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  }
+  .card {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 10px; padding: 22px; min-width: 0;
+    box-shadow: 0 2px 10px rgba(31,29,27,0.05);
+  }
+  .card .num { font-size: 12px; color: var(--color-amber-text); letter-spacing: 0.1em; display: block; margin-bottom: 10px; }
+  .card p { font-size: 14.5px; color: var(--color-text); margin-bottom: 8px; }
+  .card .value {
+    font-size: 13.5px; color: var(--color-muted);
+    border-top: 1px dashed var(--color-border);
+    padding-top: 10px; margin-top: 10px;
+  }
+  .card-photo { border-radius: 8px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 14px; }
+
+  /* 横に3枚並べたときのそろえ方
+     ① 下端をそろえる作り（subgrid が使えないブラウザ用の保険）
+     このページの見出しは1行が文字サイズの1.6倍なので、2行ぶんは 3.2em です。 */
+  @media (min-width: 700px) {
+    .card-grid.cols-3 .card { display: flex; flex-direction: column; }
+    .card-grid.cols-3 .card h3 { line-height: 1.6; min-height: 3.2em; }
+    .card-grid.cols-3 .card .value { margin-top: auto; }
+  }
+  /* ② ラベル・見出し・本文・価値の4つを、それぞれ別々に高さをそろえます。 */
+  @supports (grid-template-rows: subgrid) {
+    @media (min-width: 700px) {
+      #strengths .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 5; }
+      #events .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 4; }
+      .card-grid.cols-3 .card h3 { min-height: 0; margin-bottom: 0; }
+      .card-grid.cols-3 .card .value { margin-top: 0; align-self: start; }
+      .card-grid.cols-3 .card p { margin-bottom: 0; }
+      .card-grid.cols-3 .card .num { margin-bottom: 0; }
+      .card-grid.cols-3 .card { row-gap: 10px; }
+    }
+  }
+
+  /* ---------- ストーリー ---------- */
+  .story { display: grid; gap: 24px; }
+  /* 横に並べたとき、写真をとなりの文章と同じ高さまで伸ばします。 */
+  @media (min-width: 760px) {
+    .story { grid-template-columns: 1fr 1fr; align-items: stretch; }
+    .story-photo { height: 100%; min-height: 300px; aspect-ratio: auto; }
+  }
+  .story-photo { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+  .concept-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 22px; }
+  .concept-gallery img { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+
+  /* ---------- メニュー ---------- */
+  .dish-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+  @media (min-width: 620px) { .dish-grid { grid-template-columns: repeat(2, 1fr); } }
+  .dish {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-red);
+    border-radius: 0 8px 8px 0; padding: 18px 20px; min-width: 0;
+  }
+  .dish.is-mild { border-left-color: var(--color-amber); }
+  .dish .tag { font-size: 12px; letter-spacing: .08em; color: var(--color-red); display: block; }
+  .dish.is-mild .tag { color: var(--color-amber-text); }
+  .dish .name { font-family: var(--font-serif); font-size: 19px; margin: 2px 0 6px; display: block; }
+  .dish .price { font-size: 15px; font-weight: 700; margin: 0 0 8px; }
+  .dish .desc { font-size: 14px; color: var(--color-muted); margin: 0; }
+
+  .drink-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; padding: 0; list-style: none; }
+  .drink-list li {
+    font-size: 13.5px; color: var(--color-muted);
+    border: 1px solid var(--color-border);
+    background: var(--color-secondary);
+    border-radius: 999px; padding: 5px 14px;
+  }
+
+  /* ---------- 車の節 ---------- */
+  .highlight { background: var(--color-primary); color: var(--color-secondary); }
+  .highlight .eyebrow { color: var(--color-amber); }
+  .highlight-grid { display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 760px) { .highlight-grid { grid-template-columns: 1.1fr 1fr; } }
+  .highlight-visual {
+    border-radius: 10px; aspect-ratio: 4 / 3; width: 100%;
+    object-fit: cover; border: 1px solid rgba(255,255,255,0.15);
+  }
+  .highlight-list { list-style: none; padding: 0; margin: 18px 0 24px; font-size: 14.5px; }
+  .highlight-list li { padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.15); }
+  .highlight-list li:first-child { border-top: none; }
+  .highlight-list b { display: block; margin-bottom: 4px; font-size: 13px; color: var(--color-amber); letter-spacing: 0.04em; }
+
+  /* ---------- 一覧表 ---------- */
+  .info-list {
+    list-style: none; padding: 0; margin: 24px 0 0;
+    display: grid; gap: 0; border-top: 1px solid var(--color-border);
+  }
+  .info-list li {
+    display: grid; grid-template-columns: 120px 1fr; gap: 12px;
+    padding: 14px 0; border-bottom: 1px solid var(--color-border); font-size: 14.5px;
+  }
+  .info-list .term { color: var(--color-muted); font-size: 13px; letter-spacing: 0.04em; }
+  .info-list a { overflow-wrap: anywhere; text-decoration: underline; }
+
+  /* ---------- 試作（診断） ---------- */
+  .proposal-section {
+    background: var(--color-proposal);
+    border-top: 3px solid var(--color-proposal-border);
+    border-bottom: 3px solid var(--color-proposal-border);
+  }
+  .proposal-tag {
+    display: inline-block; font-size: 12px; letter-spacing: 0.1em;
+    background: var(--color-proposal-border); color: #16211f;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .proposal-note {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-proposal-border);
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 13.5px; color: var(--color-muted);
+    margin: 22px 0 30px; line-height: 1.75;
+  }
+  .quiz-app {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 14px; padding: 22px; max-width: 640px;
+  }
+  .quiz-intro h3 { margin: 0 0 12px; font-size: 20px; }
+  .quiz-progress { font-size: 13px; color: var(--color-muted); margin-bottom: 12px; }
+  .quiz-question { font-size: 17px; font-weight: 700; margin: 0 0 12px; }
+  .quiz-options { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 10px; }
+  .quiz-option {
+    width: 100%; text-align: left; padding: 14px 16px; min-height: 44px;
+    border: 1.5px solid var(--color-border); border-radius: 8px;
+    background: var(--color-surface); font-size: 15px;
+    font-family: inherit; color: var(--color-text); cursor: pointer;
+  }
+  .quiz-option[aria-pressed="true"] { border-color: var(--color-red); background: #f6e4e2; font-weight: 700; }
+  .quiz-option[aria-pressed="true"]::before { content: "✓ "; color: var(--color-red); }
+  .quiz-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; }
+  .quiz-nav button { min-height: 44px; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-family: inherit; cursor: pointer; }
+  #quizBack { background: transparent; border: 1px solid var(--color-border); color: var(--color-text); }
+  #quizNext { background: var(--color-red-btn); border: 1px solid var(--color-red-btn); color: #fff; }
+  #quizNext:disabled, #quizBack:disabled { opacity: .4; cursor: not-allowed; }
+  .quiz-warning { font-size: 13px; color: #a0432a; margin-top: 6px; min-height: 1.2em; }
+  .quiz-result h3 { font-size: 22px; margin: 0 0 6px; }
+  .quiz-result .result-summary { color: var(--color-muted); margin: 0 0 22px; }
+  .result-detail-list { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 4px; font-size: 14px; }
+  .result-detail-list dt { font-weight: 700; margin-top: 12px; }
+  .result-detail-list dd { margin: 2px 0 0; color: var(--color-muted); }
+  .quiz-result-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .quiz-start-btn {
+    min-height: 44px; padding: 12px 28px;
+    background: var(--color-red-btn); color: #fff;
+    border: none; border-radius: 6px; font-size: 15px; font-weight: 700; cursor: pointer;
+  }
+  .disclaimer-box {
+    font-size: 13px; line-height: 1.7; color: var(--color-muted);
+    background: var(--color-surface); border: 1px dashed var(--color-border);
+    border-radius: 8px; padding: 14px 16px; margin-top: 22px;
+  }
+
+  /* ---------- 最後のご案内 ---------- */
+  .final-cta { background: var(--color-primary); color: var(--color-secondary); text-align: center; }
+  .final-cta .cta-group { margin: 26px auto 0; justify-content: center; }
+  .final-cta .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); }
+
+  .site-footer {
+    padding: 32px 0 40px; text-align: center;
+    font-size: 12.5px; color: var(--color-muted);
+    border-top: 1px solid var(--color-border);
+  }
+  .site-footer a { text-decoration: underline; }
+  .site-footer p { margin: 6px 0; }
+
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
+<div class="proposal-bar" role="note">
+  CONCEPT LP ／ 店舗向け提案用ページです。本ページには未導入の新サービス提案・試作デモが含まれます。<br>
+  ※本ページの掲載画像は、店舗の世界観を表現したイメージ画像です。
+</div>
+
+<main id="main-content">
+
+  <!-- ファーストビュー -->
+  <section class="hero">
+    <img class="hero-bg" src="images/01_hero_interior_16x9.webp" alt="GZLAMPの店内のイメージ画像" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <p class="hero-eyebrow">CAFE&amp;BAR GZLAMP ／ ジーズランプ — 秋田市添川</p>
+      <h1>「好き」を詰め込んだ、<br>一軒家。</h1>
+      <p class="hero-lead">
+        11種類のスパイスを独自にブレンドしたカレー。エジソンランプの灯るアメリカンビンテージ調の店内。
+        そして、車とバイクが好きな人たちが集まる場所。2021年4月から、秋田市添川にあります。
+      </p>
+      <p class="hero-tags">
+        <span>オリジナルスパイスカレー</span>
+        <span>車とバイクが集まる店</span>
+        <span>恒例のライブ</span>
+      </p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="#strengths">店舗について見る</a>
+        <a class="btn btn-outline" href="https://www.instagram.com/gzlamp510/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- コンセプト -->
+  <section id="concept" aria-labelledby="concept-heading">
+    <div class="container">
+      <div class="story">
+        <div>
+          <p class="eyebrow">CONCEPT</p>
+          <h2 id="concept-heading">自分たちの理想を、<br>そのまま形にした店</h2>
+          <p class="lead-text">
+            GZLAMPは、秋田市添川にある一軒家のカフェです。2021年4月、自宅を兼ねた店として開きました。
+            車とバイクが趣味の店主夫婦が、それぞれの理想を店に詰め込んだお店です。
+          </p>
+
+          <div class="name-origin">
+            <span class="en">GZLAMP ＝ 店主のイニシャル ＋ LAMP</span>
+            <p class="ja">店名は、店主のイニシャルと、こだわりの「エジソンランプ」から考えた造語です。店内には、そのランプが灯っています。</p>
+          </div>
+
+          <p class="lead-text" style="margin-top:22px;">
+            アメリカンビンテージ調の店内。壁には車のメーカーの看板、棚にはお客さんが持ち寄ったミニカー。
+            ごはんを食べに来た人も、車の話をしに来た人も、同じ12席に座ります。
+          </p>
+        </div>
+        <img class="story-photo" src="images/03_garage_corner_4x3.webp" alt="ミニカーが並ぶ店内の棚のイメージ画像" loading="lazy">
+      </div>
+      <div class="concept-gallery">
+        <img src="images/02_curry_plate_4x3.webp" alt="オリジナルスパイスカレーのイメージ画像" loading="lazy">
+        <img src="images/04_craft_cola_4x3.webp" alt="自家製クラフトコーラのイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 強み -->
+  <section id="strengths" class="section-alt" aria-labelledby="strengths-heading">
+    <div class="container">
+      <p class="eyebrow">公開されている情報から見える、この店舗の強み</p>
+      <h2 id="strengths-heading">お店の強み</h2>
+      <p class="lead-text">他店との比較ではなく、公開されている情報で確認できる特徴だけを根拠に整理しています。</p>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <img class="card-photo" src="images/02_curry_plate_4x3.webp" alt="オリジナルスパイスカレーのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 01</span>
+          <h3>家庭的と本格の、ちょうど中間</h3>
+          <p>11種類のスパイスを独自にブレンド。家庭的なカレーと本格スパイスカレーの中間を目指し、香りを生かしながら、食べやすく飽きのこない味わいに仕上げていると紹介されています。</p>
+          <p class="value">お客様にとっての価値：スパイスカレーが初めての方でも、構えずに食べられます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/05_mild_curry_4x3.webp" alt="辛さひかえめのカレーのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 02</span>
+          <h3>辛いのが苦手な人の席も、ちゃんとある</h3>
+          <p>「大人さまカレー」という、辛いのが苦手な方向けのメニューがあります。逆に辛くしたい方には、辛さのトッピング（＋50円〜）が用意されています。メニューには5段階の辛さ表示もあります。</p>
+          <p class="value">お客様にとっての価値：辛さの好みが違う人同士でも、同じテーブルを囲めます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/03_garage_corner_4x3.webp" alt="店内に並ぶミニカーのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 03</span>
+          <h3>車とバイクが、人をつないでいる</h3>
+          <p>開業直後に店主が地元の車好きのSNSに書き込んだことがきっかけで、同じ趣味の人が集まるようになりました。店先には店主夫婦の愛車が並ぶこともあります。</p>
+          <p class="value">お客様にとっての価値：一人で来ても、話し相手が見つかることがあります。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- カレー -->
+  <section id="curry" aria-labelledby="curry-heading">
+    <div class="container">
+      <p class="eyebrow">CURRY &amp; FOOD</p>
+      <h2 id="curry-heading">ベースはひとつ、<br>見せ方はいろいろ</h2>
+      <p class="lead-text">
+        すべてのカレーのベースになっているのが「オリジナルスパイスカレー」です。
+        玉ねぎを飴色になるまで炒めるのがポイントとされています。
+        盛り付けにはサラダ、アチャール、ゆで卵が添えられます。
+      </p>
+      <div class="dish-grid">
+        <div class="dish">
+          <span class="tag">看板</span>
+          <span class="name">オリジナルスパイスカレー</span>
+          <p class="price">¥1,000</p>
+          <p class="desc">11種類のスパイスを独自にブレンドしたルゥ。このお店のすべての始まりです。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">人気</span>
+          <span class="name">あいがけ（スパイスカレー×タコミート）</span>
+          <p class="price">¥1,200</p>
+          <p class="desc">オリジナルスパイスカレーとタコミートが一度に味わえるメニュー。タコミートや付け合わせの野菜にもクミンやコリアンダーなどのスパイスを使い、カレー店ならではの味わいに。</p>
+        </div>
+        <div class="dish is-mild">
+          <span class="tag">辛いのが苦手な方へ</span>
+          <span class="name">大人さまカレー</span>
+          <p class="price">¥1,100</p>
+          <p class="desc">「お子様カレー」ではなく「大人さま」。辛いのが苦手な大人のための一皿です。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">チーズ</span>
+          <span class="name">こんがりチーズ on オリジナルスパイスカレー</span>
+          <p class="price">¥1,100</p>
+          <p class="desc">スパイスカレーの上に、こんがり焼いたチーズをのせた一皿です。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">カレー以外</span>
+          <span class="name">オリジナルタコライス</span>
+          <p class="price">¥1,000</p>
+          <p class="desc">カレーの日ではない日に。タコミートを使った一皿です。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">軽く一品</span>
+          <span class="name">タコス</span>
+          <p class="price">¥500</p>
+          <p class="desc">もう一品ほしいときに。</p>
+        </div>
+      </div>
+      <p class="lead-text" style="margin-top:28px;">
+        <strong>辛さのトッピングがあります（＋50円〜）。</strong>
+        メニューには5段階の辛さ表示もあるので、好みに合わせて選べます。
+      </p>
+      <p class="lead-text source-note">
+        ※ メニューと価格は、店舗情報サイト（エキテン）および秋田の情報誌 marimari（2026年8月21日号）に
+        掲載されている内容です。内容と価格は変わる場合があります。最新のメニューは公式Instagramまたはお電話でご確認ください。
+      </p>
+    </div>
+  </section>
+
+  <!-- ドリンク -->
+  <section id="drink" class="section-alt" aria-labelledby="drink-heading">
+    <div class="container">
+      <p class="eyebrow">DRINK</p>
+      <h2 id="drink-heading">カレーと一緒に飲む、<br>自家製のコーラ</h2>
+      <div class="dish-grid">
+        <div class="dish is-mild">
+          <span class="tag">自家製</span>
+          <span class="name">クラフトコーラ</span>
+          <p class="price">¥500</p>
+          <p class="desc">ホールシナモンがゴロっと入った、香り豊かなコーラ。クセは控えめですっきりとした味わいで、クラフトコーラが初めての方でも飲みやすいと紹介されています。<strong>食後ではなく、カレーと同時に飲んで相性を楽しむのがおすすめ</strong>とのことです。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">スパイス</span>
+          <span class="name">マサラチャイ</span>
+          <p class="price">¥550</p>
+          <p class="desc">スパイスのお店らしい一杯です。</p>
+        </div>
+      </div>
+      <ul class="drink-list">
+        <li>GZLAMPオリジナルコーヒー ¥500</li>
+        <li>オリジナルアイスコーヒー ¥500</li>
+        <li>カフェオレ ¥500</li>
+        <li>シナモンティー ¥500</li>
+        <li>ラッシー ¥500</li>
+        <li>フロート各種 ¥550</li>
+      </ul>
+      <p class="lead-text source-note">
+        ※ クラフトコーラの説明は秋田の情報誌 marimari（2026年8月21日号）、
+        そのほかの品目と価格は店舗情報サイト（エキテン）に掲載されている内容です。
+      </p>
+    </div>
+  </section>
+
+  <!-- 車とバイク -->
+  <section id="cars" class="highlight" aria-labelledby="cars-heading">
+    <div class="container">
+      <div class="highlight-grid">
+        <div>
+          <p class="eyebrow">CARS &amp; BIKES</p>
+          <h2 id="cars-heading">お客さんが、<br>店をつくってきました</h2>
+          <p style="color:#ded8d0;">
+            このお店が車好きの集まる場所になったのは、仕掛けたからではありません。
+            開業直後の、ひとつの書き込みからでした。
+          </p>
+          <ul class="highlight-list">
+            <li><b>はじまり</b>2021年の開業直後、店主が地元の車好きのグループのSNSに書き込んだことで、多くの車好きが来店するようになったと紹介されています。</li>
+            <li><b>お客さんから</b>その後、お客さんからホイールやシフトノブなどのパーツを譲り受けています。店の車は、そうして少しずつ形になってきました。</li>
+            <li><b>店の顔</b>玄関前に停めたクラシックなオープンカーは、お客さんから好評を得て、愛称で親しまれるようになったとのことです。</li>
+            <li><b>店内</b>壁には車のメーカーの看板、棚にはお客さんが持ち寄ったミニカーが並んでいます。</li>
+            <li><b>オリジナルグッズ</b>「GO TO ANYWHERE」と入ったオリジナルTシャツも作られています（数量限定）。</li>
+          </ul>
+          <div class="cta-group">
+            <a class="btn btn-outline" style="border-color:#fff;color:#fff;" href="https://www.instagram.com/gzlamp510/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+          </div>
+        </div>
+        <img class="highlight-visual" src="images/03_garage_corner_4x3.webp" alt="店内に並ぶミニカーと看板のイメージ画像" loading="lazy">
+      </div>
+      <p class="lead-text source-note" style="color:#c3bcb4;">
+        ※ この節は、GAZOO「愛車広場」（2024年1月12日）および公式Instagram（@gzlamp510）の投稿にもとづいています。
+      </p>
+    </div>
+  </section>
+
+  <!-- 催し -->
+  <section id="events" class="section-alt" aria-labelledby="events-heading">
+    <div class="container">
+      <p class="eyebrow">EVENTS &amp; MORE</p>
+      <h2 id="events-heading">お昼のカレーだけの店では、<br>ありません</h2>
+      <p class="lead-text">公式Instagramで案内されていた、店の外と内のいろいろな動きです。</p>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <span class="num">LIVE</span>
+          <h3>恒例のワンマンライブ（13回目）</h3>
+          <p>山田賢一さんとのコラボ企画です。2026年10月は「1人芝居×弾語り」として、24日（土）17時からと25日（日）13時からの2部で開かれました。料金2,000円（カレー＆ミニデザート＆ドリンク付き）。</p>
+          <p class="value">夜の回ではアルコールも用意され、「昼とはまた違う夜のGZLAMP」と案内されていました。ご予約はDMかコメント、店頭にて。</p>
+        </div>
+        <div class="card">
+          <span class="num">MORNING MARKET</span>
+          <h3>仁井田の朝市への出店</h3>
+          <p>朝7時から9時までの朝市に出店しています。2026年10月10日は今年度最後の回で、カレー焼きそばを中心に、カレー屋らしいおにぎりやおかずを持って行くと案内されていました。</p>
+          <p class="value">ハロウィンの回は9品。タコライス、クミントンテキ丼、キッシュ、大学芋まで並びました。</p>
+        </div>
+        <div class="card">
+          <span class="num">DELIVERY</span>
+          <h3>お弁当の配達・仕出し・貸切</h3>
+          <p>キーマカレーやタコライスのお弁当があり、ある程度の数がそろえば（場所にもよりますが）配達もできると案内されています。</p>
+          <p class="value">仕出しは個数・金額ともに相談可。貸切営業も応相談とのことです。</p>
+        </div>
+      </div>
+      <p class="lead-text source-note">
+        ※ この節は、公式Instagram（@gzlamp510）の投稿にもとづいています。いずれも開催済み、または告知された内容です。
+        最新のご案内は公式Instagramをご確認ください。
+      </p>
+    </div>
+  </section>
+
+  <!-- 試作（診断） -->
+  <section id="proposal-quiz" class="proposal-section" aria-labelledby="quiz-heading">
+    <div class="container">
+      <span class="proposal-tag">INTERACTIVE PROTOTYPE｜動く新サービス試作</span>
+      <h2 id="quiz-heading">カレーの選び方診断（試作）</h2>
+      <p class="lead-text">
+        ベースは同じでも、見せ方が何通りもあります。辛さの好みも人それぞれです。
+        はじめての方が自分に合う一皿を決めやすくするための診断を試作しました。
+        これは店舗運営者向けの新サービス提案・導入アイデアであり、現在提供中のサービスではありません。
+      </p>
+
+      <div class="proposal-note">
+        この診断結果は、公開されている情報で確認できるGZLAMPのメニューをもとにした、おおまかな分け方です。
+        辛さの感じ方には個人差があります。味や辛さを保証するものではありません。
+      </div>
+
+      <div class="quiz-app" id="quizApp">
+        <div id="quizIntro" class="quiz-intro">
+          <h3>対象：ご来店を検討している方／店舗運営者の方</h3>
+          <p>解決したい課題：ベースが同じカレーでも見せ方が複数あり、はじめての方が選びにくいこと。</p>
+          <button type="button" class="quiz-start-btn" id="quizStartBtn">試してみる</button>
+        </div>
+
+        <form id="quizForm" style="display:none;" novalidate>
+          <p class="quiz-progress" id="quizProgress" aria-live="polite"></p>
+          <p class="quiz-question" id="quizQuestionText"></p>
+          <ul class="quiz-options" id="quizOptions"></ul>
+          <p class="quiz-warning" id="quizWarning" role="alert"></p>
+          <div class="quiz-nav">
+            <button type="button" id="quizBack">戻る</button>
+            <button type="button" id="quizNext">次へ</button>
+          </div>
+        </form>
+
+        <div id="quizResult" style="display:none;" class="quiz-result" aria-live="polite">
+          <h3 id="resultName" tabindex="-1"></h3>
+          <p class="result-summary" id="resultSummary"></p>
+          <dl class="result-detail-list">
+            <dt>そのタイプになった理由</dt>
+            <dd id="resultReason"></dd>
+            <dt>近いメニュー</dt>
+            <dd id="resultRecommend"></dd>
+            <dt>お店の強みとのつながり</dt>
+            <dd id="resultStrength"></dd>
+          </dl>
+          <div class="quiz-result-actions">
+            <a class="btn btn-primary" id="resultCta" href="#curry">関連する節を見る</a>
+            <button type="button" class="btn btn-outline" id="quizRestartBtn">最初からやり直す</button>
+          </div>
+        </div>
+
+        <noscript>
+          <p>この試作デモの操作にはJavaScriptが必要です。JavaScriptが無効な場合でも、メニューや店舗情報は、このページの他の節から引き続きご覧いただけます。</p>
+        </noscript>
+
+        <p class="disclaimer-box">本機能は店舗運営者向けの試作デモです。現在提供中の正式サービスではありません。入力内容の保存・送信は行いません。ページを閉じると回答内容は消えます。お名前やご連絡先を入力していただく欄はありません。</p>
+      </div>
+
+      <div class="proposal-note" style="margin-top:32px;">
+        <strong>導入アイデア（今後の展開案）：</strong>この診断の結果画面から、
+        団体のご予約（4名様から）や、お弁当・仕出しのご相談につなげることができます。
+        ライブや朝市の予定も、ここからご案内できるようにすると、来店の入り口がひとつ増えます。
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section id="info" aria-labelledby="info-heading">
+    <div class="container">
+      <p class="eyebrow">SHOP INFORMATION</p>
+      <h2 id="info-heading">店舗情報</h2>
+      <ul class="info-list">
+        <li><span class="term">店舗名</span><span>CAFE&amp;BAR GZLAMP（ジーズランプ）</span></li>
+        <li>
+          <span class="term">所在地</span>
+          <span>〒010-0822 秋田県秋田市添川字添川116-8<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E6%B7%BB%E5%B7%9D%E5%AD%97%E6%B7%BB%E5%B7%9D116-8" target="_blank" rel="noopener noreferrer">地図で見る（Googleマップ）</a>
+          </span>
+        </li>
+        <li><span class="term">電話</span><span>018-807-5912</span></li>
+        <li><span class="term">営業時間</span><span>11:00〜15:00（ラストオーダー 14:30）</span></li>
+        <li>
+          <span class="term">定休日</span>
+          <span>水曜日、第2・第4木曜日<br>
+            <span class="source-note" style="display:block;margin-top:4px;">※ イベント出店などで臨時休業の場合があります。ご来店前に公式Instagramまたはお電話でのご確認がおすすめです。</span>
+          </span>
+        </li>
+        <li><span class="term">ご利用時間</span><span>90分程度でお願いしているとのことです。</span></li>
+        <li><span class="term">ご予約</span><span>団体様のみ承っています（4名様から・90分）。</span></li>
+        <li><span class="term">貸切・仕出し</span><span>貸切営業は応相談。仕出しは個数・金額ともに応相談とのことです。</span></li>
+        <li><span class="term">席数</span><span>12席／駐車場あり</span></li>
+        <li><span class="term">開店</span><span>2021年4月</span></li>
+        <li><span class="term">Instagram</span><span><a href="https://www.instagram.com/gzlamp510/" target="_blank" rel="noopener noreferrer">@gzlamp510</a></span></li>
+      </ul>
+      <p class="lead-text source-note">
+        ※ このページは、公式Instagram（@gzlamp510）、秋田の情報誌 marimari（2026年8月21日号）、
+        秋田タウン情報（2021年7月5日）、GAZOO「愛車広場」（2024年1月12日）、
+        店舗情報サイト（エキテン）をもとに、2026年10月17日時点で整理したものです。
+        内容や価格は変わっている場合があります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 最後のご案内 -->
+  <section class="final-cta" aria-labelledby="final-cta-heading">
+    <div class="container">
+      <h2 id="final-cta-heading">最新のご案内は、公式Instagramをご確認ください</h2>
+      <p style="color:#ded8d0;">その日のメニュー、臨時休業、ライブや朝市の予定は、公式Instagramで発信されています。</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" style="background:#fff;color:var(--color-primary);" href="https://www.instagram.com/gzlamp510/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+        <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E6%B7%BB%E5%B7%9D%E5%AD%97%E6%B7%BB%E5%B7%9D116-8" target="_blank" rel="noopener noreferrer">地図を見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>CAFE&amp;BAR GZLAMP（ジーズランプ）</p>
+    <p>© CAFE&amp;BAR GZLAMP. All Rights Reserved.</p>
+    <p><a href="#main-content">ページの先頭へ戻る</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var questions = [
+    {
+      text: "辛さは、どれくらいが好きですか？",
+      options: [
+        { label: "辛いほどうれしい", cat: "A" },
+        { label: "ふつうに辛いくらいがいい", cat: "B" },
+        { label: "辛いのは苦手", cat: "C" },
+        { label: "辛さよりコクやチーズが好き", cat: "D" },
+        { label: "そもそもカレー以外も気になる", cat: "E" }
+      ]
+    },
+    {
+      text: "お店でのお昼に、求めるものは？",
+      options: [
+        { label: "スパイスをしっかり味わいたい", cat: "A" },
+        { label: "いろいろ少しずつ試したい", cat: "B" },
+        { label: "安心して食べられること", cat: "C" },
+        { label: "食べごたえ", cat: "D" },
+        { label: "カレーとは違うものも食べたい", cat: "E" }
+      ]
+    },
+    {
+      text: "一緒に行く人は？",
+      options: [
+        { label: "ひとりで、ゆっくり", cat: "A" },
+        { label: "食べ比べできる相手と", cat: "B" },
+        { label: "辛いのが苦手な人と一緒に", cat: "C" },
+        { label: "よく食べる人と", cat: "D" },
+        { label: "子どもや、いろんな好みの人と", cat: "E" }
+      ]
+    },
+    {
+      text: "GZLAMPで気になったことに近いのは？",
+      options: [
+        { label: "11種類のスパイスのブレンド", cat: "A" },
+        { label: "あいがけという食べ方", cat: "B" },
+        { label: "「大人さまカレー」という名前", cat: "C" },
+        { label: "こんがり焼いたチーズ", cat: "D" },
+        { label: "タコライスやタコス", cat: "E" }
+      ]
+    },
+    {
+      text: "飲みものはどうしますか？",
+      options: [
+        { label: "マサラチャイでスパイスを重ねたい", cat: "A" },
+        { label: "自家製クラフトコーラを試したい", cat: "B" },
+        { label: "ラッシーで口を落ち着けたい", cat: "C" },
+        { label: "コーヒーでしめたい", cat: "D" },
+        { label: "フロートなど甘いものがいい", cat: "E" }
+      ]
+    }
+  ];
+
+  var results = {
+    A: {
+      name: "スパイスをそのまま味わいたいタイプ",
+      summary: "香りと辛さを、まっすぐ受け止めたい方です。",
+      reason: "辛さやスパイスに関する回答が多い傾向でした。",
+      recommend: "オリジナルスパイスカレー。物足りなければ、辛さのトッピング（＋50円〜）という手もあります。マサラチャイを合わせると、スパイスが重なります。",
+      strength: "「家庭的と本格の、ちょうど中間」という強みの、本格寄りの入り口です。",
+      ctaHref: "#curry",
+      ctaLabel: "カレーを見る"
+    },
+    B: {
+      name: "食べ比べたいタイプ",
+      summary: "ひと皿で二つの味を楽しみたい方です。",
+      reason: "いろいろ試したい、食べ比べたいという回答が多い傾向でした。",
+      recommend: "あいがけ（スパイスカレー×タコミート）。一度に二つの味わいが楽しめます。飲みものは自家製クラフトコーラを、食後ではなく一緒にどうぞ。",
+      strength: "ベースはひとつでも見せ方がいろいろある、というお店の作り方と相性のよいタイプです。",
+      ctaHref: "#curry",
+      ctaLabel: "カレーを見る"
+    },
+    C: {
+      name: "辛いのが苦手なタイプ",
+      summary: "スパイスカレーの店は少し構えてしまう、という方です。このお店には席があります。",
+      reason: "辛さが苦手、安心して食べたいという回答が多い傾向でした。",
+      recommend: "大人さまカレー。辛いのが苦手な大人のためのメニューです。ラッシーを合わせると、さらに穏やかになります。",
+      strength: "「辛いのが苦手な人の席も、ちゃんとある」という強みと、いちばん重なるタイプです。",
+      ctaHref: "#strengths",
+      ctaLabel: "お店の強みを見る"
+    },
+    D: {
+      name: "食べごたえ重視タイプ",
+      summary: "しっかり食べて午後にそなえたい方です。",
+      reason: "コクや食べごたえに関する回答が多い傾向でした。",
+      recommend: "こんがりチーズ on オリジナルスパイスカレー。スパイスの上に焼いたチーズが重なります。",
+      strength: "ベースのカレーに一手間を重ねる、という作り方と相性のよいタイプです。",
+      ctaHref: "#curry",
+      ctaLabel: "カレーを見る"
+    },
+    E: {
+      name: "カレー以外も気になるタイプ",
+      summary: "その日の気分で選びたい方です。",
+      reason: "カレー以外のメニューに関する回答が多い傾向でした。",
+      recommend: "オリジナルタコライス、またはタコス。朝市ではカレー焼きそばやおにぎりも並びます。",
+      strength: "お昼のカレーだけの店ではない、という広がりと相性のよいタイプです。",
+      ctaHref: "#events",
+      ctaLabel: "催しとお弁当を見る"
+    }
+  };
+
+  var priorityOrder = ["A", "B", "C", "D", "E"];
+
+  var currentIndex = 0;
+  var answers = new Array(questions.length).fill(null);
+
+  var quizIntro = document.getElementById("quizIntro");
+  var quizStartBtn = document.getElementById("quizStartBtn");
+  var quizForm = document.getElementById("quizForm");
+  var quizProgress = document.getElementById("quizProgress");
+  var quizQuestionText = document.getElementById("quizQuestionText");
+  var quizOptions = document.getElementById("quizOptions");
+  var quizWarning = document.getElementById("quizWarning");
+  var quizBack = document.getElementById("quizBack");
+  var quizNext = document.getElementById("quizNext");
+  var quizResult = document.getElementById("quizResult");
+  var quizRestartBtn = document.getElementById("quizRestartBtn");
+
+  function renderQuestion() {
+    quizWarning.textContent = "";
+    var q = questions[currentIndex];
+    quizProgress.textContent = "質問 " + (currentIndex + 1) + " / " + questions.length;
+    quizQuestionText.textContent = q.text;
+    quizOptions.innerHTML = "";
+
+    q.options.forEach(function (opt, i) {
+      var li = document.createElement("li");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "quiz-option";
+      btn.textContent = opt.label;
+      var selected = answers[currentIndex] === i;
+      btn.setAttribute("aria-pressed", selected ? "true" : "false");
+      btn.addEventListener("click", function () {
+        answers[currentIndex] = i;
+        var allBtns = quizOptions.querySelectorAll(".quiz-option");
+        allBtns.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+        btn.setAttribute("aria-pressed", "true");
+        quizWarning.textContent = "";
+      });
+      li.appendChild(btn);
+      quizOptions.appendChild(li);
+    });
+
+    quizBack.disabled = currentIndex === 0;
+    quizNext.textContent = currentIndex === questions.length - 1 ? "結果を見る" : "次へ";
+  }
+
+  function startQuiz() {
+    currentIndex = 0;
+    answers = new Array(questions.length).fill(null);
+    quizIntro.style.display = "none";
+    quizResult.style.display = "none";
+    quizForm.style.display = "block";
+    renderQuestion();
+  }
+
+  function showResult() {
+    var scores = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+    answers.forEach(function (ansIndex, qIndex) {
+      if (ansIndex === null) { return; }
+      var cat = questions[qIndex].options[ansIndex].cat;
+      scores[cat] += 1;
+    });
+
+    // 同点の場合は、最後の質問（5問目）で選んだものを優先します。
+    // それでも決まらない場合のみ、A→B→C→D→Eの順を採用します。
+    var lastCat = null;
+    var lastAnswerIndex = answers[answers.length - 1];
+    if (lastAnswerIndex !== null) {
+      lastCat = questions[questions.length - 1].options[lastAnswerIndex].cat;
+    }
+
+    var maxScore = -1;
+    priorityOrder.forEach(function (cat) {
+      if (scores[cat] > maxScore) { maxScore = scores[cat]; }
+    });
+    var topCats = priorityOrder.filter(function (cat) { return scores[cat] === maxScore; });
+
+    var winner;
+    if (topCats.length === 1) {
+      winner = topCats[0];
+    } else if (lastCat !== null && topCats.indexOf(lastCat) !== -1) {
+      winner = lastCat;
+    } else {
+      winner = topCats[0];
+    }
+
+    var r = results[winner];
+    document.getElementById("resultName").textContent = r.name;
+    document.getElementById("resultSummary").textContent = r.summary;
+    document.getElementById("resultReason").textContent = r.reason;
+    document.getElementById("resultRecommend").textContent = r.recommend;
+    document.getElementById("resultStrength").textContent = r.strength;
+    var cta = document.getElementById("resultCta");
+    cta.href = r.ctaHref;
+    cta.textContent = r.ctaLabel;
+
+    quizForm.style.display = "none";
+    quizResult.style.display = "block";
+    document.getElementById("resultName").focus();
+  }
+
+  quizStartBtn.addEventListener("click", startQuiz);
+
+  quizNext.addEventListener("click", function () {
+    if (answers[currentIndex] === null) {
+      quizWarning.textContent = "選択肢を選んでから次へ進んでください。";
+      return;
+    }
+    if (currentIndex === questions.length - 1) {
+      showResult();
+    } else {
+      currentIndex += 1;
+      renderQuestion();
+    }
+  });
+
+  quizBack.addEventListener("click", function () {
+    if (currentIndex > 0) {
+      currentIndex -= 1;
+      renderQuestion();
+    }
+  });
+
+  quizRestartBtn.addEventListener("click", function () {
+    quizResult.style.display = "none";
+    quizIntro.style.display = "block";
+  });
+})();
+</script>
+
+</body>
+</html>
