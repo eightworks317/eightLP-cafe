@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>亀の町ストア｜ひとりの「おいしい！」から。｜提案用ページ</title>
+<meta name="description" content="秋田市南通亀の町のKAMENOCHO STORE（亀の町ストア）。倉庫を生かした空間で、旬の野菜のデリプレートと08COFFEEのブレンドを。2015年に亀の町のエリアリノベーションから生まれたカフェダイニングの提案用ページです。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#33312c">
+<style>
+  :root {
+    --color-primary: #33312c;      /* 倉庫の煤けた黒茶 */
+    --color-secondary: #faf7f2;    /* 白い壁のような生成り */
+    --color-brick: #9c4a2f;         /* 古いレンガの色 */
+    --color-brick-text: #8c4129;    /* 明るい地の上に置く文字用 */
+    --color-brick-btn: #7d3a24;     /* 白文字をのせるボタンの地色（白との明暗差 8.39） */
+    --color-warm: #35505f;         /* 鉄の青灰色 */
+    --color-warm-text: #2e4653;
+    --color-surface: #ece5db;
+    --color-proposal: #ece9e4;
+    --color-proposal-border: #a0948a;
+    --color-text: #2b2926;
+    --color-muted: #63605a;
+    --color-border: #d9d2c8;
+    --font-serif: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-sans: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  /* ★2026-10-21：背景にうっすらレンガ積みの柄を入れています。
+     倉庫を生かした建物に合わせました。
+     ・濃さ　：rgba の最後の数字（0.04）。1 に近いほど濃くなります（3か所とも同じ数字に）
+     ・レンガの大きさ：48px（横）と 16px（高さ）の部分
+     ※ 色を敷いている節（強み／まちのこと／店内／診断）には出ません。 */
+  body {
+    margin: 0;
+    background-color: var(--color-secondary);
+    background-image:
+      linear-gradient(0deg,  rgba(51, 49, 44, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(51, 49, 44, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(51, 49, 44, 0.04) 1px, transparent 1px);
+    background-size: 100% 16px, 48px 16px, 48px 16px;
+    background-position: 0 0, 0 0, 24px 8px;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 16px; line-height: 1.8; overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+
+  .container {
+    width: 100%; max-width: 960px; margin: 0 auto;
+    padding-left: clamp(14px, 4vw, 32px); padding-right: clamp(14px, 4vw, 32px);
+  }
+
+  .skip-link {
+    position: absolute; left: -999px; top: 0;
+    background: var(--color-brick-btn); color: #fff;
+    padding: 10px 16px; z-index: 200; border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus { left: 0; }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid var(--color-brick); outline-offset: 3px;
+  }
+
+  /* ---------- 提案用ラベル ---------- */
+  .proposal-bar {
+    background: var(--color-primary); color: var(--color-secondary);
+    text-align: center; padding: 8px 14px;
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.06em; line-height: 1.5;
+  }
+
+  /* ---------- ファーストビュー ---------- */
+  .hero {
+    position: relative; min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 96px 0 56px; background: var(--color-primary); overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(51,49,44,0.40) 0%, rgba(51,49,44,0.60) 55%, rgba(51,49,44,0.88) 100%);
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.16em;
+    color: var(--color-secondary); margin: 0 0 14px;
+  }
+  .hero h1 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(27px, 7.6vw, 45px); line-height: 1.4;
+    margin: 0 0 18px; color: var(--color-secondary); overflow-wrap: anywhere;
+  }
+  .hero-lead {
+    font-size: clamp(14px, 3.8vw, 17px); max-width: 34em;
+    margin: 0 0 30px; color: var(--color-secondary);
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 30px;
+    font-size: 12px; letter-spacing: 0.08em; color: var(--color-secondary);
+  }
+  .hero-tags span {
+    border: 1px solid rgba(250,247,242,0.5);
+    border-radius: 999px; padding: 6px 14px; background: rgba(51,49,44,0.35);
+  }
+
+  .cta-group { display: flex; flex-direction: column; gap: 12px; max-width: 340px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 12px 20px; border-radius: 6px;
+    text-decoration: none; font-size: 15px; letter-spacing: 0.02em;
+    border: 1px solid transparent; text-align: center; line-height: 1.4;
+  }
+  .btn-primary { background: var(--color-brick-btn); color: #fff; }
+  .btn-outline { background: transparent; border-color: var(--color-primary); color: var(--color-primary); }
+  .hero .btn-primary { background: var(--color-secondary); color: var(--color-primary); }
+  .hero .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); background: rgba(51,49,44,0.25); }
+  @media (min-width: 560px) { .cta-group { flex-direction: row; max-width: none; } }
+
+  /* ---------- 共通 ---------- */
+  section { padding: clamp(48px, 9vw, 88px) 0; }
+  .section-alt { background: var(--color-surface); }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; color: var(--color-brick-text); margin: 0 0 10px; }
+  h2 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(22px, 6vw, 30px); margin: 0 0 20px; line-height: 1.5; }
+  h3 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(17px, 4.6vw, 20px); margin: 0 0 10px; line-height: 1.6; }
+  p { margin: 0 0 14px; }
+  .lead-text { max-width: 40em; color: var(--color-muted); }
+  .source-note { font-size: .85em; opacity: .8; margin-top: 1.2em; }
+
+  /* ---------- 店名の由来 ---------- */
+  .name-origin {
+    margin: 26px 0 0; padding: 22px 24px;
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-brick);
+    border-radius: 0 12px 12px 0;
+  }
+  .name-origin .en {
+    font-family: var(--font-serif); font-size: clamp(18px, 4.8vw, 24px);
+    letter-spacing: .04em; margin: 0 0 8px; display: block; color: var(--color-brick-text);
+  }
+  .name-origin .ja { font-size: 14.5px; color: var(--color-muted); margin: 0; }
+
+  blockquote.quote {
+    margin: 26px 0 0; padding: 20px 22px;
+    background: var(--color-secondary);
+    border-left: 4px solid var(--color-warm);
+    border-top: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0 10px 10px 0;
+    font-family: var(--font-serif);
+    font-size: clamp(15px, 4vw, 17px); line-height: 1.9;
+  }
+  blockquote.quote cite {
+    display: block; margin-top: 10px; font-family: var(--font-sans);
+    font-style: normal; font-size: 12.5px; color: var(--color-muted);
+  }
+
+  /* ---------- カード ---------- */
+  .card-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
+  @media (min-width: 700px) {
+    .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  }
+  .card {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 10px; padding: 22px; min-width: 0;
+    box-shadow: 0 2px 10px rgba(51,49,44,0.05);
+  }
+  .card .num { font-size: 12px; color: var(--color-brick-text); letter-spacing: 0.1em; display: block; margin-bottom: 10px; }
+  .card p { font-size: 14.5px; color: var(--color-text); margin-bottom: 8px; }
+  .card .value {
+    font-size: 13.5px; color: var(--color-muted);
+    border-top: 1px dashed var(--color-border); padding-top: 10px; margin-top: 10px;
+  }
+  .card-photo { border-radius: 8px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 14px; }
+
+  /* 横に3枚並べたときのそろえ方
+     ① 下端をそろえる作り（subgrid が使えないブラウザ用の保険）
+     このページの見出しは1行が文字サイズの1.6倍なので、2行ぶんは 3.2em です。 */
+  @media (min-width: 700px) {
+    .card-grid.cols-3 .card { display: flex; flex-direction: column; }
+    .card-grid.cols-3 .card h3 { line-height: 1.6; min-height: 3.2em; }
+    .card-grid.cols-3 .card .value { margin-top: auto; }
+  }
+  /* ② ラベル・見出し・本文・価値の4つを、それぞれ別々に高さをそろえます。 */
+  @supports (grid-template-rows: subgrid) {
+    @media (min-width: 700px) {
+      #strengths .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 5; }
+      #town .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 4; }
+      .card-grid.cols-3 .card h3 { min-height: 0; margin-bottom: 0; }
+      .card-grid.cols-3 .card .value { margin-top: 0; align-self: start; }
+      .card-grid.cols-3 .card p { margin-bottom: 0; }
+      .card-grid.cols-3 .card .num { margin-bottom: 0; }
+      .card-grid.cols-3 .card { row-gap: 10px; }
+    }
+  }
+
+  /* ---------- ストーリー ---------- */
+  .story { display: grid; gap: 24px; }
+  /* 横に並べたとき、写真をとなりの文章と同じ高さまで伸ばします。 */
+  @media (min-width: 760px) {
+    .story { grid-template-columns: 1fr 1fr; align-items: stretch; }
+    .story-photo { height: 100%; min-height: 300px; aspect-ratio: auto; }
+  }
+  .story-photo { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+  .concept-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 22px; }
+  .concept-gallery img { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+
+  /* ---------- 献立 ---------- */
+  .dish-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+  @media (min-width: 620px) { .dish-grid { grid-template-columns: repeat(2, 1fr); } }
+  .dish {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-brick); border-radius: 0 8px 8px 0;
+    padding: 18px 20px; min-width: 0;
+  }
+  .dish.is-warm { border-left-color: var(--color-warm); }
+  .dish .tag { font-size: 12px; letter-spacing: .08em; color: var(--color-brick-text); display: block; }
+  .dish.is-warm .tag { color: var(--color-warm-text); }
+  .dish .name { font-family: var(--font-serif); font-size: 19px; margin: 2px 0 6px; display: block; }
+  .dish .price { font-size: 15px; font-weight: 700; margin: 0 0 8px; }
+  .dish .desc { font-size: 14px; color: var(--color-muted); margin: 0; }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; padding: 0; list-style: none; }
+  .tag-list li {
+    font-size: 13.5px; color: var(--color-muted);
+    border: 1px solid var(--color-border); background: var(--color-secondary);
+    border-radius: 999px; padding: 5px 14px;
+  }
+
+  /* ---------- 地域の節 ---------- */
+  .highlight { background: var(--color-primary); color: var(--color-secondary); }
+  .highlight .eyebrow { color: #9fc3dd; }
+  .highlight-grid { display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 760px) { .highlight-grid { grid-template-columns: 1.1fr 1fr; } }
+  .highlight-visual {
+    border-radius: 10px; aspect-ratio: 4 / 3; width: 100%;
+    object-fit: cover; border: 1px solid rgba(255,255,255,0.15);
+  }
+  .highlight-list { list-style: none; padding: 0; margin: 18px 0 24px; font-size: 14.5px; }
+  .highlight-list li { padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.15); }
+  .highlight-list li:first-child { border-top: none; }
+  .highlight-list b { display: block; margin-bottom: 4px; font-size: 13px; color: #9fc3dd; letter-spacing: 0.04em; }
+
+  /* ---------- 一覧表 ---------- */
+  .info-list {
+    list-style: none; padding: 0; margin: 24px 0 0;
+    display: grid; gap: 0; border-top: 1px solid var(--color-border);
+  }
+  .info-list li {
+    display: grid; grid-template-columns: 120px 1fr; gap: 12px;
+    padding: 14px 0; border-bottom: 1px solid var(--color-border); font-size: 14.5px;
+  }
+  .info-list .term { color: var(--color-muted); font-size: 13px; letter-spacing: 0.04em; }
+  .info-list a { overflow-wrap: anywhere; text-decoration: underline; }
+
+  /* ---------- 試作（診断） ---------- */
+  .proposal-section {
+    background: var(--color-proposal);
+    border-top: 3px solid var(--color-proposal-border);
+    border-bottom: 3px solid var(--color-proposal-border);
+  }
+  .proposal-tag {
+    display: inline-block; font-size: 12px; letter-spacing: 0.1em;
+    background: var(--color-proposal-border); color: #16211f;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .proposal-note {
+    background: var(--color-secondary); border: 1px solid var(--color-proposal-border);
+    border-radius: 8px; padding: 14px 16px; font-size: 13.5px;
+    color: var(--color-muted); margin: 22px 0 30px; line-height: 1.75;
+  }
+  .quiz-app {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 14px; padding: 22px; max-width: 640px;
+  }
+  .quiz-intro h3 { margin: 0 0 12px; font-size: 20px; }
+  .quiz-progress { font-size: 13px; color: var(--color-muted); margin-bottom: 12px; }
+  .quiz-question { font-size: 17px; font-weight: 700; margin: 0 0 12px; }
+  .quiz-options { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 10px; }
+  .quiz-option {
+    width: 100%; text-align: left; padding: 14px 16px; min-height: 44px;
+    border: 1.5px solid var(--color-border); border-radius: 8px;
+    background: var(--color-surface); font-size: 15px;
+    font-family: inherit; color: var(--color-text); cursor: pointer;
+  }
+  .quiz-option[aria-pressed="true"] { border-color: var(--color-brick); background: #e2ebf2; font-weight: 700; }
+  .quiz-option[aria-pressed="true"]::before { content: "✓ "; color: var(--color-brick-text); }
+  .quiz-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; }
+  .quiz-nav button { min-height: 44px; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-family: inherit; cursor: pointer; }
+  #quizBack { background: transparent; border: 1px solid var(--color-border); color: var(--color-text); }
+  #quizNext { background: var(--color-brick-btn); border: 1px solid var(--color-brick-btn); color: #fff; }
+  #quizNext:disabled, #quizBack:disabled { opacity: .4; cursor: not-allowed; }
+  .quiz-warning { font-size: 13px; color: #a0432a; margin-top: 6px; min-height: 1.2em; }
+  .quiz-result h3 { font-size: 22px; margin: 0 0 6px; }
+  .quiz-result .result-summary { color: var(--color-muted); margin: 0 0 22px; }
+  .result-detail-list { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 4px; font-size: 14px; }
+  .result-detail-list dt { font-weight: 700; margin-top: 12px; }
+  .result-detail-list dd { margin: 2px 0 0; color: var(--color-muted); }
+  .quiz-result-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .quiz-start-btn {
+    min-height: 44px; padding: 12px 28px; background: var(--color-brick-btn);
+    color: #fff; border: none; border-radius: 6px; font-size: 15px; font-weight: 700; cursor: pointer;
+  }
+  .disclaimer-box {
+    font-size: 13px; line-height: 1.7; color: var(--color-muted);
+    background: var(--color-surface); border: 1px dashed var(--color-border);
+    border-radius: 8px; padding: 14px 16px; margin-top: 22px;
+  }
+
+  /* ---------- 最後のご案内 ---------- */
+  .final-cta { background: var(--color-primary); color: var(--color-secondary); text-align: center; }
+  .final-cta .cta-group { margin: 26px auto 0; justify-content: center; }
+  .final-cta .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); }
+
+  .site-footer {
+    padding: 32px 0 40px; text-align: center; font-size: 12.5px;
+    color: var(--color-muted); border-top: 1px solid var(--color-border);
+  }
+  .site-footer a { text-decoration: underline; }
+  .site-footer p { margin: 6px 0; }
+
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
+<div class="proposal-bar" role="note">
+  CONCEPT LP ／ 店舗向け提案用ページです。本ページには未導入の新サービス提案・試作デモが含まれます。<br>
+  ※本ページの掲載画像は、店舗の世界観を表現したイメージ画像です。
+</div>
+
+<main id="main-content">
+
+  <!-- ファーストビュー -->
+  <section class="hero">
+    <img class="hero-bg" src="images/01_hero_interior_16x9.webp" alt="倉庫を生かした明るい店内のイメージ画像" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <p class="hero-eyebrow">KAMENOCHO STORE（亀の町ストア）— 秋田市南通亀の町</p>
+      <h1>ひとりの「おいしい！」から、<br>みんなの「たのしい！」を。</h1>
+      <p class="hero-lead">
+        倉庫を生かした、自由で開放的なカフェダイニングです。
+        旬の野菜の食事と、コーヒーと、ワイン。2015年、亀の町という小さなエリアを
+        つくりかえていく流れの中から生まれました。
+      </p>
+      <p class="hero-tags">
+        <span>日替わりデリプレート</span>
+        <span>08COFFEEのブレンド</span>
+        <span>土日は朝8時から</span>
+      </p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="#strengths">店舗について見る</a>
+        <a class="btn btn-outline" href="https://spiral-a.com/shop_store/" target="_blank" rel="noopener noreferrer">公式サイトを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- コンセプト -->
+  <section id="concept" aria-labelledby="concept-heading">
+    <div class="container">
+      <div class="story">
+        <div>
+          <p class="eyebrow">CONCEPT</p>
+          <h2 id="concept-heading">お店の名前の前に、<br>まちの名前があります</h2>
+          <p class="lead-text">
+            KAMENOCHO STORE は、秋田市南通亀の町のヤマキウビル1階にあります。
+            店名は、そのまま町の名前です。
+          </p>
+
+          <div class="name-origin">
+            <span class="en">ひとりの「おいしい！」から、みんなの「たのしい！」を生みだすカフェダイニング</span>
+            <p class="ja">公式サイトに掲げられている言葉です。「日常の中の少しだけ特別な時間」を、暮らしの一部にしてもらう場所を目指していると書かれています。</p>
+          </div>
+
+          <p class="lead-text" style="margin-top:22px;">
+            亀の町は、繁華街・川反のすぐ近くにありながら、
+            昔ながらの商店街と飲食店と住宅が隣りあう場所です。
+            そこで、<strong>建物を一軒ずつ直して店にしていく</strong>という動きがありました。
+          </p>
+
+          <p class="lead-text" style="margin-top:22px;">
+            2013年に居酒屋の跡がスペインバルに。
+            2014年に同じエリアへイタリア料理店。
+            そして<strong>2015年、コーヒースタンド＆デリとして亀の町ストアが開きました</strong>。
+            このあたりのことは「エリアリノベーション」と呼ばれています。
+          </p>
+
+          <p class="lead-text" style="margin-top:22px;">
+            <strong>一軒のお店が、まちの続きとして建っている。</strong>
+            店名に町の名前が入っているのは、そういうことだと受け取りました。
+          </p>
+        </div>
+        <img class="story-photo" src="images/05_exterior_warehouse_4x3.webp" alt="倉庫を生かした建物の外観のイメージ画像" loading="lazy">
+      </div>
+      <div class="concept-gallery">
+        <img src="images/02_deli_plate_4x3.webp" alt="日替わりデリプレートのイメージ画像" loading="lazy">
+        <img src="images/03_coffee_4x3.webp" alt="亀の町ブレンドのイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 強み -->
+  <section id="strengths" class="section-alt" aria-labelledby="strengths-heading">
+    <div class="container">
+      <p class="eyebrow">公開されている情報から見える、この店舗の強み</p>
+      <h2 id="strengths-heading">お店の強み</h2>
+      <p class="lead-text">他店との比較ではなく、公開されている情報で確認できる特徴だけを根拠に整理しています。</p>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <img class="card-photo" src="images/02_deli_plate_4x3.webp" alt="日替わりデリプレートのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 01</span>
+          <h3>旬の野菜が、まとめて一皿に</h3>
+          <p>看板は<strong>日替わりのデリプレート</strong>です。旬の野菜を使った料理がいくつも並びます。カレーのプレート、秋田錦牛のチーズバーガーもあります。</p>
+          <p class="value">お客様にとっての価値：何を選ぶか迷わずに、季節のものをひと通り食べられます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/03_coffee_4x3.webp" alt="コーヒーのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 02</span>
+          <h3>コーヒーは、よそのお店の豆です</h3>
+          <p>「亀の町ブレンド」は、秋田の自家焙煎店<strong>08COFFEE</strong>のブレンドだと紹介されています。自分で焼かずに、焼く人に任せている形です。</p>
+          <p class="value">お客様にとっての価値：食事の店でありながら、コーヒーの味が本職のものです。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/01_hero_interior_16x9.webp" alt="広いテーブルのある店内のイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 03</span>
+          <h3>ひとりでも、大勢でも</h3>
+          <p>倉庫を生かした広い空間です。テーブルも広く、<strong>4名からの席の予約</strong>、夜の貸切、テイクアウトにも対応されています。年末年始以外はほぼ無休です。</p>
+          <p class="value">お客様にとっての価値：一人の時間にも、集まる用事にも、同じ店が使えます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- メニュー -->
+  <section id="menu" aria-labelledby="menu-heading">
+    <div class="container">
+      <p class="eyebrow">FOOD &amp; DRINK</p>
+      <h2 id="menu-heading">朝も、昼も、<br>開いている日があります</h2>
+      <p class="lead-text">
+        平日は11時から。土曜と日曜は、<strong>朝8時から</strong>も開いています。
+      </p>
+      <div class="dish-grid">
+        <div class="dish">
+          <span class="tag">看板</span>
+          <span class="name">日替わりデリプレート</span>
+          <p class="price">—</p>
+          <p class="desc">旬の野菜を使った料理が一皿に並びます。<strong>ボリュームたっぷり</strong>だと、来店された方が書かれていました。カレーのプレートもあります。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">肉</span>
+          <span class="name">秋田錦牛のチーズバーガー</span>
+          <p class="price">—</p>
+          <p class="desc">秋田錦牛を使ったチーズバーガーです。公式サイトのおすすめに挙げられています。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">コーヒー</span>
+          <span class="name">亀の町ブレンド</span>
+          <p class="price">—</p>
+          <p class="desc">08COFFEEのブレンドだと紹介されています。<strong>カフェオレは本家をしのぐ</strong>、という感想もありました。</p>
+        </div>
+        <div class="dish is-warm">
+          <span class="tag">甘いもの・お酒</span>
+          <span class="name">季節のパフェと、ワイン</span>
+          <p class="price">—</p>
+          <p class="desc">季節のパフェがあります。<strong>ランチのワインがお得</strong>だという感想も見かけました。夜の貸切にも対応されています。</p>
+        </div>
+      </div>
+      <p class="lead-text source-note">
+        ※ メニューは公式サイト（spiral-a.com）の掲載内容と、公開されている来店者の感想によります。
+        <strong>価格は、公開されている情報で確認できなかったため掲載していません。</strong>
+        デリプレートは日替わりです。そのほかのメニューは公式Instagramに掲載されていると案内されています。
+      </p>
+    </div>
+  </section>
+
+  <!-- まちのこと -->
+  <section id="town" class="section-alt" aria-labelledby="town-heading">
+    <div class="container">
+      <p class="eyebrow">KAMENOCHO</p>
+      <h2 id="town-heading">一軒ではなく、<br>何軒かで作られています</h2>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <span class="num">2013 →</span>
+          <h3>建物を直して、店にする</h3>
+          <p>2013年に居酒屋の跡がスペインバルに、2014年にイタリア料理店、<strong>2015年に亀の町ストア</strong>。一軒ずつ、同じエリアに増えていきました。</p>
+          <p class="value">空いた建物が、そのまま使われています。</p>
+        </div>
+        <div class="card">
+          <span class="num">SPIRAL A</span>
+          <h3>同じ会社の、ほかの店</h3>
+          <p>運営する株式会社スパイラル・エーは、<strong>亀の町ベーカリー</strong>と<strong>酒場カメバル</strong>も営まれています。ふるさと納税の返礼品も手がけられています。</p>
+          <p class="value">一日のうちの違う時間を、同じまちの中で過ごせます。</p>
+        </div>
+        <div class="card">
+          <span class="num">MISSION</span>
+          <h3>「きっかけ」になる、フードカンパニー</h3>
+          <p>会社として掲げられている言葉です。採用のページには「<strong>人をしあわせにすることを楽しもう。</strong>」とありました。</p>
+          <p class="value">お店が、まちに来る理由になっています。</p>
+        </div>
+      </div>
+      <p class="lead-text source-note">
+        ※ この節は株式会社スパイラル・エーの公式サイトと、
+        ソトコトオンライン（2020年1月5日）の掲載内容によります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 店内と使い方 -->
+  <section id="visit" class="highlight" aria-labelledby="visit-heading">
+    <div class="container">
+      <div class="highlight-grid">
+        <div>
+          <p class="eyebrow">SEATS &amp; ACCESS</p>
+          <h2 id="visit-heading">外は倉庫、<br>中は明るい店です</h2>
+          <p style="color:#dbd5cd;">
+            来店された方が「外観は倉庫ですが中は明るくておしゃれ」と書かれていました。そのギャップが、この店の入り口になっています。
+          </p>
+          <ul class="highlight-list">
+            <li><b>秋田駅から歩ける距離</b>南大通りを少し入った亀の町、ヤマキウビルの1階です。駐車場もあります。</li>
+            <li><b>11時に開くと、どんどん人が入ります</b>平日でもそうだと書かれていました。テーブルが広く、使い勝手がよいお店です。</li>
+            <li><b>土日は朝8時から</b>土曜と日曜は 8:00〜10:30（ラストオーダー9:45）も営業されています。通常は 11:00〜17:00（ラストオーダー16:00）。</li>
+            <li><b>予約と貸切</b>4名様からの席の予約、夜の貸切の予約、テイクアウトに対応されています。</li>
+          </ul>
+          <div class="cta-group">
+            <a class="btn btn-outline" style="border-color:#fff;color:#fff;" href="https://spiral-a.com/shop_store/" target="_blank" rel="noopener noreferrer">公式サイトを見る</a>
+          </div>
+        </div>
+        <img class="highlight-visual" src="images/04_morning_4x3.webp" alt="朝の光が入る窓際の席のイメージ画像" loading="lazy">
+      </div>
+      <p class="lead-text source-note" style="color:#c2bcb4;">
+        ※ この節は公式サイト（spiral-a.com）の掲載内容と、公開されている来店者の感想によります。
+        営業時間やお休みは変わることがあります。ご来店前のご確認がおすすめです。
+      </p>
+    </div>
+  </section>
+
+  <!-- 試作（診断） -->
+  <section id="proposal-quiz" class="proposal-section" aria-labelledby="quiz-heading">
+    <div class="container">
+      <span class="proposal-tag">INTERACTIVE PROTOTYPE｜動く新サービス試作</span>
+      <h2 id="quiz-heading">亀の町の過ごし方診断（試作）</h2>
+      <p class="lead-text">
+        朝、昼、夜。ひとり、大勢。食事、コーヒー、ワイン。使い方がいくつもあるお店です。
+        はじめての方が「いつ・どう使うか」を決めやすくするための診断を試作しました。
+        これは店舗運営者向けの新サービス提案・導入アイデアであり、現在提供中のサービスではありません。
+      </p>
+
+      <div class="proposal-note">
+        この診断結果は、公開されている情報で確認できる亀の町ストアの内容をもとにした、おおまかな分け方です。
+        デリプレートは日替わりのため、特定の料理を保証するものではありません。
+      </div>
+
+      <div class="quiz-app" id="quizApp">
+        <div id="quizIntro" class="quiz-intro">
+          <h3>対象：ご来店を検討している方／店舗運営者の方</h3>
+          <p>解決したい課題：朝・昼・夜、ひとり・大勢と使い方が多く、メニューも日替わりのため、はじめての方が見当をつけにくいこと。</p>
+          <button type="button" class="quiz-start-btn" id="quizStartBtn">試してみる</button>
+        </div>
+
+        <form id="quizForm" style="display:none;" novalidate>
+          <p class="quiz-progress" id="quizProgress" aria-live="polite"></p>
+          <p class="quiz-question" id="quizQuestionText"></p>
+          <ul class="quiz-options" id="quizOptions"></ul>
+          <p class="quiz-warning" id="quizWarning" role="alert"></p>
+          <div class="quiz-nav">
+            <button type="button" id="quizBack">戻る</button>
+            <button type="button" id="quizNext">次へ</button>
+          </div>
+        </form>
+
+        <div id="quizResult" style="display:none;" class="quiz-result" aria-live="polite">
+          <h3 id="resultName" tabindex="-1"></h3>
+          <p class="result-summary" id="resultSummary"></p>
+          <dl class="result-detail-list">
+            <dt>そのタイプになった理由</dt>
+            <dd id="resultReason"></dd>
+            <dt>向いている使い方</dt>
+            <dd id="resultRecommend"></dd>
+            <dt>お店の強みとのつながり</dt>
+            <dd id="resultStrength"></dd>
+          </dl>
+          <div class="quiz-result-actions">
+            <a class="btn btn-primary" id="resultCta" href="#menu">関連する節を見る</a>
+            <button type="button" class="btn btn-outline" id="quizRestartBtn">最初からやり直す</button>
+          </div>
+        </div>
+
+        <noscript>
+          <p>この試作デモの操作にはJavaScriptが必要です。JavaScriptが無効な場合でも、お店のご紹介や店舗情報は、このページの他の節から引き続きご覧いただけます。</p>
+        </noscript>
+
+        <p class="disclaimer-box">本機能は店舗運営者向けの試作デモです。現在提供中の正式サービスではありません。入力内容の保存・送信は行いません。ページを閉じると回答内容は消えます。お名前やご連絡先を入力していただく欄はありません。</p>
+      </div>
+
+      <div class="proposal-note" style="margin-top:32px;">
+        <strong>導入アイデア（今後の展開案）：</strong>この診断の結果画面から、
+        その日のデリプレートの中身と、席のご予約（4名様から）・夜の貸切のご相談につなげられます。
+        亀の町ベーカリーや酒場カメバルを合わせた、まちの中の回り方としてご案内することもできます。
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section id="info" aria-labelledby="info-heading">
+    <div class="container">
+      <p class="eyebrow">SHOP INFORMATION</p>
+      <h2 id="info-heading">店舗情報</h2>
+      <ul class="info-list">
+        <li><span class="term">店舗名</span><span>KAMENOCHO STORE（亀の町ストア）</span></li>
+        <li>
+          <span class="term">所在地</span>
+          <span>〒010-0011 秋田県秋田市南通亀の町4-15 ヤマキウビル1F<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%8D%97%E9%80%9A%E4%BA%80%E3%81%AE%E7%94%BA4-15" target="_blank" rel="noopener noreferrer">地図で見る（Googleマップ）</a>
+          </span>
+        </li>
+        <li><span class="term">電話</span><span>018-893-6783</span></li>
+        <li>
+          <span class="term">営業時間</span>
+          <span>11:00〜17:00（ラストオーダー 16:00）<br>
+            土・日のみ　8:00〜10:30（ラストオーダー 9:45）<br>
+            <span class="source-note" style="display:block;margin-top:4px;">※ 公式サイトの掲載内容です。</span>
+          </span>
+        </li>
+        <li>
+          <span class="term">定休日</span>
+          <span>なし（年末年始を除く）<br>
+            <span class="source-note" style="display:block;margin-top:4px;">※ 臨時のお休みがある場合があります。ご来店前のご確認がおすすめです。</span>
+          </span>
+        </li>
+        <li><span class="term">駐車場</span><span>あり</span></li>
+        <li><span class="term">ご予約</span><span>席のご予約は4名様から／夜の貸切のご予約／テイクアウトに対応</span></li>
+        <li><span class="term">開店</span><span>2015年</span></li>
+        <li><span class="term">運営</span><span>株式会社スパイラル・エー（亀の町ベーカリー、酒場カメバルも運営）</span></li>
+        <li><span class="term">公式サイト</span><span><a href="https://spiral-a.com/shop_store/" target="_blank" rel="noopener noreferrer">亀の町ストア｜株式会社スパイラル・エー</a></span></li>
+        <li><span class="term">Instagram</span><span><a href="https://www.instagram.com/kamenochostore/" target="_blank" rel="noopener noreferrer">@kamenochostore</a></span></li>
+      </ul>
+      <p class="lead-text source-note">
+        ※ このページは、株式会社スパイラル・エーの公式サイト、公式Instagram（@kamenochostore）、
+        ソトコトオンライン（2020年1月5日）、公開されている来店者の感想をもとに、
+        2026年10月21日時点で整理したものです。
+        <strong>価格は確認できなかったため掲載していません。</strong>
+        席数は公開されている情報では確認できませんでした。内容は変わっている場合があります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 最後のご案内 -->
+  <section class="final-cta" aria-labelledby="final-cta-heading">
+    <div class="container">
+      <h2 id="final-cta-heading">ご来店の前に、ご確認ください</h2>
+      <p style="color:#dbd5cd;">デリプレートは日替わりです。土曜と日曜は朝8時から開いています。席のご予約は4名様から承られています。</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" style="background:#fff;color:var(--color-primary);" href="https://spiral-a.com/shop_store/" target="_blank" rel="noopener noreferrer">公式サイトを見る</a>
+        <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%8D%97%E9%80%9A%E4%BA%80%E3%81%AE%E7%94%BA4-15" target="_blank" rel="noopener noreferrer">地図を見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>KAMENOCHO STORE（亀の町ストア）</p>
+    <p>© KAMENOCHO STORE. All Rights Reserved.</p>
+    <p><a href="#main-content">ページの先頭へ戻る</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var questions = [
+    {
+      text: "お店に行くとしたら、いちばん近いのはどれですか？",
+      options: [
+        { label: "お昼ごはんを食べたい", cat: "A" },
+        { label: "コーヒーを飲みに行きたい", cat: "B" },
+        { label: "朝のうちに出かけたい", cat: "C" },
+        { label: "何人かで集まりたい", cat: "D" },
+        { label: "まちを歩いてみたい", cat: "E" }
+      ]
+    },
+    {
+      text: "食べるものについて、近いのは？",
+      options: [
+        { label: "野菜をいろいろ食べたい", cat: "A" },
+        { label: "甘いものがあるとうれしい", cat: "B" },
+        { label: "軽めでいい", cat: "C" },
+        { label: "しっかり食べたい・お酒も", cat: "D" },
+        { label: "持ち帰りたい", cat: "E" }
+      ]
+    },
+    {
+      text: "誰と行きますか？",
+      options: [
+        { label: "ひとりで", cat: "A" },
+        { label: "ひとりで、ゆっくり", cat: "B" },
+        { label: "早起きした人と", cat: "C" },
+        { label: "4人以上で", cat: "D" },
+        { label: "秋田を知りたい人と", cat: "E" }
+      ]
+    },
+    {
+      text: "亀の町ストアで気になったことに近いのは？",
+      options: [
+        { label: "日替わりのデリプレート", cat: "A" },
+        { label: "08COFFEEのブレンド", cat: "B" },
+        { label: "土日の朝8時からの営業", cat: "C" },
+        { label: "広いテーブルと、夜の貸切", cat: "D" },
+        { label: "倉庫を直して作られた店であること", cat: "E" }
+      ]
+    },
+    {
+      text: "いま、いちばん知りたいことは？",
+      options: [
+        { label: "今日のデリの中身", cat: "A" },
+        { label: "コーヒーの種類", cat: "B" },
+        { label: "朝に何が食べられるか", cat: "C" },
+        { label: "予約のしかた", cat: "D" },
+        { label: "まわりに何があるか", cat: "E" }
+      ]
+    }
+  ];
+
+  var results = {
+    A: {
+      name: "デリプレートタイプ",
+      summary: "お昼に、季節のものをひと通り食べたい方です。",
+      reason: "食事や、野菜に関する回答が多い傾向でした。",
+      recommend: "日替わりデリプレート。旬の野菜を使った料理が一皿に並びます。ボリュームたっぷりだと書かれていました。カレーのプレートもあります。",
+      strength: "「旬の野菜が、まとめて一皿に」という強みと、いちばん重なるタイプです。",
+      ctaHref: "#menu",
+      ctaLabel: "メニューを見る"
+    },
+    B: {
+      name: "コーヒー目当てタイプ",
+      summary: "一杯のコーヒーに時間をかけたい方です。",
+      reason: "コーヒーや、ひとりの時間に関する回答が多い傾向でした。",
+      recommend: "亀の町ブレンド。秋田の自家焙煎店 08COFFEE のブレンドだと紹介されています。季節のパフェもあります。",
+      strength: "「コーヒーは、よそのお店の豆です」という強みと重なるタイプです。",
+      ctaHref: "#strengths",
+      ctaLabel: "お店の強みを見る"
+    },
+    C: {
+      name: "朝に行きたいタイプ",
+      summary: "朝のうちに出かけたい方です。",
+      reason: "朝や、軽めの食事に関する回答が多い傾向でした。",
+      recommend: "土曜・日曜の朝の営業。8:00〜10:30（ラストオーダー9:45）に開いています。平日は11:00からです。",
+      strength: "朝と昼で開く時間が違う、という使い分けのできるつくりと重なるタイプです。",
+      ctaHref: "#visit",
+      ctaLabel: "営業時間を見る"
+    },
+    D: {
+      name: "集まりたいタイプ",
+      summary: "何人かで使いたい方です。",
+      reason: "人数や、お酒に関する回答が多い傾向でした。",
+      recommend: "席のご予約（4名様から）、または夜の貸切。テーブルが広く、使い勝手がよいお店です。ランチのワインがお得だという感想もありました。",
+      strength: "「ひとりでも、大勢でも」という強みと重なるタイプです。",
+      ctaHref: "#visit",
+      ctaLabel: "予約のことを見る"
+    },
+    E: {
+      name: "まちごと楽しむタイプ",
+      summary: "お店だけでなく、まわりも見てみたい方です。",
+      reason: "まちや、建物に関する回答が多い傾向でした。",
+      recommend: "亀の町を歩いてみること。2013年から一軒ずつ建物を直して店にしてきたエリアです。同じ会社の亀の町ベーカリー、酒場カメバルもあります。",
+      strength: "「一軒ではなく、何軒かで作られています」という成り立ちと重なるタイプです。",
+      ctaHref: "#town",
+      ctaLabel: "まちのことを見る"
+    }
+  };
+
+  var priorityOrder = ["A", "B", "C", "D", "E"];
+
+  var currentIndex = 0;
+  var answers = new Array(questions.length).fill(null);
+
+  var quizIntro = document.getElementById("quizIntro");
+  var quizStartBtn = document.getElementById("quizStartBtn");
+  var quizForm = document.getElementById("quizForm");
+  var quizProgress = document.getElementById("quizProgress");
+  var quizQuestionText = document.getElementById("quizQuestionText");
+  var quizOptions = document.getElementById("quizOptions");
+  var quizWarning = document.getElementById("quizWarning");
+  var quizBack = document.getElementById("quizBack");
+  var quizNext = document.getElementById("quizNext");
+  var quizResult = document.getElementById("quizResult");
+  var quizRestartBtn = document.getElementById("quizRestartBtn");
+
+  function renderQuestion() {
+    quizWarning.textContent = "";
+    var q = questions[currentIndex];
+    quizProgress.textContent = "質問 " + (currentIndex + 1) + " / " + questions.length;
+    quizQuestionText.textContent = q.text;
+    quizOptions.innerHTML = "";
+
+    q.options.forEach(function (opt, i) {
+      var li = document.createElement("li");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "quiz-option";
+      btn.textContent = opt.label;
+      var selected = answers[currentIndex] === i;
+      btn.setAttribute("aria-pressed", selected ? "true" : "false");
+      btn.addEventListener("click", function () {
+        answers[currentIndex] = i;
+        var allBtns = quizOptions.querySelectorAll(".quiz-option");
+        allBtns.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+        btn.setAttribute("aria-pressed", "true");
+        quizWarning.textContent = "";
+      });
+      li.appendChild(btn);
+      quizOptions.appendChild(li);
+    });
+
+    quizBack.disabled = currentIndex === 0;
+    quizNext.textContent = currentIndex === questions.length - 1 ? "結果を見る" : "次へ";
+  }
+
+  function startQuiz() {
+    currentIndex = 0;
+    answers = new Array(questions.length).fill(null);
+    quizIntro.style.display = "none";
+    quizResult.style.display = "none";
+    quizForm.style.display = "block";
+    renderQuestion();
+  }
+
+  function showResult() {
+    var scores = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+    answers.forEach(function (ansIndex, qIndex) {
+      if (ansIndex === null) { return; }
+      var cat = questions[qIndex].options[ansIndex].cat;
+      scores[cat] += 1;
+    });
+
+    // 同点の場合は、最後の質問（5問目）で選んだものを優先します。
+    // それでも決まらない場合のみ、A→B→C→D→Eの順を採用します。
+    var lastCat = null;
+    var lastAnswerIndex = answers[answers.length - 1];
+    if (lastAnswerIndex !== null) {
+      lastCat = questions[questions.length - 1].options[lastAnswerIndex].cat;
+    }
+
+    var maxScore = -1;
+    priorityOrder.forEach(function (cat) {
+      if (scores[cat] > maxScore) { maxScore = scores[cat]; }
+    });
+    var topCats = priorityOrder.filter(function (cat) { return scores[cat] === maxScore; });
+
+    var winner;
+    if (topCats.length === 1) {
+      winner = topCats[0];
+    } else if (lastCat !== null && topCats.indexOf(lastCat) !== -1) {
+      winner = lastCat;
+    } else {
+      winner = topCats[0];
+    }
+
+    var r = results[winner];
+    document.getElementById("resultName").textContent = r.name;
+    document.getElementById("resultSummary").textContent = r.summary;
+    document.getElementById("resultReason").textContent = r.reason;
+    document.getElementById("resultRecommend").textContent = r.recommend;
+    document.getElementById("resultStrength").textContent = r.strength;
+    var cta = document.getElementById("resultCta");
+    cta.href = r.ctaHref;
+    cta.textContent = r.ctaLabel;
+
+    quizForm.style.display = "none";
+    quizResult.style.display = "block";
+    document.getElementById("resultName").focus();
+  }
+
+  quizStartBtn.addEventListener("click", startQuiz);
+
+  quizNext.addEventListener("click", function () {
+    if (answers[currentIndex] === null) {
+      quizWarning.textContent = "選択肢を選んでから次へ進んでください。";
+      return;
+    }
+    if (currentIndex === questions.length - 1) {
+      showResult();
+    } else {
+      currentIndex += 1;
+      renderQuestion();
+    }
+  });
+
+  quizBack.addEventListener("click", function () {
+    if (currentIndex > 0) {
+      currentIndex -= 1;
+      renderQuestion();
+    }
+  });
+
+  quizRestartBtn.addEventListener("click", function () {
+    quizResult.style.display = "none";
+    quizIntro.style.display = "block";
+  });
+})();
+</script>
+
+</body>
+</html>
