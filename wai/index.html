@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>喫茶WAI｜車庫が、喫茶店になりました。｜提案用ページ</title>
+<meta name="description" content="秋田市旭南の喫茶WAI。築40年のアパートの車庫を設計事務所が改装し、そのまま運営している喫茶店。旭川沿いの景色と、スパイスの効いたカレー、季節で変わる一杯を紹介する提案用ページです。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2f3a35">
+<style>
+  :root {
+    --color-primary: #2f3a35;      /* 深い墨のような緑 */
+    --color-secondary: #f7f4ee;    /* 生成り */
+    --color-green: #44705c;         /* 旭川の水辺の緑 */
+    --color-green-text: #3f6650;    /* 明るい地の上に置く文字用 */
+    --color-green-btn: #3f6650;     /* 白文字をのせるボタンの地色（白との明暗差 6.51） */
+    --color-warm: #8a6a3c;         /* 木と真鍮の茶 */
+    --color-warm-text: #7a5a2e;
+    --color-surface: #e8e4d9;
+    --color-proposal: #e9ece9;
+    --color-proposal-border: #93a69b;
+    --color-text: #2a302c;
+    --color-muted: #646b66;
+    --color-border: #d6cfc2;
+    --font-serif: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-sans: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  /* ★2026-10-20：背景にうっすら市松（いちまつ）の柄を入れています。
+     古い喫茶店のタイル床のような柄です。車庫を改装したお店であることに合わせました。
+     ・濃さ　：rgba の最後の数字（0.035）。1 に近いほど濃くなります
+     ・ますの大きさ：22px の部分（3か所とも同じ数字に）
+     ※ 色を敷いている節（強み／時間／催し／診断）には出ません。 */
+  body {
+    margin: 0;
+    background-color: var(--color-secondary);
+    background-image:
+      linear-gradient(45deg, rgba(47, 58, 53, 0.035) 25%, transparent 25%, transparent 75%, rgba(47, 58, 53, 0.035) 75%),
+      linear-gradient(45deg, rgba(47, 58, 53, 0.035) 25%, transparent 25%, transparent 75%, rgba(47, 58, 53, 0.035) 75%);
+    background-size: 22px 22px;
+    background-position: 0 0, 11px 11px;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 16px; line-height: 1.8; overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+
+  .container {
+    width: 100%; max-width: 960px; margin: 0 auto;
+    padding-left: clamp(14px, 4vw, 32px); padding-right: clamp(14px, 4vw, 32px);
+  }
+
+  .skip-link {
+    position: absolute; left: -999px; top: 0;
+    background: var(--color-green-btn); color: #fff;
+    padding: 10px 16px; z-index: 200; border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus { left: 0; }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid var(--color-green); outline-offset: 3px;
+  }
+
+  /* ---------- 提案用ラベル ---------- */
+  .proposal-bar {
+    background: var(--color-primary); color: var(--color-secondary);
+    text-align: center; padding: 8px 14px;
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.06em; line-height: 1.5;
+  }
+
+  /* ---------- ファーストビュー ---------- */
+  .hero {
+    position: relative; min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 96px 0 56px; background: var(--color-primary); overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(47,58,53,0.40) 0%, rgba(47,58,53,0.60) 55%, rgba(47,58,53,0.88) 100%);
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.16em;
+    color: var(--color-secondary); margin: 0 0 14px;
+  }
+  .hero h1 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(27px, 7.6vw, 45px); line-height: 1.4;
+    margin: 0 0 18px; color: var(--color-secondary); overflow-wrap: anywhere;
+  }
+  .hero-lead {
+    font-size: clamp(14px, 3.8vw, 17px); max-width: 34em;
+    margin: 0 0 30px; color: var(--color-secondary);
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 30px;
+    font-size: 12px; letter-spacing: 0.08em; color: var(--color-secondary);
+  }
+  .hero-tags span {
+    border: 1px solid rgba(247,244,238,0.5);
+    border-radius: 999px; padding: 6px 14px; background: rgba(47,58,53,0.35);
+  }
+
+  .cta-group { display: flex; flex-direction: column; gap: 12px; max-width: 340px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 12px 20px; border-radius: 6px;
+    text-decoration: none; font-size: 15px; letter-spacing: 0.02em;
+    border: 1px solid transparent; text-align: center; line-height: 1.4;
+  }
+  .btn-primary { background: var(--color-green-btn); color: #fff; }
+  .btn-outline { background: transparent; border-color: var(--color-primary); color: var(--color-primary); }
+  .hero .btn-primary { background: var(--color-secondary); color: var(--color-primary); }
+  .hero .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); background: rgba(47,58,53,0.25); }
+  @media (min-width: 560px) { .cta-group { flex-direction: row; max-width: none; } }
+
+  /* ---------- 共通 ---------- */
+  section { padding: clamp(48px, 9vw, 88px) 0; }
+  .section-alt { background: var(--color-surface); }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; color: var(--color-green-text); margin: 0 0 10px; }
+  h2 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(22px, 6vw, 30px); margin: 0 0 20px; line-height: 1.5; }
+  h3 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(17px, 4.6vw, 20px); margin: 0 0 10px; line-height: 1.6; }
+  p { margin: 0 0 14px; }
+  .lead-text { max-width: 40em; color: var(--color-muted); }
+  .source-note { font-size: .85em; opacity: .8; margin-top: 1.2em; }
+
+  /* ---------- 店名の由来 ---------- */
+  .name-origin {
+    margin: 26px 0 0; padding: 22px 24px;
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-green);
+    border-radius: 0 12px 12px 0;
+  }
+  .name-origin .en {
+    font-family: var(--font-serif); font-size: clamp(18px, 4.8vw, 24px);
+    letter-spacing: .04em; margin: 0 0 8px; display: block; color: var(--color-green-text);
+  }
+  .name-origin .ja { font-size: 14.5px; color: var(--color-muted); margin: 0; }
+
+  blockquote.quote {
+    margin: 26px 0 0; padding: 20px 22px;
+    background: var(--color-secondary);
+    border-left: 4px solid var(--color-warm);
+    border-top: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0 10px 10px 0;
+    font-family: var(--font-serif);
+    font-size: clamp(15px, 4vw, 17px); line-height: 1.9;
+  }
+  blockquote.quote cite {
+    display: block; margin-top: 10px; font-family: var(--font-sans);
+    font-style: normal; font-size: 12.5px; color: var(--color-muted);
+  }
+
+  /* ---------- カード ---------- */
+  .card-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
+  @media (min-width: 700px) {
+    .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  }
+  .card {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 10px; padding: 22px; min-width: 0;
+    box-shadow: 0 2px 10px rgba(47,58,53,0.05);
+  }
+  .card .num { font-size: 12px; color: var(--color-green-text); letter-spacing: 0.1em; display: block; margin-bottom: 10px; }
+  .card p { font-size: 14.5px; color: var(--color-text); margin-bottom: 8px; }
+  .card .value {
+    font-size: 13.5px; color: var(--color-muted);
+    border-top: 1px dashed var(--color-border); padding-top: 10px; margin-top: 10px;
+  }
+  .card-photo { border-radius: 8px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 14px; }
+
+  /* 横に3枚並べたときのそろえ方
+     ① 下端をそろえる作り（subgrid が使えないブラウザ用の保険）
+     このページの見出しは1行が文字サイズの1.6倍なので、2行ぶんは 3.2em です。 */
+  @media (min-width: 700px) {
+    .card-grid.cols-3 .card { display: flex; flex-direction: column; }
+    .card-grid.cols-3 .card h3 { line-height: 1.6; min-height: 3.2em; }
+    .card-grid.cols-3 .card .value { margin-top: auto; }
+  }
+  /* ② ラベル・見出し・本文・価値の4つを、それぞれ別々に高さをそろえます。 */
+  @supports (grid-template-rows: subgrid) {
+    @media (min-width: 700px) {
+      #strengths .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 5; }
+      #time .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 4; }
+      .card-grid.cols-3 .card h3 { min-height: 0; margin-bottom: 0; }
+      .card-grid.cols-3 .card .value { margin-top: 0; align-self: start; }
+      .card-grid.cols-3 .card p { margin-bottom: 0; }
+      .card-grid.cols-3 .card .num { margin-bottom: 0; }
+      .card-grid.cols-3 .card { row-gap: 10px; }
+    }
+  }
+
+  /* ---------- ストーリー ---------- */
+  .story { display: grid; gap: 24px; }
+  /* 横に並べたとき、写真をとなりの文章と同じ高さまで伸ばします。 */
+  @media (min-width: 760px) {
+    .story { grid-template-columns: 1fr 1fr; align-items: stretch; }
+    .story-photo { height: 100%; min-height: 300px; aspect-ratio: auto; }
+  }
+  .story-photo { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+  .concept-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 22px; }
+  .concept-gallery img { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+
+  /* ---------- 献立 ---------- */
+  .dish-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+  @media (min-width: 620px) { .dish-grid { grid-template-columns: repeat(2, 1fr); } }
+  .dish {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-green); border-radius: 0 8px 8px 0;
+    padding: 18px 20px; min-width: 0;
+  }
+  .dish.is-warm { border-left-color: var(--color-warm); }
+  .dish .tag { font-size: 12px; letter-spacing: .08em; color: var(--color-green-text); display: block; }
+  .dish.is-warm .tag { color: var(--color-warm-text); }
+  .dish .name { font-family: var(--font-serif); font-size: 19px; margin: 2px 0 6px; display: block; }
+  .dish .price { font-size: 15px; font-weight: 700; margin: 0 0 8px; }
+  .dish .desc { font-size: 14px; color: var(--color-muted); margin: 0; }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; padding: 0; list-style: none; }
+  .tag-list li {
+    font-size: 13.5px; color: var(--color-muted);
+    border: 1px solid var(--color-border); background: var(--color-secondary);
+    border-radius: 999px; padding: 5px 14px;
+  }
+
+  /* ---------- 地域の節 ---------- */
+  .highlight { background: var(--color-primary); color: var(--color-secondary); }
+  .highlight .eyebrow { color: #9fc3dd; }
+  .highlight-grid { display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 760px) { .highlight-grid { grid-template-columns: 1.1fr 1fr; } }
+  .highlight-visual {
+    border-radius: 10px; aspect-ratio: 4 / 3; width: 100%;
+    object-fit: cover; border: 1px solid rgba(255,255,255,0.15);
+  }
+  .highlight-list { list-style: none; padding: 0; margin: 18px 0 24px; font-size: 14.5px; }
+  .highlight-list li { padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.15); }
+  .highlight-list li:first-child { border-top: none; }
+  .highlight-list b { display: block; margin-bottom: 4px; font-size: 13px; color: #9fc3dd; letter-spacing: 0.04em; }
+
+  /* ---------- 一覧表 ---------- */
+  .info-list {
+    list-style: none; padding: 0; margin: 24px 0 0;
+    display: grid; gap: 0; border-top: 1px solid var(--color-border);
+  }
+  .info-list li {
+    display: grid; grid-template-columns: 120px 1fr; gap: 12px;
+    padding: 14px 0; border-bottom: 1px solid var(--color-border); font-size: 14.5px;
+  }
+  .info-list .term { color: var(--color-muted); font-size: 13px; letter-spacing: 0.04em; }
+  .info-list a { overflow-wrap: anywhere; text-decoration: underline; }
+
+  /* ---------- 試作（診断） ---------- */
+  .proposal-section {
+    background: var(--color-proposal);
+    border-top: 3px solid var(--color-proposal-border);
+    border-bottom: 3px solid var(--color-proposal-border);
+  }
+  .proposal-tag {
+    display: inline-block; font-size: 12px; letter-spacing: 0.1em;
+    background: var(--color-proposal-border); color: #16211f;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .proposal-note {
+    background: var(--color-secondary); border: 1px solid var(--color-proposal-border);
+    border-radius: 8px; padding: 14px 16px; font-size: 13.5px;
+    color: var(--color-muted); margin: 22px 0 30px; line-height: 1.75;
+  }
+  .quiz-app {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 14px; padding: 22px; max-width: 640px;
+  }
+  .quiz-intro h3 { margin: 0 0 12px; font-size: 20px; }
+  .quiz-progress { font-size: 13px; color: var(--color-muted); margin-bottom: 12px; }
+  .quiz-question { font-size: 17px; font-weight: 700; margin: 0 0 12px; }
+  .quiz-options { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 10px; }
+  .quiz-option {
+    width: 100%; text-align: left; padding: 14px 16px; min-height: 44px;
+    border: 1.5px solid var(--color-border); border-radius: 8px;
+    background: var(--color-surface); font-size: 15px;
+    font-family: inherit; color: var(--color-text); cursor: pointer;
+  }
+  .quiz-option[aria-pressed="true"] { border-color: var(--color-green); background: #e2ebf2; font-weight: 700; }
+  .quiz-option[aria-pressed="true"]::before { content: "✓ "; color: var(--color-green-text); }
+  .quiz-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; }
+  .quiz-nav button { min-height: 44px; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-family: inherit; cursor: pointer; }
+  #quizBack { background: transparent; border: 1px solid var(--color-border); color: var(--color-text); }
+  #quizNext { background: var(--color-green-btn); border: 1px solid var(--color-green-btn); color: #fff; }
+  #quizNext:disabled, #quizBack:disabled { opacity: .4; cursor: not-allowed; }
+  .quiz-warning { font-size: 13px; color: #a0432a; margin-top: 6px; min-height: 1.2em; }
+  .quiz-result h3 { font-size: 22px; margin: 0 0 6px; }
+  .quiz-result .result-summary { color: var(--color-muted); margin: 0 0 22px; }
+  .result-detail-list { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 4px; font-size: 14px; }
+  .result-detail-list dt { font-weight: 700; margin-top: 12px; }
+  .result-detail-list dd { margin: 2px 0 0; color: var(--color-muted); }
+  .quiz-result-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .quiz-start-btn {
+    min-height: 44px; padding: 12px 28px; background: var(--color-green-btn);
+    color: #fff; border: none; border-radius: 6px; font-size: 15px; font-weight: 700; cursor: pointer;
+  }
+  .disclaimer-box {
+    font-size: 13px; line-height: 1.7; color: var(--color-muted);
+    background: var(--color-surface); border: 1px dashed var(--color-border);
+    border-radius: 8px; padding: 14px 16px; margin-top: 22px;
+  }
+
+  /* ---------- 最後のご案内 ---------- */
+  .final-cta { background: var(--color-primary); color: var(--color-secondary); text-align: center; }
+  .final-cta .cta-group { margin: 26px auto 0; justify-content: center; }
+  .final-cta .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); }
+
+  .site-footer {
+    padding: 32px 0 40px; text-align: center; font-size: 12.5px;
+    color: var(--color-muted); border-top: 1px solid var(--color-border);
+  }
+  .site-footer a { text-decoration: underline; }
+  .site-footer p { margin: 6px 0; }
+
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
+<div class="proposal-bar" role="note">
+  CONCEPT LP ／ 店舗向け提案用ページです。本ページには未導入の新サービス提案・試作デモが含まれます。<br>
+  ※本ページの掲載画像は、店舗の世界観を表現したイメージ画像です。
+</div>
+
+<main id="main-content">
+
+  <!-- ファーストビュー -->
+  <section class="hero">
+    <img class="hero-bg" src="images/01_hero_window_16x9.webp" alt="窓際の席と川沿いの景色のイメージ画像" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <p class="hero-eyebrow">喫茶WAI — 秋田市旭南</p>
+      <h1>車庫が、<br>喫茶店になりました。</h1>
+      <p class="hero-lead">
+        築40年のアパートの、1階の車庫。そこを設計事務所が改装して、そのまま喫茶店として続けています。
+        旭川の遊歩道と、歓楽街から続く一方通行の道に挟まれた場所です。
+      </p>
+      <p class="hero-tags">
+        <span>設計事務所が運営</span>
+        <span>旭川沿いのテーブル3卓</span>
+        <span>スパイスの効いたカレー</span>
+      </p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="#strengths">店舗について見る</a>
+        <a class="btn btn-outline" href="https://www.instagram.com/kissa_wai/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- コンセプト -->
+  <section id="concept" aria-labelledby="concept-heading">
+    <div class="container">
+      <div class="story">
+        <div>
+          <p class="eyebrow">CONCEPT</p>
+          <h2 id="concept-heading">設計した人が、<br>そのまま続けています</h2>
+          <p class="lead-text">
+            喫茶WAIは、秋田市旭南にあります。
+            建物は、築40年の賃貸アパート。その1階の車庫だった部分が、いまの店内です。
+          </p>
+
+          <div class="name-origin">
+            <span class="en">設計も、運営も、同じ人たち</span>
+            <p class="ja">改装を手がけたのは、建築とインテリアの設計をしている「キソン-アトリエ」。公式サイトには「運営は弊所が担い、メニューや置くもの、催しの設計にも関わっています」と書かれています。</p>
+          </div>
+
+          <p class="lead-text" style="margin-top:22px;">
+            お店が建つのは、旭川沿いの遊歩道と、歓楽街から続く一方通行の道に挟まれた土地です。
+            秋田市では昭和のはじめまで、川の舟で生活の物資を運んでいました。
+            その名残で、この辺りには<strong>船大工町・馬口労町・鍛治町</strong>といった旧町名が残っています。
+            いまも近くに、刃物屋や鉄工所、鍵屋があります。
+          </p>
+
+          <blockquote class="quote">
+            町内の歴史を知る人が住む通りと、市の中心を流れる旭川の力を借りた「清々しい場所」が生まれることを想定しました。
+            <cite>キソン-アトリエ 公式サイト「喫茶WAI」のページより</cite>
+          </blockquote>
+
+          <p class="lead-text" style="margin-top:22px;">
+            <strong>場所にあるものを、そのまま使う。</strong>
+            古い建物も、川も、町の歴史も、なくさずに店のほうへ引き入れた、という作り方です。
+          </p>
+        </div>
+        <img class="story-photo" src="images/05_exterior_garage_4x3.webp" alt="車庫を改装した外観のイメージ画像" loading="lazy">
+      </div>
+      <div class="concept-gallery">
+        <img src="images/02_montblanc_coffee_4x3.webp" alt="モンブラン・コーヒーのイメージ画像" loading="lazy">
+        <img src="images/04_curry_4x3.webp" alt="スパイスカレーのイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 強み -->
+  <section id="strengths" class="section-alt" aria-labelledby="strengths-heading">
+    <div class="container">
+      <p class="eyebrow">公開されている情報から見える、この店舗の強み</p>
+      <h2 id="strengths-heading">お店の強み</h2>
+      <p class="lead-text">他店との比較ではなく、公開されている情報で確認できる特徴だけを根拠に整理しています。</p>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <img class="card-photo" src="images/05_exterior_garage_4x3.webp" alt="車庫を改装した外観のイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 01</span>
+          <h3>すみずみに、理由があります</h3>
+          <p>設計事務所が改装し、そのまま運営しています。メニューも、置いてあるものも、催しも、同じ人たちが考えています。</p>
+          <p class="value">お客様にとっての価値：目に入るものがちぐはぐにならず、店全体がひとつにまとまっています。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/01_hero_window_16x9.webp" alt="窓から見える川沿いの景色のイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 02</span>
+          <h3>窓が、景色を切り取ります</h3>
+          <p>旭川沿いの遊歩道に面していて、窓の外が景色になります。席はテーブル3卓だけ。8人ほどで満席になる小ささです。</p>
+          <p class="value">お客様にとっての価値：席が少ないぶん、どの席に座るかで見えるものが変わります。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/03_tea_bergamot_4x3.webp" alt="紅茶とベルガモットのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 03</span>
+          <h3>その日の陽気に、合わせてあります</h3>
+          <p>秋晴れの日には国産ベルガモットを入れた紅茶、気持ちのいい日にはメルボルン発祥の冷たいコーヒー。そんな出し方をされています。</p>
+          <p class="value">お客様にとっての価値：同じ店でも、行く日によって出てくるものが違います。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 飲みものと食べもの -->
+  <section id="menu" aria-labelledby="menu-heading">
+    <div class="container">
+      <p class="eyebrow">DRINKS &amp; FOOD</p>
+      <h2 id="menu-heading">今日の陽気に、<br>合わせて出てきます</h2>
+      <p class="lead-text">
+        コーヒーは浅煎りから深煎りまで、常に数種類。
+        そこに、その時季だけのものが加わります。
+      </p>
+      <div class="dish-grid">
+        <div class="dish">
+          <span class="tag">その日の一杯</span>
+          <span class="name">モンブラン・コーヒー</span>
+          <p class="price">—</p>
+          <p class="desc">オーストラリア・メルボルン発祥の飲みものです。アイスコーヒーの上に<strong>オレンジ風味の生クリーム</strong>をのせています。見た目が白い山のようなのでモンブラン（栗は入っていません）。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">秋の一杯</span>
+          <span class="name">“真アールグレイ”</span>
+          <p class="price">—</p>
+          <p class="desc">早期収穫の<strong>国産ベルガモット</strong>の果皮を、ダージリンに入れたもの。ベルガモットはアールグレイの香りづけに使われる柑橘です。「真アールグレイとでも申しましょうか」と案内されていました。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">定番</span>
+          <span class="name">クリームソーダ</span>
+          <p class="price">—</p>
+          <p class="desc">お店いわく「のんびりしているとアイスがシロップと一緒に<strong>だらしなく溶けてしまいます</strong>が、これもまたおすすめです」。</p>
+        </div>
+        <div class="dish is-warm">
+          <span class="tag">食事</span>
+          <span class="name">カレー</span>
+          <p class="price">—</p>
+          <p class="desc">常に2〜3種類。<strong>辛くはなく、スパイスの香りが立つ</strong>タイプだと書かれています。ライスは大・中・小から選べます。季節で中身が変わります。</p>
+        </div>
+      </div>
+      <p class="lead-text source-note">
+        ※ モンブラン・コーヒーとベルガモットの紅茶は、公式Instagram（@kissa_wai）の投稿によります。
+        クリームソーダのご案内は、BOOK&amp;WEEKEND 2026 の参加店紹介に掲載されたお店の文章からの引用です。
+        カレーのことは、公開されている来店者の感想によります。
+        そのほかに紅茶、ソフトドリンク、ビール、ワイン、チーズケーキなどの甘いものがあると書かれています。
+        <strong>価格は公開されている情報では確認できませんでした。</strong>内容は季節によって変わります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 時間と席 -->
+  <section id="time" class="section-alt" aria-labelledby="time-heading">
+    <div class="container">
+      <p class="eyebrow">TIME &amp; SEATS</p>
+      <h2 id="time-heading">14時以降が、<br>ゆっくりです</h2>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <span class="num">TIME</span>
+          <h3>おすすめの時間を、お店が書いています</h3>
+          <p>「ランチの時間はあわただしくなりがちですので、<strong>14時以降が比較的ゆったりお過ごしいただけます</strong>」と案内されています。</p>
+          <p class="value">いつ行けばいいかを、お店のほうから教えてくれています。</p>
+        </div>
+        <div class="card">
+          <span class="num">SEATS</span>
+          <h3>テーブル3卓の小さな店</h3>
+          <p>4名の席が1卓、2名の席が2卓。<strong>8人ほどで満席</strong>になります。店主がほぼお一人で回されているので、お急ぎのときには向きません。</p>
+          <p class="value">混む時間を外せば、静かに過ごせるつくりです。</p>
+        </div>
+        <div class="card">
+          <span class="num">ACCESS</span>
+          <h3>駐車場と、お支払い</h3>
+          <p>駐車場はお店の前に1台、そのほかにも近くにあります。<strong>クレジットカード・電子マネー・QRコード決済</strong>が使えます。</p>
+          <p class="value">現金を用意しなくても立ち寄れます。</p>
+        </div>
+      </div>
+      <p class="lead-text source-note">
+        ※ 時間のご案内は BOOK&amp;WEEKEND 2026 の参加店紹介に掲載されたお店の文章から、
+        席数と店内の様子は公開されている来店者の感想から、
+        駐車場とお支払い方法は飲食店情報サイトの掲載内容から整理しました。
+        駐車場の台数と場所は変わることがあるため、公式Instagramでのご確認がおすすめです。
+      </p>
+    </div>
+  </section>
+
+  <!-- 催し -->
+  <section id="community" class="highlight" aria-labelledby="community-heading">
+    <div class="container">
+      <div class="highlight-grid">
+        <div>
+          <p class="eyebrow">EVENTS</p>
+          <h2 id="community-heading">本と、喫茶と、<br>暮らしのあいだで</h2>
+          <p style="color:#d7ded9;">
+            設計事務所が「催しの設計にも関わっています」と書いているとおり、お店は町の催しの会場にもなっています。
+          </p>
+          <ul class="highlight-list">
+            <li><b>BOOK&amp;WEEKEND 2026 参加店</b>秋田市内の「本」「喫茶」「暮らし」のお店、全15会場で開かれる催しに参加されています。</li>
+            <li><b>手のひらサイズのエッセイ</b>各会場で、店主やスタッフが綴ったエッセイがプレゼントされます。喫茶WAIの紹介文も、お店自身の言葉で書かれていました。</li>
+            <li><b>「読み聴き書き、ともに味わう時間を」</b>主催者はそう案内しています。よく行く場所の新しい一面を知ったり、ふだんは行かないお店に足を伸ばしてみたり、という月間です。</li>
+            <li><b>会場構成も、仕事のうち</b>運営するキソン-アトリエは、展覧会やイベントの会場構成、印刷物のデザインも手がけている事務所です。</li>
+          </ul>
+          <div class="cta-group">
+            <a class="btn btn-outline" style="border-color:#fff;color:#fff;" href="https://www.instagram.com/kissa_wai/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+          </div>
+        </div>
+        <img class="highlight-visual" src="images/04_curry_4x3.webp" alt="カウンターに置かれた本とカレーのイメージ画像" loading="lazy">
+      </div>
+      <p class="lead-text source-note" style="color:#bcc6c0;">
+        ※ この節は、公式Instagram（@kissa_wai）および BOOK&amp;WEEKEND（@book.n.weekend）の
+        2026年9月23日の投稿、キソン-アトリエ公式サイトによります。
+        開催の時期や内容は変わることがあります。最新のご案内は公式Instagramをご確認ください。
+      </p>
+    </div>
+  </section>
+
+  <!-- 試作（診断） -->
+  <section id="proposal-quiz" class="proposal-section" aria-labelledby="quiz-heading">
+    <div class="container">
+      <span class="proposal-tag">INTERACTIVE PROTOTYPE｜動く新サービス試作</span>
+      <h2 id="quiz-heading">喫茶WAIの過ごし方診断（試作）</h2>
+      <p class="lead-text">
+        カレーの店でもあり、コーヒーの店でもあり、紅茶の店でもあり、本の催しの会場にもなります。
+        はじめての方が「どう使う店なのか」を決めやすくするための診断を試作しました。
+        これは店舗運営者向けの新サービス提案・導入アイデアであり、現在提供中のサービスではありません。
+      </p>
+
+      <div class="proposal-note">
+        この診断結果は、公開されている情報で確認できる喫茶WAIの内容をもとにした、おおまかな分け方です。
+        メニューは季節で変わるため、特定の一品を保証するものではありません。
+      </div>
+
+      <div class="quiz-app" id="quizApp">
+        <div id="quizIntro" class="quiz-intro">
+          <h3>対象：ご来店を検討している方／店舗運営者の方</h3>
+          <p>解決したい課題：席が8人ほどで満席になる小さなお店のため、はじめての方が「いつ・何をしに行けばいいか」の見当をつけにくいこと。</p>
+          <button type="button" class="quiz-start-btn" id="quizStartBtn">試してみる</button>
+        </div>
+
+        <form id="quizForm" style="display:none;" novalidate>
+          <p class="quiz-progress" id="quizProgress" aria-live="polite"></p>
+          <p class="quiz-question" id="quizQuestionText"></p>
+          <ul class="quiz-options" id="quizOptions"></ul>
+          <p class="quiz-warning" id="quizWarning" role="alert"></p>
+          <div class="quiz-nav">
+            <button type="button" id="quizBack">戻る</button>
+            <button type="button" id="quizNext">次へ</button>
+          </div>
+        </form>
+
+        <div id="quizResult" style="display:none;" class="quiz-result" aria-live="polite">
+          <h3 id="resultName" tabindex="-1"></h3>
+          <p class="result-summary" id="resultSummary"></p>
+          <dl class="result-detail-list">
+            <dt>そのタイプになった理由</dt>
+            <dd id="resultReason"></dd>
+            <dt>向いている過ごし方</dt>
+            <dd id="resultRecommend"></dd>
+            <dt>お店の強みとのつながり</dt>
+            <dd id="resultStrength"></dd>
+          </dl>
+          <div class="quiz-result-actions">
+            <a class="btn btn-primary" id="resultCta" href="#menu">関連する節を見る</a>
+            <button type="button" class="btn btn-outline" id="quizRestartBtn">最初からやり直す</button>
+          </div>
+        </div>
+
+        <noscript>
+          <p>この試作デモの操作にはJavaScriptが必要です。JavaScriptが無効な場合でも、お店のご紹介や店舗情報は、このページの他の節から引き続きご覧いただけます。</p>
+        </noscript>
+
+        <p class="disclaimer-box">本機能は店舗運営者向けの試作デモです。現在提供中の正式サービスではありません。入力内容の保存・送信は行いません。ページを閉じると回答内容は消えます。お名前やご連絡先を入力していただく欄はありません。</p>
+      </div>
+
+      <div class="proposal-note" style="margin-top:32px;">
+        <strong>導入アイデア（今後の展開案）：</strong>この診断の結果画面から、
+        その日の営業と混みぐあい、駐車場の空き場所、いま出している季節の一杯を、まとめてお伝えできます。
+        駐車場の場所は「インスタをチェックしてみてください」と案内されている項目なので、
+        ここに置いておくと、来店前の確認が一度で済みます。
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section id="info" aria-labelledby="info-heading">
+    <div class="container">
+      <p class="eyebrow">SHOP INFORMATION</p>
+      <h2 id="info-heading">店舗情報</h2>
+      <ul class="info-list">
+        <li><span class="term">店舗名</span><span>喫茶WAI（キッサワイ）</span></li>
+        <li>
+          <span class="term">所在地</span>
+          <span>〒010-0925 秋田県秋田市旭南2-4-30 1階<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E6%97%AD%E5%8D%972-4-30" target="_blank" rel="noopener noreferrer">地図で見る（Googleマップ）</a>
+          </span>
+        </li>
+        <li>
+          <span class="term">営業時間</span>
+          <span>金・土　11:00〜19:00（ラストオーダー 18:30）<br>
+            日・月　11:00〜18:00（ラストオーダー 17:30）<br>
+            <span class="source-note" style="display:block;margin-top:4px;">※ 飲食店情報サイトの掲載内容です。公式サイトには記載がないため、ご来店前に公式Instagramでのご確認がおすすめです。</span>
+          </span>
+        </li>
+        <li>
+          <span class="term">定休日</span>
+          <span>火・水・木<br>
+            <span class="source-note" style="display:block;margin-top:4px;">※ 営業されているのは金・土・日・月と紹介されています。</span>
+          </span>
+        </li>
+        <li><span class="term">席数</span><span>テーブル3卓（4名席1卓・2名席2卓）／8名ほどで満席</span></li>
+        <li><span class="term">駐車場</span><span>お店の前に1台、そのほか近くにもあり<br>
+          <span class="source-note" style="display:block;margin-top:4px;">※ 場所は公式Instagramでのご確認がおすすめです。</span></span></li>
+        <li><span class="term">お支払い</span><span>クレジットカード・電子マネー・QRコード決済</span></li>
+        <li><span class="term">建物</span><span>築40年の賃貸アパート1階、車庫部分を改装</span></li>
+        <li><span class="term">運営</span><span>キソン-アトリエ（建築・インテリアの設計／2017年設立）</span></li>
+        <li><span class="term">公式サイト</span><span><a href="https://kison.main.jp/wordpress/%E5%96%AB%E8%8C%B6wai/" target="_blank" rel="noopener noreferrer">キソン-アトリエ「喫茶WAI」のページ</a></span></li>
+        <li><span class="term">Instagram</span><span><a href="https://www.instagram.com/kissa_wai/" target="_blank" rel="noopener noreferrer">@kissa_wai</a></span></li>
+      </ul>
+      <p class="lead-text source-note">
+        ※ このページは、キソン-アトリエ公式サイト、公式Instagram（@kissa_wai）、
+        BOOK&amp;WEEKEND（@book.n.weekend）の投稿、飲食店情報サイトの掲載内容、
+        公開されている来店者の感想をもとに、2026年10月20日時点で整理したものです。
+        営業時間・定休日は公式サイトに記載がないため、情報サイトの掲載内容によります。
+        価格は確認できなかったため掲載していません。内容は変わっている場合があります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 最後のご案内 -->
+  <section class="final-cta" aria-labelledby="final-cta-heading">
+    <div class="container">
+      <h2 id="final-cta-heading">ご来店の前に、ご確認ください</h2>
+      <p style="color:#d7ded9;">営業時間と駐車場の場所は、公式Instagramでご確認いただけます。ゆっくり過ごされるなら14時以降がおすすめです。</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" style="background:#fff;color:var(--color-primary);" href="https://www.instagram.com/kissa_wai/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+        <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E6%97%AD%E5%8D%972-4-30" target="_blank" rel="noopener noreferrer">地図を見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>喫茶WAI</p>
+    <p>© 喫茶WAI. All Rights Reserved.</p>
+    <p><a href="#main-content">ページの先頭へ戻る</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var questions = [
+    {
+      text: "お店に行くとしたら、いちばん近いのはどれですか？",
+      options: [
+        { label: "お昼ごはんを食べたい", cat: "A" },
+        { label: "甘いものでひと休みしたい", cat: "B" },
+        { label: "コーヒーをじっくり飲みたい", cat: "C" },
+        { label: "季節のものを味わいたい", cat: "D" },
+        { label: "本を読んだり、書いたりしたい", cat: "E" }
+      ]
+    },
+    {
+      text: "行く時間は、どのあたりになりそうですか？",
+      options: [
+        { label: "お昼どき", cat: "A" },
+        { label: "午後のおやつの時間", cat: "B" },
+        { label: "いつでもいい", cat: "C" },
+        { label: "その日の天気しだい", cat: "D" },
+        { label: "閉店までゆっくり", cat: "E" }
+      ]
+    },
+    {
+      text: "誰と行きますか？",
+      options: [
+        { label: "おなかを空かせた人と", cat: "A" },
+        { label: "おしゃべりする相手と", cat: "B" },
+        { label: "ひとりで", cat: "C" },
+        { label: "食べものに詳しい人と", cat: "D" },
+        { label: "ひとりで、静かに", cat: "E" }
+      ]
+    },
+    {
+      text: "喫茶WAIで気になったことに近いのは？",
+      options: [
+        { label: "スパイスの効いたカレー", cat: "A" },
+        { label: "クリームソーダ", cat: "B" },
+        { label: "浅煎りから深煎りまでそろうコーヒー", cat: "C" },
+        { label: "国産ベルガモットの紅茶", cat: "D" },
+        { label: "本の催しの会場になっていること", cat: "E" }
+      ]
+    },
+    {
+      text: "いま、いちばん知りたいことは？",
+      options: [
+        { label: "今日のカレーの種類", cat: "A" },
+        { label: "甘いものの種類", cat: "B" },
+        { label: "今日の豆の産地", cat: "C" },
+        { label: "いま出ている季節の一杯", cat: "D" },
+        { label: "次の催しの予定", cat: "E" }
+      ]
+    }
+  ];
+
+  var results = {
+    A: {
+      name: "カレーを食べにタイプ",
+      summary: "まずは食事をしに行きたい方です。",
+      reason: "食事や、お昼どきに関する回答が多い傾向でした。",
+      recommend: "カレー。常に2〜3種類あり、辛くはなくスパイスの香りが立つタイプだと書かれています。ライスは大・中・小から選べます。",
+      strength: "季節で中身が変わる、という作り方と重なるタイプです。",
+      ctaHref: "#menu",
+      ctaLabel: "飲みものと食べものを見る"
+    },
+    B: {
+      name: "午後のひと休みタイプ",
+      summary: "甘いものでゆっくりしたい方です。",
+      reason: "甘いものや、おやつの時間に関する回答が多い傾向でした。",
+      recommend: "クリームソーダ。お店いわく「のんびりしているとアイスがシロップと一緒にだらしなく溶けてしまいますが、これもまたおすすめです」。14時以降がゆったり過ごせる時間だと案内されています。",
+      strength: "「14時以降が、ゆっくりです」という、お店自身のご案内と重なるタイプです。",
+      ctaHref: "#time",
+      ctaLabel: "時間と席を見る"
+    },
+    C: {
+      name: "コーヒーをじっくりタイプ",
+      summary: "一杯のコーヒーに時間をかけたい方です。",
+      reason: "コーヒーや、ひとりで過ごすことに関する回答が多い傾向でした。",
+      recommend: "その日のコーヒー。浅煎りから中煎り、深煎りまで常に数種類そろえられています。冷たいものなら、メルボルン発祥のモンブラン・コーヒーもあります。",
+      strength: "席が3卓だけという小ささと、相性のよいタイプです。",
+      ctaHref: "#menu",
+      ctaLabel: "飲みものを見る"
+    },
+    D: {
+      name: "季節の一杯タイプ",
+      summary: "その日その時季のものを味わいたい方です。",
+      reason: "季節や天気に関する回答が多い傾向でした。",
+      recommend: "いま出ている季節の一杯。秋には早期収穫の国産ベルガモットの果皮をダージリンに入れた“真アールグレイ”が出されていました。内容は時季で変わります。",
+      strength: "「その日の陽気に、合わせてあります」という強みと、いちばん重なるタイプです。",
+      ctaHref: "#strengths",
+      ctaLabel: "お店の強みを見る"
+    },
+    E: {
+      name: "読んで書いてタイプ",
+      summary: "静かに本を読んだり、書いたりしたい方です。",
+      reason: "本や催し、静けさに関する回答が多い傾向でした。",
+      recommend: "混む時間を外しての来店。BOOK&WEEKEND 2026 の参加店で、各会場では店主やスタッフが綴ったエッセイがプレゼントされます。",
+      strength: "設計事務所が催しの設計にも関わっている、という成り立ちと重なるタイプです。",
+      ctaHref: "#community",
+      ctaLabel: "催しを見る"
+    }
+  };
+
+  var priorityOrder = ["A", "B", "C", "D", "E"];
+
+  var currentIndex = 0;
+  var answers = new Array(questions.length).fill(null);
+
+  var quizIntro = document.getElementById("quizIntro");
+  var quizStartBtn = document.getElementById("quizStartBtn");
+  var quizForm = document.getElementById("quizForm");
+  var quizProgress = document.getElementById("quizProgress");
+  var quizQuestionText = document.getElementById("quizQuestionText");
+  var quizOptions = document.getElementById("quizOptions");
+  var quizWarning = document.getElementById("quizWarning");
+  var quizBack = document.getElementById("quizBack");
+  var quizNext = document.getElementById("quizNext");
+  var quizResult = document.getElementById("quizResult");
+  var quizRestartBtn = document.getElementById("quizRestartBtn");
+
+  function renderQuestion() {
+    quizWarning.textContent = "";
+    var q = questions[currentIndex];
+    quizProgress.textContent = "質問 " + (currentIndex + 1) + " / " + questions.length;
+    quizQuestionText.textContent = q.text;
+    quizOptions.innerHTML = "";
+
+    q.options.forEach(function (opt, i) {
+      var li = document.createElement("li");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "quiz-option";
+      btn.textContent = opt.label;
+      var selected = answers[currentIndex] === i;
+      btn.setAttribute("aria-pressed", selected ? "true" : "false");
+      btn.addEventListener("click", function () {
+        answers[currentIndex] = i;
+        var allBtns = quizOptions.querySelectorAll(".quiz-option");
+        allBtns.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+        btn.setAttribute("aria-pressed", "true");
+        quizWarning.textContent = "";
+      });
+      li.appendChild(btn);
+      quizOptions.appendChild(li);
+    });
+
+    quizBack.disabled = currentIndex === 0;
+    quizNext.textContent = currentIndex === questions.length - 1 ? "結果を見る" : "次へ";
+  }
+
+  function startQuiz() {
+    currentIndex = 0;
+    answers = new Array(questions.length).fill(null);
+    quizIntro.style.display = "none";
+    quizResult.style.display = "none";
+    quizForm.style.display = "block";
+    renderQuestion();
+  }
+
+  function showResult() {
+    var scores = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+    answers.forEach(function (ansIndex, qIndex) {
+      if (ansIndex === null) { return; }
+      var cat = questions[qIndex].options[ansIndex].cat;
+      scores[cat] += 1;
+    });
+
+    // 同点の場合は、最後の質問（5問目）で選んだものを優先します。
+    // それでも決まらない場合のみ、A→B→C→D→Eの順を採用します。
+    var lastCat = null;
+    var lastAnswerIndex = answers[answers.length - 1];
+    if (lastAnswerIndex !== null) {
+      lastCat = questions[questions.length - 1].options[lastAnswerIndex].cat;
+    }
+
+    var maxScore = -1;
+    priorityOrder.forEach(function (cat) {
+      if (scores[cat] > maxScore) { maxScore = scores[cat]; }
+    });
+    var topCats = priorityOrder.filter(function (cat) { return scores[cat] === maxScore; });
+
+    var winner;
+    if (topCats.length === 1) {
+      winner = topCats[0];
+    } else if (lastCat !== null && topCats.indexOf(lastCat) !== -1) {
+      winner = lastCat;
+    } else {
+      winner = topCats[0];
+    }
+
+    var r = results[winner];
+    document.getElementById("resultName").textContent = r.name;
+    document.getElementById("resultSummary").textContent = r.summary;
+    document.getElementById("resultReason").textContent = r.reason;
+    document.getElementById("resultRecommend").textContent = r.recommend;
+    document.getElementById("resultStrength").textContent = r.strength;
+    var cta = document.getElementById("resultCta");
+    cta.href = r.ctaHref;
+    cta.textContent = r.ctaLabel;
+
+    quizForm.style.display = "none";
+    quizResult.style.display = "block";
+    document.getElementById("resultName").focus();
+  }
+
+  quizStartBtn.addEventListener("click", startQuiz);
+
+  quizNext.addEventListener("click", function () {
+    if (answers[currentIndex] === null) {
+      quizWarning.textContent = "選択肢を選んでから次へ進んでください。";
+      return;
+    }
+    if (currentIndex === questions.length - 1) {
+      showResult();
+    } else {
+      currentIndex += 1;
+      renderQuestion();
+    }
+  });
+
+  quizBack.addEventListener("click", function () {
+    if (currentIndex > 0) {
+      currentIndex -= 1;
+      renderQuestion();
+    }
+  });
+
+  quizRestartBtn.addEventListener("click", function () {
+    quizResult.style.display = "none";
+    quizIntro.style.display = "block";
+  });
+})();
+</script>
+
+</body>
+</html>
