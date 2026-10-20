@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>niru cafe｜コーヒーに、合わせて作ったカレーです。｜提案用ページ</title>
+<meta name="description" content="秋田市手形からみでんの niru cafe（ニルカフェ）。自家焙煎のコーヒーと、そのコーヒーに合わせて設計されたスパイスカレーの店。キッチンカー「ニルカー」での出店も紹介する提案用ページです。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#3a2a1f">
+<style>
+  :root {
+    --color-primary: #3a2a1f;      /* 深い焦茶（コーヒー豆） */
+    --color-secondary: #faf6ee;    /* 生成り */
+    --color-spice: #a8551a;         /* スパイスのオレンジ */
+    --color-spice-text: #9c4f16;    /* 明るい地の上に置く文字用 */
+    --color-spice-btn: #8f4a14;     /* 白文字をのせるボタンの地色（白との明暗差 6.65） */
+    --color-warm: #4f6b3a;         /* バジルの緑 */
+    --color-warm-text: #45602f;
+    --color-surface: #efe7d9;
+    --color-proposal: #efe9e2;
+    --color-proposal-border: #a8977f;
+    --color-text: #2e261f;
+    --color-muted: #6b6155;
+    --color-border: #ddd2c0;
+    --font-serif: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-sans: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  /* ★2026-10-21：背景にうっすら山形（やまがた）の柄を入れています。
+     布の織り模様のような、小さなギザギザです。スパイスの並びに合わせました。
+     ・濃さ　：rgba の最後の数字（0.035）。1 に近いほど濃くなります（4か所とも同じ数字に）
+     ・山の大きさ：20px の部分
+     ※ 色を敷いている節（強み／コーヒー／出店／診断）には出ません。 */
+  body {
+    margin: 0;
+    background-color: var(--color-secondary);
+    background-image:
+      linear-gradient(135deg, rgba(58, 42, 31, 0.035) 25%, transparent 25%),
+      linear-gradient(225deg, rgba(58, 42, 31, 0.035) 25%, transparent 25%),
+      linear-gradient(315deg, rgba(58, 42, 31, 0.035) 25%, transparent 25%),
+      linear-gradient(45deg,  rgba(58, 42, 31, 0.035) 25%, transparent 25%);
+    background-size: 20px 20px;
+    background-position: -10px 0, -10px 0, 0 0, 0 0;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 16px; line-height: 1.8; overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+
+  .container {
+    width: 100%; max-width: 960px; margin: 0 auto;
+    padding-left: clamp(14px, 4vw, 32px); padding-right: clamp(14px, 4vw, 32px);
+  }
+
+  .skip-link {
+    position: absolute; left: -999px; top: 0;
+    background: var(--color-spice-btn); color: #fff;
+    padding: 10px 16px; z-index: 200; border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus { left: 0; }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid var(--color-spice); outline-offset: 3px;
+  }
+
+  /* ---------- 提案用ラベル ---------- */
+  .proposal-bar {
+    background: var(--color-primary); color: var(--color-secondary);
+    text-align: center; padding: 8px 14px;
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.06em; line-height: 1.5;
+  }
+
+  /* ---------- ファーストビュー ---------- */
+  .hero {
+    position: relative; min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 96px 0 56px; background: var(--color-primary); overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(58,42,31,0.40) 0%, rgba(58,42,31,0.60) 55%, rgba(58,42,31,0.88) 100%);
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.16em;
+    color: var(--color-secondary); margin: 0 0 14px;
+  }
+  .hero h1 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(27px, 7.6vw, 45px); line-height: 1.4;
+    margin: 0 0 18px; color: var(--color-secondary); overflow-wrap: anywhere;
+  }
+  .hero-lead {
+    font-size: clamp(14px, 3.8vw, 17px); max-width: 34em;
+    margin: 0 0 30px; color: var(--color-secondary);
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 30px;
+    font-size: 12px; letter-spacing: 0.08em; color: var(--color-secondary);
+  }
+  .hero-tags span {
+    border: 1px solid rgba(250,246,238,0.5);
+    border-radius: 999px; padding: 6px 14px; background: rgba(58,42,31,0.35);
+  }
+
+  .cta-group { display: flex; flex-direction: column; gap: 12px; max-width: 340px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 12px 20px; border-radius: 6px;
+    text-decoration: none; font-size: 15px; letter-spacing: 0.02em;
+    border: 1px solid transparent; text-align: center; line-height: 1.4;
+  }
+  .btn-primary { background: var(--color-spice-btn); color: #fff; }
+  .btn-outline { background: transparent; border-color: var(--color-primary); color: var(--color-primary); }
+  .hero .btn-primary { background: var(--color-secondary); color: var(--color-primary); }
+  .hero .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); background: rgba(58,42,31,0.25); }
+  @media (min-width: 560px) { .cta-group { flex-direction: row; max-width: none; } }
+
+  /* ---------- 共通 ---------- */
+  section { padding: clamp(48px, 9vw, 88px) 0; }
+  .section-alt { background: var(--color-surface); }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; color: var(--color-spice-text); margin: 0 0 10px; }
+  h2 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(22px, 6vw, 30px); margin: 0 0 20px; line-height: 1.5; }
+  h3 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(17px, 4.6vw, 20px); margin: 0 0 10px; line-height: 1.6; }
+  p { margin: 0 0 14px; }
+  .lead-text { max-width: 40em; color: var(--color-muted); }
+  .source-note { font-size: .85em; opacity: .8; margin-top: 1.2em; }
+
+  /* ---------- 店名の由来 ---------- */
+  .name-origin {
+    margin: 26px 0 0; padding: 22px 24px;
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-spice);
+    border-radius: 0 12px 12px 0;
+  }
+  .name-origin .en {
+    font-family: var(--font-serif); font-size: clamp(18px, 4.8vw, 24px);
+    letter-spacing: .04em; margin: 0 0 8px; display: block; color: var(--color-spice-text);
+  }
+  .name-origin .ja { font-size: 14.5px; color: var(--color-muted); margin: 0; }
+
+  blockquote.quote {
+    margin: 26px 0 0; padding: 20px 22px;
+    background: var(--color-secondary);
+    border-left: 4px solid var(--color-warm);
+    border-top: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0 10px 10px 0;
+    font-family: var(--font-serif);
+    font-size: clamp(15px, 4vw, 17px); line-height: 1.9;
+  }
+  blockquote.quote cite {
+    display: block; margin-top: 10px; font-family: var(--font-sans);
+    font-style: normal; font-size: 12.5px; color: var(--color-muted);
+  }
+
+  /* ---------- カード ---------- */
+  .card-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
+  @media (min-width: 700px) {
+    .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  }
+  .card {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 10px; padding: 22px; min-width: 0;
+    box-shadow: 0 2px 10px rgba(58,42,31,0.05);
+  }
+  .card .num { font-size: 12px; color: var(--color-spice-text); letter-spacing: 0.1em; display: block; margin-bottom: 10px; }
+  .card p { font-size: 14.5px; color: var(--color-text); margin-bottom: 8px; }
+  .card .value {
+    font-size: 13.5px; color: var(--color-muted);
+    border-top: 1px dashed var(--color-border); padding-top: 10px; margin-top: 10px;
+  }
+  .card-photo { border-radius: 8px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 14px; }
+
+  /* 横に3枚並べたときのそろえ方
+     ① 下端をそろえる作り（subgrid が使えないブラウザ用の保険）
+     このページの見出しは1行が文字サイズの1.6倍なので、2行ぶんは 3.2em です。 */
+  @media (min-width: 700px) {
+    .card-grid.cols-3 .card { display: flex; flex-direction: column; }
+    .card-grid.cols-3 .card h3 { line-height: 1.6; min-height: 3.2em; }
+    .card-grid.cols-3 .card .value { margin-top: auto; }
+  }
+  /* ② ラベル・見出し・本文・価値の4つを、それぞれ別々に高さをそろえます。 */
+  @supports (grid-template-rows: subgrid) {
+    @media (min-width: 700px) {
+      #strengths .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 5; }
+      #coffee .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 4; }
+      .card-grid.cols-3 .card h3 { min-height: 0; margin-bottom: 0; }
+      .card-grid.cols-3 .card .value { margin-top: 0; align-self: start; }
+      .card-grid.cols-3 .card p { margin-bottom: 0; }
+      .card-grid.cols-3 .card .num { margin-bottom: 0; }
+      .card-grid.cols-3 .card { row-gap: 10px; }
+    }
+  }
+
+  /* ---------- ストーリー ---------- */
+  .story { display: grid; gap: 24px; }
+  /* 横に並べたとき、写真をとなりの文章と同じ高さまで伸ばします。 */
+  @media (min-width: 760px) {
+    .story { grid-template-columns: 1fr 1fr; align-items: stretch; }
+    .story-photo { height: 100%; min-height: 300px; aspect-ratio: auto; }
+  }
+  .story-photo { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+  .concept-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 22px; }
+  .concept-gallery img { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+
+  /* ---------- 献立 ---------- */
+  .dish-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+  @media (min-width: 620px) { .dish-grid { grid-template-columns: repeat(2, 1fr); } }
+  .dish {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-spice); border-radius: 0 8px 8px 0;
+    padding: 18px 20px; min-width: 0;
+  }
+  .dish.is-warm { border-left-color: var(--color-warm); }
+  .dish .tag { font-size: 12px; letter-spacing: .08em; color: var(--color-spice-text); display: block; }
+  .dish.is-warm .tag { color: var(--color-warm-text); }
+  .dish .name { font-family: var(--font-serif); font-size: 19px; margin: 2px 0 6px; display: block; }
+  .dish .price { font-size: 15px; font-weight: 700; margin: 0 0 8px; }
+  .dish .desc { font-size: 14px; color: var(--color-muted); margin: 0; }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; padding: 0; list-style: none; }
+  .tag-list li {
+    font-size: 13.5px; color: var(--color-muted);
+    border: 1px solid var(--color-border); background: var(--color-secondary);
+    border-radius: 999px; padding: 5px 14px;
+  }
+
+  /* ---------- 地域の節 ---------- */
+  .highlight { background: var(--color-primary); color: var(--color-secondary); }
+  .highlight .eyebrow { color: #9fc3dd; }
+  .highlight-grid { display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 760px) { .highlight-grid { grid-template-columns: 1.1fr 1fr; } }
+  .highlight-visual {
+    border-radius: 10px; aspect-ratio: 4 / 3; width: 100%;
+    object-fit: cover; border: 1px solid rgba(255,255,255,0.15);
+  }
+  .highlight-list { list-style: none; padding: 0; margin: 18px 0 24px; font-size: 14.5px; }
+  .highlight-list li { padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.15); }
+  .highlight-list li:first-child { border-top: none; }
+  .highlight-list b { display: block; margin-bottom: 4px; font-size: 13px; color: #9fc3dd; letter-spacing: 0.04em; }
+
+  /* ---------- 一覧表 ---------- */
+  .info-list {
+    list-style: none; padding: 0; margin: 24px 0 0;
+    display: grid; gap: 0; border-top: 1px solid var(--color-border);
+  }
+  .info-list li {
+    display: grid; grid-template-columns: 120px 1fr; gap: 12px;
+    padding: 14px 0; border-bottom: 1px solid var(--color-border); font-size: 14.5px;
+  }
+  .info-list .term { color: var(--color-muted); font-size: 13px; letter-spacing: 0.04em; }
+  .info-list a { overflow-wrap: anywhere; text-decoration: underline; }
+
+  /* ---------- 試作（診断） ---------- */
+  .proposal-section {
+    background: var(--color-proposal);
+    border-top: 3px solid var(--color-proposal-border);
+    border-bottom: 3px solid var(--color-proposal-border);
+  }
+  .proposal-tag {
+    display: inline-block; font-size: 12px; letter-spacing: 0.1em;
+    background: var(--color-proposal-border); color: #16211f;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .proposal-note {
+    background: var(--color-secondary); border: 1px solid var(--color-proposal-border);
+    border-radius: 8px; padding: 14px 16px; font-size: 13.5px;
+    color: var(--color-muted); margin: 22px 0 30px; line-height: 1.75;
+  }
+  .quiz-app {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 14px; padding: 22px; max-width: 640px;
+  }
+  .quiz-intro h3 { margin: 0 0 12px; font-size: 20px; }
+  .quiz-progress { font-size: 13px; color: var(--color-muted); margin-bottom: 12px; }
+  .quiz-question { font-size: 17px; font-weight: 700; margin: 0 0 12px; }
+  .quiz-options { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 10px; }
+  .quiz-option {
+    width: 100%; text-align: left; padding: 14px 16px; min-height: 44px;
+    border: 1.5px solid var(--color-border); border-radius: 8px;
+    background: var(--color-surface); font-size: 15px;
+    font-family: inherit; color: var(--color-text); cursor: pointer;
+  }
+  .quiz-option[aria-pressed="true"] { border-color: var(--color-spice); background: #e2ebf2; font-weight: 700; }
+  .quiz-option[aria-pressed="true"]::before { content: "✓ "; color: var(--color-spice-text); }
+  .quiz-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; }
+  .quiz-nav button { min-height: 44px; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-family: inherit; cursor: pointer; }
+  #quizBack { background: transparent; border: 1px solid var(--color-border); color: var(--color-text); }
+  #quizNext { background: var(--color-spice-btn); border: 1px solid var(--color-spice-btn); color: #fff; }
+  #quizNext:disabled, #quizBack:disabled { opacity: .4; cursor: not-allowed; }
+  .quiz-warning { font-size: 13px; color: #a0432a; margin-top: 6px; min-height: 1.2em; }
+  .quiz-result h3 { font-size: 22px; margin: 0 0 6px; }
+  .quiz-result .result-summary { color: var(--color-muted); margin: 0 0 22px; }
+  .result-detail-list { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 4px; font-size: 14px; }
+  .result-detail-list dt { font-weight: 700; margin-top: 12px; }
+  .result-detail-list dd { margin: 2px 0 0; color: var(--color-muted); }
+  .quiz-result-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .quiz-start-btn {
+    min-height: 44px; padding: 12px 28px; background: var(--color-spice-btn);
+    color: #fff; border: none; border-radius: 6px; font-size: 15px; font-weight: 700; cursor: pointer;
+  }
+  .disclaimer-box {
+    font-size: 13px; line-height: 1.7; color: var(--color-muted);
+    background: var(--color-surface); border: 1px dashed var(--color-border);
+    border-radius: 8px; padding: 14px 16px; margin-top: 22px;
+  }
+
+  /* ---------- 最後のご案内 ---------- */
+  .final-cta { background: var(--color-primary); color: var(--color-secondary); text-align: center; }
+  .final-cta .cta-group { margin: 26px auto 0; justify-content: center; }
+  .final-cta .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); }
+
+  .site-footer {
+    padding: 32px 0 40px; text-align: center; font-size: 12.5px;
+    color: var(--color-muted); border-top: 1px solid var(--color-border);
+  }
+  .site-footer a { text-decoration: underline; }
+  .site-footer p { margin: 6px 0; }
+
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
+<div class="proposal-bar" role="note">
+  CONCEPT LP ／ 店舗向け提案用ページです。本ページには未導入の新サービス提案・試作デモが含まれます。<br>
+  ※本ページの掲載画像は、店舗の世界観を表現したイメージ画像です。
+</div>
+
+<main id="main-content">
+
+  <!-- ファーストビュー -->
+  <section class="hero">
+    <img class="hero-bg" src="images/01_curry_plate_16x9.webp" alt="3種のスパイスカレーをのせた一皿のイメージ画像" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <p class="hero-eyebrow">niru cafe（ニルカフェ）— 秋田市手形からみでん</p>
+      <h1>コーヒーに、<br>合わせて作ったカレーです。</h1>
+      <p class="hero-lead">
+        コーヒーを自分で焙煎し、そのコーヒーに合うようにスパイスカレーを組み立てています。
+        浅煎りにも深煎りにも合わせられるように、性格の違うカレーを並べる。そういう作り方のお店です。
+      </p>
+      <p class="hero-tags">
+        <span>自家焙煎のコーヒー</span>
+        <span>スパイス15種類以上</span>
+        <span>グルテンフリーのキーマ</span>
+      </p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="#strengths">店舗について見る</a>
+        <a class="btn btn-outline" href="https://www.instagram.com/niru_cafe/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- コンセプト -->
+  <section id="concept" aria-labelledby="concept-heading">
+    <div class="container">
+      <div class="story">
+        <div>
+          <p class="eyebrow">CONCEPT</p>
+          <h2 id="concept-heading">焙煎する人が、<br>カレーもつくっています</h2>
+          <p class="lead-text">
+            niru cafe は、秋田市手形からみでんにあります。
+            カウンターだけの、10席のお店です。
+          </p>
+
+          <div class="name-origin">
+            <span class="en">コーヒーもカレーも、同じ人の手から</span>
+            <p class="ja">店主は、秋田市茨島の「麻布珈琲店」で7年間働いていた方です。コーヒーは自家焙煎。その同じ人が、スパイスカレーを組み立てています。</p>
+          </div>
+
+          <p class="lead-text" style="margin-top:22px;">
+            はじまりは、2022年3月のキッチンカー「<strong>ニルカー</strong>」でした。
+            秋田市山王の、知人のオフィスの敷地を借りて始められています。
+            子連れでは、辛いものやコーヒーをゆっくり味わうのが難しい。
+            だから、持ち帰れる形から始めたと紹介されています。
+          </p>
+
+          <blockquote class="quote">
+            子供たちの目の届くところでお店を開きたい。
+            <cite>a.woman（2022年6月24日）に掲載された、店主の言葉より</cite>
+          </blockquote>
+
+          <p class="lead-text" style="margin-top:22px;">
+            その1か月後、仕込みに使っていた場所を直して、自宅の近くに店舗を開かれました。
+            <strong>キッチンカーが先で、お店があと。</strong>いまも、その両方が動いています。
+          </p>
+        </div>
+        <img class="story-photo" src="images/05_counter_interior_4x3.webp" alt="カウンターだけの小さな店内のイメージ画像" loading="lazy">
+      </div>
+      <div class="concept-gallery">
+        <img src="images/03_keema_miso_4x3.webp" alt="自家製味噌のキーマカレーのイメージ画像" loading="lazy">
+        <img src="images/02_coffee_americano_4x3.webp" alt="エスプレッソマシンで淹れたコーヒーのイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 強み -->
+  <section id="strengths" class="section-alt" aria-labelledby="strengths-heading">
+    <div class="container">
+      <p class="eyebrow">公開されている情報から見える、この店舗の強み</p>
+      <h2 id="strengths-heading">お店の強み</h2>
+      <p class="lead-text">他店との比較ではなく、公開されている情報で確認できる特徴だけを根拠に整理しています。</p>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <img class="card-photo" src="images/02_coffee_americano_4x3.webp" alt="コーヒーのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 01</span>
+          <h3>コーヒーに合わせて、カレーのほうを設計できます</h3>
+          <p>キッチンカーの出店案内に「浅煎り、深煎りと様々なコーヒーにマリアージュできるように<strong>対極なタイプのあいがけスパイスカレー</strong>を提供します」と書かれていました。</p>
+          <p class="value">お客様にとっての価値：カレーとコーヒーを別々に選ぶのではなく、組み合わせで選べます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/04_green_curry_4x3.webp" alt="柑橘をのせた緑色のカレーのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 02</span>
+          <h3>辛さは、あとから足せます</h3>
+          <p>スパイスは15種類以上。ただし癖の強いものは使わず、<strong>辛味は「あとがけ」</strong>で調整できる形にされています。鶏白湯と煮干しの出汁でコクを出していると紹介されています。</p>
+          <p class="value">お客様にとっての価値：辛いものが苦手な方も、好きな方も、同じ一皿から始められます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/03_keema_miso_4x3.webp" alt="自家製味噌のキーマカレーのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 03</span>
+          <h3>味噌も、栗も、十文字から</h3>
+          <p>自家製味噌のキーマに使われているのは、<strong>横手市十文字町のご実家で家族と作る味噌</strong>です。秋のカレーにも十文字産の栗が使われていました。食材は付き合いのある地元の業者から仕入れられています。</p>
+          <p class="value">お客様にとっての価値：どこの何が入っているかが、はっきりしています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- カレー -->
+  <section id="curry" aria-labelledby="curry-heading">
+    <div class="container">
+      <p class="eyebrow">SPICE CURRY</p>
+      <h2 id="curry-heading">性格の違うカレーを、<br>一皿に並べます</h2>
+      <p class="lead-text">
+        定番が2種類あり、そこにその時季のカレーが加わります。
+        迷ったときのために、3種類をのせた一皿が用意されています。
+      </p>
+      <div class="dish-grid">
+        <div class="dish">
+          <span class="tag">看板</span>
+          <span class="name">3種カレープレート</span>
+          <p class="price">—</p>
+          <p class="desc">3種類のカレーが一皿にのります。<strong>自分の好みで混ぜながら</strong>味わえます。季節のカレーは、このプレートに入る形で出されています（単品はありません）。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">定番</span>
+          <span class="name">自家製味噌のキーマ</span>
+          <p class="price">—</p>
+          <p class="desc">横手市十文字町のご実家で家族と作る味噌を使った、和風のキーマです。<strong>玉ねぎとスパイスだけ</strong>で作られていて、グルテンフリーです。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">定番</span>
+          <span class="name">オレンジチキンカレー</span>
+          <p class="price">—</p>
+          <p class="desc">オレンジと出汁で煮込んだチキンカレーです。味噌キーマとは<strong>性格がまったく違う一皿</strong>で、この二つを両方のせた「あいがけ」もあります。</p>
+        </div>
+        <div class="dish is-warm">
+          <span class="tag">その時季のもの</span>
+          <span class="name">季節のカレー</span>
+          <p class="price">—</p>
+          <p class="desc">秋は「秋の栗〜ムキーマ」（十文字産の栗ときのこを濃厚な生クリームで包んだチキンキーマ）。少し前には「シークヮーサー香る鶏トロのバジルグリーン」（沖縄直送の果汁）が出ていました。</p>
+        </div>
+      </div>
+      <p class="lead-text source-note">
+        ※ 定番2種と作り方は a.woman（2022年6月24日）、季節のカレーは公式Instagram（@niru_cafe）の投稿によります。
+        <strong>価格は、公開されている情報で現在のものを確認できなかったため掲載していません。</strong>
+        メニューは季節で入れ替わります。最新の内容は公式Instagramでご確認ください。
+      </p>
+    </div>
+  </section>
+
+  <!-- コーヒー -->
+  <section id="coffee" class="section-alt" aria-labelledby="coffee-heading">
+    <div class="container">
+      <p class="eyebrow">COFFEE</p>
+      <h2 id="coffee-heading">カレーのあとに、<br>飲むところまで</h2>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <span class="num">ROAST</span>
+          <h3>自家焙煎のコーヒー</h3>
+          <p>店主が選んだ豆を自分で焙煎し、<strong>エスプレッソマシンで淹れて</strong>います。前のお店で7年間、コーヒーの仕事をされていた方です。</p>
+          <p class="value">カレーに合わせられるのは、焙煎するところから手元にあるからです。</p>
+        </div>
+        <div class="card">
+          <span class="num">AFTER</span>
+          <h3>食後は、アメリカーノ</h3>
+          <p>店主ご自身が、<strong>食後のアメリカーノ</strong>をすすめられています。スパイスのあとに、何を飲むか。そこまで決めてあるお店です。</p>
+          <p class="value">カレーで終わらずに、もう一杯ぶんの時間が用意されています。</p>
+        </div>
+        <div class="card">
+          <span class="num">SWEET</span>
+          <h3>波照間産黒糖ミルク</h3>
+          <p>沖縄・波照間産の黒糖と、お店のコーヒー豆を組み合わせた飲みものです。甘いものでは、ケーキ・アフォガート・パフェもあると紹介されています。</p>
+          <p class="value">コーヒーが苦手な方にも、入り口が用意されています。</p>
+        </div>
+      </div>
+      <p class="lead-text source-note">
+        ※ この節は a.woman（2022年6月24日）および秋田タウン情報（2024年4月2日）の掲載内容によります。
+        内容は変わっている場合があります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 出店 -->
+  <section id="nirucar" class="highlight" aria-labelledby="nirucar-heading">
+    <div class="container">
+      <div class="highlight-grid">
+        <div>
+          <p class="eyebrow">NIRUCAR &amp; EVENTS</p>
+          <h2 id="nirucar-heading">お店のほうが、<br>出かけていきます</h2>
+          <p style="color:#e2d7c9;">
+            キッチンカー「ニルカー」は、お店より先に始まったほうです。いまも各地の催しに出ています。
+          </p>
+          <ul class="highlight-list">
+            <li><b>音漏れapartmentマーケット2026</b>2026年10月31日（土）・11月1日（日）11:00〜15:00、秋田市手形住吉町社宅4号棟（秋田大学陸上競技場すぐ横）。niru cafe は<b>11月1日のみ</b>の出店です。雨天決行（荒天時のみ中止）。</li>
+            <li><b>東北六華珈琲祭</b>2026年11月14日（土）・15日（日）11:00〜17:00、ヤマキウ南倉庫。<b>ニルカーは15日のみ</b>の参加です。「愛する故郷東北を珈琲で灯す。」という催しです。</li>
+            <li><b>そこで出されるのが、あいがけです</b>「浅煎り、深煎りと様々なコーヒーにマリアージュできるように対極なタイプのあいがけスパイスカレーを提供します」と案内されていました。<b>よそのコーヒーに合わせにいく</b>、という出し方です。</li>
+            <li><b>割引券つきのフライヤー</b>珈琲3種の飲み比べチケットが100円引きになるフライヤーが、お店で配られています。</li>
+          </ul>
+          <div class="cta-group">
+            <a class="btn btn-outline" style="border-color:#fff;color:#fff;" href="https://www.instagram.com/niru_cafe/" target="_blank" rel="noopener noreferrer">出店の予定を見る</a>
+          </div>
+        </div>
+        <img class="highlight-visual" src="images/01_curry_plate_16x9.webp" alt="キッチンカーで出されるカレーのイメージ画像" loading="lazy">
+      </div>
+      <p class="lead-text source-note" style="color:#c9bdae;">
+        ※ この節は公式Instagram（@niru_cafe）、音漏れapartment（@otomore_apartment）の2026年10月10日の投稿、
+        東北六華珈琲祭の案内によります。開催内容や出店日は変わることがあります。
+        お出かけの前に、公式Instagramでのご確認をおすすめします。
+      </p>
+    </div>
+  </section>
+
+  <!-- 試作（診断） -->
+  <section id="proposal-quiz" class="proposal-section" aria-labelledby="quiz-heading">
+    <div class="container">
+      <span class="proposal-tag">INTERACTIVE PROTOTYPE｜動く新サービス試作</span>
+      <h2 id="quiz-heading">カレーとコーヒーの合わせ方診断（試作）</h2>
+      <p class="lead-text">
+        カレーが3種類あり、コーヒーも浅煎りから深煎りまであります。
+        「どれとどれを合わせるか」を決めやすくするための診断を試作しました。
+        これは店舗運営者向けの新サービス提案・導入アイデアであり、現在提供中のサービスではありません。
+      </p>
+
+      <div class="proposal-note">
+        この診断結果は、公開されている情報で確認できる niru cafe の内容をもとにした、おおまかな分け方です。
+        カレーは季節で入れ替わるため、特定の一品を保証するものではありません。
+      </div>
+
+      <div class="quiz-app" id="quizApp">
+        <div id="quizIntro" class="quiz-intro">
+          <h3>対象：ご来店を検討している方／店舗運営者の方</h3>
+          <p>解決したい課題：カレーもコーヒーも選択肢があり、しかも組み合わせで味わいが変わるため、はじめての方が決めにくいこと。</p>
+          <button type="button" class="quiz-start-btn" id="quizStartBtn">試してみる</button>
+        </div>
+
+        <form id="quizForm" style="display:none;" novalidate>
+          <p class="quiz-progress" id="quizProgress" aria-live="polite"></p>
+          <p class="quiz-question" id="quizQuestionText"></p>
+          <ul class="quiz-options" id="quizOptions"></ul>
+          <p class="quiz-warning" id="quizWarning" role="alert"></p>
+          <div class="quiz-nav">
+            <button type="button" id="quizBack">戻る</button>
+            <button type="button" id="quizNext">次へ</button>
+          </div>
+        </form>
+
+        <div id="quizResult" style="display:none;" class="quiz-result" aria-live="polite">
+          <h3 id="resultName" tabindex="-1"></h3>
+          <p class="result-summary" id="resultSummary"></p>
+          <dl class="result-detail-list">
+            <dt>そのタイプになった理由</dt>
+            <dd id="resultReason"></dd>
+            <dt>向いている合わせ方</dt>
+            <dd id="resultRecommend"></dd>
+            <dt>お店の強みとのつながり</dt>
+            <dd id="resultStrength"></dd>
+          </dl>
+          <div class="quiz-result-actions">
+            <a class="btn btn-primary" id="resultCta" href="#curry">関連する節を見る</a>
+            <button type="button" class="btn btn-outline" id="quizRestartBtn">最初からやり直す</button>
+          </div>
+        </div>
+
+        <noscript>
+          <p>この試作デモの操作にはJavaScriptが必要です。JavaScriptが無効な場合でも、お店のご紹介や店舗情報は、このページの他の節から引き続きご覧いただけます。</p>
+        </noscript>
+
+        <p class="disclaimer-box">本機能は店舗運営者向けの試作デモです。現在提供中の正式サービスではありません。入力内容の保存・送信は行いません。ページを閉じると回答内容は消えます。お名前やご連絡先を入力していただく欄はありません。</p>
+      </div>
+
+      <div class="proposal-note" style="margin-top:32px;">
+        <strong>導入アイデア（今後の展開案）：</strong>この診断の結果画面から、
+        その日の3種の中身と、ニルカーの出店予定をまとめてお伝えできます。
+        いまは「お店の営業」と「出店の予定」がどちらもInstagramの投稿に流れていくため、
+        来店や出店先を調べる方が、さかのぼって探すことになっています。
+        ここに置いておくと、確認が一度で済みます。
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section id="info" aria-labelledby="info-heading">
+    <div class="container">
+      <p class="eyebrow">SHOP INFORMATION</p>
+      <h2 id="info-heading">店舗情報</h2>
+      <ul class="info-list">
+        <li><span class="term">店舗名</span><span>niru cafe（ニルカフェ）</span></li>
+        <li>
+          <span class="term">所在地</span>
+          <span>〒010-0861 秋田県秋田市手形からみでん3-74<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E6%89%8B%E5%BD%A2%E3%81%8B%E3%82%89%E3%81%BF%E3%81%A7%E3%82%933-74" target="_blank" rel="noopener noreferrer">地図で見る（Googleマップ）</a>
+          </span>
+        </li>
+        <li>
+          <span class="term">営業時間</span>
+          <span>火〜土　11:00〜16:00（フードのラストオーダー 15:20）<br>
+            <span class="source-note" style="display:block;margin-top:4px;">※ 飲食店情報サイトの掲載内容です。催しへの出店で変わることがあります。</span>
+          </span>
+        </li>
+        <li>
+          <span class="term">定休日</span>
+          <span>日・月<br>
+            <span class="source-note" style="display:block;margin-top:4px;">※ 出店日や臨時のお休みは公式Instagramで案内されています。ご来店前のご確認がおすすめです。</span>
+          </span>
+        </li>
+        <li><span class="term">席数</span><span>10席（カウンターのみ）</span></li>
+        <li><span class="term">駐車場</span><span>あり（お向かいに無料駐車場があると紹介されています）</span></li>
+        <li><span class="term">お支払い</span><span>クレジットカード（VISA・JCB）／QRコード決済（PayPay・楽天ペイ・au PAY）</span></li>
+        <li><span class="term">開業</span><span>2022年3月 キッチンカー「ニルカー」／2022年4月 店舗</span></li>
+        <li><span class="term">Instagram</span><span><a href="https://www.instagram.com/niru_cafe/" target="_blank" rel="noopener noreferrer">@niru_cafe</a></span></li>
+      </ul>
+      <p class="lead-text source-note">
+        ※ このページは、公式Instagram（@niru_cafe）、a.woman（2022年6月24日）、
+        秋田タウン情報（2024年4月2日）、飲食店情報サイトの掲載内容、公開されている来店者の感想をもとに、
+        2026年10月21日時点で整理したものです。公式サイトがないため、営業時間と定休日は情報サイトの掲載内容によります。
+        <strong>価格は現在のものを確認できなかったため掲載していません。</strong>内容は変わっている場合があります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 最後のご案内 -->
+  <section class="final-cta" aria-labelledby="final-cta-heading">
+    <div class="container">
+      <h2 id="final-cta-heading">ご来店の前に、ご確認ください</h2>
+      <p style="color:#e2d7c9;">その日のカレーの中身も、ニルカーの出店予定も、公式Instagramで案内されています。</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" style="background:#fff;color:var(--color-primary);" href="https://www.instagram.com/niru_cafe/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+        <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E6%89%8B%E5%BD%A2%E3%81%8B%E3%82%89%E3%81%BF%E3%81%A7%E3%82%933-74" target="_blank" rel="noopener noreferrer">地図を見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>niru cafe</p>
+    <p>© niru cafe. All Rights Reserved.</p>
+    <p><a href="#main-content">ページの先頭へ戻る</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var questions = [
+    {
+      text: "お店に行くとしたら、いちばん近いのはどれですか？",
+      options: [
+        { label: "しっかり食事をしたい", cat: "A" },
+        { label: "辛いものが得意ではない", cat: "B" },
+        { label: "コーヒーを目当てに行きたい", cat: "C" },
+        { label: "その時季だけのものを食べたい", cat: "D" },
+        { label: "持ち帰りたい・催しで食べたい", cat: "E" }
+      ]
+    },
+    {
+      text: "カレーについて、近いのは？",
+      options: [
+        { label: "いろいろな味を一度に試したい", cat: "A" },
+        { label: "辛さは自分で決めたい", cat: "B" },
+        { label: "食後の一杯まで含めて考えたい", cat: "C" },
+        { label: "めずらしい組み合わせを見たい", cat: "D" },
+        { label: "外で食べられるとうれしい", cat: "E" }
+      ]
+    },
+    {
+      text: "コーヒーは、どちらが好きですか？",
+      options: [
+        { label: "どちらも飲む", cat: "A" },
+        { label: "あまり飲まない・甘いほうがいい", cat: "B" },
+        { label: "深煎りのしっかりしたもの", cat: "C" },
+        { label: "浅煎りの香りが立つもの", cat: "D" },
+        { label: "飲み比べてみたい", cat: "E" }
+      ]
+    },
+    {
+      text: "niru cafe で気になったことに近いのは？",
+      options: [
+        { label: "3種類が一皿にのること", cat: "A" },
+        { label: "辛味があとがけであること", cat: "B" },
+        { label: "自家焙煎のコーヒーがあること", cat: "C" },
+        { label: "十文字の味噌や栗を使っていること", cat: "D" },
+        { label: "キッチンカー「ニルカー」があること", cat: "E" }
+      ]
+    },
+    {
+      text: "いま、いちばん知りたいことは？",
+      options: [
+        { label: "今日の3種の中身", cat: "A" },
+        { label: "辛さの決め方", cat: "B" },
+        { label: "どのコーヒーが合うか", cat: "C" },
+        { label: "いま出ている季節のカレー", cat: "D" },
+        { label: "次の出店の予定", cat: "E" }
+      ]
+    }
+  ];
+
+  var results = {
+    A: {
+      name: "ぜんぶ試したいタイプ",
+      summary: "一度にいろいろ味わいたい方です。",
+      reason: "複数の味や、しっかり食べることに関する回答が多い傾向でした。",
+      recommend: "3種カレープレート。3種類が一皿にのり、自分の好みで混ぜながら味わえます。季節のカレーも、このプレートに入る形で出されています。",
+      strength: "性格の違うカレーを並べる、という作り方と、いちばん重なるタイプです。",
+      ctaHref: "#curry",
+      ctaLabel: "カレーを見る"
+    },
+    B: {
+      name: "辛さは控えめにタイプ",
+      summary: "辛いものが得意ではない方です。",
+      reason: "辛さを自分で決めたい、という回答が多い傾向でした。",
+      recommend: "まずはそのまま召し上がって、辛味はあとから足す形。癖の強いスパイスは使われていません。飲みものは、波照間産の黒糖を使った黒糖ミルクもあります。",
+      strength: "「辛さは、あとから足せます」という強みと重なるタイプです。",
+      ctaHref: "#strengths",
+      ctaLabel: "お店の強みを見る"
+    },
+    C: {
+      name: "コーヒーまで込みタイプ",
+      summary: "食後の一杯までを目当てにしたい方です。",
+      reason: "コーヒーや、食後の時間に関する回答が多い傾向でした。",
+      recommend: "食後のアメリカーノ。店主ご自身がすすめられている飲み方です。コーヒーは自家焙煎で、エスプレッソマシンで淹れられています。",
+      strength: "焙煎する人がカレーもつくっている、というこのお店の成り立ちと、いちばん重なるタイプです。",
+      ctaHref: "#coffee",
+      ctaLabel: "コーヒーを見る"
+    },
+    D: {
+      name: "季節のものタイプ",
+      summary: "その時季だけのものを味わいたい方です。",
+      reason: "季節や、産地に関する回答が多い傾向でした。",
+      recommend: "いま出ている季節のカレー。秋は十文字産の栗ときのこを生クリームで包んだチキンキーマが出されていました。内容は時季で変わります。",
+      strength: "「味噌も、栗も、十文字から」という強みと重なるタイプです。",
+      ctaHref: "#curry",
+      ctaLabel: "季節のカレーを見る"
+    },
+    E: {
+      name: "出先で会いたいタイプ",
+      summary: "催しやキッチンカーで味わいたい方です。",
+      reason: "持ち帰りや、外で食べることに関する回答が多い傾向でした。",
+      recommend: "キッチンカー「ニルカー」。音漏れapartmentマーケットや東北六華珈琲祭など、各地の催しに出ています。出店日は限られているので、事前のご確認がおすすめです。",
+      strength: "お店より先に始まったキッチンカーが、いまも動いているという成り立ちと重なるタイプです。",
+      ctaHref: "#nirucar",
+      ctaLabel: "出店の予定を見る"
+    }
+  };
+
+  var priorityOrder = ["A", "B", "C", "D", "E"];
+
+  var currentIndex = 0;
+  var answers = new Array(questions.length).fill(null);
+
+  var quizIntro = document.getElementById("quizIntro");
+  var quizStartBtn = document.getElementById("quizStartBtn");
+  var quizForm = document.getElementById("quizForm");
+  var quizProgress = document.getElementById("quizProgress");
+  var quizQuestionText = document.getElementById("quizQuestionText");
+  var quizOptions = document.getElementById("quizOptions");
+  var quizWarning = document.getElementById("quizWarning");
+  var quizBack = document.getElementById("quizBack");
+  var quizNext = document.getElementById("quizNext");
+  var quizResult = document.getElementById("quizResult");
+  var quizRestartBtn = document.getElementById("quizRestartBtn");
+
+  function renderQuestion() {
+    quizWarning.textContent = "";
+    var q = questions[currentIndex];
+    quizProgress.textContent = "質問 " + (currentIndex + 1) + " / " + questions.length;
+    quizQuestionText.textContent = q.text;
+    quizOptions.innerHTML = "";
+
+    q.options.forEach(function (opt, i) {
+      var li = document.createElement("li");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "quiz-option";
+      btn.textContent = opt.label;
+      var selected = answers[currentIndex] === i;
+      btn.setAttribute("aria-pressed", selected ? "true" : "false");
+      btn.addEventListener("click", function () {
+        answers[currentIndex] = i;
+        var allBtns = quizOptions.querySelectorAll(".quiz-option");
+        allBtns.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+        btn.setAttribute("aria-pressed", "true");
+        quizWarning.textContent = "";
+      });
+      li.appendChild(btn);
+      quizOptions.appendChild(li);
+    });
+
+    quizBack.disabled = currentIndex === 0;
+    quizNext.textContent = currentIndex === questions.length - 1 ? "結果を見る" : "次へ";
+  }
+
+  function startQuiz() {
+    currentIndex = 0;
+    answers = new Array(questions.length).fill(null);
+    quizIntro.style.display = "none";
+    quizResult.style.display = "none";
+    quizForm.style.display = "block";
+    renderQuestion();
+  }
+
+  function showResult() {
+    var scores = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+    answers.forEach(function (ansIndex, qIndex) {
+      if (ansIndex === null) { return; }
+      var cat = questions[qIndex].options[ansIndex].cat;
+      scores[cat] += 1;
+    });
+
+    // 同点の場合は、最後の質問（5問目）で選んだものを優先します。
+    // それでも決まらない場合のみ、A→B→C→D→Eの順を採用します。
+    var lastCat = null;
+    var lastAnswerIndex = answers[answers.length - 1];
+    if (lastAnswerIndex !== null) {
+      lastCat = questions[questions.length - 1].options[lastAnswerIndex].cat;
+    }
+
+    var maxScore = -1;
+    priorityOrder.forEach(function (cat) {
+      if (scores[cat] > maxScore) { maxScore = scores[cat]; }
+    });
+    var topCats = priorityOrder.filter(function (cat) { return scores[cat] === maxScore; });
+
+    var winner;
+    if (topCats.length === 1) {
+      winner = topCats[0];
+    } else if (lastCat !== null && topCats.indexOf(lastCat) !== -1) {
+      winner = lastCat;
+    } else {
+      winner = topCats[0];
+    }
+
+    var r = results[winner];
+    document.getElementById("resultName").textContent = r.name;
+    document.getElementById("resultSummary").textContent = r.summary;
+    document.getElementById("resultReason").textContent = r.reason;
+    document.getElementById("resultRecommend").textContent = r.recommend;
+    document.getElementById("resultStrength").textContent = r.strength;
+    var cta = document.getElementById("resultCta");
+    cta.href = r.ctaHref;
+    cta.textContent = r.ctaLabel;
+
+    quizForm.style.display = "none";
+    quizResult.style.display = "block";
+    document.getElementById("resultName").focus();
+  }
+
+  quizStartBtn.addEventListener("click", startQuiz);
+
+  quizNext.addEventListener("click", function () {
+    if (answers[currentIndex] === null) {
+      quizWarning.textContent = "選択肢を選んでから次へ進んでください。";
+      return;
+    }
+    if (currentIndex === questions.length - 1) {
+      showResult();
+    } else {
+      currentIndex += 1;
+      renderQuestion();
+    }
+  });
+
+  quizBack.addEventListener("click", function () {
+    if (currentIndex > 0) {
+      currentIndex -= 1;
+      renderQuestion();
+    }
+  });
+
+  quizRestartBtn.addEventListener("click", function () {
+    quizResult.style.display = "none";
+    quizIntro.style.display = "block";
+  });
+})();
+</script>
+
+</body>
+</html>
