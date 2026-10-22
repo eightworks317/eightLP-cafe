@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ティールーム陶｜お気に入りの、一杯の相棒を。｜提案用ページ</title>
+<meta name="description" content="秋田市中通、食器のさかいだの2階にある喫茶室「ティールーム陶」。器のお店の食器でコーヒーを飲み、土鍋で炊いた玄米のランチを。金継ぎの日もある、器のことがひと通りそろうお店の提案用ページです。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#232b33">
+<style>
+  :root {
+    --color-primary: #232b33;      /* 藍の器の深い色 */
+    --color-secondary: #f7f5f0;    /* 白磁のような生成り */
+    --color-kin: #8a6420;         /* 金継ぎの金を、文字として読める濃さにした色 */
+    --color-kin-text: #76551b;    /* 明るい地の上に置く文字用 */
+    --color-kin-btn: #664915;     /* 白文字をのせるボタンの地色（白との明暗差 8.30） */
+    --color-warm: #4d6475;         /* 青磁・藍の青 */
+    --color-warm-text: #3f5566;
+    --color-surface: #eeeae2;
+    --color-proposal: #e9eaea;
+    --color-proposal-border: #9aa3a8;
+    --color-text: #24282c;
+    --color-muted: #5e6266;
+    --color-border: #d8d4cb;
+    --font-serif: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-sans: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  /* ★2026-10-22：背景にうっすら青海波（せいがいは）の柄を入れています。
+     器の絵付けによく使われる、波が重なった和の文様です。
+     ・濃さ　：rgba の最後の数字（0.045）。1 に近いほど濃くなります（2か所とも同じ数字に）
+     ・波の大きさ：40px と 20px の部分
+     ※ 色を敷いている節（強み／器のこと／店内／診断）には出ません。 */
+  body {
+    margin: 0;
+    background-color: var(--color-secondary);
+    background-image:
+      radial-gradient(circle at 50% 100%, transparent 0 7px, rgba(35, 43, 51, 0.045) 7px 8px, transparent 8px 12px, rgba(35, 43, 51, 0.045) 12px 13px, transparent 13px 17px, rgba(35, 43, 51, 0.045) 17px 18px, transparent 18px),
+      radial-gradient(circle at 50% 100%, transparent 0 7px, rgba(35, 43, 51, 0.045) 7px 8px, transparent 8px 12px, rgba(35, 43, 51, 0.045) 12px 13px, transparent 13px 17px, rgba(35, 43, 51, 0.045) 17px 18px, transparent 18px);
+    background-size: 40px 20px;
+    background-position: 0 0, 20px 10px;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 16px; line-height: 1.8; overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+
+  .container {
+    width: 100%; max-width: 960px; margin: 0 auto;
+    padding-left: clamp(14px, 4vw, 32px); padding-right: clamp(14px, 4vw, 32px);
+  }
+
+  .skip-link {
+    position: absolute; left: -999px; top: 0;
+    background: var(--color-kin-btn); color: #fff;
+    padding: 10px 16px; z-index: 200; border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus { left: 0; }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid var(--color-kin); outline-offset: 3px;
+  }
+
+  /* ---------- 提案用ラベル ---------- */
+  .proposal-bar {
+    background: var(--color-primary); color: var(--color-secondary);
+    text-align: center; padding: 8px 14px;
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.06em; line-height: 1.5;
+  }
+
+  /* ---------- ファーストビュー ---------- */
+  .hero {
+    position: relative; min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 96px 0 56px; background: var(--color-primary); overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(35,43,51,0.40) 0%, rgba(35,43,51,0.60) 55%, rgba(35,43,51,0.88) 100%);
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.16em;
+    color: var(--color-secondary); margin: 0 0 14px;
+  }
+  .hero h1 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(27px, 7.6vw, 45px); line-height: 1.4;
+    margin: 0 0 18px; color: var(--color-secondary); overflow-wrap: anywhere;
+  }
+  .hero-lead {
+    font-size: clamp(14px, 3.8vw, 17px); max-width: 34em;
+    margin: 0 0 30px; color: var(--color-secondary);
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 30px;
+    font-size: 12px; letter-spacing: 0.08em; color: var(--color-secondary);
+  }
+  .hero-tags span {
+    border: 1px solid rgba(247,245,240,0.5);
+    border-radius: 999px; padding: 6px 14px; background: rgba(35,43,51,0.35);
+  }
+
+  .cta-group { display: flex; flex-direction: column; gap: 12px; max-width: 340px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 12px 20px; border-radius: 6px;
+    text-decoration: none; font-size: 15px; letter-spacing: 0.02em;
+    border: 1px solid transparent; text-align: center; line-height: 1.4;
+  }
+  .btn-primary { background: var(--color-kin-btn); color: #fff; }
+  .btn-outline { background: transparent; border-color: var(--color-primary); color: var(--color-primary); }
+  .hero .btn-primary { background: var(--color-secondary); color: var(--color-primary); }
+  .hero .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); background: rgba(35,43,51,0.25); }
+  @media (min-width: 560px) { .cta-group { flex-direction: row; max-width: none; } }
+
+  /* ---------- 共通 ---------- */
+  section { padding: clamp(48px, 9vw, 88px) 0; }
+  .section-alt { background: var(--color-surface); }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; color: var(--color-kin-text); margin: 0 0 10px; }
+  h2 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(22px, 6vw, 30px); margin: 0 0 20px; line-height: 1.5; }
+  h3 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(17px, 4.6vw, 20px); margin: 0 0 10px; line-height: 1.6; }
+  p { margin: 0 0 14px; }
+  .lead-text { max-width: 40em; color: var(--color-muted); }
+  .source-note { font-size: .85em; opacity: .8; margin-top: 1.2em; }
+
+  /* ---------- 店名の由来 ---------- */
+  .name-origin {
+    margin: 26px 0 0; padding: 22px 24px;
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-kin);
+    border-radius: 0 12px 12px 0;
+  }
+  .name-origin .en {
+    font-family: var(--font-serif); font-size: clamp(18px, 4.8vw, 24px);
+    letter-spacing: .04em; margin: 0 0 8px; display: block; color: var(--color-kin-text);
+  }
+  .name-origin .ja { font-size: 14.5px; color: var(--color-muted); margin: 0; }
+
+  blockquote.quote {
+    margin: 26px 0 0; padding: 20px 22px;
+    background: var(--color-secondary);
+    border-left: 4px solid var(--color-warm);
+    border-top: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0 10px 10px 0;
+    font-family: var(--font-serif);
+    font-size: clamp(15px, 4vw, 17px); line-height: 1.9;
+  }
+  blockquote.quote cite {
+    display: block; margin-top: 10px; font-family: var(--font-sans);
+    font-style: normal; font-size: 12.5px; color: var(--color-muted);
+  }
+
+  /* ---------- カード ---------- */
+  .card-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
+  @media (min-width: 700px) {
+    .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  }
+  .card {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 10px; padding: 22px; min-width: 0;
+    box-shadow: 0 2px 10px rgba(35,43,51,0.05);
+  }
+  .card .num { font-size: 12px; color: var(--color-kin-text); letter-spacing: 0.1em; display: block; margin-bottom: 10px; }
+  .card p { font-size: 14.5px; color: var(--color-text); margin-bottom: 8px; }
+  .card .value {
+    font-size: 13.5px; color: var(--color-muted);
+    border-top: 1px dashed var(--color-border); padding-top: 10px; margin-top: 10px;
+  }
+  .card-photo { border-radius: 8px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 14px; }
+
+  /* 横に3枚並べたときのそろえ方
+     ① 下端をそろえる作り（subgrid が使えないブラウザ用の保険）
+     このページの見出しは1行が文字サイズの1.6倍なので、2行ぶんは 3.2em です。 */
+  @media (min-width: 700px) {
+    .card-grid.cols-3 .card { display: flex; flex-direction: column; }
+    .card-grid.cols-3 .card h3 { line-height: 1.6; min-height: 3.2em; }
+    .card-grid.cols-3 .card .value { margin-top: auto; }
+  }
+  /* ② ラベル・見出し・本文・価値の4つを、それぞれ別々に高さをそろえます。 */
+  @supports (grid-template-rows: subgrid) {
+    @media (min-width: 700px) {
+      #strengths .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 5; }
+      #utsuwa .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 4; }
+      .card-grid.cols-3 .card h3 { min-height: 0; margin-bottom: 0; }
+      .card-grid.cols-3 .card .value { margin-top: 0; align-self: start; }
+      .card-grid.cols-3 .card p { margin-bottom: 0; }
+      .card-grid.cols-3 .card .num { margin-bottom: 0; }
+      .card-grid.cols-3 .card { row-gap: 10px; }
+    }
+  }
+
+  /* ---------- ストーリー ---------- */
+  .story { display: grid; gap: 24px; }
+  /* 横に並べたとき、写真をとなりの文章と同じ高さまで伸ばします。 */
+  @media (min-width: 760px) {
+    .story { grid-template-columns: 1fr 1fr; align-items: stretch; }
+    .story-photo { height: 100%; min-height: 300px; aspect-ratio: auto; }
+  }
+  .story-photo { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+  .concept-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 22px; }
+  .concept-gallery img { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+
+  /* ---------- 献立 ---------- */
+  .dish-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+  @media (min-width: 620px) { .dish-grid { grid-template-columns: repeat(2, 1fr); } }
+  .dish {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-kin); border-radius: 0 8px 8px 0;
+    padding: 18px 20px; min-width: 0;
+  }
+  .dish.is-warm { border-left-color: var(--color-warm); }
+  .dish .tag { font-size: 12px; letter-spacing: .08em; color: var(--color-kin-text); display: block; }
+  .dish.is-warm .tag { color: var(--color-warm-text); }
+  .dish .name { font-family: var(--font-serif); font-size: 19px; margin: 2px 0 6px; display: block; }
+  .dish .price { font-size: 15px; font-weight: 700; margin: 0 0 8px; }
+  .dish .desc { font-size: 14px; color: var(--color-muted); margin: 0; }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; padding: 0; list-style: none; }
+  .tag-list li {
+    font-size: 13.5px; color: var(--color-muted);
+    border: 1px solid var(--color-border); background: var(--color-secondary);
+    border-radius: 999px; padding: 5px 14px;
+  }
+
+  /* ---------- 地域の節 ---------- */
+  .highlight { background: var(--color-primary); color: var(--color-secondary); }
+  .highlight .eyebrow { color: #d9c08a; }  /* 暗い地の上の金色（明暗差 8.09） */
+  .highlight-grid { display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 760px) { .highlight-grid { grid-template-columns: 1.1fr 1fr; } }
+  .highlight-visual {
+    border-radius: 10px; aspect-ratio: 4 / 3; width: 100%;
+    object-fit: cover; border: 1px solid rgba(255,255,255,0.15);
+  }
+  .highlight-list { list-style: none; padding: 0; margin: 18px 0 24px; font-size: 14.5px; }
+  .highlight-list li { padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.15); }
+  .highlight-list li:first-child { border-top: none; }
+  .highlight-list b { display: block; margin-bottom: 4px; font-size: 13px; color: #d9c08a; letter-spacing: 0.04em; }
+
+  /* ---------- 一覧表 ---------- */
+  .info-list {
+    list-style: none; padding: 0; margin: 24px 0 0;
+    display: grid; gap: 0; border-top: 1px solid var(--color-border);
+  }
+  .info-list li {
+    display: grid; grid-template-columns: 120px 1fr; gap: 12px;
+    padding: 14px 0; border-bottom: 1px solid var(--color-border); font-size: 14.5px;
+  }
+  .info-list .term { color: var(--color-muted); font-size: 13px; letter-spacing: 0.04em; }
+  .info-list a { overflow-wrap: anywhere; text-decoration: underline; }
+
+  /* ---------- 試作（診断） ---------- */
+  .proposal-section {
+    background: var(--color-proposal);
+    border-top: 3px solid var(--color-proposal-border);
+    border-bottom: 3px solid var(--color-proposal-border);
+  }
+  .proposal-tag {
+    display: inline-block; font-size: 12px; letter-spacing: 0.1em;
+    background: var(--color-proposal-border); color: #16211f;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .proposal-note {
+    background: var(--color-secondary); border: 1px solid var(--color-proposal-border);
+    border-radius: 8px; padding: 14px 16px; font-size: 13.5px;
+    color: var(--color-muted); margin: 22px 0 30px; line-height: 1.75;
+  }
+  .quiz-app {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 14px; padding: 22px; max-width: 640px;
+  }
+  .quiz-intro h3 { margin: 0 0 12px; font-size: 20px; }
+  .quiz-progress { font-size: 13px; color: var(--color-muted); margin-bottom: 12px; }
+  .quiz-question { font-size: 17px; font-weight: 700; margin: 0 0 12px; }
+  .quiz-options { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 10px; }
+  .quiz-option {
+    width: 100%; text-align: left; padding: 14px 16px; min-height: 44px;
+    border: 1.5px solid var(--color-border); border-radius: 8px;
+    background: var(--color-surface); font-size: 15px;
+    font-family: inherit; color: var(--color-text); cursor: pointer;
+  }
+  .quiz-option[aria-pressed="true"] { border-color: var(--color-kin); background: #f1e8d4; font-weight: 700; }
+  .quiz-option[aria-pressed="true"]::before { content: "✓ "; color: var(--color-kin-text); }
+  .quiz-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; }
+  .quiz-nav button { min-height: 44px; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-family: inherit; cursor: pointer; }
+  #quizBack { background: transparent; border: 1px solid var(--color-border); color: var(--color-text); }
+  #quizNext { background: var(--color-kin-btn); border: 1px solid var(--color-kin-btn); color: #fff; }
+  #quizNext:disabled, #quizBack:disabled { opacity: .4; cursor: not-allowed; }
+  .quiz-warning { font-size: 13px; color: #a0432a; margin-top: 6px; min-height: 1.2em; }
+  .quiz-result h3 { font-size: 22px; margin: 0 0 6px; }
+  .quiz-result .result-summary { color: var(--color-muted); margin: 0 0 22px; }
+  .result-detail-list { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 4px; font-size: 14px; }
+  .result-detail-list dt { font-weight: 700; margin-top: 12px; }
+  .result-detail-list dd { margin: 2px 0 0; color: var(--color-muted); }
+  .quiz-result-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .quiz-start-btn {
+    min-height: 44px; padding: 12px 28px; background: var(--color-kin-btn);
+    color: #fff; border: none; border-radius: 6px; font-size: 15px; font-weight: 700; cursor: pointer;
+  }
+  .disclaimer-box {
+    font-size: 13px; line-height: 1.7; color: var(--color-muted);
+    background: var(--color-surface); border: 1px dashed var(--color-border);
+    border-radius: 8px; padding: 14px 16px; margin-top: 22px;
+  }
+
+  /* ---------- 最後のご案内 ---------- */
+  .final-cta { background: var(--color-primary); color: var(--color-secondary); text-align: center; }
+  .final-cta .cta-group { margin: 26px auto 0; justify-content: center; }
+  .final-cta .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); }
+
+  .site-footer {
+    padding: 32px 0 40px; text-align: center; font-size: 12.5px;
+    color: var(--color-muted); border-top: 1px solid var(--color-border);
+  }
+  .site-footer a { text-decoration: underline; }
+  .site-footer p { margin: 6px 0; }
+
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
+<div class="proposal-bar" role="note">
+  CONCEPT LP ／ 店舗向け提案用ページです。本ページには未導入の新サービス提案・試作デモが含まれます。<br>
+  ※本ページの掲載画像は、店舗の世界観を表現したイメージ画像です。
+</div>
+
+<main id="main-content">
+
+  <!-- ファーストビュー -->
+  <section class="hero">
+    <img class="hero-bg" src="images/01_hero_window_cups_16x9.webp" alt="窓辺の席に器とコーヒーが置かれたイメージ画像" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <p class="hero-eyebrow">ティールーム陶（とう）— 秋田市中通・食器のさかいだ 2階</p>
+      <h1>お気に入りの、<br>一杯の相棒を。</h1>
+      <p class="hero-lead">
+        器のお店の2階にある、喫茶室です。
+        お店の器でコーヒーを飲んで、土鍋で炊いたごはんを食べて、窓の外の小鳥を眺める。
+        気に入ったカップがあれば、1階で探せます。
+      </p>
+      <p class="hero-tags">
+        <span>器のお店の喫茶室</span>
+        <span>土鍋で炊いた玄米</span>
+        <span>金継ぎの日</span>
+      </p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="#strengths">店舗について見る</a>
+        <a class="btn btn-outline" href="https://www.instagram.com/sakaida01/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- コンセプト -->
+  <section id="concept" aria-labelledby="concept-heading">
+    <div class="container">
+      <div class="story">
+        <div>
+          <p class="eyebrow">CONCEPT</p>
+          <h2 id="concept-heading">器を売るお店の、<br>器を使う部屋です</h2>
+          <p class="lead-text">
+            ティールーム陶は、秋田市中通の「食器のさかいだ」の2階にあります。
+            1階は、日常の食器や贈り物の器を売るお店です。
+          </p>
+
+          <div class="name-origin">
+            <span class="en">お気に入りの「一杯の相棒」を見つけてください</span>
+            <p class="ja">食器のさかいだの公式Instagramにあった言葉です。酒器を紹介する投稿でしたが、2階の喫茶室にも、そのまま当てはまると思いました。</p>
+          </div>
+
+          <p class="lead-text" style="margin-top:22px;">
+            取引のあるメーカーは100社あまり。「どんな器でもおさがし致します」と、お店は案内しています。
+            その器のお店が、器を使う場所として持っているのが、この喫茶室です。
+          </p>
+
+          <p class="lead-text" style="margin-top:22px;">
+            来店された方は、こう書かれていました。
+          </p>
+
+          <blockquote class="quote">
+            使われてる食器がすごくかわいいので、コーヒーを飲むためだけに来るにもいいお店です。
+            <cite>公開されている来店者の感想より</cite>
+          </blockquote>
+
+          <p class="lead-text" style="margin-top:22px;">
+            <strong>器で飲む。器で炊く。器を直す。</strong>
+            器のことが、この建物の中でひと通りそろっています。
+          </p>
+        </div>
+        <img class="story-photo" src="images/05_shop_shelves_4x3.webp" alt="器が並ぶ売り場のイメージ画像" loading="lazy">
+      </div>
+      <div class="concept-gallery">
+        <img src="images/02_coffee_cup_4x3.webp" alt="器に入ったコーヒーのイメージ画像" loading="lazy">
+        <img src="images/03_donabe_lunch_4x3.webp" alt="土鍋で炊いた玄米のランチのイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 強み -->
+  <section id="strengths" class="section-alt" aria-labelledby="strengths-heading">
+    <div class="container">
+      <p class="eyebrow">公開されている情報から見える、この店舗の強み</p>
+      <h2 id="strengths-heading">お店の強み</h2>
+      <p class="lead-text">他店との比較ではなく、公開されている情報で確認できる特徴だけを根拠に整理しています。</p>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <img class="card-photo" src="images/02_coffee_cup_4x3.webp" alt="器に入ったコーヒーのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 01</span>
+          <h3>器で、飲めます</h3>
+          <p>コーヒーは<strong>器のお店の食器</strong>で出てきます。旅行で来た方も「素敵なコーヒーカップでお茶をしたくて」立ち寄られていました。</p>
+          <p class="value">お客様にとっての価値：気に入ったカップを、1階の売り場で探せます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/03_donabe_lunch_4x3.webp" alt="土鍋で炊いた玄米のランチのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 02</span>
+          <h3>器で、炊いています</h3>
+          <p>自慢は、「おいしく炊ける土鍋ランキング」で1位になった<strong>炊飯土鍋「かまどさん」で炊いた玄米</strong>です。サバみそと玄米ご飯のセットは1日5食限定です。</p>
+          <p class="value">お客様にとっての価値：土鍋で炊くと何が違うのか、食べて確かめられます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/04_kintsugi_4x3.webp" alt="金継ぎで直した器のイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 03</span>
+          <h3>器を、直せます</h3>
+          <p>お店のカレンダーに<strong>「金継ぎの日」</strong>があります。割れたり欠けたりした器は、事前に預かってもらうこともできます。</p>
+          <p class="value">お客様にとっての価値：大事な器を、捨てずにまた使えます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- メニュー -->
+  <section id="menu" aria-labelledby="menu-heading">
+    <div class="container">
+      <p class="eyebrow">COFFEE &amp; LUNCH</p>
+      <h2 id="menu-heading">コーヒーも、<br>ランチも、甘いものも</h2>
+      <p class="lead-text">
+        ランチと、ケーキのセット。お得だと、来店された方がくり返し書かれています。
+      </p>
+      <div class="dish-grid">
+        <div class="dish">
+          <span class="tag">コーヒー</span>
+          <span class="name">コーヒー</span>
+          <p class="price">¥400〜</p>
+          <p class="desc">器のお店の食器で出てきます。<strong>「コーヒーを飲むためだけに来るにもいい」</strong>と書かれていました。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">ランチ</span>
+          <span class="name">サバみそと玄米ご飯のセット</span>
+          <p class="price">ランチ ¥750〜</p>
+          <p class="desc">土鍋「かまどさん」で炊いた玄米です。<strong>1日5食限定</strong>。ハンバーグランチ（デミグラスソース）も定番です。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">甘いもの</span>
+          <span class="name">ケーキセット／窯出しパンケーキ</span>
+          <p class="price">—</p>
+          <p class="desc">アップルパイのケーキセットは「破格のお値段」だったと、来店された方が書かれています。<strong>窯出しパンケーキ</strong>もあります。</p>
+        </div>
+        <div class="dish is-warm">
+          <span class="tag">季節のもの</span>
+          <span class="name">オリジナルパフェと季節の限定</span>
+          <p class="price">—</p>
+          <p class="desc">オリジナルのパフェがあります。春には菜の花と桜エビのペペロンチーノや「春恋だんご」など、季節の限定メニューも出されていました。</p>
+        </div>
+      </div>
+      <p class="lead-text source-note">
+        ※ コーヒーとランチの価格は食器のさかいだの公式サイト、ランチの内容と土鍋のことはあきたなび（2025年4月4日）、
+        ケーキセットとパンケーキは公開されている来店者の感想によります。
+        メニューや価格は変わることがあります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 器のこと -->
+  <section id="utsuwa" class="section-alt" aria-labelledby="utsuwa-heading">
+    <div class="container">
+      <p class="eyebrow">UTSUWA</p>
+      <h2 id="utsuwa-heading">1階は、<br>器のお店です</h2>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <span class="num">SEARCH</span>
+          <h3>どんな器でも、さがします</h3>
+          <p>日常の食器や贈り物の器を扱っています。<strong>取引のあるメーカーは100社あまり</strong>で、「どんな器でもおさがし致します」と案内されています。</p>
+          <p class="value">2階で気に入った器のことも、相談できます。</p>
+        </div>
+        <div class="card">
+          <span class="num">KINTSUGI</span>
+          <h3>金継ぎの日</h3>
+          <p>お店のカレンダーに<strong>「金継ぎの日」</strong>が入っています（2026年10月は26日）。割れた器は、事前に預かってもらうこともできます。</p>
+          <p class="value">「お気軽にお声掛けください」とのことです。</p>
+        </div>
+        <div class="card">
+          <span class="num">EXHIBITION</span>
+          <h3>各地の器の催事</h3>
+          <p>秋田ではあまり見かけない、<strong>各地の窯元の器を紹介する催事</strong>も開かれています。2階にはギャラリーのスペースもあります。</p>
+          <p class="value">「見て触れて下さい」と、お店は案内しています。</p>
+        </div>
+      </div>
+      <p class="lead-text source-note">
+        ※ この節は、食器のさかいだの公式サイトと公式Instagram（@sakaida01）の2026年10月の投稿、
+        あきたなび（2025年4月4日）によります。金継ぎの日や催事の日程は月ごとに変わります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 店内と行き方 -->
+  <section id="visit" class="highlight" aria-labelledby="visit-heading">
+    <div class="container">
+      <div class="highlight-grid">
+        <div>
+          <p class="eyebrow">SEATS &amp; ACCESS</p>
+          <h2 id="visit-heading">窓の外に、<br>小鳥が来ます</h2>
+          <p style="color:#dfe2e5;">
+            大きな窓のある、開放感のある喫茶室です。窓辺の席から、季節の木々と、集まってくる鳥たちを眺められます。
+          </p>
+          <ul class="highlight-list">
+            <li><b>窓辺の餌箱</b>お店の外に鳥用の餌箱が置かれていて、小鳥の姿が見られることもあります。</li>
+            <li><b>広いテーブル</b>混んでいるときも、広いテーブルが空くと案内してもらえたと、来店された方が書かれていました。</li>
+            <li><b>中通のビルの2階</b>秋田市中通2丁目、さかいだビルの2階です。秋田駅から歩いて行けます。</li>
+            <li><b>お支払い</b>現金のほか、楽天ペイが使えると書かれていました。</li>
+          </ul>
+          <div class="cta-group">
+            <a class="btn btn-outline" style="border-color:#fff;color:#fff;" href="https://www.instagram.com/sakaida01/" target="_blank" rel="noopener noreferrer">今月のカレンダーを見る</a>
+          </div>
+        </div>
+        <img class="highlight-visual" src="images/01_hero_window_cups_16x9.webp" alt="窓辺の席のイメージ画像" loading="lazy">
+      </div>
+      <p class="lead-text source-note" style="color:#c4c9ce;">
+        ※ この節は、食器のさかいだの公式サイト、あきたなび（2025年4月4日）、公開されている来店者の感想によります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 試作（診断） -->
+  <section id="proposal-quiz" class="proposal-section" aria-labelledby="quiz-heading">
+    <div class="container">
+      <span class="proposal-tag">INTERACTIVE PROTOTYPE｜動く新サービス試作</span>
+      <h2 id="quiz-heading">一杯の相棒さがし診断（試作）</h2>
+      <p class="lead-text">
+        2階で飲んで、1階で探す。器のお店の喫茶室ならではの楽しみ方を、はじめての方にも案内できるように、
+        好みから「どんな器で、何を頼むか」を決める診断を試作しました。
+        これは店舗運営者向けの新サービス提案・導入アイデアであり、現在提供中のサービスではありません。
+      </p>
+
+      <div class="proposal-note">
+        この診断結果は、公開されている情報で確認できるティールーム陶の内容をもとにした、おおまかな分け方です。
+        実際にどの器で出てくるかは、その日によって変わります。
+      </div>
+
+      <div class="quiz-app" id="quizApp">
+        <div id="quizIntro" class="quiz-intro">
+          <h3>対象：ご来店を検討している方／店舗運営者の方</h3>
+          <p>解決したい課題：喫茶室と器のお店がつながっていることが、2階だけを利用する方には伝わりにくいこと。</p>
+          <button type="button" class="quiz-start-btn" id="quizStartBtn">試してみる</button>
+        </div>
+
+        <form id="quizForm" style="display:none;" novalidate>
+          <p class="quiz-progress" id="quizProgress" aria-live="polite"></p>
+          <p class="quiz-question" id="quizQuestionText"></p>
+          <ul class="quiz-options" id="quizOptions"></ul>
+          <p class="quiz-warning" id="quizWarning" role="alert"></p>
+          <div class="quiz-nav">
+            <button type="button" id="quizBack">戻る</button>
+            <button type="button" id="quizNext">次へ</button>
+          </div>
+        </form>
+
+        <div id="quizResult" style="display:none;" class="quiz-result" aria-live="polite">
+          <h3 id="resultName" tabindex="-1"></h3>
+          <p class="result-summary" id="resultSummary"></p>
+          <dl class="result-detail-list">
+            <dt>そのタイプになった理由</dt>
+            <dd id="resultReason"></dd>
+            <dt>向いている楽しみ方</dt>
+            <dd id="resultRecommend"></dd>
+            <dt>お店の強みとのつながり</dt>
+            <dd id="resultStrength"></dd>
+          </dl>
+          <div class="quiz-result-actions">
+            <a class="btn btn-primary" id="resultCta" href="#menu">関連する節を見る</a>
+            <button type="button" class="btn btn-outline" id="quizRestartBtn">最初からやり直す</button>
+          </div>
+        </div>
+
+        <noscript>
+          <p>この試作デモの操作にはJavaScriptが必要です。JavaScriptが無効な場合でも、お店のご紹介や店舗情報は、このページの他の節から引き続きご覧いただけます。</p>
+        </noscript>
+
+        <p class="disclaimer-box">本機能は店舗運営者向けの試作デモです。現在提供中の正式サービスではありません。入力内容の保存・送信は行いません。ページを閉じると回答内容は消えます。お名前やご連絡先を入力していただく欄はありません。</p>
+      </div>
+
+      <div class="proposal-note" style="margin-top:32px;">
+        <strong>導入アイデア（今後の展開案）：</strong>この診断の結果画面から、
+        2階で使われている器の名前や作り手を紹介し、1階の売り場で探せるようにご案内できます。
+        金継ぎの日の日程と、器を預ける方法も、ここからまとめてお伝えできます。
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section id="info" aria-labelledby="info-heading">
+    <div class="container">
+      <p class="eyebrow">SHOP INFORMATION</p>
+      <h2 id="info-heading">店舗情報</h2>
+      <ul class="info-list">
+        <li><span class="term">店舗名</span><span>ティールーム陶（とう）</span></li>
+        <li>
+          <span class="term">所在地</span>
+          <span>〒010-0001 秋田県秋田市中通2丁目1-21 さかいだビル 2階<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A2%E4%B8%81%E7%9B%AE1-21" target="_blank" rel="noopener noreferrer">地図で見る（Googleマップ）</a>
+          </span>
+        </li>
+        <li><span class="term">電話</span><span>018-833-2843（食器のさかいだ）</span></li>
+        <li>
+          <span class="term">営業時間</span>
+          <span>11:00〜18:00（ラストオーダー 17:00）<br>
+            ランチタイム 11:30〜14:00（土・日は15:00まで）<br>
+            <span class="source-note" style="display:block;margin-top:4px;">※ 2025年4月の紹介記事によります。公式サイトには別の時間が載っているため、ご来店前のご確認がおすすめです。</span>
+          </span>
+        </li>
+        <li>
+          <span class="term">定休日</span>
+          <span>水曜日（月によって異なります）<br>
+            <span class="source-note" style="display:block;margin-top:4px;">※ その月の定休日は、食器のさかいだの公式Instagramのカレンダーでお知らせされています。</span>
+          </span>
+        </li>
+        <li><span class="term">お支払い</span><span>現金／楽天ペイ</span></li>
+        <li><span class="term">運営</span><span>食器のさかいだ（株式会社境田商事）</span></li>
+        <li><span class="term">公式サイト</span><span><a href="https://www.shokinosakaida.com/" target="_blank" rel="noopener noreferrer">食器のさかいだ</a></span></li>
+        <li><span class="term">Instagram</span><span><a href="https://www.instagram.com/sakaida01/" target="_blank" rel="noopener noreferrer">@sakaida01</a>（食器のさかいだ）</span></li>
+      </ul>
+      <p class="lead-text source-note">
+        ※ このページは、食器のさかいだの公式サイトと公式Instagram（@sakaida01）の2026年10月の投稿、
+        あきたなび（2025年4月4日）、公開されている来店者の感想をもとに、2026年10月22日時点で整理したものです。
+        内容や価格は変わっている場合があります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 最後のご案内 -->
+  <section class="final-cta" aria-labelledby="final-cta-heading">
+    <div class="container">
+      <h2 id="final-cta-heading">ご来店の前に、ご確認ください</h2>
+      <p style="color:#dfe2e5;">定休日と金継ぎの日は、食器のさかいだの公式Instagramのカレンダーで毎月お知らせされています。サバみそと玄米ご飯のセットは1日5食限定です。</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" style="background:#fff;color:var(--color-primary);" href="https://www.instagram.com/sakaida01/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+        <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A2%E4%B8%81%E7%9B%AE1-21" target="_blank" rel="noopener noreferrer">地図を見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>ティールーム陶</p>
+    <p>© ティールーム陶. All Rights Reserved.</p>
+    <p><a href="#main-content">ページの先頭へ戻る</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var questions = [
+    {
+      text: "お店に行くとしたら、いちばん近いのはどれですか？",
+      options: [
+        { label: "いい器でコーヒーを飲みたい", cat: "A" },
+        { label: "しっかりお昼ごはんを食べたい", cat: "B" },
+        { label: "甘いものでひと休みしたい", cat: "C" },
+        { label: "窓の外を眺めてのんびりしたい", cat: "D" },
+        { label: "器を探しに、ついでに寄りたい", cat: "E" }
+      ]
+    },
+    {
+      text: "好きな器の感じは？",
+      options: [
+        { label: "手に持ってしっくりくる、厚めのカップ", cat: "A" },
+        { label: "毎日使える、ふだんの器", cat: "B" },
+        { label: "かわいい柄や形のもの", cat: "C" },
+        { label: "落ち着いた色のもの", cat: "D" },
+        { label: "まだ決まっていない・探したい", cat: "E" }
+      ]
+    },
+    {
+      text: "誰と行きますか？",
+      options: [
+        { label: "ひとりで", cat: "A" },
+        { label: "おなかを空かせた人と", cat: "B" },
+        { label: "おしゃべりする相手と", cat: "C" },
+        { label: "ひとりで、ゆっくり", cat: "D" },
+        { label: "器の好きな人と", cat: "E" }
+      ]
+    },
+    {
+      text: "ティールーム陶で気になったことに近いのは？",
+      options: [
+        { label: "器のお店の食器で飲めること", cat: "A" },
+        { label: "土鍋「かまどさん」で炊いた玄米", cat: "B" },
+        { label: "ケーキセットや窯出しパンケーキ", cat: "C" },
+        { label: "窓の外に小鳥が来ること", cat: "D" },
+        { label: "金継ぎの日があること", cat: "E" }
+      ]
+    },
+    {
+      text: "いま、いちばん知りたいことは？",
+      options: [
+        { label: "どんなカップで出てくるか", cat: "A" },
+        { label: "今日のランチの中身", cat: "B" },
+        { label: "甘いものの種類", cat: "C" },
+        { label: "窓辺の席があいているか", cat: "D" },
+        { label: "器を預ける方法", cat: "E" }
+      ]
+    }
+  ];
+
+  var results = {
+    A: {
+      name: "器で一杯タイプ",
+      summary: "いい器でコーヒーを飲みたい方です。",
+      reason: "器や、コーヒーに関する回答が多い傾向でした。",
+      recommend: "コーヒー（¥400〜）。器のお店の食器で出てきます。気に入ったカップがあれば、1階の売り場で探すこともできます。",
+      strength: "「器で、飲めます」という強みと、いちばん重なるタイプです。",
+      ctaHref: "#strengths",
+      ctaLabel: "お店の強みを見る"
+    },
+    B: {
+      name: "土鍋ごはんタイプ",
+      summary: "お昼をしっかり食べたい方です。",
+      reason: "食事や、ふだんの器に関する回答が多い傾向でした。",
+      recommend: "サバみそと玄米ご飯のセット（1日5食限定）。玄米は土鍋「かまどさん」で炊かれています。ハンバーグランチも定番です。",
+      strength: "「器で、炊いています」という強みと重なるタイプです。",
+      ctaHref: "#menu",
+      ctaLabel: "メニューを見る"
+    },
+    C: {
+      name: "甘いものセットタイプ",
+      summary: "甘いものでひと休みしたい方です。",
+      reason: "甘いものや、かわいい器に関する回答が多い傾向でした。",
+      recommend: "ケーキセットや窯出しパンケーキ、オリジナルのパフェ。ケーキセットはお得だと、来店された方がくり返し書かれています。",
+      strength: "器のお店の食器で、甘いものまで楽しめるところと重なるタイプです。",
+      ctaHref: "#menu",
+      ctaLabel: "甘いものを見る"
+    },
+    D: {
+      name: "窓辺でのんびりタイプ",
+      summary: "ひとりでゆっくり過ごしたい方です。",
+      reason: "景色や、ひとりの時間に関する回答が多い傾向でした。",
+      recommend: "窓辺の席。季節の木々と、集まってくる小鳥を眺められます。お店の外に鳥用の餌箱があります。",
+      strength: "大きな窓のある、開放感のある喫茶室というつくりと重なるタイプです。",
+      ctaHref: "#visit",
+      ctaLabel: "店内のことを見る"
+    },
+    E: {
+      name: "器さがしタイプ",
+      summary: "器そのものに興味がある方です。",
+      reason: "器さがしや、金継ぎに関する回答が多い傾向でした。",
+      recommend: "1階の売り場もあわせて。取引のあるメーカーは100社あまり。金継ぎの日もあり、割れた器は事前に預かってもらうこともできます。",
+      strength: "「器を、直せます」という強みと、いちばん重なるタイプです。",
+      ctaHref: "#utsuwa",
+      ctaLabel: "器のことを見る"
+    }
+  };
+
+  var priorityOrder = ["A", "B", "C", "D", "E"];
+
+  var currentIndex = 0;
+  var answers = new Array(questions.length).fill(null);
+
+  var quizIntro = document.getElementById("quizIntro");
+  var quizStartBtn = document.getElementById("quizStartBtn");
+  var quizForm = document.getElementById("quizForm");
+  var quizProgress = document.getElementById("quizProgress");
+  var quizQuestionText = document.getElementById("quizQuestionText");
+  var quizOptions = document.getElementById("quizOptions");
+  var quizWarning = document.getElementById("quizWarning");
+  var quizBack = document.getElementById("quizBack");
+  var quizNext = document.getElementById("quizNext");
+  var quizResult = document.getElementById("quizResult");
+  var quizRestartBtn = document.getElementById("quizRestartBtn");
+
+  function renderQuestion() {
+    quizWarning.textContent = "";
+    var q = questions[currentIndex];
+    quizProgress.textContent = "質問 " + (currentIndex + 1) + " / " + questions.length;
+    quizQuestionText.textContent = q.text;
+    quizOptions.innerHTML = "";
+
+    q.options.forEach(function (opt, i) {
+      var li = document.createElement("li");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "quiz-option";
+      btn.textContent = opt.label;
+      var selected = answers[currentIndex] === i;
+      btn.setAttribute("aria-pressed", selected ? "true" : "false");
+      btn.addEventListener("click", function () {
+        answers[currentIndex] = i;
+        var allBtns = quizOptions.querySelectorAll(".quiz-option");
+        allBtns.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+        btn.setAttribute("aria-pressed", "true");
+        quizWarning.textContent = "";
+      });
+      li.appendChild(btn);
+      quizOptions.appendChild(li);
+    });
+
+    quizBack.disabled = currentIndex === 0;
+    quizNext.textContent = currentIndex === questions.length - 1 ? "結果を見る" : "次へ";
+  }
+
+  function startQuiz() {
+    currentIndex = 0;
+    answers = new Array(questions.length).fill(null);
+    quizIntro.style.display = "none";
+    quizResult.style.display = "none";
+    quizForm.style.display = "block";
+    renderQuestion();
+  }
+
+  function showResult() {
+    var scores = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+    answers.forEach(function (ansIndex, qIndex) {
+      if (ansIndex === null) { return; }
+      var cat = questions[qIndex].options[ansIndex].cat;
+      scores[cat] += 1;
+    });
+
+    // 同点の場合は、最後の質問（5問目）で選んだものを優先します。
+    // それでも決まらない場合のみ、A→B→C→D→Eの順を採用します。
+    var lastCat = null;
+    var lastAnswerIndex = answers[answers.length - 1];
+    if (lastAnswerIndex !== null) {
+      lastCat = questions[questions.length - 1].options[lastAnswerIndex].cat;
+    }
+
+    var maxScore = -1;
+    priorityOrder.forEach(function (cat) {
+      if (scores[cat] > maxScore) { maxScore = scores[cat]; }
+    });
+    var topCats = priorityOrder.filter(function (cat) { return scores[cat] === maxScore; });
+
+    var winner;
+    if (topCats.length === 1) {
+      winner = topCats[0];
+    } else if (lastCat !== null && topCats.indexOf(lastCat) !== -1) {
+      winner = lastCat;
+    } else {
+      winner = topCats[0];
+    }
+
+    var r = results[winner];
+    document.getElementById("resultName").textContent = r.name;
+    document.getElementById("resultSummary").textContent = r.summary;
+    document.getElementById("resultReason").textContent = r.reason;
+    document.getElementById("resultRecommend").textContent = r.recommend;
+    document.getElementById("resultStrength").textContent = r.strength;
+    var cta = document.getElementById("resultCta");
+    cta.href = r.ctaHref;
+    cta.textContent = r.ctaLabel;
+
+    quizForm.style.display = "none";
+    quizResult.style.display = "block";
+    document.getElementById("resultName").focus();
+  }
+
+  quizStartBtn.addEventListener("click", startQuiz);
+
+  quizNext.addEventListener("click", function () {
+    if (answers[currentIndex] === null) {
+      quizWarning.textContent = "選択肢を選んでから次へ進んでください。";
+      return;
+    }
+    if (currentIndex === questions.length - 1) {
+      showResult();
+    } else {
+      currentIndex += 1;
+      renderQuestion();
+    }
+  });
+
+  quizBack.addEventListener("click", function () {
+    if (currentIndex > 0) {
+      currentIndex -= 1;
+      renderQuestion();
+    }
+  });
+
+  quizRestartBtn.addEventListener("click", function () {
+    quizResult.style.display = "none";
+    quizIntro.style.display = "block";
+  });
+})();
+</script>
+
+</body>
+</html>
