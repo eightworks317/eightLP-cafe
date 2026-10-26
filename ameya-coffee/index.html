@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>アメヤ珈琲｜世界に一つの、香味を。｜提案用ページ</title>
+<meta name="description" content="男鹿市船越の自家焙煎珈琲店「アメヤ珈琲」。スペシャルティコーヒーのみ、豆は20種類以上。朝の雫から真夜中まで、名前のついたブレンドと季節限定のブレンド。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1e2a44">
+<style>
+  :root {
+    --color-primary: #1e2a44;      /* 「真夜中」の夜空の紺 */
+    --color-secondary: #fbf8f1;    /* 朝の光の白 */
+    --color-roast: #8a4f22;         /* 焼いたコーヒー豆の茶色 */
+    --color-roast-text: #7a4520;    /* 明るい地の上に置く文字用（明暗差 7.3） */
+    --color-roast-btn: #5f3518;     /* 白文字をのせるボタンの地色（白との明暗差 10.5） */
+    --color-warm: #5b4f8f;         /* 「黄昏」のむらさき */
+    --color-warm-text: #4f4580;
+    --color-surface: #f1ece2;
+    --color-proposal: #ebeae7;
+    --color-proposal-border: #a69a8c;
+    --color-text: #23262e;
+    --color-muted: #5a5a5e;
+    --color-border: #dcd5c9;
+    --font-serif: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-sans: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  /* ★2026-10-26：背景にうっすら「星」の柄を入れています。
+     小さな星と点を、間をあけて散らしています。ブレンドの「流星」「真夜中」に合わせました。
+     ・濃さ　：stroke-opacity と fill-opacity の数字（0.09）。1 に近いほど濃くなります
+     ・柄の大きさ：background-size の 52px 52px
+     ※ 色を敷いている節（強み／季節と楽しみ方／一日のブレンド／診断）には出ません。 */
+  body {
+    margin: 0;
+    background-color: var(--color-secondary);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='52' height='52'%3E%3Cg fill='none' stroke='%231e2a44' stroke-opacity='0.09' stroke-width='0.9' stroke-linejoin='round'%3E%3Cpath d='M13 7L14.8 11.2L19.3 11.5L15.8 14.4L17 18.8L13 16.4L9 18.8L10.2 14.4L6.7 11.5L11.2 11.2Z'/%3E%3C/g%3E%3Cg fill='%231e2a44' fill-opacity='0.09'%3E%3Ccircle cx='38' cy='36' r='1.4'/%3E%3Ccircle cx='44' cy='14' r='0.9'/%3E%3Ccircle cx='22' cy='42' r='0.9'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 52px 52px;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 16px; line-height: 1.8; overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+
+  .container {
+    width: 100%; max-width: 960px; margin: 0 auto;
+    padding-left: clamp(14px, 4vw, 32px); padding-right: clamp(14px, 4vw, 32px);
+  }
+
+  .skip-link {
+    position: absolute; left: -999px; top: 0;
+    background: var(--color-roast-btn); color: #fff;
+    padding: 10px 16px; z-index: 200; border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus { left: 0; }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid var(--color-roast); outline-offset: 3px;
+  }
+
+  /* ---------- 提案用ラベル ---------- */
+  .proposal-bar {
+    background: var(--color-primary); color: var(--color-secondary);
+    text-align: center; padding: 8px 14px;
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.06em; line-height: 1.5;
+  }
+
+  /* ---------- ファーストビュー ---------- */
+  .hero {
+    position: relative; min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 96px 0 56px; background: var(--color-primary); overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(30,42,68,0.40) 0%, rgba(30,42,68,0.60) 55%, rgba(30,42,68,0.88) 100%);
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.16em;
+    color: var(--color-secondary); margin: 0 0 14px;
+  }
+  .hero h1 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(27px, 7.6vw, 45px); line-height: 1.4;
+    margin: 0 0 18px; color: var(--color-secondary); overflow-wrap: anywhere;
+  }
+  .hero-lead {
+    font-size: clamp(14px, 3.8vw, 17px); max-width: 34em;
+    margin: 0 0 30px; color: var(--color-secondary);
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 30px;
+    font-size: 12px; letter-spacing: 0.08em; color: var(--color-secondary);
+  }
+  .hero-tags span {
+    border: 1px solid rgba(248,246,241,0.5);
+    border-radius: 999px; padding: 6px 14px; background: rgba(30,42,68,0.35);
+  }
+
+  .cta-group { display: flex; flex-direction: column; gap: 12px; max-width: 340px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 12px 20px; border-radius: 6px;
+    text-decoration: none; font-size: 15px; letter-spacing: 0.02em;
+    border: 1px solid transparent; text-align: center; line-height: 1.4;
+  }
+  .btn-primary { background: var(--color-roast-btn); color: #fff; }
+  .btn-outline { background: transparent; border-color: var(--color-primary); color: var(--color-primary); }
+  .hero .btn-primary { background: var(--color-secondary); color: var(--color-primary); }
+  .hero .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); background: rgba(30,42,68,0.25); }
+  @media (min-width: 560px) { .cta-group { flex-direction: row; max-width: none; } }
+
+  /* ---------- 共通 ---------- */
+  section { padding: clamp(48px, 9vw, 88px) 0; }
+  .section-alt { background: var(--color-surface); }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; color: var(--color-roast-text); margin: 0 0 10px; }
+  h2 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(22px, 6vw, 30px); margin: 0 0 20px; line-height: 1.5; }
+  h3 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(17px, 4.6vw, 20px); margin: 0 0 10px; line-height: 1.6; }
+  p { margin: 0 0 14px; }
+  .lead-text { max-width: 40em; color: var(--color-muted); }
+  .source-note { font-size: .85em; opacity: .8; margin-top: 1.2em; }
+
+  /* ---------- 店名の由来 ---------- */
+  .name-origin {
+    margin: 26px 0 0; padding: 22px 24px;
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-roast);
+    border-radius: 0 12px 12px 0;
+  }
+  .name-origin .en {
+    font-family: var(--font-serif); font-size: clamp(18px, 4.8vw, 24px);
+    letter-spacing: .04em; margin: 0 0 8px; display: block; color: var(--color-roast-text);
+  }
+  .name-origin .ja { font-size: 14.5px; color: var(--color-muted); margin: 0; }
+
+  blockquote.quote {
+    margin: 26px 0 0; padding: 20px 22px;
+    background: var(--color-secondary);
+    border-left: 4px solid var(--color-warm);
+    border-top: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0 10px 10px 0;
+    font-family: var(--font-serif);
+    font-size: clamp(15px, 4vw, 17px); line-height: 1.9;
+  }
+  blockquote.quote cite {
+    display: block; margin-top: 10px; font-family: var(--font-sans);
+    font-style: normal; font-size: 12.5px; color: var(--color-muted);
+  }
+
+  /* ---------- カード ---------- */
+  .card-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
+  @media (min-width: 700px) {
+    .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  }
+  .card {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 10px; padding: 22px; min-width: 0;
+    box-shadow: 0 2px 10px rgba(30,42,68,0.05);
+  }
+  .card .num { font-size: 12px; color: var(--color-roast-text); letter-spacing: 0.1em; display: block; margin-bottom: 10px; }
+  .card p { font-size: 14.5px; color: var(--color-text); margin-bottom: 8px; }
+  .card .value {
+    font-size: 13.5px; color: var(--color-muted);
+    border-top: 1px dashed var(--color-border); padding-top: 10px; margin-top: 10px;
+  }
+  .card-photo { border-radius: 8px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 14px; }
+
+  /* 横に3枚並べたときのそろえ方
+     ① 下端をそろえる作り（subgrid が使えないブラウザ用の保険）
+     このページの見出しは1行が文字サイズの1.6倍なので、2行ぶんは 3.2em です。 */
+  @media (min-width: 700px) {
+    .card-grid.cols-3 .card { display: flex; flex-direction: column; }
+    .card-grid.cols-3 .card h3 { line-height: 1.6; min-height: 3.2em; }
+    .card-grid.cols-3 .card .value { margin-top: auto; }
+  }
+  /* ② ラベル・見出し・本文・価値の4つを、それぞれ別々に高さをそろえます。 */
+  @supports (grid-template-rows: subgrid) {
+    @media (min-width: 700px) {
+      #strengths .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 5; }
+      #ways .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 4; }
+      .card-grid.cols-3 .card h3 { min-height: 0; margin-bottom: 0; }
+      .card-grid.cols-3 .card .value { margin-top: 0; align-self: start; }
+      .card-grid.cols-3 .card p { margin-bottom: 0; }
+      .card-grid.cols-3 .card .num { margin-bottom: 0; }
+      .card-grid.cols-3 .card { row-gap: 10px; }
+    }
+  }
+
+  /* ---------- ストーリー ---------- */
+  .story { display: grid; gap: 24px; }
+  /* 横に並べたとき、写真をとなりの文章と同じ高さまで伸ばします。 */
+  @media (min-width: 760px) {
+    .story { grid-template-columns: 1fr 1fr; align-items: stretch; }
+    .story-photo { height: 100%; min-height: 300px; aspect-ratio: auto; }
+  }
+  .story-photo { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+  .concept-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 22px; }
+  .concept-gallery img { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+
+  /* ---------- 献立 ---------- */
+  .dish-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+  @media (min-width: 620px) { .dish-grid { grid-template-columns: repeat(2, 1fr); } }
+  .dish {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-roast); border-radius: 0 8px 8px 0;
+    padding: 18px 20px; min-width: 0;
+  }
+  .dish.is-warm { border-left-color: var(--color-warm); }
+  .dish .tag { font-size: 12px; letter-spacing: .08em; color: var(--color-roast-text); display: block; }
+  .dish.is-warm .tag { color: var(--color-warm-text); }
+  .dish .name { font-family: var(--font-serif); font-size: 19px; margin: 2px 0 6px; display: block; }
+  .dish .price { font-size: 15px; font-weight: 700; margin: 0 0 8px; }
+  .dish .desc { font-size: 14px; color: var(--color-muted); margin: 0; }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; padding: 0; list-style: none; }
+  .tag-list li {
+    font-size: 13.5px; color: var(--color-muted);
+    border: 1px solid var(--color-border); background: var(--color-secondary);
+    border-radius: 999px; padding: 5px 14px;
+  }
+
+  /* ---------- 地域の節 ---------- */
+  .highlight { background: var(--color-primary); color: var(--color-secondary); }
+  .highlight .eyebrow { color: #f0cf8a; }  /* 暗い地の上の、星の色（明暗差 9.5） */
+  .highlight-grid { display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 760px) { .highlight-grid { grid-template-columns: 1.1fr 1fr; } }
+  .highlight-visual {
+    border-radius: 10px; aspect-ratio: 4 / 3; width: 100%;
+    object-fit: cover; border: 1px solid rgba(255,255,255,0.15);
+  }
+  .highlight-list { list-style: none; padding: 0; margin: 18px 0 24px; font-size: 14.5px; }
+  .highlight-list li { padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.15); }
+  .highlight-list li:first-child { border-top: none; }
+  .highlight-list b { display: block; margin-bottom: 4px; font-size: 13px; color: #f0cf8a; letter-spacing: 0.04em; }
+
+  /* ---------- 一覧表 ---------- */
+  .info-list {
+    list-style: none; padding: 0; margin: 24px 0 0;
+    display: grid; gap: 0; border-top: 1px solid var(--color-border);
+  }
+  .info-list li {
+    display: grid; grid-template-columns: 120px 1fr; gap: 12px;
+    padding: 14px 0; border-bottom: 1px solid var(--color-border); font-size: 14.5px;
+  }
+  .info-list .term { color: var(--color-muted); font-size: 13px; letter-spacing: 0.04em; }
+  .info-list a { overflow-wrap: anywhere; text-decoration: underline; }
+
+  /* ---------- 試作（診断） ---------- */
+  .proposal-section {
+    background: var(--color-proposal);
+    border-top: 3px solid var(--color-proposal-border);
+    border-bottom: 3px solid var(--color-proposal-border);
+  }
+  .proposal-tag {
+    display: inline-block; font-size: 12px; letter-spacing: 0.1em;
+    background: var(--color-proposal-border); color: #16211f;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .proposal-note {
+    background: var(--color-secondary); border: 1px solid var(--color-proposal-border);
+    border-radius: 8px; padding: 14px 16px; font-size: 13.5px;
+    color: var(--color-muted); margin: 22px 0 30px; line-height: 1.75;
+  }
+  .quiz-app {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 14px; padding: 22px; max-width: 640px;
+  }
+  .quiz-intro h3 { margin: 0 0 12px; font-size: 20px; }
+  .quiz-progress { font-size: 13px; color: var(--color-muted); margin-bottom: 12px; }
+  .quiz-question { font-size: 17px; font-weight: 700; margin: 0 0 12px; }
+  .quiz-options { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 10px; }
+  .quiz-option {
+    width: 100%; text-align: left; padding: 14px 16px; min-height: 44px;
+    border: 1.5px solid var(--color-border); border-radius: 8px;
+    background: var(--color-surface); font-size: 15px;
+    font-family: inherit; color: var(--color-text); cursor: pointer;
+  }
+  .quiz-option[aria-pressed="true"] { border-color: var(--color-roast); background: #efe3d6; font-weight: 700; }
+  .quiz-option[aria-pressed="true"]::before { content: "✓ "; color: var(--color-roast-text); }
+  .quiz-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; }
+  .quiz-nav button { min-height: 44px; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-family: inherit; cursor: pointer; }
+  #quizBack { background: transparent; border: 1px solid var(--color-border); color: var(--color-text); }
+  #quizNext { background: var(--color-roast-btn); border: 1px solid var(--color-roast-btn); color: #fff; }
+  #quizNext:disabled, #quizBack:disabled { opacity: .4; cursor: not-allowed; }
+  .quiz-warning { font-size: 13px; color: #a0432a; margin-top: 6px; min-height: 1.2em; }
+  .quiz-result h3 { font-size: 22px; margin: 0 0 6px; }
+  .quiz-result .result-summary { color: var(--color-muted); margin: 0 0 22px; }
+  .result-detail-list { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 4px; font-size: 14px; }
+  .result-detail-list dt { font-weight: 700; margin-top: 12px; }
+  .result-detail-list dd { margin: 2px 0 0; color: var(--color-muted); }
+  .quiz-result-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .quiz-start-btn {
+    min-height: 44px; padding: 12px 28px; background: var(--color-roast-btn);
+    color: #fff; border: none; border-radius: 6px; font-size: 15px; font-weight: 700; cursor: pointer;
+  }
+  .disclaimer-box {
+    font-size: 13px; line-height: 1.7; color: var(--color-muted);
+    background: var(--color-surface); border: 1px dashed var(--color-border);
+    border-radius: 8px; padding: 14px 16px; margin-top: 22px;
+  }
+
+  /* ---------- 最後のご案内 ---------- */
+  .final-cta { background: var(--color-primary); color: var(--color-secondary); text-align: center; }
+  .final-cta .cta-group { margin: 26px auto 0; justify-content: center; }
+  .final-cta .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); }
+
+  .site-footer {
+    padding: 32px 0 40px; text-align: center; font-size: 12.5px;
+    color: var(--color-muted); border-top: 1px solid var(--color-border);
+  }
+  .site-footer a { text-decoration: underline; }
+  .site-footer p { margin: 6px 0; }
+
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
+<div class="proposal-bar" role="note">
+  CONCEPT LP ／ 店舗向け提案用ページです。本ページには未導入の新サービス提案・試作デモが含まれます。<br>
+  ※本ページの掲載画像は、店舗の世界観を表現したイメージ画像です。
+</div>
+
+<main id="main-content">
+
+  <!-- ファーストビュー -->
+  <section class="hero">
+    <img class="hero-bg" src="images/01_hero_roast_16x9.webp" alt="焙煎したてのコーヒー豆と夕暮れの光のイメージ画像" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <p class="hero-eyebrow">自家焙煎珈琲 アメヤ珈琲 — 秋田県男鹿市船越</p>
+      <h1>世界に一つの、<br>香味を。</h1>
+      <p class="hero-lead">
+        男鹿の、地域に根ざした自家焙煎の珈琲店です。
+        世界中から仕入れたスペシャルティコーヒーを、豆ごとに個性を見ながら焼いています。
+        豆は20種類以上。「朝の雫」から「真夜中」まで、名前のついたブレンドが並びます。
+      </p>
+      <p class="hero-tags">
+        <span>豆は20種類以上</span>
+        <span>スペシャルティコーヒーのみ</span>
+        <span>季節限定のブレンド</span>
+      </p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="https://coffee-diagnosis-app.netlify.app/index.html" target="_blank" rel="noopener noreferrer">コーヒー豆診断アプリを試す</a>
+        <a class="btn btn-outline" href="#strengths">店舗について見る</a>
+        <a class="btn btn-outline" href="https://www.instagram.com/ameyacoffeeweb/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+      </div>
+      <p style="color:var(--color-secondary);font-size:12px;margin:12px 0 0;opacity:.85;">※診断アプリは試作デモです。別の画面で開きます。</p>
+    </div>
+  </section>
+
+  <!-- コンセプト -->
+  <section id="concept" aria-labelledby="concept-heading">
+    <div class="container">
+      <div class="story">
+        <div>
+          <p class="eyebrow">CONCEPT</p>
+          <h2 id="concept-heading">ブレンドに、<br>力を注ぐ珈琲店</h2>
+          <p class="lead-text">
+            アメヤ珈琲は、男鹿市船越の観光案内所の中にある、自家焙煎の珈琲店です。
+            豆はスペシャルティコーヒーだけ。世界中から仕入れ、その時の豆の状態に合わせて個性を引き出すように焼いています。
+            ブレンドは、中深煎り、深煎りなど、焙煎の度合いに合わせて組み立てられています。
+          </p>
+
+          <div class="name-origin">
+            <span class="en">Blend</span>
+            <p class="ja">お店では、<strong>世界に一つの香味を作り出すために、ブレンドに力を注いでいる</strong>と紹介されています。</p>
+          </div>
+
+          <p class="lead-text" style="margin-top:22px;">
+            お土産でアメヤ珈琲をもらった方は、こう書かれていました。
+          </p>
+
+          <blockquote class="quote">
+            とてもフルーティーで今まで飲んだことがないコーヒー！
+            <cite>公開されている来店者の感想より</cite>
+          </blockquote>
+
+          <p class="lead-text" style="margin-top:22px;">
+            <strong>一杯で「お店を調べたくなる」味をつくる、男鹿の珈琲店です。</strong>
+          </p>
+        </div>
+        <img class="story-photo" src="images/03_blends_4x3.webp" alt="焙煎度の違う何種類ものコーヒー豆のイメージ画像" loading="lazy">
+      </div>
+      <div class="concept-gallery">
+        <img src="images/02_cup_4x3.webp" alt="淹れたてのコーヒーのイメージ画像" loading="lazy">
+        <img src="images/04_softcream_4x3.webp" alt="コーヒーソフトクリームのイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 強み -->
+  <section id="strengths" class="section-alt" aria-labelledby="strengths-heading">
+    <div class="container">
+      <p class="eyebrow">公開されている情報から見える、この店舗の強み</p>
+      <h2 id="strengths-heading">お店の強み</h2>
+      <p class="lead-text">他店との比較ではなく、公開されている情報で確認できる特徴だけを根拠に整理しています。</p>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <img class="card-photo" src="images/03_blends_4x3.webp" alt="何種類ものコーヒー豆のイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 01</span>
+          <h3>20種類以上の、豆</h3>
+          <p>名前のついたブレンドが7種類、季節限定のブレンド、10か国のストレート、デカフェ、そして<strong>ゲイシャ種</strong>まで。</p>
+          <p class="value">お客様にとっての価値：好みの一杯を、きっと見つけられます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/01_hero_roast_16x9.webp" alt="焙煎したてのコーヒー豆のイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 02</span>
+          <h3>豆ごとに、焼き方を合わせる</h3>
+          <p>スペシャルティコーヒーだけを使い、<strong>豆の状態に合わせて個性を引き出す</strong>ように自家焙煎しています。</p>
+          <p class="value">お客様にとっての価値：豆それぞれの味の違いを楽しめます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/05_gift_4x3.webp" alt="コーヒーのドリップパックの贈り物のイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 03</span>
+          <h3>秋田らしい、お土産に</h3>
+          <p>なまはげや秋田犬をあしらったパッケージ、秋田の昔話をテーマにした<strong>「秋田の物語シリーズ」</strong>のドリップパックもあります。</p>
+          <p class="value">お客様にとっての価値：秋田のお土産や贈り物に選べます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 豆 -->
+  <section id="beans" aria-labelledby="beans-heading">
+    <div class="container">
+      <p class="eyebrow">BLENDS</p>
+      <h2 id="beans-heading">名前のついた、<br>7つのブレンド</h2>
+      <p class="lead-text">
+        公式サイトで紹介されている、いつものブレンドです。
+      </p>
+      <div class="dish-grid">
+        <div class="dish">
+          <span class="tag">お店の名前のブレンド</span>
+          <span class="name">アメヤ可否</span>
+          <p class="desc">甘味と苦味が調和した、<strong>すっきりした飲み口</strong>。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">朝に</span>
+          <span class="name">朝の雫</span>
+          <p class="desc">甘味のあとに、ほのかな苦味。<strong>朝に飲みたい</strong>ブレンドです。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">軽めに</span>
+          <span class="name">こもれび</span>
+          <p class="desc">甘味・酸味・苦味が調和した、<strong>軽めのブレンド</strong>。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">やさしく</span>
+          <span class="name">思い出</span>
+          <p class="desc">やわらかな酸味のあとに、<strong>やさしい甘味</strong>。</p>
+        </div>
+        <div class="dish is-warm">
+          <span class="tag">夕方に</span>
+          <span class="name">黄昏</span>
+          <p class="desc"><strong>ほどよい酸味</strong>が特徴のブレンドです。</p>
+        </div>
+        <div class="dish is-warm">
+          <span class="tag">深く</span>
+          <span class="name">真夜中</span>
+          <p class="desc">苦味が効いた<strong>重厚なブレンド</strong>。カフェオレやアイスコーヒーにも。</p>
+        </div>
+        <div class="dish is-warm">
+          <span class="tag">特別な日に</span>
+          <span class="name">流星</span>
+          <p class="desc"><strong>ブルーマウンテン</strong>を配合したブレンドです。</p>
+        </div>
+        <div class="dish is-warm">
+          <span class="tag">まぼろしの豆</span>
+          <span class="name">トゥンキマヨ（ゲイシャ種）</span>
+          <p class="desc">柑橘系の酸味と甘み、<strong>クリーンな後味</strong>が特徴です。</p>
+        </div>
+      </div>
+      <ul class="tag-list" aria-label="ストレートコーヒー">
+        <li>タンザニア</li><li>ブラジル</li><li>パプアニューギニア</li><li>コスタリカ</li><li>ニカラグア</li>
+        <li>コロンビア</li><li>マンデリン</li><li>グァテマラ</li><li>スラウエシ ママサ</li><li>モカ</li><li>デカフェ</li>
+      </ul>
+      <p class="lead-text source-note">
+        ※ 豆の名前と説明は、アメヤ珈琲公式サイトのメニューのページによります。価格は載せていません。
+        豆の取り扱いは変わることがあります。最新の内容は、お店かオンラインショップでご確認ください。
+      </p>
+    </div>
+  </section>
+
+  <!-- 季節と楽しみ方 -->
+  <section id="ways" class="section-alt" aria-labelledby="ways-heading">
+    <div class="container">
+      <p class="eyebrow">SEASON &amp; MORE</p>
+      <h2 id="ways-heading">季節のブレンドと、<br>楽しみ方</h2>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <span class="num">SEASONAL</span>
+          <h3>季節限定のブレンド</h3>
+          <p>恋文、桜、虹、入道雲、秋時雨、雪の花。秋の「秋時雨」は、<strong>フルーティな香りとチョコレートのような甘さ</strong>です。</p>
+          <p class="value">季節が変わるたびに、新しい味に出会えます。</p>
+        </div>
+        <div class="card">
+          <span class="num">SWEETS</span>
+          <h3>コーヒーのスイーツも</h3>
+          <p>お店では<strong>濃厚なコーヒーソフトクリーム</strong>やチョコレートサンデー、季節限定ブレンドを練り込んだ珈琲ドロップも。</p>
+          <p class="value">観光や休憩のひと休みに、ちょうどいい甘さです。</p>
+        </div>
+        <div class="card">
+          <span class="num">ONLINE &amp; TRUCK</span>
+          <h3>通販と、キッチンカー</h3>
+          <p>豆やドリップパックは<strong>オンラインショップ</strong>でも買えます。イベントには、キッチンカーで淹れたてのコーヒーを届けています。</p>
+          <p class="value">男鹿に行けないときも、アメヤ珈琲の味を楽しめます。</p>
+        </div>
+      </div>
+      <p class="lead-text source-note">
+        ※ この節は、アメヤ珈琲公式サイトのトップとメニューのページによります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 一日のブレンド -->
+  <section id="day" class="highlight" aria-labelledby="day-heading">
+    <div class="container">
+      <div class="highlight-grid">
+        <div>
+          <p class="eyebrow">FROM MORNING TO MIDNIGHT</p>
+          <h2 id="day-heading">朝の雫から、<br>真夜中まで</h2>
+          <p style="color:#dde1ea;">
+            ブレンドの名前を並べると、一日の時間のように読めます。その時間に飲みたくなる一杯を選べます。
+          </p>
+          <ul class="highlight-list">
+            <li><b>朝</b>「朝の雫」── 甘味のあとに、ほのかな苦味。</li>
+            <li><b>昼</b>「こもれび」── 甘味・酸味・苦味が調和した、軽めの一杯。</li>
+            <li><b>夕方</b>「黄昏」── ほどよい酸味。</li>
+            <li><b>夜</b>「真夜中」── 苦味の効いた、重厚な一杯。そして特別な夜には、ブルーマウンテン配合の「流星」。</li>
+          </ul>
+          <div class="cta-group">
+            <a class="btn btn-outline" style="border-color:#fff;color:#fff;" href="#proposal-quiz">診断で選んでみる</a>
+          </div>
+        </div>
+        <img class="highlight-visual" src="images/02_cup_4x3.webp" alt="淹れたてのコーヒーのイメージ画像" loading="lazy">
+      </div>
+      <p class="lead-text source-note" style="color:#c2c8d6;">
+        ※ 時間帯の並べ方は、このページでの紹介のための整理です。ブレンドの説明は公式サイトのメニューによります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 試作（診断） -->
+  <section id="proposal-quiz" class="proposal-section" aria-labelledby="quiz-heading">
+    <div class="container">
+      <span class="proposal-tag">INTERACTIVE PROTOTYPE｜動く新サービス試作</span>
+      <h2 id="quiz-heading">ブレンド診断（試作）</h2>
+      <p class="lead-text">
+        豆が20種類以上。名前のついたブレンドだけでも7種類あります。
+        いくつかの質問に答えると、好みに合うブレンドを案内する診断を試作しました。
+        これは店舗運営者向けの新サービス提案・導入アイデアであり、現在提供中のサービスではありません。
+      </p>
+
+      <div class="proposal-note">
+        この診断結果は、公式サイトのメニューに載っているブレンドの説明をもとにした、おおまかな分け方です。
+        特定の豆の在庫を保証するものではありません。
+        導入する場合は、お店の20種類以上の豆に合わせて作り直します。
+      </div>
+
+      <div class="quiz-app" id="quizApp">
+        <div id="quizIntro" class="quiz-intro">
+          <h3>対象：豆を買ってみたい方／店舗運営者の方</h3>
+          <p>解決したい課題：豆の種類が多く、はじめての方が「どのブレンドを選べばいいか」決めにくいこと。</p>
+          <button type="button" class="quiz-start-btn" id="quizStartBtn">試してみる</button>
+        </div>
+
+        <form id="quizForm" style="display:none;" novalidate>
+          <p class="quiz-progress" id="quizProgress" aria-live="polite"></p>
+          <p class="quiz-question" id="quizQuestionText"></p>
+          <ul class="quiz-options" id="quizOptions"></ul>
+          <p class="quiz-warning" id="quizWarning" role="alert"></p>
+          <div class="quiz-nav">
+            <button type="button" id="quizBack">戻る</button>
+            <button type="button" id="quizNext">次へ</button>
+          </div>
+        </form>
+
+        <div id="quizResult" style="display:none;" class="quiz-result" aria-live="polite">
+          <h3 id="resultName" tabindex="-1"></h3>
+          <p class="result-summary" id="resultSummary"></p>
+          <dl class="result-detail-list">
+            <dt>そのタイプになった理由</dt>
+            <dd id="resultReason"></dd>
+            <dt>おすすめのブレンド</dt>
+            <dd id="resultRecommend"></dd>
+            <dt>お店の強みとのつながり</dt>
+            <dd id="resultStrength"></dd>
+          </dl>
+          <div class="quiz-result-actions">
+            <a class="btn btn-primary" id="resultCta" href="#beans">関連する節を見る</a>
+            <button type="button" class="btn btn-outline" id="quizRestartBtn">最初からやり直す</button>
+          </div>
+        </div>
+
+        <noscript>
+          <p>この試作デモの操作にはJavaScriptが必要です。JavaScriptが無効な場合でも、お店のご紹介や店舗情報は、このページの他の節から引き続きご覧いただけます。</p>
+        </noscript>
+
+        <p class="disclaimer-box">本機能は店舗運営者向けの試作デモです。現在提供中の正式サービスではありません。入力内容の保存・送信は行いません。ページを閉じると回答内容は消えます。お名前やご連絡先を入力していただく欄はありません。</p>
+      </div>
+
+      <!-- 診断アプリへの入り口 -->
+      <div class="quiz-app" style="margin-top:32px;">
+        <h3 style="margin:0 0 10px;">コーヒー豆診断アプリ（試作）</h3>
+        <p style="font-size:14.5px;margin:0 0 10px;">
+          上の診断は、アメヤ珈琲様のブレンドに合わせて作った見本です。
+          こちらは、好みから合う豆をすぐ探せる診断と、マメルというキャラクターと一緒に味の違いを楽しく学べる診断の、2種類を用意した診断アプリです。
+        </p>
+        <p style="font-size:14.5px;margin:0 0 16px;">
+          あなたに合う一杯を、診断で見つけてみませんか？　好みや飲み方について答えるだけで、おすすめのコーヒータイプを確認できます。
+        </p>
+        <a class="btn btn-primary" href="https://coffee-diagnosis-app.netlify.app/index.html" target="_blank" rel="noopener noreferrer">コーヒー豆診断アプリを試す</a>
+        <p class="source-note" style="margin-top:12px;">
+          ※試作デモが別画面で開きます。入力内容は保存・送信されません。<br>
+          ※現在のアプリでは、アメヤ珈琲様の商品とは異なる豆をご案内しています。導入する場合は、アメヤ珈琲様の豆に入れ替えます。
+        </p>
+      </div>
+
+      <div class="proposal-note" style="margin-top:32px;">
+        <strong>導入アイデア（今後の展開案）：</strong>診断の結果から、そのままオンラインショップの豆のページへつなげられます。
+        店頭や観光案内所では、診断の結果を見せて「このブレンドを」と選べるようになり、お土産選びの手助けにもなります。
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section id="info" aria-labelledby="info-heading">
+    <div class="container">
+      <p class="eyebrow">SHOP INFORMATION</p>
+      <h2 id="info-heading">店舗情報</h2>
+      <ul class="info-list">
+        <li><span class="term">店舗名</span><span>アメヤ珈琲 男鹿船越店</span></li>
+        <li>
+          <span class="term">所在地</span>
+          <span>〒010-0341 秋田県男鹿市船越一向207-219（男鹿市の観光案内所内）<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%94%B7%E9%B9%BF%E5%B8%82%E8%88%B9%E8%B6%8A%E4%B8%80%E5%90%91207-219" target="_blank" rel="noopener noreferrer">地図で見る（Googleマップ）</a>
+          </span>
+        </li>
+        <li><span class="term">電話</span><span>0185-47-7451</span></li>
+        <li>
+          <span class="term">営業時間</span>
+          <span>平日 11:00〜15:30／土日祝 10:00〜16:00<br>
+            <span class="source-note" style="display:block;margin-top:4px;">※ 11月〜3月は10:30〜15:30。お休みは元日のみ（公式サイトによります）。</span>
+          </span>
+        </li>
+        <li><span class="term">取り扱い</span><span>コーヒー豆（20種類以上）、ドリップパック、ギフト、コーヒー器具、カフェオレベースなど</span></li>
+        <li><span class="term">オンラインショップ</span><span><a href="https://ameyacoffeeweb.shop-pro.jp/" target="_blank" rel="noopener noreferrer">ameyacoffeeweb.shop-pro.jp</a></span></li>
+        <li><span class="term">公式サイト</span><span><a href="http://ameyacoffee.com/" target="_blank" rel="noopener noreferrer">ameyacoffee.com</a></span></li>
+        <li><span class="term">Instagram</span><span><a href="https://www.instagram.com/ameyacoffeeweb/" target="_blank" rel="noopener noreferrer">@ameyacoffeeweb</a></span></li>
+      </ul>
+      <p class="lead-text source-note">
+        ※ このページは、アメヤ珈琲公式サイト（トップ、メニュー）と、公開されている来店者の感想をもとに、
+        2026年10月26日時点で整理したものです。内容は変わっている場合があります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 最後のご案内 -->
+  <section class="final-cta" aria-labelledby="final-cta-heading">
+    <div class="container">
+      <h2 id="final-cta-heading">ご来店の前に、ご確認ください</h2>
+      <p style="color:#dde1ea;">男鹿市船越の観光案内所の中にあります。季節限定のブレンドは、公式Instagramでお知らせされています。</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" style="background:#fff;color:var(--color-primary);" href="http://ameyacoffee.com/" target="_blank" rel="noopener noreferrer">公式サイトを見る</a>
+        <a class="btn btn-outline" href="https://ameyacoffeeweb.shop-pro.jp/" target="_blank" rel="noopener noreferrer">オンラインショップを見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>アメヤ珈琲</p>
+    <p>© アメヤ珈琲. All Rights Reserved.</p>
+    <p><a href="#main-content">ページの先頭へ戻る</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var questions = [
+    {
+      text: "コーヒーを飲むのは、いつが多いですか？",
+      options: [
+        { label: "朝、一日のはじまりに", cat: "A" },
+        { label: "お昼すぎ、ひと休みに", cat: "B" },
+        { label: "午後、ゆっくりした時間に", cat: "C" },
+        { label: "夜、または食後に", cat: "D" },
+        { label: "特別な日に", cat: "E" }
+      ]
+    },
+    {
+      text: "好きな味に近いのは？",
+      options: [
+        { label: "甘味のあとに、少し苦味", cat: "A" },
+        { label: "どれも強すぎない、軽めの味", cat: "B" },
+        { label: "やわらかな酸味と、やさしい甘味", cat: "C" },
+        { label: "しっかりした苦味とコク", cat: "D" },
+        { label: "上品で、香り高い味", cat: "E" }
+      ]
+    },
+    {
+      text: "どうやって飲みますか？",
+      options: [
+        { label: "ブラックで、目を覚ます", cat: "A" },
+        { label: "何杯でも、気軽に", cat: "B" },
+        { label: "お菓子と一緒に", cat: "C" },
+        { label: "カフェオレやアイスコーヒーで", cat: "D" },
+        { label: "一杯をじっくり味わう", cat: "E" }
+      ]
+    },
+    {
+      text: "いちばん惹かれる名前は？",
+      options: [
+        { label: "朝の雫", cat: "A" },
+        { label: "こもれび", cat: "B" },
+        { label: "思い出", cat: "C" },
+        { label: "真夜中", cat: "D" },
+        { label: "流星", cat: "E" }
+      ]
+    }
+  ];
+
+  var results = {
+    A: {
+      name: "朝の雫タイプ",
+      summary: "一日のはじまりに、すっと目が覚める一杯が好きな方です。",
+      reason: "朝、甘味のあとの苦味、ブラックに関する回答が多い傾向でした。",
+      recommend: "朝の雫。甘味のあとに、ほのかな苦味。朝に飲みたいブレンドです。",
+      strength: "名前のついたブレンドから、時間に合わせて選べるのがアメヤ珈琲の楽しさです。",
+      ctaHref: "#day",
+      ctaLabel: "一日のブレンドを見る"
+    },
+    B: {
+      name: "こもれびタイプ",
+      summary: "強すぎない、軽めの一杯を気軽に飲みたい方です。",
+      reason: "ひと休み、軽めの味、気軽に何杯でもに関する回答が多い傾向でした。",
+      recommend: "こもれび。甘味・酸味・苦味が調和した、軽めのブレンドです。すっきりが好きなら「アメヤ可否」も。",
+      strength: "20種類以上の豆から、毎日の一杯を選べます。",
+      ctaHref: "#beans",
+      ctaLabel: "ブレンドを見る"
+    },
+    C: {
+      name: "思い出タイプ",
+      summary: "やわらかな酸味とやさしい甘味を、お菓子と一緒に楽しみたい方です。",
+      reason: "午後、やわらかな酸味、お菓子と一緒にに関する回答が多い傾向でした。",
+      recommend: "思い出。やわらかな酸味のあとに、やさしい甘味。酸味をもう少し楽しみたいなら「黄昏」も。",
+      strength: "豆の個性を引き出す自家焙煎だからこそ、酸味の違いを楽しめます。",
+      ctaHref: "#beans",
+      ctaLabel: "ブレンドを見る"
+    },
+    D: {
+      name: "真夜中タイプ",
+      summary: "苦味とコクのある、しっかりした一杯が好きな方です。",
+      reason: "夜や食後、しっかりした苦味、カフェオレやアイスに関する回答が多い傾向でした。",
+      recommend: "真夜中。苦味が効いた重厚なブレンドで、カフェオレやアイスコーヒーにも向いています。",
+      strength: "焙煎の度合いに合わせて組み立てたブレンドならではの、深い一杯です。",
+      ctaHref: "#beans",
+      ctaLabel: "ブレンドを見る"
+    },
+    E: {
+      name: "流星タイプ",
+      summary: "特別な日に、上品で香り高い一杯を味わいたい方です。",
+      reason: "特別な日、上品な香り、じっくり味わうに関する回答が多い傾向でした。",
+      recommend: "流星（ブルーマウンテン配合）。さらに特別な一杯なら、ゲイシャ種の「トゥンキマヨ」も。",
+      strength: "スペシャルティコーヒーだけを扱うお店ならではの、特別な一杯です。",
+      ctaHref: "#strengths",
+      ctaLabel: "お店の強みを見る"
+    }
+  };
+
+  var priorityOrder = ["A", "B", "C", "D", "E"];
+
+  var currentIndex = 0;
+  var answers = new Array(questions.length).fill(null);
+
+  var quizIntro = document.getElementById("quizIntro");
+  var quizStartBtn = document.getElementById("quizStartBtn");
+  var quizForm = document.getElementById("quizForm");
+  var quizProgress = document.getElementById("quizProgress");
+  var quizQuestionText = document.getElementById("quizQuestionText");
+  var quizOptions = document.getElementById("quizOptions");
+  var quizWarning = document.getElementById("quizWarning");
+  var quizBack = document.getElementById("quizBack");
+  var quizNext = document.getElementById("quizNext");
+  var quizResult = document.getElementById("quizResult");
+  var quizRestartBtn = document.getElementById("quizRestartBtn");
+
+  function renderQuestion() {
+    quizWarning.textContent = "";
+    var q = questions[currentIndex];
+    quizProgress.textContent = "質問 " + (currentIndex + 1) + " / " + questions.length;
+    quizQuestionText.textContent = q.text;
+    quizOptions.innerHTML = "";
+
+    q.options.forEach(function (opt, i) {
+      var li = document.createElement("li");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "quiz-option";
+      btn.textContent = opt.label;
+      var selected = answers[currentIndex] === i;
+      btn.setAttribute("aria-pressed", selected ? "true" : "false");
+      btn.addEventListener("click", function () {
+        answers[currentIndex] = i;
+        var allBtns = quizOptions.querySelectorAll(".quiz-option");
+        allBtns.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+        btn.setAttribute("aria-pressed", "true");
+        quizWarning.textContent = "";
+      });
+      li.appendChild(btn);
+      quizOptions.appendChild(li);
+    });
+
+    quizBack.disabled = currentIndex === 0;
+    quizNext.textContent = currentIndex === questions.length - 1 ? "結果を見る" : "次へ";
+  }
+
+  function startQuiz() {
+    currentIndex = 0;
+    answers = new Array(questions.length).fill(null);
+    quizIntro.style.display = "none";
+    quizResult.style.display = "none";
+    quizForm.style.display = "block";
+    renderQuestion();
+  }
+
+  function showResult() {
+    var scores = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+    answers.forEach(function (ansIndex, qIndex) {
+      if (ansIndex === null) { return; }
+      var cat = questions[qIndex].options[ansIndex].cat;
+      scores[cat] += 1;
+    });
+
+    // 同点の場合は、最後の質問（4問目）で選んだものを優先します。
+    // それでも決まらない場合のみ、A→B→C→D→Eの順を採用します。
+    var lastCat = null;
+    var lastAnswerIndex = answers[answers.length - 1];
+    if (lastAnswerIndex !== null) {
+      lastCat = questions[questions.length - 1].options[lastAnswerIndex].cat;
+    }
+
+    var maxScore = -1;
+    priorityOrder.forEach(function (cat) {
+      if (scores[cat] > maxScore) { maxScore = scores[cat]; }
+    });
+    var topCats = priorityOrder.filter(function (cat) { return scores[cat] === maxScore; });
+
+    var winner;
+    if (topCats.length === 1) {
+      winner = topCats[0];
+    } else if (lastCat !== null && topCats.indexOf(lastCat) !== -1) {
+      winner = lastCat;
+    } else {
+      winner = topCats[0];
+    }
+
+    var r = results[winner];
+    document.getElementById("resultName").textContent = r.name;
+    document.getElementById("resultSummary").textContent = r.summary;
+    document.getElementById("resultReason").textContent = r.reason;
+    document.getElementById("resultRecommend").textContent = r.recommend;
+    document.getElementById("resultStrength").textContent = r.strength;
+    var cta = document.getElementById("resultCta");
+    cta.href = r.ctaHref;
+    cta.textContent = r.ctaLabel;
+
+    quizForm.style.display = "none";
+    quizResult.style.display = "block";
+    document.getElementById("resultName").focus();
+  }
+
+  quizStartBtn.addEventListener("click", startQuiz);
+
+  quizNext.addEventListener("click", function () {
+    if (answers[currentIndex] === null) {
+      quizWarning.textContent = "選択肢を選んでから次へ進んでください。";
+      return;
+    }
+    if (currentIndex === questions.length - 1) {
+      showResult();
+    } else {
+      currentIndex += 1;
+      renderQuestion();
+    }
+  });
+
+  quizBack.addEventListener("click", function () {
+    if (currentIndex > 0) {
+      currentIndex -= 1;
+      renderQuestion();
+    }
+  });
+
+  quizRestartBtn.addEventListener("click", function () {
+    quizResult.style.display = "none";
+    quizIntro.style.display = "block";
+  });
+})();
+</script>
+
+</body>
+</html>
