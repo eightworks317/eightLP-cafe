@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>黒井鳥珈琲｜ピーチか、ブルーベリーか、プラムか。｜提案用ページ</title>
+<meta name="description" content="北秋田市鷹巣の自家焙煎「黒井鳥珈琲」。産地ごとに選んだ豆を、ピーチ・ブルーベリー・プラムなど味の言葉と一緒に紹介。壁一面のレコードとDJブースのある店内。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1d1d22">
+<style>
+  :root {
+    --color-primary: #1d1d22;      /* 黒い鳥と、レコード盤の黒 */
+    --color-secondary: #faf8f4;    /* 白いカップの色 */
+    --color-roast: #a4502e;         /* 熟したアプリコットの色 */
+    --color-roast-text: #94472a;    /* 明るい地の上に置く文字用（明暗差 6.2） */
+    --color-roast-btn: #7a3a22;     /* 白文字をのせるボタンの地色（白との明暗差 8.6） */
+    --color-warm: #4d4a86;         /* ブルーベリーのむらさき */
+    --color-warm-text: #433f78;
+    --color-surface: #efebe4;
+    --color-proposal: #ebeae7;
+    --color-proposal-border: #a69a8c;
+    --color-text: #232227;
+    --color-muted: #5a585c;
+    --color-border: #dcd6cc;
+    --font-serif: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-sans: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  /* ★2026-10-27：背景にうっすら「飛ぶ鳥」の柄を入れています。
+     小さな鳥が羽を広げた形（ゆるいＶの字）を、高さを変えて散らしています。店名の「黒井鳥」に合わせました。
+     ・濃さ　：stroke-opacity の数字（0.10）。1 に近いほど濃くなります
+     ・柄の大きさ：background-size の 56px 56px
+     ※ 色を敷いている節（強み／楽しみ方／味の言葉／診断）には出ません。 */
+  body {
+    margin: 0;
+    background-color: var(--color-secondary);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56'%3E%3Cg fill='none' stroke='%231d1d22' stroke-opacity='0.10' stroke-width='1' stroke-linecap='round'%3E%3Cpath d='M8 16Q12 11 15 15Q18 11 22 16'/%3E%3Cpath d='M34 40Q37 36 39.5 39Q42 36 45 40'/%3E%3Cpath d='M40 12Q42 10 43.5 12Q45 10 47 12'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 56px 56px;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 16px; line-height: 1.8; overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+
+  .container {
+    width: 100%; max-width: 960px; margin: 0 auto;
+    padding-left: clamp(14px, 4vw, 32px); padding-right: clamp(14px, 4vw, 32px);
+  }
+
+  .skip-link {
+    position: absolute; left: -999px; top: 0;
+    background: var(--color-roast-btn); color: #fff;
+    padding: 10px 16px; z-index: 200; border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus { left: 0; }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid var(--color-roast); outline-offset: 3px;
+  }
+
+  /* ---------- 提案用ラベル ---------- */
+  .proposal-bar {
+    background: var(--color-primary); color: var(--color-secondary);
+    text-align: center; padding: 8px 14px;
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.06em; line-height: 1.5;
+  }
+
+  /* ---------- ファーストビュー ---------- */
+  .hero {
+    position: relative; min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 96px 0 56px; background: var(--color-primary); overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(29,29,34,0.40) 0%, rgba(29,29,34,0.60) 55%, rgba(29,29,34,0.88) 100%);
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.16em;
+    color: var(--color-secondary); margin: 0 0 14px;
+  }
+  .hero h1 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(27px, 7.6vw, 45px); line-height: 1.4;
+    margin: 0 0 18px; color: var(--color-secondary); overflow-wrap: anywhere;
+  }
+  .hero-lead {
+    font-size: clamp(14px, 3.8vw, 17px); max-width: 34em;
+    margin: 0 0 30px; color: var(--color-secondary);
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 30px;
+    font-size: 12px; letter-spacing: 0.08em; color: var(--color-secondary);
+  }
+  .hero-tags span {
+    border: 1px solid rgba(248,246,241,0.5);
+    border-radius: 999px; padding: 6px 14px; background: rgba(29,29,34,0.35);
+  }
+
+  .cta-group { display: flex; flex-direction: column; gap: 12px; max-width: 340px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 12px 20px; border-radius: 6px;
+    text-decoration: none; font-size: 15px; letter-spacing: 0.02em;
+    border: 1px solid transparent; text-align: center; line-height: 1.4;
+  }
+  .btn-primary { background: var(--color-roast-btn); color: #fff; }
+  .btn-outline { background: transparent; border-color: var(--color-primary); color: var(--color-primary); }
+  .hero .btn-primary { background: var(--color-secondary); color: var(--color-primary); }
+  .hero .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); background: rgba(29,29,34,0.25); }
+  @media (min-width: 560px) { .cta-group { flex-direction: row; max-width: none; } }
+
+  /* ---------- 共通 ---------- */
+  section { padding: clamp(48px, 9vw, 88px) 0; }
+  .section-alt { background: var(--color-surface); }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; color: var(--color-roast-text); margin: 0 0 10px; }
+  h2 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(22px, 6vw, 30px); margin: 0 0 20px; line-height: 1.5; }
+  h3 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(17px, 4.6vw, 20px); margin: 0 0 10px; line-height: 1.6; }
+  p { margin: 0 0 14px; }
+  .lead-text { max-width: 40em; color: var(--color-muted); }
+  .source-note { font-size: .85em; opacity: .8; margin-top: 1.2em; }
+
+  /* ---------- 店名の由来 ---------- */
+  .name-origin {
+    margin: 26px 0 0; padding: 22px 24px;
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-roast);
+    border-radius: 0 12px 12px 0;
+  }
+  .name-origin .en {
+    font-family: var(--font-serif); font-size: clamp(18px, 4.8vw, 24px);
+    letter-spacing: .04em; margin: 0 0 8px; display: block; color: var(--color-roast-text);
+  }
+  .name-origin .ja { font-size: 14.5px; color: var(--color-muted); margin: 0; }
+
+  blockquote.quote {
+    margin: 26px 0 0; padding: 20px 22px;
+    background: var(--color-secondary);
+    border-left: 4px solid var(--color-warm);
+    border-top: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0 10px 10px 0;
+    font-family: var(--font-serif);
+    font-size: clamp(15px, 4vw, 17px); line-height: 1.9;
+  }
+  blockquote.quote cite {
+    display: block; margin-top: 10px; font-family: var(--font-sans);
+    font-style: normal; font-size: 12.5px; color: var(--color-muted);
+  }
+
+  /* ---------- カード ---------- */
+  .card-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
+  @media (min-width: 700px) {
+    .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  }
+  .card {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 10px; padding: 22px; min-width: 0;
+    box-shadow: 0 2px 10px rgba(29,29,34,0.05);
+  }
+  .card .num { font-size: 12px; color: var(--color-roast-text); letter-spacing: 0.1em; display: block; margin-bottom: 10px; }
+  .card p { font-size: 14.5px; color: var(--color-text); margin-bottom: 8px; }
+  .card .value {
+    font-size: 13.5px; color: var(--color-muted);
+    border-top: 1px dashed var(--color-border); padding-top: 10px; margin-top: 10px;
+  }
+  .card-photo { border-radius: 8px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 14px; }
+
+  /* 横に3枚並べたときのそろえ方
+     ① 下端をそろえる作り（subgrid が使えないブラウザ用の保険）
+     このページの見出しは1行が文字サイズの1.6倍なので、2行ぶんは 3.2em です。 */
+  @media (min-width: 700px) {
+    .card-grid.cols-3 .card { display: flex; flex-direction: column; }
+    .card-grid.cols-3 .card h3 { line-height: 1.6; min-height: 3.2em; }
+    .card-grid.cols-3 .card .value { margin-top: auto; }
+  }
+  /* ② ラベル・見出し・本文・価値の4つを、それぞれ別々に高さをそろえます。 */
+  @supports (grid-template-rows: subgrid) {
+    @media (min-width: 700px) {
+      #strengths .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 5; }
+      #ways .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 4; }
+      .card-grid.cols-3 .card h3 { min-height: 0; margin-bottom: 0; }
+      .card-grid.cols-3 .card .value { margin-top: 0; align-self: start; }
+      .card-grid.cols-3 .card p { margin-bottom: 0; }
+      .card-grid.cols-3 .card .num { margin-bottom: 0; }
+      .card-grid.cols-3 .card { row-gap: 10px; }
+    }
+  }
+
+  /* ---------- ストーリー ---------- */
+  .story { display: grid; gap: 24px; }
+  /* 横に並べたとき、写真をとなりの文章と同じ高さまで伸ばします。 */
+  @media (min-width: 760px) {
+    .story { grid-template-columns: 1fr 1fr; align-items: stretch; }
+    .story-photo { height: 100%; min-height: 300px; aspect-ratio: auto; }
+  }
+  .story-photo { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+  .concept-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 22px; }
+  .concept-gallery img { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+
+  /* ---------- 献立 ---------- */
+  .dish-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+  @media (min-width: 620px) { .dish-grid { grid-template-columns: repeat(2, 1fr); } }
+  .dish {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-roast); border-radius: 0 8px 8px 0;
+    padding: 18px 20px; min-width: 0;
+  }
+  .dish.is-warm { border-left-color: var(--color-warm); }
+  .dish .tag { font-size: 12px; letter-spacing: .08em; color: var(--color-roast-text); display: block; }
+  .dish.is-warm .tag { color: var(--color-warm-text); }
+  .dish .name { font-family: var(--font-serif); font-size: 19px; margin: 2px 0 6px; display: block; }
+  .dish .price { font-size: 15px; font-weight: 700; margin: 0 0 8px; }
+  .dish .desc { font-size: 14px; color: var(--color-muted); margin: 0; }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; padding: 0; list-style: none; }
+  .tag-list li {
+    font-size: 13.5px; color: var(--color-muted);
+    border: 1px solid var(--color-border); background: var(--color-secondary);
+    border-radius: 999px; padding: 5px 14px;
+  }
+
+  /* ---------- 地域の節 ---------- */
+  .highlight { background: var(--color-primary); color: var(--color-secondary); }
+  .highlight .eyebrow { color: #f3c89a; }  /* 暗い地の上の、ピーチの色（明暗差 10.8） */
+  .highlight-grid { display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 760px) { .highlight-grid { grid-template-columns: 1.1fr 1fr; } }
+  .highlight-visual {
+    border-radius: 10px; aspect-ratio: 4 / 3; width: 100%;
+    object-fit: cover; border: 1px solid rgba(255,255,255,0.15);
+  }
+  .highlight-list { list-style: none; padding: 0; margin: 18px 0 24px; font-size: 14.5px; }
+  .highlight-list li { padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.15); }
+  .highlight-list li:first-child { border-top: none; }
+  .highlight-list b { display: block; margin-bottom: 4px; font-size: 13px; color: #f3c89a; letter-spacing: 0.04em; }
+
+  /* ---------- 一覧表 ---------- */
+  .info-list {
+    list-style: none; padding: 0; margin: 24px 0 0;
+    display: grid; gap: 0; border-top: 1px solid var(--color-border);
+  }
+  .info-list li {
+    display: grid; grid-template-columns: 120px 1fr; gap: 12px;
+    padding: 14px 0; border-bottom: 1px solid var(--color-border); font-size: 14.5px;
+  }
+  .info-list .term { color: var(--color-muted); font-size: 13px; letter-spacing: 0.04em; }
+  .info-list a { overflow-wrap: anywhere; text-decoration: underline; }
+
+  /* ---------- 試作（診断） ---------- */
+  .proposal-section {
+    background: var(--color-proposal);
+    border-top: 3px solid var(--color-proposal-border);
+    border-bottom: 3px solid var(--color-proposal-border);
+  }
+  .proposal-tag {
+    display: inline-block; font-size: 12px; letter-spacing: 0.1em;
+    background: var(--color-proposal-border); color: #16211f;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .proposal-note {
+    background: var(--color-secondary); border: 1px solid var(--color-proposal-border);
+    border-radius: 8px; padding: 14px 16px; font-size: 13.5px;
+    color: var(--color-muted); margin: 22px 0 30px; line-height: 1.75;
+  }
+  .quiz-app {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 14px; padding: 22px; max-width: 640px;
+  }
+  .quiz-intro h3 { margin: 0 0 12px; font-size: 20px; }
+  .quiz-progress { font-size: 13px; color: var(--color-muted); margin-bottom: 12px; }
+  .quiz-question { font-size: 17px; font-weight: 700; margin: 0 0 12px; }
+  .quiz-options { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 10px; }
+  .quiz-option {
+    width: 100%; text-align: left; padding: 14px 16px; min-height: 44px;
+    border: 1.5px solid var(--color-border); border-radius: 8px;
+    background: var(--color-surface); font-size: 15px;
+    font-family: inherit; color: var(--color-text); cursor: pointer;
+  }
+  .quiz-option[aria-pressed="true"] { border-color: var(--color-roast); background: #f4e3d8; font-weight: 700; }
+  .quiz-option[aria-pressed="true"]::before { content: "✓ "; color: var(--color-roast-text); }
+  .quiz-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; }
+  .quiz-nav button { min-height: 44px; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-family: inherit; cursor: pointer; }
+  #quizBack { background: transparent; border: 1px solid var(--color-border); color: var(--color-text); }
+  #quizNext { background: var(--color-roast-btn); border: 1px solid var(--color-roast-btn); color: #fff; }
+  #quizNext:disabled, #quizBack:disabled { opacity: .4; cursor: not-allowed; }
+  .quiz-warning { font-size: 13px; color: #a0432a; margin-top: 6px; min-height: 1.2em; }
+  .quiz-result h3 { font-size: 22px; margin: 0 0 6px; }
+  .quiz-result .result-summary { color: var(--color-muted); margin: 0 0 22px; }
+  .result-detail-list { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 4px; font-size: 14px; }
+  .result-detail-list dt { font-weight: 700; margin-top: 12px; }
+  .result-detail-list dd { margin: 2px 0 0; color: var(--color-muted); }
+  .quiz-result-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .quiz-start-btn {
+    min-height: 44px; padding: 12px 28px; background: var(--color-roast-btn);
+    color: #fff; border: none; border-radius: 6px; font-size: 15px; font-weight: 700; cursor: pointer;
+  }
+  .disclaimer-box {
+    font-size: 13px; line-height: 1.7; color: var(--color-muted);
+    background: var(--color-surface); border: 1px dashed var(--color-border);
+    border-radius: 8px; padding: 14px 16px; margin-top: 22px;
+  }
+
+  /* ---------- 最後のご案内 ---------- */
+  .final-cta { background: var(--color-primary); color: var(--color-secondary); text-align: center; }
+  .final-cta .cta-group { margin: 26px auto 0; justify-content: center; }
+  .final-cta .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); }
+
+  .site-footer {
+    padding: 32px 0 40px; text-align: center; font-size: 12.5px;
+    color: var(--color-muted); border-top: 1px solid var(--color-border);
+  }
+  .site-footer a { text-decoration: underline; }
+  .site-footer p { margin: 6px 0; }
+
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
+<div class="proposal-bar" role="note">
+  CONCEPT LP ／ 店舗向け提案用ページです。本ページには未導入の新サービス提案・試作デモが含まれます。<br>
+  ※本ページの掲載画像は、店舗の世界観を表現したイメージ画像です。
+</div>
+
+<main id="main-content">
+
+  <!-- ファーストビュー -->
+  <section class="hero">
+    <img class="hero-bg" src="images/01_hero_beans_16x9.webp" alt="焙煎したコーヒー豆と、桃・ブルーベリー・プラムのイメージ画像" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <p class="hero-eyebrow">自家焙煎 黒井鳥珈琲 — 秋田県北秋田市 鷹巣</p>
+      <h1>ピーチか、<br>ブルーベリーか、<br>プラムか。</h1>
+      <p class="hero-lead">
+        産地ごとに選んだ豆を、自分たちで焙煎しているお店です。
+        エチオピアのイルガチェフェはピーチやレモン、シダモはブルーベリーやグレープ、ケニアはプラムやラズベリー。
+        豆ごとに、味の言葉を添えて紹介しています。
+      </p>
+      <p class="hero-tags">
+        <span>産地ごとの自家焙煎</span>
+        <span>豆ごとの味の言葉</span>
+        <span>壁一面のレコード</span>
+      </p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="https://coffee-diagnosis-app.netlify.app/index.html" target="_blank" rel="noopener noreferrer">コーヒー豆診断アプリを試す</a>
+        <a class="btn btn-outline" href="#strengths">店舗について見る</a>
+        <a class="btn btn-outline" href="https://www.instagram.com/kuroitori_coffee/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+      </div>
+      <p style="color:var(--color-secondary);font-size:12px;margin:12px 0 0;opacity:.85;">※診断アプリは試作デモです。別の画面で開きます。</p>
+    </div>
+  </section>
+
+  <!-- コンセプト -->
+  <section id="concept" aria-labelledby="concept-heading">
+    <div class="container">
+      <div class="story">
+        <div>
+          <p class="eyebrow">CONCEPT</p>
+          <h2 id="concept-heading">一杯ごとに、<br>違う果物の香り</h2>
+          <p class="lead-text">
+            黒井鳥珈琲は、北秋田市鷹巣、鷹巣駅から歩いて5分ほどの自家焙煎のお店です。
+            産地ごとに選んだ豆を焙煎し、ハンドドリップで淹れています。
+            Instagramでは、豆ひとつひとつに<strong>「カッピングプロファイル」</strong>（味の特徴を表す言葉）を添えて紹介しています。
+          </p>
+
+          <div class="name-origin">
+            <span class="en">Cupping Profile</span>
+            <p class="ja">レモン、ピーチ、アプリコット、白ワイン、ハニー。ブルーベリー、グレープ、キャラメル。プラム、オレンジ、ミルクチョコレート。<strong>豆によって、感じる味がこんなに違います。</strong></p>
+          </div>
+
+          <p class="lead-text" style="margin-top:22px;">
+            ケニアの豆は、こう紹介されていました。
+          </p>
+
+          <blockquote class="quote">
+            冷めるにつれて甘さの伴うブドウのような明るいアシディティも好印象でした。
+            <cite>公式Instagram（2026年8月14日）より</cite>
+          </blockquote>
+
+          <p class="lead-text" style="margin-top:22px;">
+            <strong>飲みながら、味の変化まで楽しめるように豆を選んでいるお店です。</strong>
+          </p>
+        </div>
+        <img class="story-photo" src="images/03_records_4x3.webp" alt="壁一面のレコードとコーヒーカウンターのイメージ画像" loading="lazy">
+      </div>
+      <div class="concept-gallery">
+        <img src="images/02_drip_4x3.webp" alt="ハンドドリップで淹れるコーヒーのイメージ画像" loading="lazy">
+        <img src="images/04_monaka_4x3.webp" alt="あんこの入った最中とコーヒーのイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 強み -->
+  <section id="strengths" class="section-alt" aria-labelledby="strengths-heading">
+    <div class="container">
+      <p class="eyebrow">公開されている情報から見える、この店舗の強み</p>
+      <h2 id="strengths-heading">お店の強み</h2>
+      <p class="lead-text">他店との比較ではなく、公開されている情報で確認できる特徴だけを根拠に整理しています。</p>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <img class="card-photo" src="images/01_hero_beans_16x9.webp" alt="焙煎したコーヒー豆のイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 01</span>
+          <h3>産地ごとの、自家焙煎</h3>
+          <p>エチオピア、ケニアなど、<strong>産地ごとに選んだ豆</strong>を自家焙煎。豆は北秋田市のふるさと納税の返礼品にもなっています。</p>
+          <p class="value">お客様にとっての価値：産地による味の違いを、飲みくらべられます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/02_drip_4x3.webp" alt="ハンドドリップで淹れるコーヒーのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 02</span>
+          <h3>味を、言葉で伝える</h3>
+          <p>豆ごとに<strong>果物や甘さの言葉</strong>で味を紹介。来店された方は、店主さんがコーヒーの説明を丁寧にしてくれた、と書かれていました。</p>
+          <p class="value">お客様にとっての価値：飲む前に、どんな味か想像して選べます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/03_records_4x3.webp" alt="壁一面のレコードのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 03</span>
+          <h3>レコードのある、広い店内</h3>
+          <p>店内には<strong>DJブースと壁一面のレコード</strong>。広々としたテーブルで、音楽と一緒にコーヒーを楽しめます。音楽イベントも開かれているそうです。</p>
+          <p class="value">お客様にとっての価値：ゆっくり過ごしたくなる空間です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 豆 -->
+  <section id="beans" aria-labelledby="beans-heading">
+    <div class="container">
+      <p class="eyebrow">BEANS</p>
+      <h2 id="beans-heading">最近紹介されていた、<br>豆と味の言葉</h2>
+      <p class="lead-text">
+        2026年8月〜9月の公式Instagramで紹介されていた豆です。
+      </p>
+      <div class="dish-grid">
+        <div class="dish">
+          <span class="tag">エチオピア／ウォッシュト</span>
+          <span class="name">Yirgacheffe G-1 Takele Mammo Washed</span>
+          <p class="desc">レモン、<strong>ピーチ</strong>、アプリコット、ジンジャー、白ワイン、ハニー。「とても熟度が高いジューシーなイルガチェフェ」と紹介されています。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">エチオピア／ナチュラル</span>
+          <span class="name">Sidamo G-1 Bona Zuria Sedaka Natural</span>
+          <p class="desc"><strong>ブルーベリー</strong>、グレープ、グレープフルーツ、キャラメル。「クリーンで上質なナチュラル」と紹介されています。</p>
+        </div>
+        <div class="dish is-warm">
+          <span class="tag">ケニア</span>
+          <span class="name">KII AA</span>
+          <p class="desc"><strong>プラム</strong>、オレンジ、ラズベリー、スパイシー、ミルクチョコレート。「トータルバランスの良い銘柄」と紹介されています。</p>
+        </div>
+        <div class="dish is-warm">
+          <span class="tag">お店のブレンド</span>
+          <span class="name">黒井鳥ブレンド</span>
+          <p class="desc">来店された方は、<strong>ちょうどいいフルーティな酸味</strong>がとても美味しかった、と書かれていました。</p>
+        </div>
+      </div>
+      <p class="lead-text source-note">
+        ※ 豆の名前と味の言葉は、公式Instagram（@kuroitori_coffee）の2026年8月〜9月の投稿によります。黒井鳥ブレンドは公開されている来店者の感想によります。
+        豆は時期によって入れ替わります。価格は載せていません。
+      </p>
+    </div>
+  </section>
+
+  <!-- 楽しみ方 -->
+  <section id="ways" class="section-alt" aria-labelledby="ways-heading">
+    <div class="container">
+      <p class="eyebrow">HOW TO ENJOY</p>
+      <h2 id="ways-heading">コーヒーと、<br>こんな楽しみ方も</h2>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <span class="num">MONAKA</span>
+          <h3>コーヒーと、あんこの最中</h3>
+          <p>店内限定で、<strong>あんこの入った最中</strong>とコーヒーを合わせて楽しめます。来店された方は、あんこの量にびっくりしたそうです。</p>
+          <p class="value">フルーティなコーヒーと、和の甘さの組み合わせです。</p>
+        </div>
+        <div class="card">
+          <span class="num">SOY LATTE</span>
+          <h3>豆乳のラテも</h3>
+          <p>豆乳のラテや、アイスをのせたラテも。焙煎強めの豆で淹れる<strong>ソイオレ</strong>を頼んだ方もいました。</p>
+          <p class="value">ブラックが苦手な方も、好みの一杯を選べます。</p>
+        </div>
+        <div class="card">
+          <span class="num">RECORDS</span>
+          <h3>レコードの話を、聞きながら</h3>
+          <p>ハンドドリップで淹れてもらう間に、<strong>レコードの話</strong>を聞かせてもらった、と書かれていました。</p>
+          <p class="value">電車やバスの待ち時間にも、ほっとひと息つけます。</p>
+        </div>
+      </div>
+      <p class="lead-text source-note">
+        ※ この節は、公開されている来店者の感想と店舗情報によります。メニューは変わることがあります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 味の言葉 -->
+  <section id="flavor" class="highlight" aria-labelledby="flavor-heading">
+    <div class="container">
+      <div class="highlight-grid">
+        <div>
+          <p class="eyebrow">FLAVOR WORDS</p>
+          <h2 id="flavor-heading">味の言葉から、<br>豆を選ぶ</h2>
+          <p style="color:#dedde2;">
+            お店のInstagramに出てくる味の言葉を、果物ごとに分けてみました。好きな果物から、豆を選べます。
+          </p>
+          <ul class="highlight-list">
+            <li><b>ピーチ・レモン・アプリコット</b>明るくジューシー。エチオピアのイルガチェフェ（ウォッシュト）。</li>
+            <li><b>ブルーベリー・グレープ・キャラメル</b>艶やかで甘い。エチオピアのシダモ（ナチュラル）。</li>
+            <li><b>プラム・ラズベリー・ミルクチョコレート</b>華やかでスパイシー、バランスがいい。ケニアのKII AA。</li>
+            <li><b>迷ったら</b>ちょうどいいフルーティな酸味の、黒井鳥ブレンド。</li>
+          </ul>
+          <div class="cta-group">
+            <a class="btn btn-outline" style="border-color:#fff;color:#fff;" href="#proposal-quiz">診断で選んでみる</a>
+          </div>
+        </div>
+        <img class="highlight-visual" src="images/05_fruits_4x3.webp" alt="桃・ブルーベリー・プラムとコーヒーカップのイメージ画像" loading="lazy">
+      </div>
+      <p class="lead-text source-note" style="color:#c4c3ca;">
+        ※ 果物ごとの分け方は、このページでの紹介のための整理です。味の言葉は公式Instagramの投稿によります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 試作（診断） -->
+  <section id="proposal-quiz" class="proposal-section" aria-labelledby="quiz-heading">
+    <div class="container">
+      <span class="proposal-tag">INTERACTIVE PROTOTYPE｜動く新サービス試作</span>
+      <h2 id="quiz-heading">フレーバー診断（試作）</h2>
+      <p class="lead-text">
+        ピーチか、ブルーベリーか、プラムか。いくつかの質問に答えると、好きな味から合う豆を案内する診断を試作しました。
+        これは店舗運営者向けの新サービス提案・導入アイデアであり、現在提供中のサービスではありません。
+      </p>
+
+      <div class="proposal-note">
+        この診断結果は、2026年8月〜9月の公式Instagramで紹介されていた豆と味の言葉をもとにした、おおまかな分け方です。
+        豆は時期によって入れ替わるため、特定の豆の在庫を保証するものではありません。
+        導入する場合は、お店のその時の豆に合わせて作り直します。
+      </div>
+
+      <div class="quiz-app" id="quizApp">
+        <div id="quizIntro" class="quiz-intro">
+          <h3>対象：豆を買ってみたい方／店舗運営者の方</h3>
+          <p>解決したい課題：豆ごとに味が大きく違い、はじめての方が「どの豆が自分に合うか」を想像しにくいこと。</p>
+          <button type="button" class="quiz-start-btn" id="quizStartBtn">試してみる</button>
+        </div>
+
+        <form id="quizForm" style="display:none;" novalidate>
+          <p class="quiz-progress" id="quizProgress" aria-live="polite"></p>
+          <p class="quiz-question" id="quizQuestionText"></p>
+          <ul class="quiz-options" id="quizOptions"></ul>
+          <p class="quiz-warning" id="quizWarning" role="alert"></p>
+          <div class="quiz-nav">
+            <button type="button" id="quizBack">戻る</button>
+            <button type="button" id="quizNext">次へ</button>
+          </div>
+        </form>
+
+        <div id="quizResult" style="display:none;" class="quiz-result" aria-live="polite">
+          <h3 id="resultName" tabindex="-1"></h3>
+          <p class="result-summary" id="resultSummary"></p>
+          <dl class="result-detail-list">
+            <dt>そのタイプになった理由</dt>
+            <dd id="resultReason"></dd>
+            <dt>おすすめの豆</dt>
+            <dd id="resultRecommend"></dd>
+            <dt>お店の強みとのつながり</dt>
+            <dd id="resultStrength"></dd>
+          </dl>
+          <div class="quiz-result-actions">
+            <a class="btn btn-primary" id="resultCta" href="#beans">関連する節を見る</a>
+            <button type="button" class="btn btn-outline" id="quizRestartBtn">最初からやり直す</button>
+          </div>
+        </div>
+
+        <noscript>
+          <p>この試作デモの操作にはJavaScriptが必要です。JavaScriptが無効な場合でも、お店のご紹介や店舗情報は、このページの他の節から引き続きご覧いただけます。</p>
+        </noscript>
+
+        <p class="disclaimer-box">本機能は店舗運営者向けの試作デモです。現在提供中の正式サービスではありません。入力内容の保存・送信は行いません。ページを閉じると回答内容は消えます。お名前やご連絡先を入力していただく欄はありません。</p>
+      </div>
+
+      <!-- 診断アプリへの入り口 -->
+      <div class="quiz-app" style="margin-top:32px;">
+        <h3 style="margin:0 0 10px;">コーヒー豆診断アプリ（試作）</h3>
+        <p style="font-size:14.5px;margin:0 0 10px;">
+          上の診断は、黒井鳥珈琲様の豆に合わせて作った見本です。
+          こちらは、好みから合う豆をすぐ探せる診断と、マメルというキャラクターと一緒に味の違いを楽しく学べる診断の、2種類を用意した診断アプリです。
+        </p>
+        <p style="font-size:14.5px;margin:0 0 16px;">
+          あなたに合う一杯を、診断で見つけてみませんか？　好みや飲み方について答えるだけで、おすすめのコーヒータイプを確認できます。
+        </p>
+        <a class="btn btn-primary" href="https://coffee-diagnosis-app.netlify.app/index.html" target="_blank" rel="noopener noreferrer">コーヒー豆診断アプリを試す</a>
+        <p class="source-note" style="margin-top:12px;">
+          ※試作デモが別画面で開きます。入力内容は保存・送信されません。<br>
+          ※現在のアプリでは、黒井鳥珈琲様の商品とは異なる豆をご案内しています。導入する場合は、黒井鳥珈琲様の豆に入れ替えます。
+        </p>
+      </div>
+
+      <div class="proposal-note" style="margin-top:32px;">
+        <strong>導入アイデア（今後の展開案）：</strong>新しい豆が入るたびに、Instagramの味の言葉をそのまま診断に加えられます。
+        診断の結果を店頭で見せれば、「この豆を」と選べます。ふるさと納税で豆を選ぶ方の手がかりにもなります。
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section id="info" aria-labelledby="info-heading">
+    <div class="container">
+      <p class="eyebrow">SHOP INFORMATION</p>
+      <h2 id="info-heading">店舗情報</h2>
+      <ul class="info-list">
+        <li><span class="term">店舗名</span><span>黒井鳥珈琲</span></li>
+        <li>
+          <span class="term">所在地</span>
+          <span>〒018-3321 秋田県北秋田市松葉町10-1<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E5%8C%97%E7%A7%8B%E7%94%B0%E5%B8%82%E6%9D%BE%E8%91%89%E7%94%BA10-1" target="_blank" rel="noopener noreferrer">地図で見る（Googleマップ）</a>
+            <span class="source-note" style="display:block;margin-top:4px;">※ 鷹巣駅から歩いて5分ほどです。</span>
+          </span>
+        </li>
+        <li><span class="term">電話</span><span>0186-62-1468</span></li>
+        <li>
+          <span class="term">定休日</span>
+          <span>月曜日<br>
+            <span class="source-note" style="display:block;margin-top:4px;">※ 公開されている店舗情報によります。営業時間とお休みは、公式Instagramかお店にご確認ください。</span>
+          </span>
+        </li>
+        <li><span class="term">ふるさと納税</span><span>北秋田市の返礼品として豆を扱っています</span></li>
+        <li><span class="term">Instagram</span><span><a href="https://www.instagram.com/kuroitori_coffee/" target="_blank" rel="noopener noreferrer">@kuroitori_coffee</a></span></li>
+      </ul>
+      <p class="lead-text source-note">
+        ※ このページは、公式Instagram（@kuroitori_coffee）の2026年8月〜9月の投稿と、
+        公開されている来店者の感想・店舗情報をもとに、2026年10月27日時点で整理したものです。内容は変わっている場合があります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 最後のご案内 -->
+  <section class="final-cta" aria-labelledby="final-cta-heading">
+    <div class="container">
+      <h2 id="final-cta-heading">ご来店の前に、ご確認ください</h2>
+      <p style="color:#dedde2;">月曜日はお休みです。いま扱っている豆は、公式Instagramで紹介されています。</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" style="background:#fff;color:var(--color-primary);" href="https://www.instagram.com/kuroitori_coffee/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+        <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E5%8C%97%E7%A7%8B%E7%94%B0%E5%B8%82%E6%9D%BE%E8%91%89%E7%94%BA10-1" target="_blank" rel="noopener noreferrer">地図を見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>黒井鳥珈琲</p>
+    <p>© 黒井鳥珈琲. All Rights Reserved.</p>
+    <p><a href="#main-content">ページの先頭へ戻る</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var questions = [
+    {
+      text: "好きな果物は？",
+      options: [
+        { label: "桃やレモン", cat: "A" },
+        { label: "ブルーベリーやぶどう", cat: "B" },
+        { label: "プラムやラズベリー", cat: "C" },
+        { label: "どれもほどよく好き", cat: "D" },
+        { label: "果物より、香ばしいものが好き", cat: "E" }
+      ]
+    },
+    {
+      text: "コーヒーに求めるのは？",
+      options: [
+        { label: "明るく、ジューシーな酸味", cat: "A" },
+        { label: "艶やかな甘さ", cat: "B" },
+        { label: "華やかさとコクのバランス", cat: "C" },
+        { label: "毎日飲みやすい、ちょうどいい酸味", cat: "D" },
+        { label: "しっかりした香ばしさ", cat: "E" }
+      ]
+    },
+    {
+      text: "どうやって飲みますか？",
+      options: [
+        { label: "ブラックで、香りを楽しむ", cat: "A" },
+        { label: "冷めていく味の変化も楽しむ", cat: "B" },
+        { label: "チョコレートと一緒に", cat: "C" },
+        { label: "最中やお菓子と一緒に", cat: "D" },
+        { label: "豆乳やミルクを入れる", cat: "E" }
+      ]
+    },
+    {
+      text: "いちばん近いイメージは？",
+      options: [
+        { label: "白ワインとハチミツ", cat: "A" },
+        { label: "ブルーベリーとキャラメル", cat: "B" },
+        { label: "スパイスとミルクチョコレート", cat: "C" },
+        { label: "いつもの、ほっとする一杯", cat: "D" },
+        { label: "焙煎の香ばしさ", cat: "E" }
+      ]
+    }
+  ];
+
+  var results = {
+    A: {
+      name: "ピーチ・明るくジューシータイプ",
+      summary: "明るくジューシーな、果物のような一杯が好きな方です。",
+      reason: "桃やレモン、明るい酸味、白ワインやハチミツに関する回答が多い傾向でした。",
+      recommend: "エチオピアのイルガチェフェ（Takele Mammo Washed）。レモン、ピーチ、アプリコット、白ワイン、ハニー。「とても熟度が高いジューシーなイルガチェフェ」と紹介されていました。",
+      strength: "「産地ごとの、自家焙煎」という強みが、いちばん活きるタイプです。",
+      ctaHref: "#beans",
+      ctaLabel: "豆の紹介を見る"
+    },
+    B: {
+      name: "ブルーベリー・艶やかな甘さタイプ",
+      summary: "艶やかな果物の甘さを楽しみたい方です。",
+      reason: "ブルーベリーやぶどう、甘さ、味の変化に関する回答が多い傾向でした。",
+      recommend: "エチオピアのシダモ（Bona Zuria Sedaka Natural）。ブルーベリー、グレープ、キャラメル。「クリーンで上質なナチュラル」と紹介されていました。",
+      strength: "豆ごとの味の言葉があるので、飲む前から味を想像できます。",
+      ctaHref: "#flavor",
+      ctaLabel: "味の言葉を見る"
+    },
+    C: {
+      name: "プラム・華やかバランスタイプ",
+      summary: "華やかさとコクの、バランスのよい一杯が好きな方です。",
+      reason: "プラムやラズベリー、バランス、チョコレートに関する回答が多い傾向でした。",
+      recommend: "ケニアのKII AA。プラム、オレンジ、ラズベリー、スパイシー、ミルクチョコレート。冷めるにつれて、ブドウのような明るさも出てくるそうです。",
+      strength: "「味を、言葉で伝える」お店ならではの、味の変化を楽しめる豆です。",
+      ctaHref: "#beans",
+      ctaLabel: "豆の紹介を見る"
+    },
+    D: {
+      name: "黒井鳥ブレンドタイプ",
+      summary: "毎日飲みやすい、ちょうどいい一杯が好きな方です。",
+      reason: "ほどよさ、毎日、お菓子と一緒にに関する回答が多い傾向でした。",
+      recommend: "黒井鳥ブレンド。ちょうどいいフルーティな酸味と、来店された方が書かれていました。店内なら、あんこの最中と一緒に。",
+      strength: "店主さんの説明を聞きながら選べるのも、このお店の楽しさです。",
+      ctaHref: "#ways",
+      ctaLabel: "楽しみ方を見る"
+    },
+    E: {
+      name: "香ばしい・ソイオレタイプ",
+      summary: "焙煎の香ばしさや、ミルクとの組み合わせが好きな方です。",
+      reason: "香ばしさ、豆乳やミルクに関する回答が多い傾向でした。",
+      recommend: "焙煎強めの豆で淹れるソイオレ（豆乳のラテ）。どの豆が合うかは、店主さんに相談してみてください。",
+      strength: "ブラック以外の楽しみ方も選べるお店です。",
+      ctaHref: "#ways",
+      ctaLabel: "楽しみ方を見る"
+    }
+  };
+
+  var priorityOrder = ["A", "B", "C", "D", "E"];
+
+  var currentIndex = 0;
+  var answers = new Array(questions.length).fill(null);
+
+  var quizIntro = document.getElementById("quizIntro");
+  var quizStartBtn = document.getElementById("quizStartBtn");
+  var quizForm = document.getElementById("quizForm");
+  var quizProgress = document.getElementById("quizProgress");
+  var quizQuestionText = document.getElementById("quizQuestionText");
+  var quizOptions = document.getElementById("quizOptions");
+  var quizWarning = document.getElementById("quizWarning");
+  var quizBack = document.getElementById("quizBack");
+  var quizNext = document.getElementById("quizNext");
+  var quizResult = document.getElementById("quizResult");
+  var quizRestartBtn = document.getElementById("quizRestartBtn");
+
+  function renderQuestion() {
+    quizWarning.textContent = "";
+    var q = questions[currentIndex];
+    quizProgress.textContent = "質問 " + (currentIndex + 1) + " / " + questions.length;
+    quizQuestionText.textContent = q.text;
+    quizOptions.innerHTML = "";
+
+    q.options.forEach(function (opt, i) {
+      var li = document.createElement("li");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "quiz-option";
+      btn.textContent = opt.label;
+      var selected = answers[currentIndex] === i;
+      btn.setAttribute("aria-pressed", selected ? "true" : "false");
+      btn.addEventListener("click", function () {
+        answers[currentIndex] = i;
+        var allBtns = quizOptions.querySelectorAll(".quiz-option");
+        allBtns.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+        btn.setAttribute("aria-pressed", "true");
+        quizWarning.textContent = "";
+      });
+      li.appendChild(btn);
+      quizOptions.appendChild(li);
+    });
+
+    quizBack.disabled = currentIndex === 0;
+    quizNext.textContent = currentIndex === questions.length - 1 ? "結果を見る" : "次へ";
+  }
+
+  function startQuiz() {
+    currentIndex = 0;
+    answers = new Array(questions.length).fill(null);
+    quizIntro.style.display = "none";
+    quizResult.style.display = "none";
+    quizForm.style.display = "block";
+    renderQuestion();
+  }
+
+  function showResult() {
+    var scores = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+    answers.forEach(function (ansIndex, qIndex) {
+      if (ansIndex === null) { return; }
+      var cat = questions[qIndex].options[ansIndex].cat;
+      scores[cat] += 1;
+    });
+
+    // 同点の場合は、最後の質問（4問目）で選んだものを優先します。
+    // それでも決まらない場合のみ、A→B→C→D→Eの順を採用します。
+    var lastCat = null;
+    var lastAnswerIndex = answers[answers.length - 1];
+    if (lastAnswerIndex !== null) {
+      lastCat = questions[questions.length - 1].options[lastAnswerIndex].cat;
+    }
+
+    var maxScore = -1;
+    priorityOrder.forEach(function (cat) {
+      if (scores[cat] > maxScore) { maxScore = scores[cat]; }
+    });
+    var topCats = priorityOrder.filter(function (cat) { return scores[cat] === maxScore; });
+
+    var winner;
+    if (topCats.length === 1) {
+      winner = topCats[0];
+    } else if (lastCat !== null && topCats.indexOf(lastCat) !== -1) {
+      winner = lastCat;
+    } else {
+      winner = topCats[0];
+    }
+
+    var r = results[winner];
+    document.getElementById("resultName").textContent = r.name;
+    document.getElementById("resultSummary").textContent = r.summary;
+    document.getElementById("resultReason").textContent = r.reason;
+    document.getElementById("resultRecommend").textContent = r.recommend;
+    document.getElementById("resultStrength").textContent = r.strength;
+    var cta = document.getElementById("resultCta");
+    cta.href = r.ctaHref;
+    cta.textContent = r.ctaLabel;
+
+    quizForm.style.display = "none";
+    quizResult.style.display = "block";
+    document.getElementById("resultName").focus();
+  }
+
+  quizStartBtn.addEventListener("click", startQuiz);
+
+  quizNext.addEventListener("click", function () {
+    if (answers[currentIndex] === null) {
+      quizWarning.textContent = "選択肢を選んでから次へ進んでください。";
+      return;
+    }
+    if (currentIndex === questions.length - 1) {
+      showResult();
+    } else {
+      currentIndex += 1;
+      renderQuestion();
+    }
+  });
+
+  quizBack.addEventListener("click", function () {
+    if (currentIndex > 0) {
+      currentIndex -= 1;
+      renderQuestion();
+    }
+  });
+
+  quizRestartBtn.addEventListener("click", function () {
+    quizResult.style.display = "none";
+    quizIntro.style.display = "block";
+  });
+})();
+</script>
+
+</body>
+</html>
