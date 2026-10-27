@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chérish Café｜ママが、ほっとひと息。｜提案用ページ</title>
+<meta name="description" content="秋田市茨島の親子カフェ「Chérish Café（チェリッシュカフェ）」。ねんねの赤ちゃんから一緒に過ごせるお座敷、授乳・おむつ替えスペース、週替わりのランチとキッズプレート。予約制。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#3a2a33">
+<style>
+  :root {
+    --color-primary: #3a2a33;      /* 落ち着いたプラムブラウン */
+    --color-secondary: #fffaf8;    /* やわらかいミルクの白 */
+    --color-roast: #c04f72;         /* 入口のピンクのドア */
+    --color-roast-text: #a63d5f;    /* 明るい地の上に置く文字用（明暗差 5.9） */
+    --color-roast-btn: #8c3150;     /* 白文字をのせるボタンの地色（白との明暗差 7.9） */
+    --color-warm: #3f7a6e;         /* やさしいミントの緑 */
+    --color-warm-text: #356a5f;
+    --color-surface: #f7efec;
+    --color-proposal: #efebea;
+    --color-proposal-border: #a69a8c;
+    --color-text: #2c2629;
+    --color-muted: #5e5a5b;
+    --color-border: #e8d9d8;
+    --font-serif: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-sans: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  /* ★2026-10-27：背景にうっすら「小さなハート」の柄を入れています。
+     店名の Chérish（大切にする）に合わせて、小さなハートを間をあけて並べています。
+     ・濃さ　：stroke-opacity の数字（0.09）。1 に近いほど濃くなります
+     ・柄の大きさ：background-size の 44px 44px
+     ※ 色を敷いている節（強み／来る前に／設備／診断）には出ません。 */
+  body {
+    margin: 0;
+    background-color: var(--color-secondary);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cg fill='none' stroke='%233a2a33' stroke-opacity='0.09' stroke-width='0.9' stroke-linejoin='round'%3E%3Cpath d='M11 15C7 12 6 9 8 7.5C9.5 6.5 11 7.5 11 9C11 7.5 12.5 6.5 14 7.5C16 9 15 12 11 15Z'/%3E%3Cpath d='M33 37C29 34 28 31 30 29.5C31.5 28.5 33 29.5 33 31C33 29.5 34.5 28.5 36 29.5C38 31 37 34 33 37Z'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 44px 44px;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 16px; line-height: 1.8; overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+
+  .container {
+    width: 100%; max-width: 960px; margin: 0 auto;
+    padding-left: clamp(14px, 4vw, 32px); padding-right: clamp(14px, 4vw, 32px);
+  }
+
+  .skip-link {
+    position: absolute; left: -999px; top: 0;
+    background: var(--color-roast-btn); color: #fff;
+    padding: 10px 16px; z-index: 200; border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus { left: 0; }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid var(--color-roast); outline-offset: 3px;
+  }
+
+  /* ---------- 提案用ラベル ---------- */
+  .proposal-bar {
+    background: var(--color-primary); color: var(--color-secondary);
+    text-align: center; padding: 8px 14px;
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.06em; line-height: 1.5;
+  }
+
+  /* ---------- ファーストビュー ---------- */
+  .hero {
+    position: relative; min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 96px 0 56px; background: var(--color-primary); overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(58,42,51,0.40) 0%, rgba(58,42,51,0.60) 55%, rgba(58,42,51,0.88) 100%);
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.16em;
+    color: var(--color-secondary); margin: 0 0 14px;
+  }
+  .hero h1 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(27px, 7.6vw, 45px); line-height: 1.4;
+    margin: 0 0 18px; color: var(--color-secondary); overflow-wrap: anywhere;
+  }
+  .hero-lead {
+    font-size: clamp(14px, 3.8vw, 17px); max-width: 34em;
+    margin: 0 0 30px; color: var(--color-secondary);
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 30px;
+    font-size: 12px; letter-spacing: 0.08em; color: var(--color-secondary);
+  }
+  .hero-tags span {
+    border: 1px solid rgba(248,246,241,0.5);
+    border-radius: 999px; padding: 6px 14px; background: rgba(58,42,51,0.35);
+  }
+
+  .cta-group { display: flex; flex-direction: column; gap: 12px; max-width: 340px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 12px 20px; border-radius: 6px;
+    text-decoration: none; font-size: 15px; letter-spacing: 0.02em;
+    border: 1px solid transparent; text-align: center; line-height: 1.4;
+  }
+  .btn-primary { background: var(--color-roast-btn); color: #fff; }
+  .btn-outline { background: transparent; border-color: var(--color-primary); color: var(--color-primary); }
+  .hero .btn-primary { background: var(--color-secondary); color: var(--color-primary); }
+  .hero .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); background: rgba(58,42,51,0.25); }
+  @media (min-width: 560px) { .cta-group { flex-direction: row; max-width: none; } }
+
+  /* ---------- 共通 ---------- */
+  section { padding: clamp(48px, 9vw, 88px) 0; }
+  .section-alt { background: var(--color-surface); }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; color: var(--color-roast-text); margin: 0 0 10px; }
+  h2 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(22px, 6vw, 30px); margin: 0 0 20px; line-height: 1.5; }
+  h3 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(17px, 4.6vw, 20px); margin: 0 0 10px; line-height: 1.6; }
+  p { margin: 0 0 14px; }
+  .lead-text { max-width: 40em; color: var(--color-muted); }
+  .source-note { font-size: .85em; opacity: .8; margin-top: 1.2em; }
+
+  /* ---------- 店名の由来 ---------- */
+  .name-origin {
+    margin: 26px 0 0; padding: 22px 24px;
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-roast);
+    border-radius: 0 12px 12px 0;
+  }
+  .name-origin .en {
+    font-family: var(--font-serif); font-size: clamp(18px, 4.8vw, 24px);
+    letter-spacing: .04em; margin: 0 0 8px; display: block; color: var(--color-roast-text);
+  }
+  .name-origin .ja { font-size: 14.5px; color: var(--color-muted); margin: 0; }
+
+  blockquote.quote {
+    margin: 26px 0 0; padding: 20px 22px;
+    background: var(--color-secondary);
+    border-left: 4px solid var(--color-warm);
+    border-top: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0 10px 10px 0;
+    font-family: var(--font-serif);
+    font-size: clamp(15px, 4vw, 17px); line-height: 1.9;
+  }
+  blockquote.quote cite {
+    display: block; margin-top: 10px; font-family: var(--font-sans);
+    font-style: normal; font-size: 12.5px; color: var(--color-muted);
+  }
+
+  /* ---------- カード ---------- */
+  .card-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
+  @media (min-width: 700px) {
+    .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  }
+  .card {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 10px; padding: 22px; min-width: 0;
+    box-shadow: 0 2px 10px rgba(58,42,51,0.05);
+  }
+  .card .num { font-size: 12px; color: var(--color-roast-text); letter-spacing: 0.1em; display: block; margin-bottom: 10px; }
+  .card p { font-size: 14.5px; color: var(--color-text); margin-bottom: 8px; }
+  .card .value {
+    font-size: 13.5px; color: var(--color-muted);
+    border-top: 1px dashed var(--color-border); padding-top: 10px; margin-top: 10px;
+  }
+  .card-photo { border-radius: 8px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 14px; }
+
+  /* 横に3枚並べたときのそろえ方
+     ① 下端をそろえる作り（subgrid が使えないブラウザ用の保険）
+     このページの見出しは1行が文字サイズの1.6倍なので、2行ぶんは 3.2em です。 */
+  @media (min-width: 700px) {
+    .card-grid.cols-3 .card { display: flex; flex-direction: column; }
+    .card-grid.cols-3 .card h3 { line-height: 1.6; min-height: 3.2em; }
+    .card-grid.cols-3 .card .value { margin-top: auto; }
+  }
+  /* ② ラベル・見出し・本文・価値の4つを、それぞれ別々に高さをそろえます。 */
+  @supports (grid-template-rows: subgrid) {
+    @media (min-width: 700px) {
+      #strengths .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 5; }
+      #ways .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 4; }
+      .card-grid.cols-3 .card h3 { min-height: 0; margin-bottom: 0; }
+      .card-grid.cols-3 .card .value { margin-top: 0; align-self: start; }
+      .card-grid.cols-3 .card p { margin-bottom: 0; }
+      .card-grid.cols-3 .card .num { margin-bottom: 0; }
+      .card-grid.cols-3 .card { row-gap: 10px; }
+    }
+  }
+
+  /* ---------- ストーリー ---------- */
+  .story { display: grid; gap: 24px; }
+  /* 横に並べたとき、写真をとなりの文章と同じ高さまで伸ばします。 */
+  @media (min-width: 760px) {
+    .story { grid-template-columns: 1fr 1fr; align-items: stretch; }
+    .story-photo { height: 100%; min-height: 300px; aspect-ratio: auto; }
+  }
+  .story-photo { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+  .concept-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 22px; }
+  .concept-gallery img { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+
+  /* ---------- 献立 ---------- */
+  .dish-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+  @media (min-width: 620px) { .dish-grid { grid-template-columns: repeat(2, 1fr); } }
+  .dish {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-roast); border-radius: 0 8px 8px 0;
+    padding: 18px 20px; min-width: 0;
+  }
+  .dish.is-warm { border-left-color: var(--color-warm); }
+  .dish .tag { font-size: 12px; letter-spacing: .08em; color: var(--color-roast-text); display: block; }
+  .dish.is-warm .tag { color: var(--color-warm-text); }
+  .dish .name { font-family: var(--font-serif); font-size: 19px; margin: 2px 0 6px; display: block; }
+  .dish .price { font-size: 15px; font-weight: 700; margin: 0 0 8px; }
+  .dish .desc { font-size: 14px; color: var(--color-muted); margin: 0; }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; padding: 0; list-style: none; }
+  .tag-list li {
+    font-size: 13.5px; color: var(--color-muted);
+    border: 1px solid var(--color-border); background: var(--color-secondary);
+    border-radius: 999px; padding: 5px 14px;
+  }
+
+  /* ---------- 地域の節 ---------- */
+  .highlight { background: var(--color-primary); color: var(--color-secondary); }
+  .highlight .eyebrow { color: #f5c3cf; }  /* 暗い地の上の、やさしいピンク（明暗差 8.7） */
+  .highlight-grid { display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 760px) { .highlight-grid { grid-template-columns: 1.1fr 1fr; } }
+  .highlight-visual {
+    border-radius: 10px; aspect-ratio: 4 / 3; width: 100%;
+    object-fit: cover; border: 1px solid rgba(255,255,255,0.15);
+  }
+  .highlight-list { list-style: none; padding: 0; margin: 18px 0 24px; font-size: 14.5px; }
+  .highlight-list li { padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.15); }
+  .highlight-list li:first-child { border-top: none; }
+  .highlight-list b { display: block; margin-bottom: 4px; font-size: 13px; color: #f5c3cf; letter-spacing: 0.04em; }
+
+  /* ---------- 一覧表 ---------- */
+  .info-list {
+    list-style: none; padding: 0; margin: 24px 0 0;
+    display: grid; gap: 0; border-top: 1px solid var(--color-border);
+  }
+  .info-list li {
+    display: grid; grid-template-columns: 120px 1fr; gap: 12px;
+    padding: 14px 0; border-bottom: 1px solid var(--color-border); font-size: 14.5px;
+  }
+  .info-list .term { color: var(--color-muted); font-size: 13px; letter-spacing: 0.04em; }
+  .info-list a { overflow-wrap: anywhere; text-decoration: underline; }
+
+  /* ---------- 試作（診断） ---------- */
+  .proposal-section {
+    background: var(--color-proposal);
+    border-top: 3px solid var(--color-proposal-border);
+    border-bottom: 3px solid var(--color-proposal-border);
+  }
+  .proposal-tag {
+    display: inline-block; font-size: 12px; letter-spacing: 0.1em;
+    background: var(--color-proposal-border); color: #16211f;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .proposal-note {
+    background: var(--color-secondary); border: 1px solid var(--color-proposal-border);
+    border-radius: 8px; padding: 14px 16px; font-size: 13.5px;
+    color: var(--color-muted); margin: 22px 0 30px; line-height: 1.75;
+  }
+  .quiz-app {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 14px; padding: 22px; max-width: 640px;
+  }
+  .quiz-intro h3 { margin: 0 0 12px; font-size: 20px; }
+  .quiz-progress { font-size: 13px; color: var(--color-muted); margin-bottom: 12px; }
+  .quiz-question { font-size: 17px; font-weight: 700; margin: 0 0 12px; }
+  .quiz-options { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 10px; }
+  .quiz-option {
+    width: 100%; text-align: left; padding: 14px 16px; min-height: 44px;
+    border: 1.5px solid var(--color-border); border-radius: 8px;
+    background: var(--color-surface); font-size: 15px;
+    font-family: inherit; color: var(--color-text); cursor: pointer;
+  }
+  .quiz-option[aria-pressed="true"] { border-color: var(--color-roast); background: #f9e3ec; font-weight: 700; }
+  .quiz-option[aria-pressed="true"]::before { content: "✓ "; color: var(--color-roast-text); }
+  .quiz-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; }
+  .quiz-nav button { min-height: 44px; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-family: inherit; cursor: pointer; }
+  #quizBack { background: transparent; border: 1px solid var(--color-border); color: var(--color-text); }
+  #quizNext { background: var(--color-roast-btn); border: 1px solid var(--color-roast-btn); color: #fff; }
+  #quizNext:disabled, #quizBack:disabled { opacity: .4; cursor: not-allowed; }
+  .quiz-warning { font-size: 13px; color: #a0432a; margin-top: 6px; min-height: 1.2em; }
+  .quiz-result h3 { font-size: 22px; margin: 0 0 6px; }
+  .quiz-result .result-summary { color: var(--color-muted); margin: 0 0 22px; }
+  .result-detail-list { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 4px; font-size: 14px; }
+  .result-detail-list dt { font-weight: 700; margin-top: 12px; }
+  .result-detail-list dd { margin: 2px 0 0; color: var(--color-muted); }
+  .quiz-result-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .quiz-start-btn {
+    min-height: 44px; padding: 12px 28px; background: var(--color-roast-btn);
+    color: #fff; border: none; border-radius: 6px; font-size: 15px; font-weight: 700; cursor: pointer;
+  }
+  .disclaimer-box {
+    font-size: 13px; line-height: 1.7; color: var(--color-muted);
+    background: var(--color-surface); border: 1px dashed var(--color-border);
+    border-radius: 8px; padding: 14px 16px; margin-top: 22px;
+  }
+
+  /* ---------- 最後のご案内 ---------- */
+  .final-cta { background: var(--color-primary); color: var(--color-secondary); text-align: center; }
+  .final-cta .cta-group { margin: 26px auto 0; justify-content: center; }
+  .final-cta .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); }
+
+  .site-footer {
+    padding: 32px 0 40px; text-align: center; font-size: 12.5px;
+    color: var(--color-muted); border-top: 1px solid var(--color-border);
+  }
+  .site-footer a { text-decoration: underline; }
+  .site-footer p { margin: 6px 0; }
+
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
+<div class="proposal-bar" role="note">
+  CONCEPT LP ／ 店舗向け提案用ページです。本ページには未導入の新サービス提案・試作デモが含まれます。<br>
+  ※本ページの掲載画像は、店舗の世界観を表現したイメージ画像です。
+</div>
+
+<main id="main-content">
+
+  <!-- ファーストビュー -->
+  <section class="hero">
+    <img class="hero-bg" src="images/01_hero_room_16x9.webp" alt="やわらかい床とクッションのある、明るい親子カフェのイメージ画像" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <p class="hero-eyebrow">Chérish Café（チェリッシュカフェ） — 秋田市茨島</p>
+      <h1>ママが、<br>ほっとひと息。</h1>
+      <p class="hero-lead">
+        赤ちゃんや子どもと一緒に過ごせる、親子カフェです。
+        ねんねの赤ちゃんから、はいはい、よちよち歩きの子まで。
+        ママの目線で考えられた空間で、週替わりのランチを予約して楽しめます。
+      </p>
+      <p class="hero-tags">
+        <span>ねんねの赤ちゃんから</span>
+        <span>ふかふかのお座敷</span>
+        <span>授乳・おむつ替えスペース</span>
+      </p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="#strengths">店舗について見る</a>
+        <a class="btn btn-outline" href="https://cherish-akita.com/service/cafe" target="_blank" rel="noopener noreferrer">公式サイトを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- コンセプト -->
+  <section id="concept" aria-labelledby="concept-heading">
+    <div class="container">
+      <div class="story">
+        <div>
+          <p class="eyebrow">CONCEPT</p>
+          <h2 id="concept-heading">ママたちの<br>「あったらいいな」から</h2>
+          <p class="lead-text">
+            チェリッシュカフェを運営するのは、秋田の「ママたちが作った」会社、合同会社CHERISHです。
+            子育て中の「こんなことがあったらいいな」を形にしようと、親子カフェのほかに、
+            ベビーやママ向けのレッスン、子育て応援の情報誌なども手がけています。
+          </p>
+
+          <div class="name-origin">
+            <span class="en">Chérish</span>
+            <p class="ja">英語で「大切にする」という意味の言葉です。<strong>赤ちゃんとママ、どちらの時間も大切にする</strong>カフェです。</p>
+          </div>
+
+          <p class="lead-text" style="margin-top:22px;">
+            公式サイトでは、このカフェをこう紹介しています。
+          </p>
+
+          <blockquote class="quote">
+            ママがほっと一息つける親子カフェ
+            <cite>合同会社CHERISH 公式サイトより</cite>
+          </blockquote>
+
+          <p class="lead-text" style="margin-top:22px;">
+            <strong>赤ちゃん連れの外出をあきらめていたママが、安心してランチを楽しめる場所です。</strong>
+          </p>
+        </div>
+        <img class="story-photo" src="images/04_baby_corner_4x3.webp" alt="ベビーチェアとバウンサーのある一角のイメージ画像" loading="lazy">
+      </div>
+      <div class="concept-gallery">
+        <img src="images/02_lunch_4x3.webp" alt="週替わりのランチプレートのイメージ画像" loading="lazy">
+        <img src="images/03_kids_plate_4x3.webp" alt="子ども用のプレートとりんごジュースのイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 強み -->
+  <section id="strengths" class="section-alt" aria-labelledby="strengths-heading">
+    <div class="container">
+      <p class="eyebrow">公開されている情報から見える、この店舗の強み</p>
+      <h2 id="strengths-heading">お店の強み</h2>
+      <p class="lead-text">他店との比較ではなく、公開されている情報で確認できる特徴だけを根拠に整理しています。</p>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <img class="card-photo" src="images/01_hero_room_16x9.webp" alt="やわらかい床の親子カフェのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 01</span>
+          <h3>ねんねの赤ちゃんから、一緒に</h3>
+          <p>まだおすわりやはいはい、あんよができない赤ちゃんも歓迎。<strong>クッションフロアのお座敷</strong>で、そばに寝かせたまま過ごせます。</p>
+          <p class="value">お客様にとっての価値：赤ちゃんが小さくても、外でランチができます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/04_baby_corner_4x3.webp" alt="ベビーチェアとバウンサーのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 02</span>
+          <h3>ママ目線の、そろった設備</h3>
+          <p>バウンサー、ベビーチェア、キッズチェアと食器、<strong>授乳スペース、おむつ替えコーナー</strong>。離乳食の温めや、ミルク用のお湯もお願いできます。</p>
+          <p class="value">お客様にとっての価値：荷物を減らして、身軽に出かけられます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/02_lunch_4x3.webp" alt="週替わりのランチプレートのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 03</span>
+          <h3>週替わりのランチと、キッズプレート</h3>
+          <p>ランチプレートは<strong>週替わり</strong>。子ども用のキッズプレートもあり、りんごジュースはお水にも変えられます。</p>
+          <p class="value">お客様にとっての価値：親子それぞれに合った食事を楽しめます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 献立 -->
+  <section id="menu" aria-labelledby="menu-heading">
+    <div class="container">
+      <p class="eyebrow">MENU</p>
+      <h2 id="menu-heading">ママのランチと、<br>子どものプレート</h2>
+      <p class="lead-text">
+        ランチかデザートを注文して過ごすカフェです。メニューの内容は、予約のときに教えてもらえます。
+      </p>
+      <div class="dish-grid">
+        <div class="dish">
+          <span class="tag">ママに</span>
+          <span class="name">週替わりのランチプレート</span>
+          <p class="desc">内容は<strong>毎週変わります</strong>。その日のメニューは、お店の方に確認できます。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">子どもに</span>
+          <span class="name">キッズプレート</span>
+          <p class="desc">りんごジュース付き。<strong>お水に変える</strong>こともできます。キッズ用の食器も用意されています。</p>
+        </div>
+        <div class="dish is-warm">
+          <span class="tag">赤ちゃんに</span>
+          <span class="name">離乳食の持ち込み</span>
+          <p class="desc">食べものの持ち込みはできませんが、<strong>離乳食は大丈夫</strong>。温めてもらうこともできます。</p>
+        </div>
+        <div class="dish is-warm">
+          <span class="tag">ひと休みに</span>
+          <span class="name">デザート</span>
+          <p class="desc">ランチのほかに、<strong>デザート</strong>の注文で過ごすこともできます。</p>
+        </div>
+      </div>
+      <p class="lead-text source-note">
+        ※ この節は、合同会社CHERISH公式サイトのカフェのページによります。価格は確認できなかったため、載せていません。
+      </p>
+    </div>
+  </section>
+
+  <!-- 予約と過ごし方 -->
+  <section id="ways" class="section-alt" aria-labelledby="ways-heading">
+    <div class="container">
+      <p class="eyebrow">HOW TO VISIT</p>
+      <h2 id="ways-heading">来てみる前に、<br>知っておきたいこと</h2>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <span class="num">RESERVE</span>
+          <h3>まずは、予約から</h3>
+          <p>カフェは<strong>予約制</strong>です。電話、メール、LINEで予約できます。予約なしの来店は受けられない場合があります。</p>
+          <p class="value">席を確保して、安心して出かけられます。</p>
+        </div>
+        <div class="card">
+          <span class="num">MORNING</span>
+          <h3>おすすめは、午前中</h3>
+          <p>12時からはレッスンの参加者で混み合うため、<strong>午前中</strong>の利用がおすすめと案内されています。</p>
+          <p class="value">ゆったり過ごしたいなら、早めの時間に。</p>
+        </div>
+        <div class="card">
+          <span class="num">ACCESS</span>
+          <h3>ピンクのドアが目印</h3>
+          <p>イオンタウン隣の建物の2階。正面玄関から入って右の階段を上がった、<strong>ピンクのドア</strong>が入口です。</p>
+          <p class="value">はじめてでも、迷わずたどり着けます。</p>
+        </div>
+      </div>
+      <p class="lead-text source-note">
+        ※ この節は、合同会社CHERISH公式サイトのカフェのページによります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 設備 -->
+  <section id="space" class="highlight" aria-labelledby="space-heading">
+    <div class="container">
+      <div class="highlight-grid">
+        <div>
+          <p class="eyebrow">FOR MAMA &amp; BABY</p>
+          <h2 id="space-heading">赤ちゃん連れに、<br>うれしいこと</h2>
+          <p style="color:#e8dfe3;">
+            ママの目線で考えられた、カフェの中の設備です。
+          </p>
+          <ul class="highlight-list">
+            <li><b>座る・寝かせる</b>クッションフロアのお座敷、バウンサー、ベビーチェア。</li>
+            <li><b>授乳・おむつ</b>授乳スペースと、おむつ替えコーナー。</li>
+            <li><b>ミルク・離乳食</b>ウォーターサーバー、ミルク用のお湯、離乳食の温め。</li>
+            <li><b>子ども用</b>キッズチェアと、キッズ用の食器。</li>
+          </ul>
+          <div class="cta-group">
+            <a class="btn btn-outline" style="border-color:#fff;color:#fff;" href="https://cherish-akita.com/service/cafe" target="_blank" rel="noopener noreferrer">公式サイトで見る</a>
+          </div>
+        </div>
+        <img class="highlight-visual" src="images/05_mama_tea_4x3.webp" alt="テーブルの上のあたたかい飲みものとランチのイメージ画像" loading="lazy">
+      </div>
+      <p class="lead-text source-note" style="color:#d0c4ca;">
+        ※ この節は、合同会社CHERISH公式サイトのカフェのページによります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 試作（診断） -->
+  <section id="proposal-quiz" class="proposal-section" aria-labelledby="quiz-heading">
+    <div class="container">
+      <span class="proposal-tag">INTERACTIVE PROTOTYPE｜動く新サービス試作</span>
+      <h2 id="quiz-heading">親子のおでかけ準備診断（試作）</h2>
+      <p class="lead-text">
+        子どもの月齢や、ママがしたいことによって、使いたい設備や持ち物は変わります。
+        いくつかの質問に答えると、合う過ごし方と、予約のときに伝えておくとよいことを案内する診断を試作しました。
+        これは店舗運営者向けの新サービス提案・導入アイデアであり、現在提供中のサービスではありません。
+      </p>
+
+      <div class="proposal-note">
+        この診断結果は、公式サイトのカフェのページの内容をもとにした、おおまかな分け方です。
+        設備やメニューの利用を保証するものではありません。
+        導入する場合は、お店の考え方に合わせて作り直します。
+      </div>
+
+      <div class="quiz-app" id="quizApp">
+        <div id="quizIntro" class="quiz-intro">
+          <h3>対象：赤ちゃんや子ども連れのママ・パパ／店舗運営者の方</h3>
+          <p>解決したい課題：はじめての親子カフェで、「何を持っていけばいいか」「予約のとき何を伝えればいいか」が分かりにくいこと。</p>
+          <button type="button" class="quiz-start-btn" id="quizStartBtn">試してみる</button>
+        </div>
+
+        <form id="quizForm" style="display:none;" novalidate>
+          <p class="quiz-progress" id="quizProgress" aria-live="polite"></p>
+          <p class="quiz-question" id="quizQuestionText"></p>
+          <ul class="quiz-options" id="quizOptions"></ul>
+          <p class="quiz-warning" id="quizWarning" role="alert"></p>
+          <div class="quiz-nav">
+            <button type="button" id="quizBack">戻る</button>
+            <button type="button" id="quizNext">次へ</button>
+          </div>
+        </form>
+
+        <div id="quizResult" style="display:none;" class="quiz-result" aria-live="polite">
+          <h3 id="resultName" tabindex="-1"></h3>
+          <p class="result-summary" id="resultSummary"></p>
+          <dl class="result-detail-list">
+            <dt>そのタイプになった理由</dt>
+            <dd id="resultReason"></dd>
+            <dt>おすすめの過ごし方</dt>
+            <dd id="resultRecommend"></dd>
+            <dt>予約のときに伝えておくと安心なこと</dt>
+            <dd id="resultStrength"></dd>
+          </dl>
+          <div class="quiz-result-actions">
+            <a class="btn btn-primary" id="resultCta" href="#space">関連する節を見る</a>
+            <button type="button" class="btn btn-outline" id="quizRestartBtn">最初からやり直す</button>
+          </div>
+        </div>
+
+        <noscript>
+          <p>この試作デモの操作にはJavaScriptが必要です。JavaScriptが無効な場合でも、お店のご紹介や店舗情報は、このページの他の節から引き続きご覧いただけます。</p>
+        </noscript>
+
+        <p class="disclaimer-box">本機能は店舗運営者向けの試作デモです。現在提供中の正式サービスではありません。入力内容の保存・送信は行いません。ページを閉じると回答内容は消えます。お名前やご連絡先、お子さまの情報を入力していただく欄はありません。</p>
+      </div>
+
+      <div class="proposal-note" style="margin-top:32px;">
+        <strong>導入アイデア（今後の展開案）：</strong>診断の結果と一緒に、その週のランチの内容と、空いている時間帯を表示できます。
+        そのまま予約の連絡につなげれば、「何を伝えればいいか」に迷わず予約できるようになります。
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section id="info" aria-labelledby="info-heading">
+    <div class="container">
+      <p class="eyebrow">SHOP INFORMATION</p>
+      <h2 id="info-heading">店舗情報</h2>
+      <ul class="info-list">
+        <li><span class="term">店舗名</span><span>Chérish Café（チェリッシュカフェ）</span></li>
+        <li>
+          <span class="term">所在地</span>
+          <span>〒010-0065 秋田県秋田市茨島4丁目3-36　2階<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E8%8C%A8%E5%B3%B64%E4%B8%81%E7%9B%AE3-36" target="_blank" rel="noopener noreferrer">地図で見る（Googleマップ）</a>
+            <span class="source-note" style="display:block;margin-top:4px;">※ イオンタウン隣の建物の2階。正面玄関から入り、右の階段を上がったピンクのドアです。</span>
+          </span>
+        </li>
+        <li>
+          <span class="term">営業日・時間</span>
+          <span>月・水・木曜日 10:00〜13:15（予約制）<br>
+            <span class="source-note" style="display:block;margin-top:4px;">※ 火・金・土・日曜日と祝日はお休みです（公式サイトによります）。</span>
+          </span>
+        </li>
+        <li><span class="term">予約</span><span>電話（070-5326-4059）、メール、LINE</span></li>
+        <li><span class="term">運営</span><span>合同会社CHERISH</span></li>
+        <li><span class="term">公式サイト</span><span><a href="https://cherish-akita.com/service/cafe" target="_blank" rel="noopener noreferrer">cherish-akita.com</a></span></li>
+        <li><span class="term">Instagram</span><span><a href="https://www.instagram.com/cherish_akita/" target="_blank" rel="noopener noreferrer">@cherish_akita</a></span></li>
+      </ul>
+      <p class="lead-text source-note">
+        ※ このページは、合同会社CHERISH公式サイト（トップ、カフェのページ）をもとに、
+        2026年10月27日時点で整理したものです。内容は変わっている場合があります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 最後のご案内 -->
+  <section class="final-cta" aria-labelledby="final-cta-heading">
+    <div class="container">
+      <h2 id="final-cta-heading">ご来店の前に、ご予約ください</h2>
+      <p style="color:#e8dfe3;">カフェは予約制です。営業は月・水・木曜日の10:00〜13:15です。午前中の利用がおすすめです。</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" style="background:#fff;color:var(--color-primary);" href="https://cherish-akita.com/service/cafe" target="_blank" rel="noopener noreferrer">公式サイトを見る</a>
+        <a class="btn btn-outline" href="https://www.instagram.com/cherish_akita/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Chérish Café</p>
+    <p>© 合同会社CHERISH. All Rights Reserved.</p>
+    <p><a href="#main-content">ページの先頭へ戻る</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var questions = [
+    {
+      text: "一緒に行く子は？",
+      options: [
+        { label: "ねんねの赤ちゃん", cat: "A" },
+        { label: "はいはい・よちよち歩き", cat: "B" },
+        { label: "ごはんを食べられる幼児さん", cat: "C" }
+      ]
+    },
+    {
+      text: "いちばん心配なことは？",
+      options: [
+        { label: "授乳やおむつ替えの場所", cat: "A" },
+        { label: "動き回って、まわりに迷惑をかけないか", cat: "B" },
+        { label: "子どもの食事をどうするか", cat: "C" }
+      ]
+    },
+    {
+      text: "ママがしたいことは？",
+      options: [
+        { label: "とにかく、ゆっくり座りたい", cat: "A" },
+        { label: "同じくらいの子のママと話したい", cat: "B" },
+        { label: "子どもと一緒に、ランチを楽しみたい", cat: "C" }
+      ]
+    },
+    {
+      text: "持っていくものは？",
+      options: [
+        { label: "ミルクの道具", cat: "A" },
+        { label: "離乳食", cat: "B" },
+        { label: "特になし。身軽に行きたい", cat: "C" }
+      ]
+    }
+  ];
+
+  var results = {
+    A: {
+      name: "ねんね赤ちゃんと、ほっとひと息タイプ",
+      summary: "小さな赤ちゃんと一緒に、ママがゆっくり座って休みたいタイプです。",
+      reason: "ねんねの赤ちゃん、授乳やおむつ、ゆっくり座りたいに関する回答が多い傾向でした。",
+      recommend: "お座敷で赤ちゃんをそばに寝かせて、週替わりのランチを。バウンサーや授乳スペース、ミルク用のお湯も使えます。",
+      strength: "赤ちゃんの月齢と、バウンサーやお座敷を使いたいことを伝えておくと安心です。",
+      ctaHref: "#space",
+      ctaLabel: "設備を見る"
+    },
+    B: {
+      name: "はいはい・よちよちと、ママ友タイプ",
+      summary: "動きたい盛りの子と一緒に、ほかのママとも話したいタイプです。",
+      reason: "はいはい・よちよち、動き回る心配、ママ同士の会話に関する回答が多い傾向でした。",
+      recommend: "クッションフロアのお座敷なら、動き回っても安心。午前中の、比較的すいている時間がおすすめです。",
+      strength: "離乳食を持っていくことと、温めてほしいかどうかを伝えておくと安心です。",
+      ctaHref: "#ways",
+      ctaLabel: "来る前に知っておきたいこと"
+    },
+    C: {
+      name: "親子でランチタイプ",
+      summary: "子どもと一緒に、それぞれのランチを楽しみたいタイプです。",
+      reason: "ごはんを食べられる子、子どもの食事、一緒にランチに関する回答が多い傾向でした。",
+      recommend: "ママは週替わりのランチプレート、子どもはキッズプレート（りんごジュースはお水にも変えられます）。キッズチェアと食器もあります。",
+      strength: "キッズプレートの数と、飲みものをお水にしたいかを伝えておくと安心です。",
+      ctaHref: "#menu",
+      ctaLabel: "メニューを見る"
+    }
+  };
+
+  var priorityOrder = ["A", "B", "C"];
+
+  var currentIndex = 0;
+  var answers = new Array(questions.length).fill(null);
+
+  var quizIntro = document.getElementById("quizIntro");
+  var quizStartBtn = document.getElementById("quizStartBtn");
+  var quizForm = document.getElementById("quizForm");
+  var quizProgress = document.getElementById("quizProgress");
+  var quizQuestionText = document.getElementById("quizQuestionText");
+  var quizOptions = document.getElementById("quizOptions");
+  var quizWarning = document.getElementById("quizWarning");
+  var quizBack = document.getElementById("quizBack");
+  var quizNext = document.getElementById("quizNext");
+  var quizResult = document.getElementById("quizResult");
+  var quizRestartBtn = document.getElementById("quizRestartBtn");
+
+  function renderQuestion() {
+    quizWarning.textContent = "";
+    var q = questions[currentIndex];
+    quizProgress.textContent = "質問 " + (currentIndex + 1) + " / " + questions.length;
+    quizQuestionText.textContent = q.text;
+    quizOptions.innerHTML = "";
+
+    q.options.forEach(function (opt, i) {
+      var li = document.createElement("li");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "quiz-option";
+      btn.textContent = opt.label;
+      var selected = answers[currentIndex] === i;
+      btn.setAttribute("aria-pressed", selected ? "true" : "false");
+      btn.addEventListener("click", function () {
+        answers[currentIndex] = i;
+        var allBtns = quizOptions.querySelectorAll(".quiz-option");
+        allBtns.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+        btn.setAttribute("aria-pressed", "true");
+        quizWarning.textContent = "";
+      });
+      li.appendChild(btn);
+      quizOptions.appendChild(li);
+    });
+
+    quizBack.disabled = currentIndex === 0;
+    quizNext.textContent = currentIndex === questions.length - 1 ? "結果を見る" : "次へ";
+  }
+
+  function startQuiz() {
+    currentIndex = 0;
+    answers = new Array(questions.length).fill(null);
+    quizIntro.style.display = "none";
+    quizResult.style.display = "none";
+    quizForm.style.display = "block";
+    renderQuestion();
+  }
+
+  function showResult() {
+    var scores = { A: 0, B: 0, C: 0 };
+    answers.forEach(function (ansIndex, qIndex) {
+      if (ansIndex === null) { return; }
+      var cat = questions[qIndex].options[ansIndex].cat;
+      scores[cat] += 1;
+    });
+
+    // 同点の場合は、最後の質問（4問目）で選んだものを優先します。
+    // それでも決まらない場合のみ、A→B→Cの順を採用します。
+    var lastCat = null;
+    var lastAnswerIndex = answers[answers.length - 1];
+    if (lastAnswerIndex !== null) {
+      lastCat = questions[questions.length - 1].options[lastAnswerIndex].cat;
+    }
+
+    var maxScore = -1;
+    priorityOrder.forEach(function (cat) {
+      if (scores[cat] > maxScore) { maxScore = scores[cat]; }
+    });
+    var topCats = priorityOrder.filter(function (cat) { return scores[cat] === maxScore; });
+
+    var winner;
+    if (topCats.length === 1) {
+      winner = topCats[0];
+    } else if (lastCat !== null && topCats.indexOf(lastCat) !== -1) {
+      winner = lastCat;
+    } else {
+      winner = topCats[0];
+    }
+
+    var r = results[winner];
+    document.getElementById("resultName").textContent = r.name;
+    document.getElementById("resultSummary").textContent = r.summary;
+    document.getElementById("resultReason").textContent = r.reason;
+    document.getElementById("resultRecommend").textContent = r.recommend;
+    document.getElementById("resultStrength").textContent = r.strength;
+    var cta = document.getElementById("resultCta");
+    cta.href = r.ctaHref;
+    cta.textContent = r.ctaLabel;
+
+    quizForm.style.display = "none";
+    quizResult.style.display = "block";
+    document.getElementById("resultName").focus();
+  }
+
+  quizStartBtn.addEventListener("click", startQuiz);
+
+  quizNext.addEventListener("click", function () {
+    if (answers[currentIndex] === null) {
+      quizWarning.textContent = "選択肢を選んでから次へ進んでください。";
+      return;
+    }
+    if (currentIndex === questions.length - 1) {
+      showResult();
+    } else {
+      currentIndex += 1;
+      renderQuestion();
+    }
+  });
+
+  quizBack.addEventListener("click", function () {
+    if (currentIndex > 0) {
+      currentIndex -= 1;
+      renderQuestion();
+    }
+  });
+
+  quizRestartBtn.addEventListener("click", function () {
+    quizResult.style.display = "none";
+    quizIntro.style.display = "block";
+  });
+})();
+</script>
+
+</body>
+</html>
