@@ -3,806 +3,577 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>とよのcoffee｜とろける、自家製の一枚。｜提案用ページ</title>
-<meta name="description" content="名古屋市天白区原の喫茶店「とよのcoffee」。coffee、curry、自家製パン。知多のブランド豚の自家製ロースハムと3種チーズのクロックムッシュ、本格スパイスカレー、シングルオリジンのコーヒー。">
+<title>コンセプトLP 一覧｜eight株式会社</title>
+<meta name="description" content="eight株式会社が秋田の喫茶店・珈琲店に向けて独自に制作したコンセプトLPの社内確認用一覧です。店舗様からのご依頼で制作したものではありません。">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#2e2a22">
+<meta name="theme-color" content="#2b2f36">
 <style>
-  :root {
-    --color-primary: #2e2a22;      /* 焼き色の濃い、パンの耳 */
-    --color-secondary: #fcf7ee;    /* パンの白い中身 */
-    --color-roast: #b0712c;         /* こんがり焼けたチーズの色 */
-    --color-roast-text: #8a5419;    /* 明るい地の上に置く文字用 */
-    --color-roast-btn: #6e4012;     /* 白文字をのせるボタンの地色 */
-    --color-warm: #2f5a45;         /* お店の案内の、深い緑 */
-    --color-warm-text: #2b5240;
-    --color-surface: #f4ebdc;
-    --color-proposal: #eeeae3;
-    --color-proposal-border: #a69a8c;
-    --color-text: #2a261f;
-    --color-muted: #5c564c;
-    --color-border: #e3d7c4;
-    --font-serif: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
-    --font-sans: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
-  }
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-
-  /* ★2026-11-03：背景にうっすら「山型の食パン」の柄を入れています。
-     自家製パンのお店に合わせて、食パン一枚の形を間をあけて並べています。
-     ・濃さ　：stroke-opacity の数字（0.09）。1 に近いほど濃くなります
-     ・柄の大きさ：background-size の 48px 48px
-     ※ 色を敷いている節（強み／クロックムッシュ／診断）には出ません。 */
-  body {
-    margin: 0;
-    background-color: var(--color-secondary);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cg fill='none' stroke='%232e2a22' stroke-opacity='0.09' stroke-width='0.9' stroke-linejoin='round'%3E%3Cpath d='M8 24V14C5 13 5 7 10 7H18C23 7 23 13 20 14V24Z'/%3E%3Cpath d='M30 44V36C27.5 35 27.5 30 31.5 30H38.5C42.5 30 42.5 35 40 36V44Z'/%3E%3C/g%3E%3C/svg%3E");
-    background-size: 48px 48px;
-    color: var(--color-text);
-    font-family: var(--font-sans);
-    font-size: 16px; line-height: 1.8; overflow-x: hidden;
-  }
-
-  img { max-width: 100%; height: auto; display: block; }
-  a { color: inherit; }
-
-  .container {
-    width: 100%; max-width: 960px; margin: 0 auto;
-    padding-left: clamp(14px, 4vw, 32px); padding-right: clamp(14px, 4vw, 32px);
-  }
-
-  .skip-link {
-    position: absolute; left: -999px; top: 0;
-    background: var(--color-roast-btn); color: #fff;
-    padding: 10px 16px; z-index: 200; border-radius: 0 0 6px 0;
-  }
-  .skip-link:focus { left: 0; }
-
-  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
-    outline: 3px solid var(--color-roast); outline-offset: 3px;
-  }
-
-  /* ---------- 提案用ラベル ---------- */
-  .proposal-bar {
-    background: var(--color-primary); color: var(--color-secondary);
-    text-align: center; padding: 8px 14px;
-    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.06em; line-height: 1.5;
-  }
-
-  /* ---------- ファーストビュー ---------- */
-  .hero {
-    position: relative; min-height: 100svh;
-    display: flex; flex-direction: column; justify-content: flex-end;
-    padding: 96px 0 56px; background: var(--color-primary); overflow: hidden;
-  }
-  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .hero-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(46,42,34,0.40) 0%, rgba(46,42,34,0.60) 55%, rgba(46,42,34,0.88) 100%);
-  }
-  .hero-inner { position: relative; z-index: 2; }
-  .hero-eyebrow {
-    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.16em;
-    color: var(--color-secondary); margin: 0 0 14px;
-  }
-  .hero h1 {
-    font-family: var(--font-serif); font-weight: 500;
-    font-size: clamp(27px, 7.6vw, 45px); line-height: 1.4;
-    margin: 0 0 18px; color: var(--color-secondary); overflow-wrap: anywhere;
-  }
-  .hero-lead {
-    font-size: clamp(14px, 3.8vw, 17px); max-width: 34em;
-    margin: 0 0 30px; color: var(--color-secondary);
-  }
-  .hero-tags {
-    display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 30px;
-    font-size: 12px; letter-spacing: 0.08em; color: var(--color-secondary);
-  }
-  .hero-tags span {
-    border: 1px solid rgba(248,246,241,0.5);
-    border-radius: 999px; padding: 6px 14px; background: rgba(46,42,34,0.35);
-  }
-
-  .cta-group { display: flex; flex-direction: column; gap: 12px; max-width: 340px; }
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center;
-    min-height: 48px; padding: 12px 20px; border-radius: 6px;
-    text-decoration: none; font-size: 15px; letter-spacing: 0.02em;
-    border: 1px solid transparent; text-align: center; line-height: 1.4;
-  }
-  .btn-primary { background: var(--color-roast-btn); color: #fff; }
-  .btn-outline { background: transparent; border-color: var(--color-primary); color: var(--color-primary); }
-  .hero .btn-primary { background: var(--color-secondary); color: var(--color-primary); }
-  .hero .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); background: rgba(46,42,34,0.25); }
-  @media (min-width: 560px) { .cta-group { flex-direction: row; max-width: none; } }
-
-  /* ---------- 共通 ---------- */
-  section { padding: clamp(48px, 9vw, 88px) 0; }
-  .section-alt { background: var(--color-surface); }
-  .eyebrow { font-size: 12px; letter-spacing: 0.14em; color: var(--color-roast-text); margin: 0 0 10px; }
-  h2 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(22px, 6vw, 30px); margin: 0 0 20px; line-height: 1.5; }
-  h3 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(17px, 4.6vw, 20px); margin: 0 0 10px; line-height: 1.6; }
-  p { margin: 0 0 14px; }
-  .lead-text { max-width: 40em; color: var(--color-muted); }
-  .source-note { font-size: .85em; opacity: .8; margin-top: 1.2em; }
-
-  /* ---------- 店名の由来 ---------- */
-  .name-origin {
-    margin: 26px 0 0; padding: 22px 24px;
-    background: var(--color-secondary);
-    border: 1px solid var(--color-border);
-    border-left: 4px solid var(--color-roast);
-    border-radius: 0 12px 12px 0;
-  }
-  .name-origin .en {
-    font-family: var(--font-serif); font-size: clamp(18px, 4.8vw, 24px);
-    letter-spacing: .04em; margin: 0 0 8px; display: block; color: var(--color-roast-text);
-  }
-  .name-origin .ja { font-size: 14.5px; color: var(--color-muted); margin: 0; }
-
-  blockquote.quote {
-    margin: 26px 0 0; padding: 20px 22px;
-    background: var(--color-secondary);
-    border-left: 4px solid var(--color-warm);
-    border-top: 1px solid var(--color-border);
-    border-right: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
-    border-radius: 0 10px 10px 0;
-    font-family: var(--font-serif);
-    font-size: clamp(15px, 4vw, 17px); line-height: 1.9;
-  }
-  blockquote.quote cite {
-    display: block; margin-top: 10px; font-family: var(--font-sans);
-    font-style: normal; font-size: 12.5px; color: var(--color-muted);
-  }
-
-  /* ---------- カード ---------- */
-  .card-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
-  @media (min-width: 700px) {
-    .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
-    .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
-  }
-  .card {
-    background: var(--color-secondary); border: 1px solid var(--color-border);
-    border-radius: 10px; padding: 22px; min-width: 0;
-    box-shadow: 0 2px 10px rgba(46,42,34,0.05);
-  }
-  .card .num { font-size: 12px; color: var(--color-roast-text); letter-spacing: 0.1em; display: block; margin-bottom: 10px; }
-  .card p { font-size: 14.5px; color: var(--color-text); margin-bottom: 8px; }
-  .card .value {
-    font-size: 13.5px; color: var(--color-muted);
-    border-top: 1px dashed var(--color-border); padding-top: 10px; margin-top: 10px;
-  }
-  .card-photo { border-radius: 8px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 14px; }
-
-  /* 横に3枚並べたときのそろえ方
-     ① 下端をそろえる作り（subgrid が使えないブラウザ用の保険）
-     このページの見出しは1行が文字サイズの1.6倍なので、2行ぶんは 3.2em です。 */
-  @media (min-width: 700px) {
-    .card-grid.cols-3 .card { display: flex; flex-direction: column; }
-    .card-grid.cols-3 .card h3 { line-height: 1.6; min-height: 3.2em; }
-    .card-grid.cols-3 .card .value { margin-top: auto; }
-  }
-  /* ② ラベル・見出し・本文・価値の4つを、それぞれ別々に高さをそろえます。 */
-  @supports (grid-template-rows: subgrid) {
-    @media (min-width: 700px) {
-      #strengths .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 5; }
-      #ways .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 4; }
-      .card-grid.cols-3 .card h3 { min-height: 0; margin-bottom: 0; }
-      .card-grid.cols-3 .card .value { margin-top: 0; align-self: start; }
-      .card-grid.cols-3 .card p { margin-bottom: 0; }
-      .card-grid.cols-3 .card .num { margin-bottom: 0; }
-      .card-grid.cols-3 .card { row-gap: 10px; }
-    }
-  }
-
-  /* ---------- ストーリー ---------- */
-  .story { display: grid; gap: 24px; }
-  /* 横に並べたとき、写真をとなりの文章と同じ高さまで伸ばします。 */
-  @media (min-width: 760px) {
-    .story { grid-template-columns: 1fr 1fr; align-items: stretch; }
-    .story-photo { height: 100%; min-height: 300px; aspect-ratio: auto; }
-  }
-  .story-photo { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
-  .concept-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 22px; }
-  .concept-gallery img { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
-
-  /* ---------- 献立 ---------- */
-  .dish-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
-  @media (min-width: 620px) { .dish-grid { grid-template-columns: repeat(2, 1fr); } }
-  .dish {
-    background: var(--color-secondary); border: 1px solid var(--color-border);
-    border-left: 4px solid var(--color-roast); border-radius: 0 8px 8px 0;
-    padding: 18px 20px; min-width: 0;
-  }
-  .dish.is-warm { border-left-color: var(--color-warm); }
-  .dish .tag { font-size: 12px; letter-spacing: .08em; color: var(--color-roast-text); display: block; }
-  .dish.is-warm .tag { color: var(--color-warm-text); }
-  .dish .name { font-family: var(--font-serif); font-size: 19px; margin: 2px 0 6px; display: block; }
-  .dish .price { font-size: 15px; font-weight: 700; margin: 0 0 8px; }
-  .dish .desc { font-size: 14px; color: var(--color-muted); margin: 0; }
-
-  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; padding: 0; list-style: none; }
-  .tag-list li {
-    font-size: 13.5px; color: var(--color-muted);
-    border: 1px solid var(--color-border); background: var(--color-secondary);
-    border-radius: 999px; padding: 5px 14px;
-  }
-
-  /* ---------- 地域の節 ---------- */
-  .highlight { background: var(--color-primary); color: var(--color-secondary); }
-  .highlight .eyebrow { color: #f2c27a; }  /* 暗い地の上の、とろけるチーズの色 */
-  .highlight-grid { display: grid; gap: 28px; align-items: center; }
-  @media (min-width: 760px) { .highlight-grid { grid-template-columns: 1.1fr 1fr; } }
-  .highlight-visual {
-    border-radius: 10px; aspect-ratio: 4 / 3; width: 100%;
-    object-fit: cover; border: 1px solid rgba(255,255,255,0.15);
-  }
-  .highlight-list { list-style: none; padding: 0; margin: 18px 0 24px; font-size: 14.5px; }
-  .highlight-list li { padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.15); }
-  .highlight-list li:first-child { border-top: none; }
-  .highlight-list b { display: block; margin-bottom: 4px; font-size: 13px; color: #f2c27a; letter-spacing: 0.04em; }
-
-  /* ---------- 一覧表 ---------- */
-  .info-list {
-    list-style: none; padding: 0; margin: 24px 0 0;
-    display: grid; gap: 0; border-top: 1px solid var(--color-border);
-  }
-  .info-list li {
-    display: grid; grid-template-columns: 120px 1fr; gap: 12px;
-    padding: 14px 0; border-bottom: 1px solid var(--color-border); font-size: 14.5px;
-  }
-  .info-list .term { color: var(--color-muted); font-size: 13px; letter-spacing: 0.04em; }
-  .info-list a { overflow-wrap: anywhere; text-decoration: underline; }
-
-  /* ---------- 試作（診断） ---------- */
-  .proposal-section {
-    background: var(--color-proposal);
-    border-top: 3px solid var(--color-proposal-border);
-    border-bottom: 3px solid var(--color-proposal-border);
-  }
-  .proposal-tag {
-    display: inline-block; font-size: 12px; letter-spacing: 0.1em;
-    background: var(--color-proposal-border); color: #16211f;
-    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
-  }
-  .proposal-note {
-    background: var(--color-secondary); border: 1px solid var(--color-proposal-border);
-    border-radius: 8px; padding: 14px 16px; font-size: 13.5px;
-    color: var(--color-muted); margin: 22px 0 30px; line-height: 1.75;
-  }
-  .quiz-app {
-    background: var(--color-secondary); border: 1px solid var(--color-border);
-    border-radius: 14px; padding: 22px; max-width: 640px;
-  }
-  .quiz-intro h3 { margin: 0 0 12px; font-size: 20px; }
-  .quiz-progress { font-size: 13px; color: var(--color-muted); margin-bottom: 12px; }
-  .quiz-question { font-size: 17px; font-weight: 700; margin: 0 0 12px; }
-  .quiz-options { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 10px; }
-  .quiz-option {
-    width: 100%; text-align: left; padding: 14px 16px; min-height: 44px;
-    border: 1.5px solid var(--color-border); border-radius: 8px;
-    background: var(--color-surface); font-size: 15px;
-    font-family: inherit; color: var(--color-text); cursor: pointer;
-  }
-  .quiz-option[aria-pressed="true"] { border-color: var(--color-roast); background: #f6e2d9; font-weight: 700; }
-  .quiz-option[aria-pressed="true"]::before { content: "✓ "; color: var(--color-roast-text); }
-  .quiz-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; }
-  .quiz-nav button { min-height: 44px; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-family: inherit; cursor: pointer; }
-  #quizBack { background: transparent; border: 1px solid var(--color-border); color: var(--color-text); }
-  #quizNext { background: var(--color-roast-btn); border: 1px solid var(--color-roast-btn); color: #fff; }
-  #quizNext:disabled, #quizBack:disabled { opacity: .4; cursor: not-allowed; }
-  .quiz-warning { font-size: 13px; color: #a0432a; margin-top: 6px; min-height: 1.2em; }
-  .quiz-result h3 { font-size: 22px; margin: 0 0 6px; }
-  .quiz-result .result-summary { color: var(--color-muted); margin: 0 0 22px; }
-  .result-detail-list { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 4px; font-size: 14px; }
-  .result-detail-list dt { font-weight: 700; margin-top: 12px; }
-  .result-detail-list dd { margin: 2px 0 0; color: var(--color-muted); }
-  .quiz-result-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-  .quiz-start-btn {
-    min-height: 44px; padding: 12px 28px; background: var(--color-roast-btn);
-    color: #fff; border: none; border-radius: 6px; font-size: 15px; font-weight: 700; cursor: pointer;
-  }
-  .disclaimer-box {
-    font-size: 13px; line-height: 1.7; color: var(--color-muted);
-    background: var(--color-surface); border: 1px dashed var(--color-border);
-    border-radius: 8px; padding: 14px 16px; margin-top: 22px;
-  }
-
-  /* ---------- 最後のご案内 ---------- */
-  .final-cta { background: var(--color-primary); color: var(--color-secondary); text-align: center; }
-  .final-cta .cta-group { margin: 26px auto 0; justify-content: center; }
-  .final-cta .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); }
-
-  .site-footer {
-    padding: 32px 0 40px; text-align: center; font-size: 12.5px;
-    color: var(--color-muted); border-top: 1px solid var(--color-border);
-  }
-  .site-footer a { text-decoration: underline; }
-  .site-footer p { margin: 6px 0; }
-
-  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+:root{
+  --bg:#fcfbf9; --surface:#f2f0ec; --text:#22252a; --muted:#565b63;
+  --accent:#2b2f36; --accent-soft:#e8e9ec; --border:#ddd9d2;
+  --warn:#fbf6ec; --warn-border:#c9b892;
+  --font-mincho:"Yu Mincho","YuMincho","Hiragino Mincho ProN","游明朝",serif;
+  --font-gothic:"Yu Gothic","YuGothic","Hiragino Kaku Gothic ProN","メイリオ",sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--font-gothic);font-size:16px;line-height:1.9;overflow-wrap:break-word;}
+a{color:var(--accent);}
+a:focus-visible{outline:3px solid var(--accent);outline-offset:2px;}
+h1,h2,h3{font-family:var(--font-mincho);font-weight:600;line-height:1.5;}
+h1{font-size:clamp(24px,6vw,36px);margin:0 0 12px;}
+h2{font-size:clamp(19px,4.6vw,25px);margin:0 0 16px;}
+h3{font-size:clamp(16px,3.6vw,18px);margin:0 0 4px;}
+p{margin:0 0 16px;}
+.wrap{width:100%;max-width:960px;margin:0 auto;padding:0 16px;}
+section{padding:48px 0;}
+.eyebrow{display:inline-block;font-size:13px;letter-spacing:.18em;color:var(--muted);margin-bottom:8px;}
+.lead{color:var(--muted);}
+.surface{background:var(--surface);}
+.skip-link{position:absolute;left:-9999px;top:0;background:#fff;color:var(--accent);padding:12px 16px;z-index:20;}
+.skip-link:focus{left:0;}
+.masthead{background:var(--accent);color:#fff;padding:12px 0;font-size:13px;line-height:1.7;}
+.masthead strong{letter-spacing:.14em;}
+.intro{padding-top:44px;}
+.intro h1 span{display:block;font-family:var(--font-gothic);font-size:clamp(12px,3vw,14px);
+  letter-spacing:.2em;color:var(--muted);font-weight:400;margin-bottom:10px;}
+.notice{background:var(--warn);border:1px solid var(--warn-border);border-left:4px solid var(--warn-border);
+  border-radius:4px;padding:18px;margin:0 0 8px;}
+.notice h2{font-size:17px;margin:0 0 10px;font-family:var(--font-gothic);}
+.notice p{font-size:15px;line-height:1.85;margin-bottom:10px;}
+.notice p:last-child{margin-bottom:0;}
+.meta{background:#fff;border:1px solid var(--border);border-radius:6px;padding:20px;margin:0 0 8px;}
+.meta dl{margin:0;display:grid;grid-template-columns:1fr;gap:4px 16px;}
+@media(min-width:600px){.meta dl{grid-template-columns:auto 1fr;}}
+.meta dt{font-size:14px;color:var(--muted);letter-spacing:.06em;}
+.meta dd{margin:0 0 10px;font-size:15px;}
+@media(min-width:600px){.meta dd{margin-bottom:4px;}}
+.meta code{background:var(--accent-soft);padding:2px 6px;border-radius:3px;font-size:14px;}
+.list{display:grid;grid-template-columns:1fr;gap:12px;}
+@media(min-width:720px){.list{grid-template-columns:repeat(2,1fr);}}
+.item{background:#fff;border:1px solid var(--border);border-radius:6px;
+  padding:18px;min-width:0;display:flex;flex-direction:column;}
+.item .place{font-size:13px;letter-spacing:.08em;color:var(--muted);margin-bottom:4px;display:block;}
+.item h3{min-height:1.5em;}
+.item .slug{display:inline-block;align-self:flex-start;font-size:12px;letter-spacing:.04em;
+  color:var(--muted);background:var(--accent-soft);border-radius:3px;padding:2px 8px;margin-bottom:10px;}
+.item p{font-size:14px;color:var(--muted);margin-bottom:14px;}
+.item .go{margin-top:auto;}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;
+  padding:12px 20px;border-radius:4px;border:1px solid var(--accent);
+  font-size:15px;text-decoration:none;background:#fff;color:var(--accent);}
+.btn:hover{background:var(--accent-soft);}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);}
+.btn-primary:hover{background:#14171c;color:#fff;border-color:#14171c;}
+.app-box{background:#fff;border:1px solid var(--border);border-radius:6px;padding:24px 20px;}
+.app-box ul{margin:0 0 20px;padding-left:1.2em;}
+.app-box li{margin-bottom:8px;font-size:15px;color:var(--muted);}
+.site-footer{background:var(--accent);color:#fff;padding:36px 0;font-size:14px;}
+.site-footer p{margin-bottom:8px;}
+.site-footer p:last-child{margin-bottom:0;}
+@media(prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;}}
 </style>
 </head>
 <body>
-<a class="skip-link" href="#main-content">本文へ移動</a>
+<a class="skip-link" href="#main-content">本文へ移動する</a>
 
-<div class="proposal-bar" role="note">
-  CONCEPT LP ／ 店舗向け提案用ページです。本ページには未導入の新サービス提案・試作デモが含まれます。<br>
-  ※本ページの掲載画像は、店舗の世界観を表現したイメージ画像です。
+<div class="masthead">
+  <div class="wrap">
+    <strong>社内確認用</strong>｜ここに並ぶページは、すべて<strong>提案用に制作したもの</strong>です。各店舗の公式サイトではありません。
+  </div>
 </div>
 
 <main id="main-content">
 
-  <!-- ファーストビュー -->
-  <section class="hero">
-    <img class="hero-bg" src="images/01_hero_croque_16x9.jpg" alt="チーズがとろける焼きたてのクロックムッシュのイメージ画像" fetchpriority="high">
-    <div class="hero-overlay" aria-hidden="true"></div>
-    <div class="container hero-inner">
-      <p class="hero-eyebrow">とよのcoffee — 名古屋市天白区原</p>
-      <h1>とろける、<br>自家製の一枚。</h1>
-      <p class="hero-lead">
-        コーヒーと、スパイスカレーと、自家製パンの喫茶店です。
-        知多のブランド豚で仕込んだ自家製ロースハムと、3種のチーズを重ねて焼いたクロックムッシュ。
-        自家製のパンだからこそできる、喫茶店のごちそうサンドです。
-      </p>
-      <p class="hero-tags">
-        <span>自家製パン</span>
-        <span>自家製ロースハムのクロックムッシュ</span>
-        <span>本格スパイスカレー</span>
-      </p>
-      <div class="cta-group">
-        <a class="btn btn-primary" href="#croque">クロックムッシュを見る</a>
-        <a class="btn btn-outline" href="https://www.instagram.com/toyonocoffee/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
-      </div>
+<section class="intro">
+  <div class="wrap">
+    <p class="eyebrow">eight株式会社</p>
+    <h1><span>CONCEPT LP INDEX</span>コンセプトLP 一覧</h1>
+    <p class="lead">秋田市とその周辺の喫茶店・珈琲店について、公式サイトやオンラインストアで確認できる情報だけをもとに制作した、1ページ完結の紹介ページです。あわせて、コーヒー豆を選ぶための診断アプリを試作しています。</p>
+
+    <div class="meta">
+      <dl>
+        <dt>制作本数</dt><dd>53本（2026年11月3日時点）</dd>
+        <dt>置き場所</dt><dd><code>eightworks317 / eightLP-cafe</code></dd>
+        <dt>URLの形</dt><dd><code>eightworks317.github.io/eightLP-cafe/〈店のフォルダ名〉/</code></dd>
+        <dt>作り</dt><dd>1店舗＝1フォルダ。各フォルダに <code>index.html</code> と <code>images/</code></dd>
+      </dl>
     </div>
-  </section>
 
-  <!-- コンセプト -->
-  <section id="concept" aria-labelledby="concept-heading">
-    <div class="container">
-      <div class="story">
-        <div>
-          <p class="eyebrow">CONCEPT</p>
-          <h2 id="concept-heading">coffee、curry、<br>自家製パン</h2>
-          <p class="lead-text">
-            とよのcoffeeは、名古屋市天白区原にある喫茶店です。
-            お店の看板には「coffee　curry　自家製パン」の文字。
-            朝のモーニングから、お昼のスパイスカレー、季節の限定トーストまで、手作りのパンが主役です。
-          </p>
-
-          <div class="name-origin">
-            <span class="en">Toyono Coffee</span>
-            <p class="ja">お店の案内には「<strong>こだわりの味わい、喫茶時間。</strong>」という言葉が添えられています。</p>
-          </div>
-
-          <p class="lead-text" style="margin-top:22px;">
-            来店された方は「コーヒーは基本シングルオリジンでとても美味しい」「手作りのパンはどれも美味しい」と書いていました。
-            <strong>パンもハムもカレーも手をかけて、こだわりのコーヒーと合わせるお店です。</strong>
-          </p>
-        </div>
-        <img class="story-photo" src="images/02_bread_4x3.jpg" alt="焼きたての自家製パンのイメージ画像" loading="lazy">
-      </div>
-      <div class="concept-gallery">
-        <img src="images/03_curry_4x3.jpg" alt="スパイスカレーのイメージ画像" loading="lazy">
-        <img src="images/04_peach_toast_4x3.jpg" alt="桃をのせた厚切りトーストのイメージ画像" loading="lazy">
-      </div>
+    <div class="notice">
+      <h2>はじめにお読みください</h2>
+      <p><strong>ここに並ぶページは、いずれも店舗様からのご依頼で制作したものではありません。</strong>eight株式会社が独自に制作した、提案用のページです。</p>
+      <p><strong>各店舗の公式サイトではありません。</strong>営業時間・価格・商品などの最新情報は、必ず各店舗の公式案内をご確認ください。</p>
+      <p><strong>写真はすべてAI生成のイメージ画像です。</strong>実際の店内・商品とは異なります。また、各ページには「現在提供されていないサービスの提案」が含まれており、そうと分かるよう明記しています。</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- 強み -->
-  <section id="strengths" class="section-alt" aria-labelledby="strengths-heading">
-    <div class="container">
-      <p class="eyebrow">公開されている情報から見える、この店舗の強み</p>
-      <h2 id="strengths-heading">お店の強み</h2>
-      <p class="lead-text">他店との比較ではなく、公開されている情報で確認できる特徴だけを根拠に整理しています。</p>
-      <div class="card-grid cols-3">
-        <div class="card">
-          <img class="card-photo" src="images/02_bread_4x3.jpg" alt="自家製パンのイメージ画像" loading="lazy">
-          <span class="num">STRENGTH 01</span>
-          <h3>パンもハムも、自家製</h3>
-          <p>パンは<strong>自家製</strong>。クロックムッシュのロースハムも、知多のブランド豚でお店が<strong>自家製</strong>しています。</p>
-          <p class="value">お客様にとっての価値：ここでしか食べられない一枚に出会えます。</p>
-        </div>
-        <div class="card">
-          <img class="card-photo" src="images/03_curry_4x3.jpg" alt="スパイスカレーのイメージ画像" loading="lazy">
-          <span class="num">STRENGTH 02</span>
-          <h3>本格スパイスカレー</h3>
-          <p>カレーのメニューが多く、<strong>本格的なスパイス</strong>を使った味と紹介されています。かぼちゃのケララチキンカレーの名前もありました。</p>
-          <p class="value">お客様にとっての価値：喫茶店で、本格的なカレーを楽しめます。</p>
-        </div>
-        <div class="card">
-          <img class="card-photo" src="images/05_coffee_4x3.jpg" alt="淹れたてのコーヒーのイメージ画像" loading="lazy">
-          <span class="num">STRENGTH 03</span>
-          <h3>こだわりの、シングルオリジン</h3>
-          <p>コーヒーは<strong>シングルオリジン</strong>が基本、と来店された方が書いています。お店も「美味しいコーヒーとご一緒にどうぞ」と案内しています。</p>
-          <p class="value">お客様にとっての価値：パンやカレーに合わせて、こだわりの一杯を楽しめます。</p>
-        </div>
-      </div>
+<section class="surface" aria-labelledby="list-title">
+  <div class="wrap">
+    <p class="eyebrow">PAGES</p>
+    <h2 id="list-title">制作したページ（53本）</h2>
+    <p class="lead">店名の五十音・アルファベット順ではなく、フォルダ名の順に並べています。</p>
+
+    <div class="list">
+
+      <article class="item">
+        <span class="place">秋田市山王新町</span>
+        <h3>08COFFEE</h3>
+        <span class="slug">08coffee</span>
+        <p>毎朝焙煎するスペシャルティコーヒーの専門店。喫茶・自家焙煎・通販・コーヒー教室までを一貫して展開しています。豆を選ぶ診断の試作を載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="08coffee/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市中通</span>
+        <h3>Cafe 赤居文庫</h3>
+        <span class="slug">akaibunko</span>
+        <p>本とアンティークに囲まれたブックカフェ。豆を挽いてから淹れるハンドドリップ珈琲と、テーマ別の貸本を楽しめます。本と珈琲を組み合わせる診断の試作を載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="akaibunko/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市中通</span>
+        <h3>茜屋珈琲店</h3>
+        <span class="slug">akaneya-coffee</span>
+        <p>秋田駅西口から徒歩約3分。カウンターとテーブル席が並ぶ、昔ながらの喫茶店です。</p>
+        <div class="go"><a class="btn btn-primary" href="akaneya-coffee/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市川元山下町</span>
+        <h3>アラジン珈琲 山王店</h3>
+        <span class="slug">aladdin-coffee</span>
+        <p>1993年創業の自家焙煎珈琲豆の店。焙煎度は7段階、豆は100gから。お店の方がペンで描く「珈琲絵日記」も届けています。好みから豆と焙煎度を選ぶ診断の試作を載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="aladdin-coffee/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">男鹿市船越</span>
+        <h3>アメヤ珈琲</h3>
+        <span class="slug">ameya-coffee</span>
+        <p>男鹿の自家焙煎珈琲店。スペシャルティコーヒーのみ、豆は20種類以上。「朝の雫」から「真夜中」まで名前のついたブレンドと季節限定のブレンド。ブレンド診断の試作と、診断アプリを載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="ameya-coffee/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市茨島</span>
+        <h3>焙煎工房 麻布珈琲</h3>
+        <span class="slug">azabu-coffee</span>
+        <p>自家焙煎の珈琲豆専門店。コロンビアのクレオパトラを軽めと深煎りに焼き分け、買った豆を記録して次の一袋を一緒に選びます。「軽め？深め？」を案内する診断の試作を載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="azabu-coffee/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市千秋明徳町</span>
+        <h3>Be Mellow Cafe &amp; Roastery</h3>
+        <span class="slug">be-mellow</span>
+        <p>店の中に焙煎所があるカフェ。シナモンローストとミディアムローストを中心に焙煎したスペシャルティコーヒーと、パティシエのスイーツ。2024年4月開業。</p>
+        <div class="go"><a class="btn btn-primary" href="be-mellow/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">名古屋市中区松原</span>
+        <h3>コーヒーコテージ ビーンズハート</h3>
+        <span class="slug">beansheart</span>
+        <p>2004年開業、赤い家の自家焙煎コーヒー豆のお店。2026年8月から豆の焙煎と販売に専念。ホームページの「おいしい豆の選び方」をもとにした豆えらび診断と、診断アプリの試作を載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="beansheart/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市大町</span>
+        <h3>カフェ&amp;ランチ Bol de riz（ボルデリ）</h3>
+        <span class="slug">bol-de-riz</span>
+        <p>赤れんが館通りのカフェ&amp;ダイニング。ドリンク付きの日替わりランチと、金曜日恒例のLINEお友達デザートプレゼント。今日のランチを選ぶ診断の試作を載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="bol-de-riz/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市新屋船場町</span>
+        <h3>Bon Cafe</h3>
+        <span class="slug">bon-cafe</span>
+        <p>自家製の生パスタ専門店。麺を作るところが席から見え、野菜は裏の畑から。社会福祉法人一羊会の就労継続支援B型事業所が運営する、働く場でもあるお店です。2017年開業。</p>
+        <div class="go"><a class="btn btn-primary" href="bon-cafe/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市泉菅野</span>
+        <h3>BOXCOFFEE 泉店</h3>
+        <span class="slug">boxcoffee-izumi</span>
+        <p>グランマート泉店内のコーヒースタンド。スペシャルティのストレート10種・オリジナルブレンド5種を量り売りで。珈琲ソフトと泉店限定のフルーツドリンク。今日の一杯診断の試作と、診断アプリを載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="boxcoffee-izumi/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市南通築地</span>
+        <h3>カフェ・ブルージュ</h3>
+        <span class="slug">cafe-brugge</span>
+        <p>和・欧・イタリアン・エスニックを取り入れた創作料理のお店。ランチは火曜と木曜、夜はグランドピアノのある店内でライブ。貸切もできます。使い方を選ぶ診断の試作を載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="cafe-brugge/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市大町</span>
+        <h3>Cafe Epice</h3>
+        <span class="slug">cafe-epice</span>
+        <p>古い印刷工場をリノベーションした建物の中にあるカフェ。古材やアンティークを生かした空間で、手作りの季節のお菓子とコーヒーを楽しめます。</p>
+        <div class="go"><a class="btn btn-primary" href="cafe-epice/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市中通</span>
+        <h3>café La Doux（カフェ・ラ・ドゥ）</h3>
+        <span class="slug">cafe-la-doux</span>
+        <p>元パティシエの店主が、砂糖のかわりに天然甘味料ラカンカを使う低糖質のカフェ。ケーキも砂糖不使用です。2022年3月開業。</p>
+        <div class="go"><a class="btn btn-primary" href="cafe-la-doux/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市外旭川</span>
+        <h3>CAFE ORSETTO</h3>
+        <span class="slug">cafe-orsetto</span>
+        <p>主菜と5品前後の副菜、ご飯とお味噌汁を組み合わせた週替わり膳が中心。平日の午後はカフェタイム、お弁当のテイクアウトもあります。</p>
+        <div class="go"><a class="btn btn-primary" href="cafe-orsetto/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市茨島</span>
+        <h3>Chérish Café（チェリッシュカフェ）</h3>
+        <span class="slug">cherish-cafe</span>
+        <p>「ママたちが作った」会社が運営する親子カフェ。ねんねの赤ちゃんから過ごせるお座敷、授乳・おむつ替えスペース、週替わりのランチとキッズプレート。親子のおでかけ準備診断の試作を載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="cherish-cafe/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市保戸野すわ町（千秋モール1F）</span>
+        <h3>コーヒースタンド HaLo（ハロー）</h3>
+        <span class="slug">coffee-stand-halo</span>
+        <p>「カフェではありません」という、自家焙煎のコーヒー豆のお店。好きな豆を1杯のドリップでも味わえて、マイボトル・マイキャニスターの割引も。豆えらび診断の試作を載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="coffee-stand-halo/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市千秋公園</span>
+        <h3>COFFEEJACK（コーヒージャック）</h3>
+        <span class="slug">coffeejack</span>
+        <p>無添加の自家製ベーグル9種類と、ALLPRESSのコーヒー。店頭のほか、県内外の取扱店や配送でも味わえます。2020年5月開業。</p>
+        <div class="go"><a class="btn btn-primary" href="coffeejack/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市高陽青柳町</span>
+        <h3>CUP of SMILE</h3>
+        <span class="slug">cup-of-smile</span>
+        <p>サンデーの専門店。揚げたてベニエのサンデー、秋田県産の桃のフロート、ハロウィンのおばけのマフィンなど、季節のかわいいスイーツ。今日のサンデーを選ぶ診断の試作を載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="cup-of-smile/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市中通（秋田市民市場内）</span>
+        <h3>どるず珈琲店</h3>
+        <span class="slug">doruzu</span>
+        <p>2002年開業の自家焙煎スペシャルティコーヒー専門店。店頭販売からオンライン通販まで扱っています。お店の豆をそのまま診断アプリに入れ、合言葉で店ごとの結果を出す形を試したページです。</p>
+        <div class="go"><a class="btn btn-primary" href="doruzu/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市牛島東</span>
+        <h3>食事と酒とコーヒー Every dog</h3>
+        <span class="slug">every-dog</span>
+        <p>秋田の飲食店で長く働いてきた店主が、2024年の元日に開いた念願の店。店名はことわざ「Every dog has its day.」から。太平川を眺めるカウンターがあります。</p>
+        <div class="go"><a class="btn btn-primary" href="every-dog/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市添川</span>
+        <h3>CAFE&amp;BAR GZLAMP（ジーズランプ）</h3>
+        <span class="slug">gzlamp</span>
+        <p>11種類のスパイスを独自にブレンドしたスパイスカレーの店。車とバイク好きが集まるアメリカンビンテージ調の一軒家。2021年4月開業。</p>
+        <div class="go"><a class="btn btn-primary" href="gzlamp/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市八橋本町</span>
+        <h3>レトロカフェ異人館</h3>
+        <span class="slug">ijinkan</span>
+        <p>45年の歴史を持つ喫茶店。一杯ずつ淹れるサイフォン式コーヒーと、フレンチトーストや異人館カレーを楽しめます。</p>
+        <div class="go"><a class="btn btn-primary" href="ijinkan/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">名古屋市西区名駅</span>
+        <h3>いこい珈琲</h3>
+        <span class="slug">ikoi-coffee</span>
+        <p>名古屋駅から歩いて行ける、古民家を改装した喫茶店。朝8時からの鉄板トーストのモーニング、看板の天使の卵ピザトースト、自家製バスクチーズケーキとマカダミアコーヒー。まったり時間の過ごし方診断の試作を載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="ikoi-coffee/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市御所野</span>
+        <h3>IN HER LIFE</h3>
+        <span class="slug">in-her-life</span>
+        <p>カフェ＆ライフスタイルショップ。2015年オープン、11周年。鳥取の焙煎所直送の豆のエスプレッソ、季節のスイーツ、ランチプレートと暮らしの雑貨。今日の一杯を選ぶ診断の試作と、診断アプリを載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="in-her-life/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市将軍野南</span>
+        <h3>Jigen Cafe</h3>
+        <span class="slug">jigen-cafe</span>
+        <p>地域の人がコーヒーを飲みながら交流できる場所。食事メニューを置かず、コーヒーに特化したシンプルな喫茶店です。</p>
+        <div class="go"><a class="btn btn-primary" href="jigen-cafe/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市南通亀の町</span>
+        <h3>KAMENOCHO STORE（亀の町ストア）</h3>
+        <span class="slug">kamenocho-store</span>
+        <p>倉庫を生かした空間で、旬の野菜のデリプレートと08COFFEEのブレンドを。亀の町のエリアリノベーションから2015年に生まれたカフェダイニングです。</p>
+        <div class="go"><a class="btn btn-primary" href="kamenocho-store/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市八橋本町</span>
+        <h3>喫茶キートス</h3>
+        <span class="slug">ki-tosu</span>
+        <p>おもかげ橋のすぐ横、川沿いの喫茶店。夏は「氷きいとす」としてかき氷を提供しています。</p>
+        <div class="go"><a class="btn btn-primary" href="ki-tosu/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">名古屋市天白区</span>
+        <h3>珈琲専門店 寄鷺館（きりょうかん）</h3>
+        <span class="slug">kiryokan</span>
+        <p>40年以上続く珈琲専門店。店の前の工房で毎日焙煎し、注文ごとに挽いてネルドリップで一杯ずつ。コーヒーは50種類以上、本のようなメニュー「珈琲百科」。今日の一杯診断の試作を載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="kiryokan/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">岡崎市大平町</span>
+        <h3>珈琲・ごはん・おやつ コジマトペ</h3>
+        <span class="slug">kojimatope</span>
+        <p>サイフォンで淹れるスペシャルティコーヒーと、手作りのモーニング・オムライス・おやつ。お湯を注ぐだけのディップスタイルコーヒーも。今日のコジマトペ診断の試作を載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="kojimatope/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市保戸野通町</span>
+        <h3>交点（こうてん）</h3>
+        <span class="slug">kouten</span>
+        <p>コーヒーや菓子とともに、本や日常の品をささやかに商う二階の喫茶店。三つの自家ブレンドを焙煎違いで扱っています。気分から一杯を選ぶ診断の試作を載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="kouten/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市土崎港北</span>
+        <h3>椅子と珈琲 雲の巣（くものす）</h3>
+        <span class="slug">kumonosu</span>
+        <p>椅子張りの職人が、工房の横の倉庫を直して開いた喫茶店。店内の古い椅子は店主が修理したもので、購入もできます。2024年開店。</p>
+        <div class="go"><a class="btn btn-primary" href="kumonosu/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">北秋田市松葉町</span>
+        <h3>黒井鳥珈琲</h3>
+        <span class="slug">kuroitori-coffee</span>
+        <p>鷹巣の自家焙煎のお店。産地ごとの豆を、ピーチ・ブルーベリー・プラムなど味の言葉と一緒に紹介。壁一面のレコードとDJブースのある店内。フレーバー診断の試作と、診断アプリを載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="kuroitori-coffee/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市土崎港中央</span>
+        <h3>Lino's Flower Cafe</h3>
+        <span class="slug">linos-flower-cafe</span>
+        <p>フラワーショップを併設したカフェ。観葉植物と花、大きな窓から光の入る店内で、ランチ、パスタ、デザート。今日の過ごし方を選ぶ診断の試作を載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="linos-flower-cafe/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市保戸野原の町</span>
+        <h3>マチノミナト COFFEEHOUSE</h3>
+        <span class="slug">machinominato</span>
+        <p>自家焙煎とダイレクトトレードの豆によるハンドドリップコーヒーを、昼はカフェで、夜は日本酒やクラフトビールとともに楽しめます。</p>
+        <div class="go"><a class="btn btn-primary" href="machinominato/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市東通仲町</span>
+        <h3>まめまめハウス 本店</h3>
+        <span class="slug">mamemame-house</span>
+        <p>秋田駅東口・アルヴェ1Fの珈琲・紅茶・ハーブティー専門店。コーヒー豆約50種類、紅茶とハーブティーは各100種類以上。今年で34周年。量り売りの人気豆から選ぶ診断の試作と、診断アプリを載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="mamemame-house/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市中通</span>
+        <h3>みきょう</h3>
+        <span class="slug">mikyou</span>
+        <p>天井まで続く白壁ドームとアンティーク家具に囲まれた喫茶店。自家焙煎ネルドリップで淹れるエイジング珈琲とオリジナルスイーツを楽しめます。</p>
+        <div class="go"><a class="btn btn-primary" href="mikyou/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市保戸野原の町</span>
+        <h3>珈琲とパンの店 美豆木</h3>
+        <span class="slug">mizuki-coffee</span>
+        <p>先代から受け継いだ自家焙煎コーヒーと、パン職人の技術を生かした自家製パンを一緒に楽しめる喫茶店です。</p>
+        <div class="go"><a class="btn btn-primary" href="mizuki-coffee/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市手形山崎町</span>
+        <h3>ジャズカフェ モーニン</h3>
+        <span class="slug">monin</span>
+        <p>約1万枚のLPレコードを所蔵し、コーヒーやお酒を楽しみながらジャズに浸れる空間。2011年から営業を続けています。</p>
+        <div class="go"><a class="btn btn-primary" href="monin/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市中通（秋田県立美術館2階）</span>
+        <h3>MuseumCafe&amp;Shop 光風</h3>
+        <span class="slug">museumcafeshop-kofu</span>
+        <p>安藤忠雄建築研究所が設計した館内で、水庭と千秋公園を眺めながら、美術館オリジナルの川連漆器の器でコーヒーとケーキを楽しめます。</p>
+        <div class="go"><a class="btn btn-primary" href="museumcafeshop-kofu/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市中通</span>
+        <h3>仲小路コーヒー&amp;ワイン</h3>
+        <span class="slug">nakakoji</span>
+        <p>スペシャリティコーヒーとワインを同じ席で、構えずに楽しめる店。手作りスイーツは10種類以上。2014年8月開業、2016年6月から現在の形に。</p>
+        <div class="go"><a class="btn btn-primary" href="nakakoji/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市千秋久保田町</span>
+        <h3>ナガハマコーヒー 秋田駅前店</h3>
+        <span class="slug">nagahama-coffee</span>
+        <p>秋田駅前・秋田オーパ1F。スペシャルティコーヒーとパスタランチ、手作りケーキを味わえるカフェです。</p>
+        <div class="go"><a class="btn btn-primary" href="nagahama-coffee/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市大町</span>
+        <h3>Nice Time Coffee</h3>
+        <span class="slug">nice-time-coffee</span>
+        <p>東京・清澄白河の店からコーヒー豆とリコッタチーズパンケーキのレシピを受け継いで開いたカフェ。仕込みに2日かかるパンケーキが看板です。2019年開業。</p>
+        <div class="go"><a class="btn btn-primary" href="nice-time-coffee/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市手形からみでん</span>
+        <h3>niru cafe</h3>
+        <span class="slug">niru-cafe</span>
+        <p>自家焙煎のコーヒーと、そのコーヒーに合わせて設計されたスパイスカレーの店。キッチンカー「ニルカー」での出店も続けています。2022年開業。</p>
+        <div class="go"><a class="btn btn-primary" href="niru-cafe/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市雄和下黒瀬</span>
+        <h3>食堂カフェ ノルン</h3>
+        <span class="slug">norn</span>
+        <p>飲食店のなかった地域に、建設会社が空き家を改装して開いた食堂。肉と魚が両方つく日替わり定食が看板です。2022年4月開業。</p>
+        <div class="go"><a class="btn btn-primary" href="norn/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市寺内神屋敷</span>
+        <h3>OLIVE CAFE</h3>
+        <span class="slug">olive-cafe</span>
+        <p>空き店舗をリノベーションした落ち着いた空間で、地域に明かりを灯すサードプレイスを目指すカフェです。</p>
+        <div class="go"><a class="btn btn-primary" href="olive-cafe/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市下北手</span>
+        <h3>Shalm café（シャルムカフェ）</h3>
+        <span class="slug">shalm-cafe</span>
+        <p>週替わりの食事と季節で入れ替わる自家製デザート。音楽会やワークショップなど、食事以外の入り口がいくつもある店。2021年1月開業。</p>
+        <div class="go"><a class="btn btn-primary" href="shalm-cafe/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市保戸野通町</span>
+        <h3>自家焙煎 杉本珈琲店</h3>
+        <span class="slug">sugimoto-coffee</span>
+        <p>通町商店街の自家焙煎コーヒー専門店。一押しの「千秋ブレンド」の紹介と、豆診断サービスの提案を載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="sugimoto-coffee/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市中通</span>
+        <h3>ティールーム陶</h3>
+        <span class="slug">tearoom-toh</span>
+        <p>食器のさかいだの2階にある喫茶室。器のお店の食器でコーヒーを飲み、土鍋で炊いた玄米のランチを。金継ぎの日もあります。</p>
+        <div class="go"><a class="btn btn-primary" href="tearoom-toh/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市東通</span>
+        <h3>cafe とまとの店</h3>
+        <span class="slug">tomato-no-mise</span>
+        <p>母娘で営む家庭的なカフェ。トマトを使った看板のとまとギョーザ、季節の野菜のプレートランチ、畳のお座敷。麹のワークショップも紹介しています。今日のランチを選ぶ診断の試作を載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="tomato-no-mise/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">名古屋市天白区原</span>
+        <h3>とよのcoffee</h3>
+        <span class="slug">toyono-coffee</span>
+        <p>coffee、curry、自家製パンの喫茶店。知多のブランド豚の自家製ロースハムと3種チーズのクロックムッシュ、本格スパイスカレー。今日の一皿診断の試作を載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="toyono-coffee/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市中通</span>
+        <h3>VISTA COFFEE ROASTERS</h3>
+        <span class="slug">vista-coffee</span>
+        <p>秋田駅前のスペシャルティコーヒー専門店。香りと3Dイメージで選ぶ体験と、欠点豆を一粒ずつ取り除く焙煎が特徴です。味わいの好みから豆を選ぶ診断の試作を載せました。</p>
+        <div class="go"><a class="btn btn-primary" href="vista-coffee/">ページを見る</a></div>
+      </article>
+
+      <article class="item">
+        <span class="place">秋田市旭南</span>
+        <h3>喫茶WAI</h3>
+        <span class="slug">wai</span>
+        <p>築40年のアパートの車庫を設計事務所が改装し、そのまま運営している喫茶店。旭川沿いの景色と、スパイスの効いたカレー、季節で変わる一杯が楽しめます。</p>
+        <div class="go"><a class="btn btn-primary" href="wai/">ページを見る</a></div>
+      </article>
+
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- クロックムッシュ -->
-  <section id="croque" class="highlight" aria-labelledby="croque-heading">
-    <div class="container">
-      <div class="highlight-grid">
-        <div>
-          <p class="eyebrow">CROQUE MONSIEUR</p>
-          <h2 id="croque-heading">自家製ロースハムと<br>3種チーズのクロックムッシュ</h2>
-          <p style="color:#f1e8dc;">
-            8月のInstagramで、数量限定として紹介されていた一枚です。
-          </p>
-          <ul class="highlight-list">
-            <li><b>ハム</b>愛知・知多のブランド豚「知多ハッピーポーク」で仕込んだ、自家製のロースハム。</li>
-            <li><b>チーズ</b>うまみたっぷりのハムに、コクの深い3種のチーズを重ねて。</li>
-            <li><b>仕上げ</b>香ばしく焼き上げた、とろける幸せの「喫茶店のごちそうサンド」。</li>
-            <li><b>合わせて</b>「美味しいコーヒーとご一緒にどうぞ」とお店は案内しています。</li>
-          </ul>
-          <div class="cta-group">
-            <a class="btn btn-outline" style="border-color:#fff;color:#fff;" href="https://www.instagram.com/toyonocoffee/" target="_blank" rel="noopener noreferrer">最新の限定メニューをInstagramで見る</a>
-          </div>
-        </div>
-        <img class="highlight-visual" src="images/01_hero_croque_16x9.jpg" alt="断面からハムとチーズが見えるクロックムッシュのイメージ画像" loading="lazy">
-      </div>
-      <p class="lead-text source-note" style="color:#d9cdbe;">
-        ※ この節は、公式Instagram（@toyonocoffee）の2026年8月6日の投稿によります。数量限定のため、提供の有無はお店でご確認ください。
-      </p>
-    </div>
-  </section>
+<section aria-labelledby="app-title">
+  <div class="wrap">
+    <p class="eyebrow">APP</p>
+    <h2 id="app-title">コーヒー豆診断アプリ（試作）</h2>
+    <p class="lead">苦味・酸味・香り・飲み口の答えから、そのお店の豆の中で合いそうなものをお伝えする仕組みです。お店ごとに豆・合言葉・リンク先を差し替えられます。</p>
 
-  <!-- メニュー -->
-  <section id="menu" aria-labelledby="menu-heading">
-    <div class="container">
-      <p class="eyebrow">MENU</p>
-      <h2 id="menu-heading">朝のパンから、<br>季節の限定まで</h2>
-      <p class="lead-text">公式Instagramと、紹介サイト・来店された方の感想から整理しました。</p>
-      <div class="dish-grid">
-        <div class="dish">
-          <span class="tag">モーニング</span>
-          <span class="name">タルティーヌ・フレンチトースト</span>
-          <p class="desc">タルティーヌのセットやイングリッシュマフィン。フレンチトーストは<strong>ハードパン</strong>を使った大人向けの味、と感想にありました。</p>
-        </div>
-        <div class="dish">
-          <span class="tag">カレー</span>
-          <span class="name">スパイスカレー</span>
-          <p class="desc">スパイシーだけど甘みも感じる、と来店された方。メニューが多く、<strong>朝からカレー</strong>を選ぶ方もいます。</p>
-        </div>
-        <div class="dish is-warm">
-          <span class="tag">数量限定</span>
-          <span class="name">自家製ロースハムのクロックムッシュ</span>
-          <p class="desc">知多ハッピーポークの自家製ロースハムと、3種のチーズ。</p>
-        </div>
-        <div class="dish is-warm">
-          <span class="tag">夏の季節限定</span>
-          <span class="name">ピーチメルバトースト</span>
-          <p class="desc">旬の桃と香ばしいトースト、パルメザンの香り。<strong>冷製の桃スープ</strong>付きの、大人のためのトーストでした。</p>
-        </div>
-      </div>
-      <p class="lead-text source-note">
-        ※ クロックムッシュとピーチメルバトーストは公式Instagram（@toyonocoffee）の2026年7〜8月の投稿、
-        モーニングとカレーは地域の紹介サイト（hamoni）と公開されている来店者の感想によります。
-        食事はワンドリンク制、という感想があります。メニューと価格は変わることがあるため、価格は載せていません。
-      </p>
-    </div>
-  </section>
-
-  <!-- 試作（診断） -->
-  <section id="proposal-quiz" class="proposal-section" aria-labelledby="quiz-heading">
-    <div class="container">
-      <span class="proposal-tag">INTERACTIVE PROTOTYPE｜動く新サービス試作</span>
-      <h2 id="quiz-heading">今日の一皿診断（試作）</h2>
-      <p class="lead-text">
-        自家製パンのモーニング、スパイスカレー、限定のトースト。どれも気になるお店だからこそ、
-        いくつかの質問に答えると、今日の気分に合う一皿を案内する診断を試作しました。
-        これは店舗運営者向けの新サービス提案・導入アイデアであり、現在提供中のサービスではありません。
-      </p>
-
-      <div class="proposal-note">
-        この診断結果は、公式Instagramの投稿と紹介サイトの情報をもとにした、おおまかな分け方です。
-        限定メニューの提供を保証するものではありません。導入する場合は、お店のメニューに合わせて作り直します。
-      </div>
-
-      <div class="quiz-app" id="quizApp">
-        <div id="quizIntro" class="quiz-intro">
-          <h3>対象：とよのcoffeeに行ってみたい方／店舗運営者の方</h3>
-          <p>解決したい課題：パンもカレーも限定メニューも魅力的で、はじめての方が一皿目を決めにくいこと。</p>
-          <button type="button" class="quiz-start-btn" id="quizStartBtn">試してみる</button>
-        </div>
-
-        <form id="quizForm" style="display:none;" novalidate>
-          <p class="quiz-progress" id="quizProgress" aria-live="polite"></p>
-          <p class="quiz-question" id="quizQuestionText"></p>
-          <ul class="quiz-options" id="quizOptions"></ul>
-          <p class="quiz-warning" id="quizWarning" role="alert"></p>
-          <div class="quiz-nav">
-            <button type="button" id="quizBack">戻る</button>
-            <button type="button" id="quizNext">次へ</button>
-          </div>
-        </form>
-
-        <div id="quizResult" style="display:none;" class="quiz-result" aria-live="polite">
-          <h3 id="resultName" tabindex="-1"></h3>
-          <p class="result-summary" id="resultSummary"></p>
-          <dl class="result-detail-list">
-            <dt>そのタイプになった理由</dt>
-            <dd id="resultReason"></dd>
-            <dt>おすすめ</dt>
-            <dd id="resultRecommend"></dd>
-            <dt>お店の強みとのつながり</dt>
-            <dd id="resultStrength"></dd>
-          </dl>
-          <div class="quiz-result-actions">
-            <a class="btn btn-primary" id="resultCta" href="#menu">関連する節を見る</a>
-            <button type="button" class="btn btn-outline" id="quizRestartBtn">最初からやり直す</button>
-          </div>
-        </div>
-
-        <noscript>
-          <p>この試作デモの操作にはJavaScriptが必要です。JavaScriptが無効な場合でも、お店のご紹介や店舗情報は、このページの他の節から引き続きご覧いただけます。</p>
-        </noscript>
-
-        <p class="disclaimer-box">本機能は店舗運営者向けの試作デモです。現在提供中の正式サービスではありません。入力内容の保存・送信は行いません。ページを閉じると回答内容は消えます。お名前やご連絡先を入力していただく欄はありません。</p>
-      </div>
-
-      <div class="proposal-note" style="margin-top:32px;">
-        <strong>導入アイデア（今後の展開案）：</strong>数量限定や季節限定のメニューを、診断の結果に「今週の限定」として表示できます。
-        Instagramを探さなくても、今日食べられる一皿がすぐに分かります。
-      </div>
-    </div>
-  </section>
-
-  <!-- 店舗情報 -->
-  <section id="info" aria-labelledby="info-heading">
-    <div class="container">
-      <p class="eyebrow">SHOP INFORMATION</p>
-      <h2 id="info-heading">店舗情報</h2>
-      <ul class="info-list">
-        <li><span class="term">店舗名</span><span>とよのcoffee</span></li>
-        <li>
-          <span class="term">所在地</span>
-          <span>〒468-0015 愛知県名古屋市天白区原2丁目202 びい6植田 1F<br>
-            <a href="https://www.google.com/maps/search/?api=1&query=%E6%84%9B%E7%9F%A5%E7%9C%8C%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%B8%82%E5%A4%A9%E7%99%BD%E5%8C%BA%E5%8E%9F2%E4%B8%81%E7%9B%AE202" target="_blank" rel="noopener noreferrer">地図で見る（Googleマップ）</a>
-          </span>
-        </li>
-        <li><span class="term">電話</span><span>070-7570-3051</span></li>
-        <li>
-          <span class="term">営業日</span>
-          <span>朝8時から営業（紹介サイトによります）<br>
-            <span class="source-note" style="display:block;margin-top:4px;">※ 定休日と営業時間は、公式Instagramでご確認ください。</span>
-          </span>
-        </li>
-        <li><span class="term">駐車場</span><span>店舗前に3台（来店者の感想によります）</span></li>
-        <li><span class="term">Instagram</span><span><a href="https://www.instagram.com/toyonocoffee/" target="_blank" rel="noopener noreferrer">@toyonocoffee</a></span></li>
+    <div class="app-box">
+      <ul>
+        <li>お名前・連絡先を入力する欄はありません。どなたが診断したかは分かりません</li>
+        <li>集計のため、「診断が1回行われたこと」「1位になった豆」だけをお店ごとに記録しています</li>
+        <li>イラストを選ぶ診断では、集めた図鑑とレベルがご自身のブラウザに残ります（他の方やお店からは見えません）</li>
+        <li>すぐ豆を探す診断と、イラストを選びながら味の違いを知る診断の2種類があります</li>
+        <li>お店を指定しない場合は、見本用の豆で動きます</li>
       </ul>
-      <p class="lead-text source-note">
-        ※ このページは、公式Instagram（@toyonocoffee）の投稿、地域の紹介サイト（hamoni）、公開されている来店者の感想をもとに、
-        2026年11月3日時点で整理したものです。内容は変わっている場合があります。
-      </p>
+      <div><a class="btn btn-primary" href="https://coffee-diagnosis-app.netlify.app/" target="_blank" rel="noopener noreferrer">診断を試してみる</a></div>
     </div>
-  </section>
-
-  <!-- 最後のご案内 -->
-  <section class="final-cta" aria-labelledby="final-cta-heading">
-    <div class="container">
-      <h2 id="final-cta-heading">ご来店の前に、ご確認ください</h2>
-      <p style="color:#f1e8dc;">駐車場は店舗前の3台です。限定メニューやお休みの日は、公式Instagramでご確認ください。</p>
-      <div class="cta-group">
-        <a class="btn btn-primary" style="background:#fff;color:var(--color-primary);" href="https://www.instagram.com/toyonocoffee/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
-        <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=%E6%84%9B%E7%9F%A5%E7%9C%8C%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%B8%82%E5%A4%A9%E7%99%BD%E5%8C%BA%E5%8E%9F2%E4%B8%81%E7%9B%AE202" target="_blank" rel="noopener noreferrer">地図を見る</a>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
 </main>
 
 <footer class="site-footer">
-  <div class="container">
-    <p>とよのcoffee</p>
-    <p>© とよのcoffee. All Rights Reserved.</p>
-    <p><a href="#main-content">ページの先頭へ戻る</a></p>
+  <div class="wrap">
+    <p>eight株式会社</p>
+    <p>本ページおよびリンク先の各ページは、提案用に制作したものです。店舗様からのご依頼で制作したものではなく、各店舗の公式サイトでもありません。</p>
+    <p>&copy; eight Inc.</p>
   </div>
 </footer>
-
-<script>
-(function () {
-  "use strict";
-
-  var questions = [
-    {
-      text: "行くなら、いつがいいですか？",
-      options: [
-        { label: "朝。モーニングの時間に", cat: "A" },
-        { label: "お昼ごはんに", cat: "B" },
-        { label: "ちょっと特別な日に", cat: "C" }
-      ]
-    },
-    {
-      text: "いちばん惹かれるのは？",
-      options: [
-        { label: "自家製パンのタルティーヌやフレンチトースト", cat: "A" },
-        { label: "スパイスのきいたカレー", cat: "B" },
-        { label: "自家製ハムと3種チーズのクロックムッシュ", cat: "C" }
-      ]
-    },
-    {
-      text: "どんな味が好きですか？",
-      options: [
-        { label: "パンの香ばしさ、やさしい甘さ", cat: "A" },
-        { label: "スパイシーで、ほんのり甘い", cat: "B" },
-        { label: "とろけるチーズと、ハムのうまみ", cat: "C" }
-      ]
-    },
-    {
-      text: "コーヒーと、どう合わせたい？",
-      options: [
-        { label: "朝の一杯と、ゆっくり", cat: "A" },
-        { label: "食後の一杯で、すっきり", cat: "B" },
-        { label: "ごちそうの一皿と、ていねいに", cat: "C" }
-      ]
-    }
-  ];
-
-  var results = {
-    A: {
-      name: "自家製パンのモーニングタイプ",
-      summary: "朝から、手作りのパンとコーヒーで1日を始めたい方です。",
-      reason: "朝の時間、パンの香ばしさ、朝の一杯に関する回答が多い傾向でした。",
-      recommend: "モーニングのタルティーヌのセットや、ハードパンを使ったフレンチトースト。シングルオリジンのコーヒーと一緒に。",
-      strength: "「パンもハムも、自家製」の強みが活きるタイプです。",
-      ctaHref: "#menu",
-      ctaLabel: "メニューを見る"
-    },
-    B: {
-      name: "スパイスカレータイプ",
-      summary: "本格的なスパイスカレーを味わいたい方です。",
-      reason: "お昼ごはん、スパイシーな味、食後の一杯に関する回答が多い傾向でした。",
-      recommend: "スパイスカレー。メニューが多く、かぼちゃのケララチキンカレーの名前もありました。食後はこだわりのコーヒーで。",
-      strength: "「本格スパイスカレー」の強みが活きるタイプです。",
-      ctaHref: "#strengths",
-      ctaLabel: "お店の強みを見る"
-    },
-    C: {
-      name: "限定のごちそうサンドタイプ",
-      summary: "お店ならではの、とっておきの一皿を楽しみたい方です。",
-      reason: "特別な日、クロックムッシュ、とろけるチーズに関する回答が多い傾向でした。",
-      recommend: "知多ハッピーポークの自家製ロースハムと、3種のチーズのクロックムッシュ（数量限定）。提供の有無は、公式Instagramでご確認ください。",
-      strength: "「パンもハムも、自家製」だからこそできる、喫茶店のごちそうサンドです。",
-      ctaHref: "#croque",
-      ctaLabel: "クロックムッシュを見る"
-    }
-  };
-
-  var priorityOrder = ["A", "B", "C"];
-
-  var currentIndex = 0;
-  var answers = new Array(questions.length).fill(null);
-
-  var quizIntro = document.getElementById("quizIntro");
-  var quizStartBtn = document.getElementById("quizStartBtn");
-  var quizForm = document.getElementById("quizForm");
-  var quizProgress = document.getElementById("quizProgress");
-  var quizQuestionText = document.getElementById("quizQuestionText");
-  var quizOptions = document.getElementById("quizOptions");
-  var quizWarning = document.getElementById("quizWarning");
-  var quizBack = document.getElementById("quizBack");
-  var quizNext = document.getElementById("quizNext");
-  var quizResult = document.getElementById("quizResult");
-  var quizRestartBtn = document.getElementById("quizRestartBtn");
-
-  function renderQuestion() {
-    quizWarning.textContent = "";
-    var q = questions[currentIndex];
-    quizProgress.textContent = "質問 " + (currentIndex + 1) + " / " + questions.length;
-    quizQuestionText.textContent = q.text;
-    quizOptions.innerHTML = "";
-
-    q.options.forEach(function (opt, i) {
-      var li = document.createElement("li");
-      var btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "quiz-option";
-      btn.textContent = opt.label;
-      var selected = answers[currentIndex] === i;
-      btn.setAttribute("aria-pressed", selected ? "true" : "false");
-      btn.addEventListener("click", function () {
-        answers[currentIndex] = i;
-        var allBtns = quizOptions.querySelectorAll(".quiz-option");
-        allBtns.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
-        btn.setAttribute("aria-pressed", "true");
-        quizWarning.textContent = "";
-      });
-      li.appendChild(btn);
-      quizOptions.appendChild(li);
-    });
-
-    quizBack.disabled = currentIndex === 0;
-    quizNext.textContent = currentIndex === questions.length - 1 ? "結果を見る" : "次へ";
-  }
-
-  function startQuiz() {
-    currentIndex = 0;
-    answers = new Array(questions.length).fill(null);
-    quizIntro.style.display = "none";
-    quizResult.style.display = "none";
-    quizForm.style.display = "block";
-    renderQuestion();
-  }
-
-  function showResult() {
-    var scores = { A: 0, B: 0, C: 0 };
-    answers.forEach(function (ansIndex, qIndex) {
-      if (ansIndex === null) { return; }
-      var cat = questions[qIndex].options[ansIndex].cat;
-      scores[cat] += 1;
-    });
-
-    // 同点の場合は、最後の質問（4問目）で選んだものを優先します。
-    // それでも決まらない場合のみ、A→B→Cの順を採用します。
-    var lastCat = null;
-    var lastAnswerIndex = answers[answers.length - 1];
-    if (lastAnswerIndex !== null) {
-      lastCat = questions[questions.length - 1].options[lastAnswerIndex].cat;
-    }
-
-    var maxScore = -1;
-    priorityOrder.forEach(function (cat) {
-      if (scores[cat] > maxScore) { maxScore = scores[cat]; }
-    });
-    var topCats = priorityOrder.filter(function (cat) { return scores[cat] === maxScore; });
-
-    var winner;
-    if (topCats.length === 1) {
-      winner = topCats[0];
-    } else if (lastCat !== null && topCats.indexOf(lastCat) !== -1) {
-      winner = lastCat;
-    } else {
-      winner = topCats[0];
-    }
-
-    var r = results[winner];
-    document.getElementById("resultName").textContent = r.name;
-    document.getElementById("resultSummary").textContent = r.summary;
-    document.getElementById("resultReason").textContent = r.reason;
-    document.getElementById("resultRecommend").textContent = r.recommend;
-    document.getElementById("resultStrength").textContent = r.strength;
-    var cta = document.getElementById("resultCta");
-    cta.href = r.ctaHref;
-    cta.textContent = r.ctaLabel;
-
-    quizForm.style.display = "none";
-    quizResult.style.display = "block";
-    document.getElementById("resultName").focus();
-  }
-
-  quizStartBtn.addEventListener("click", startQuiz);
-
-  quizNext.addEventListener("click", function () {
-    if (answers[currentIndex] === null) {
-      quizWarning.textContent = "選択肢を選んでから次へ進んでください。";
-      return;
-    }
-    if (currentIndex === questions.length - 1) {
-      showResult();
-    } else {
-      currentIndex += 1;
-      renderQuestion();
-    }
-  });
-
-  quizBack.addEventListener("click", function () {
-    if (currentIndex > 0) {
-      currentIndex -= 1;
-      renderQuestion();
-    }
-  });
-
-  quizRestartBtn.addEventListener("click", function () {
-    quizResult.style.display = "none";
-    quizIntro.style.display = "block";
-  });
-})();
-</script>
 
 </body>
 </html>
