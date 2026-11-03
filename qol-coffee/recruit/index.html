@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Q.O.L. COFFEE 採用ページ（試作）｜一杯の品質を、一緒につくる人へ。</title>
+<meta name="description" content="Q.O.L. COFFEE（名古屋市中区）のスタッフ募集をまとめた、採用ページの試作です。バリスタ、パティシエ、デザイナー。公式ホームページの募集内容（2026年7月27日掲載）をもとにしています。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#262421">
+<style>
+  :root {
+    --color-primary: #262421;      /* 焙煎機の、黒に近い鉄の色 */
+    --color-secondary: #faf8f4;    /* ギャラリーの白い壁 */
+    --color-roast: #a3612e;         /* 焙煎したての豆の色 */
+    --color-roast-text: #8a4f22;    /* 明るい地の上に置く文字用 */
+    --color-roast-btn: #683a17;     /* 白文字をのせるボタンの地色 */
+    --color-warm: #3e5a4a;         /* 名古屋城のお堀の緑 */
+    --color-warm-text: #385244;
+    --color-surface: #f0ece5;
+    --color-proposal: #ebe9e5;
+    --color-proposal-border: #a69a8c;
+    --color-text: #252320;
+    --color-muted: #5a5650;
+    --color-border: #ddd6cb;
+    --font-serif: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-sans: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  /* ★2026-11-03：背景にうっすら「トロフィー」の柄を入れています。
+     焙煎の大会で優勝したお店に合わせて、小さな優勝カップの形を間をあけて並べています。
+     ・濃さ　：stroke-opacity の数字（0.09）。1 に近いほど濃くなります
+     ・柄の大きさ：background-size の 48px 48px
+     ※ 色を敷いている節（強み／大会／採用／診断）には出ません。 */
+  body {
+    margin: 0;
+    background-color: var(--color-secondary);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cg fill='none' stroke='%23262421' stroke-opacity='0.09' stroke-width='0.9' stroke-linejoin='round'%3E%3Cpath d='M9 6H19V11C19 14 17 16 14 16C11 16 9 14 9 11Z M9 8H6.5V10C6.5 11.5 7.5 12.5 9 12.5 M19 8H21.5V10C21.5 11.5 20.5 12.5 19 12.5 M14 16V20 M10.5 20H17.5V22H10.5Z'/%3E%3Cpath d='M32 29H40V33C40 35.5 38.5 37 36 37C33.5 37 32 35.5 32 33Z M36 37V40 M33.5 40H38.5V41.5H33.5Z'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 48px 48px;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 16px; line-height: 1.8; overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+
+  .container {
+    width: 100%; max-width: 960px; margin: 0 auto;
+    padding-left: clamp(14px, 4vw, 32px); padding-right: clamp(14px, 4vw, 32px);
+  }
+
+  .skip-link {
+    position: absolute; left: -999px; top: 0;
+    background: var(--color-roast-btn); color: #fff;
+    padding: 10px 16px; z-index: 200; border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus { left: 0; }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid var(--color-roast); outline-offset: 3px;
+  }
+
+  /* ---------- 提案用ラベル ---------- */
+  .proposal-bar {
+    background: var(--color-primary); color: var(--color-secondary);
+    text-align: center; padding: 8px 14px;
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.06em; line-height: 1.5;
+  }
+
+  /* ---------- ファーストビュー ---------- */
+  .hero {
+    position: relative; min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 96px 0 56px; background: var(--color-primary); overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(38,36,33,0.40) 0%, rgba(38,36,33,0.60) 55%, rgba(38,36,33,0.88) 100%);
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.16em;
+    color: var(--color-secondary); margin: 0 0 14px;
+  }
+  .hero h1 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(27px, 7.6vw, 45px); line-height: 1.4;
+    margin: 0 0 18px; color: var(--color-secondary); overflow-wrap: anywhere;
+  }
+  .hero-lead {
+    font-size: clamp(14px, 3.8vw, 17px); max-width: 34em;
+    margin: 0 0 30px; color: var(--color-secondary);
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 30px;
+    font-size: 12px; letter-spacing: 0.08em; color: var(--color-secondary);
+  }
+  .hero-tags span {
+    border: 1px solid rgba(248,246,241,0.5);
+    border-radius: 999px; padding: 6px 14px; background: rgba(38,36,33,0.35);
+  }
+
+  .cta-group { display: flex; flex-direction: column; gap: 12px; max-width: 340px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 12px 20px; border-radius: 6px;
+    text-decoration: none; font-size: 15px; letter-spacing: 0.02em;
+    border: 1px solid transparent; text-align: center; line-height: 1.4;
+  }
+  .btn-primary { background: var(--color-roast-btn); color: #fff; }
+  .btn-outline { background: transparent; border-color: var(--color-primary); color: var(--color-primary); }
+  .hero .btn-primary { background: var(--color-secondary); color: var(--color-primary); }
+  .hero .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); background: rgba(38,36,33,0.25); }
+  @media (min-width: 560px) { .cta-group { flex-direction: row; max-width: none; } }
+
+  /* ---------- 共通 ---------- */
+  section { padding: clamp(48px, 9vw, 88px) 0; }
+  .section-alt { background: var(--color-surface); }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; color: var(--color-roast-text); margin: 0 0 10px; }
+  h2 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(22px, 6vw, 30px); margin: 0 0 20px; line-height: 1.5; }
+  h3 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(17px, 4.6vw, 20px); margin: 0 0 10px; line-height: 1.6; }
+  p { margin: 0 0 14px; }
+  .lead-text { max-width: 40em; color: var(--color-muted); }
+  .source-note { font-size: .85em; opacity: .8; margin-top: 1.2em; }
+
+  /* ---------- 店名の由来 ---------- */
+  .name-origin {
+    margin: 26px 0 0; padding: 22px 24px;
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-roast);
+    border-radius: 0 12px 12px 0;
+  }
+  .name-origin .en {
+    font-family: var(--font-serif); font-size: clamp(18px, 4.8vw, 24px);
+    letter-spacing: .04em; margin: 0 0 8px; display: block; color: var(--color-roast-text);
+  }
+  .name-origin .ja { font-size: 14.5px; color: var(--color-muted); margin: 0; }
+
+  blockquote.quote {
+    margin: 26px 0 0; padding: 20px 22px;
+    background: var(--color-secondary);
+    border-left: 4px solid var(--color-warm);
+    border-top: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0 10px 10px 0;
+    font-family: var(--font-serif);
+    font-size: clamp(15px, 4vw, 17px); line-height: 1.9;
+  }
+  blockquote.quote cite {
+    display: block; margin-top: 10px; font-family: var(--font-sans);
+    font-style: normal; font-size: 12.5px; color: var(--color-muted);
+  }
+
+  /* ---------- カード ---------- */
+  .card-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
+  @media (min-width: 700px) {
+    .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  }
+  .card {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 10px; padding: 22px; min-width: 0;
+    box-shadow: 0 2px 10px rgba(38,36,33,0.05);
+  }
+  .card .num { font-size: 12px; color: var(--color-roast-text); letter-spacing: 0.1em; display: block; margin-bottom: 10px; }
+  .card p { font-size: 14.5px; color: var(--color-text); margin-bottom: 8px; }
+  .card .value {
+    font-size: 13.5px; color: var(--color-muted);
+    border-top: 1px dashed var(--color-border); padding-top: 10px; margin-top: 10px;
+  }
+  .card-photo { border-radius: 8px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 14px; }
+
+  /* 横に3枚並べたときのそろえ方
+     ① 下端をそろえる作り（subgrid が使えないブラウザ用の保険）
+     このページの見出しは1行が文字サイズの1.6倍なので、2行ぶんは 3.2em です。 */
+  @media (min-width: 700px) {
+    .card-grid.cols-3 .card { display: flex; flex-direction: column; }
+    .card-grid.cols-3 .card h3 { line-height: 1.6; min-height: 3.2em; }
+    .card-grid.cols-3 .card .value { margin-top: auto; }
+  }
+  /* ② ラベル・見出し・本文・価値の4つを、それぞれ別々に高さをそろえます。 */
+  @supports (grid-template-rows: subgrid) {
+    @media (min-width: 700px) {
+      #strengths .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 5; }
+      #ways .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 4; }
+      .card-grid.cols-3 .card h3 { min-height: 0; margin-bottom: 0; }
+      .card-grid.cols-3 .card .value { margin-top: 0; align-self: start; }
+      .card-grid.cols-3 .card p { margin-bottom: 0; }
+      .card-grid.cols-3 .card .num { margin-bottom: 0; }
+      .card-grid.cols-3 .card { row-gap: 10px; }
+    }
+  }
+
+  /* ---------- ストーリー ---------- */
+  .story { display: grid; gap: 24px; }
+  /* 横に並べたとき、写真をとなりの文章と同じ高さまで伸ばします。 */
+  @media (min-width: 760px) {
+    .story { grid-template-columns: 1fr 1fr; align-items: stretch; }
+    .story-photo { height: 100%; min-height: 300px; aspect-ratio: auto; }
+  }
+  .story-photo { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+  .concept-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 22px; }
+  .concept-gallery img { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+
+  /* ---------- 献立 ---------- */
+  .dish-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+  @media (min-width: 620px) { .dish-grid { grid-template-columns: repeat(2, 1fr); } }
+  .dish {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-roast); border-radius: 0 8px 8px 0;
+    padding: 18px 20px; min-width: 0;
+  }
+  .dish.is-warm { border-left-color: var(--color-warm); }
+  .dish .tag { font-size: 12px; letter-spacing: .08em; color: var(--color-roast-text); display: block; }
+  .dish.is-warm .tag { color: var(--color-warm-text); }
+  .dish .name { font-family: var(--font-serif); font-size: 19px; margin: 2px 0 6px; display: block; }
+  .dish .price { font-size: 15px; font-weight: 700; margin: 0 0 8px; }
+  .dish .desc { font-size: 14px; color: var(--color-muted); margin: 0; }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; padding: 0; list-style: none; }
+  .tag-list li {
+    font-size: 13.5px; color: var(--color-muted);
+    border: 1px solid var(--color-border); background: var(--color-secondary);
+    border-radius: 999px; padding: 5px 14px;
+  }
+
+  /* ---------- 地域の節 ---------- */
+  .highlight { background: var(--color-primary); color: var(--color-secondary); }
+  .highlight .eyebrow { color: #e8c08f; }  /* 暗い地の上の、焙煎豆を明るくした色 */
+  .highlight-grid { display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 760px) { .highlight-grid { grid-template-columns: 1.1fr 1fr; } }
+  .highlight-visual {
+    border-radius: 10px; aspect-ratio: 4 / 3; width: 100%;
+    object-fit: cover; border: 1px solid rgba(255,255,255,0.15);
+  }
+  .highlight-list { list-style: none; padding: 0; margin: 18px 0 24px; font-size: 14.5px; }
+  .highlight-list li { padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.15); }
+  .highlight-list li:first-child { border-top: none; }
+  .highlight-list b { display: block; margin-bottom: 4px; font-size: 13px; color: #e8c08f; letter-spacing: 0.04em; }
+
+  /* ---------- 一覧表 ---------- */
+  .info-list {
+    list-style: none; padding: 0; margin: 24px 0 0;
+    display: grid; gap: 0; border-top: 1px solid var(--color-border);
+  }
+  .info-list li {
+    display: grid; grid-template-columns: 120px 1fr; gap: 12px;
+    padding: 14px 0; border-bottom: 1px solid var(--color-border); font-size: 14.5px;
+  }
+  .info-list .term { color: var(--color-muted); font-size: 13px; letter-spacing: 0.04em; }
+  .info-list a { overflow-wrap: anywhere; text-decoration: underline; }
+
+  /* ---------- 試作（診断） ---------- */
+  .proposal-section {
+    background: var(--color-proposal);
+    border-top: 3px solid var(--color-proposal-border);
+    border-bottom: 3px solid var(--color-proposal-border);
+  }
+  .proposal-tag {
+    display: inline-block; font-size: 12px; letter-spacing: 0.1em;
+    background: var(--color-proposal-border); color: #16211f;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .proposal-note {
+    background: var(--color-secondary); border: 1px solid var(--color-proposal-border);
+    border-radius: 8px; padding: 14px 16px; font-size: 13.5px;
+    color: var(--color-muted); margin: 22px 0 30px; line-height: 1.75;
+  }
+  .quiz-app {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 14px; padding: 22px; max-width: 640px;
+  }
+  .quiz-intro h3 { margin: 0 0 12px; font-size: 20px; }
+  .quiz-progress { font-size: 13px; color: var(--color-muted); margin-bottom: 12px; }
+  .quiz-question { font-size: 17px; font-weight: 700; margin: 0 0 12px; }
+  .quiz-options { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 10px; }
+  .quiz-option {
+    width: 100%; text-align: left; padding: 14px 16px; min-height: 44px;
+    border: 1.5px solid var(--color-border); border-radius: 8px;
+    background: var(--color-surface); font-size: 15px;
+    font-family: inherit; color: var(--color-text); cursor: pointer;
+  }
+  .quiz-option[aria-pressed="true"] { border-color: var(--color-roast); background: #f3e8dc; font-weight: 700; }
+  .quiz-option[aria-pressed="true"]::before { content: "✓ "; color: var(--color-roast-text); }
+  .quiz-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; }
+  .quiz-nav button { min-height: 44px; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-family: inherit; cursor: pointer; }
+  #quizBack { background: transparent; border: 1px solid var(--color-border); color: var(--color-text); }
+  #quizNext { background: var(--color-roast-btn); border: 1px solid var(--color-roast-btn); color: #fff; }
+  #quizNext:disabled, #quizBack:disabled { opacity: .4; cursor: not-allowed; }
+  .quiz-warning { font-size: 13px; color: #a0432a; margin-top: 6px; min-height: 1.2em; }
+  .quiz-result h3 { font-size: 22px; margin: 0 0 6px; }
+  .quiz-result .result-summary { color: var(--color-muted); margin: 0 0 22px; }
+  .result-detail-list { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 4px; font-size: 14px; }
+  .result-detail-list dt { font-weight: 700; margin-top: 12px; }
+  .result-detail-list dd { margin: 2px 0 0; color: var(--color-muted); }
+  .quiz-result-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .quiz-start-btn {
+    min-height: 44px; padding: 12px 28px; background: var(--color-roast-btn);
+    color: #fff; border: none; border-radius: 6px; font-size: 15px; font-weight: 700; cursor: pointer;
+  }
+  .disclaimer-box {
+    font-size: 13px; line-height: 1.7; color: var(--color-muted);
+    background: var(--color-surface); border: 1px dashed var(--color-border);
+    border-radius: 8px; padding: 14px 16px; margin-top: 22px;
+  }
+
+  /* ---------- 最後のご案内 ---------- */
+  .final-cta { background: var(--color-primary); color: var(--color-secondary); text-align: center; }
+  .final-cta .cta-group { margin: 26px auto 0; justify-content: center; }
+  .final-cta .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); }
+
+  .site-footer {
+    padding: 32px 0 40px; text-align: center; font-size: 12.5px;
+    color: var(--color-muted); border-top: 1px solid var(--color-border);
+  }
+  .site-footer a { text-decoration: underline; }
+  .site-footer p { margin: 6px 0; }
+
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
+<div class="proposal-bar" role="note">
+  RECRUIT LP（試作）／ 店舗向け提案用の採用ページです。公式ホームページの募集内容をもとにした見本で、正式な求人票ではありません。<br>
+  ※本ページの掲載画像は、店舗の世界観を表現したイメージ画像です。応募の前に、必ず公式の募集ページをご確認ください。
+</div>
+
+<main id="main-content">
+
+  <section class="hero">
+    <img class="hero-bg" src="../images/01_hero_roastery_16x9.webp" alt="焙煎機とカウンターのあるロースタリーカフェのイメージ画像" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <p class="hero-eyebrow">Q.O.L. COFFEE — スタッフ募集（試作）</p>
+      <h1>一杯の品質を、<br>一緒につくる人へ。</h1>
+      <p class="hero-lead">
+        焙煎の大会で優勝した焙煎と、Qグレーダーの品質管理。
+        名古屋・丸の内の本店と、名古屋PARCOのBREWERSで、
+        「一杯のコーヒーで、暮らしを豊かにする」仕事を一緒にしませんか。
+      </p>
+      <p class="hero-tags">
+        <span>バリスタ（フード補助）</span>
+        <span>パティシエ</span>
+        <span>デザイナー</span>
+      </p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="#jobs">募集内容を見る</a>
+        <a class="btn btn-outline" href="https://qolcoffee.com/blog_post/6617/" target="_blank" rel="noopener noreferrer">公式の募集ページ</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="story">
+        <div>
+          <p class="eyebrow">ABOUT US</p>
+          <h2 id="about-heading">どんなお店か</h2>
+          <p class="lead-text">
+            Q.O.L. COFFEEは、2017年に名古屋市中区丸の内で開業した、自家焙煎のロースタリー・カフェ＆ギャラリーです。
+            2022年には、名古屋PARCOにコーヒースタンド「BREWERS」を開いています。
+          </p>
+          <div class="name-origin">
+            <span class="en">Quality Of Life</span>
+            <p class="ja">店名は「Quality Of Life」の頭文字。<strong>すべての品質にこだわり、コーヒーを通じて皆様の生活を豊かにしたい</strong>という思いが込められています。</p>
+          </div>
+          <p class="lead-text" style="margin-top:22px;">
+            焙煎は焙煎記録をもとに行い、焙煎後に味を確認。焙煎豆は一粒ずつ手で選別しています。
+            2026年10月には、エチオピアのコーヒー豆の焙煎技術を競う大会で優勝しました。
+          </p>
+        </div>
+        <img class="story-photo" src="../images/02_roaster_4x3.webp" alt="焙煎機のイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section id="why" class="section-alt" aria-labelledby="why-heading">
+    <div class="container">
+      <p class="eyebrow">公開されている情報から見える、この職場の特徴</p>
+      <h2 id="why-heading">ここで働くと</h2>
+      <p class="lead-text">公式ホームページとInstagramで確認できることだけを、まとめています。</p>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <span class="num">POINT 01</span>
+          <h3>品質へのこだわりを、間近で</h3>
+          <p>Qグレーダーの焙煎士による品質管理、一粒ずつのハンドピック。大会で認められた焙煎のすぐそばで働けます。</p>
+        </div>
+        <div class="card">
+          <span class="num">POINT 02</span>
+          <h3>国内・海外のイベントにも</h3>
+          <p>バリスタの仕事には、<strong>国内・海外のイベント参加</strong>も含まれると書かれています。</p>
+        </div>
+        <div class="card">
+          <span class="num">POINT 03</span>
+          <h3>コーヒーと、アートと、デザイン</h3>
+          <p>本店はカフェ＆ギャラリー。デザイナーは、パッケージやWEB、ECサイトの運営まで担当します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="jobs" aria-labelledby="jobs-heading">
+    <div class="container">
+      <p class="eyebrow">JOBS</p>
+      <h2 id="jobs-heading">募集している仕事</h2>
+      <div class="dish-grid">
+        <div class="dish">
+          <span class="tag">本店・PARCO店</span>
+          <span class="name">バリスタ（フード補助）</span>
+          <p class="desc">ドリンク作成、接客、簡単な調理や仕込み、パッキング・発送作業、国内・海外のイベント参加。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">週1〜3日程度</span>
+          <span class="name">パティシエ</span>
+          <p class="desc">週1〜3日程度の勤務。くわしい仕事内容は<strong>要確認</strong>です。</p>
+        </div>
+        <div class="dish is-warm">
+          <span class="tag">デザイン・WEB</span>
+          <span class="name">デザイナー</span>
+          <p class="desc">パッケージ、POP、リーフレット、WEBサイトなどのデザイン全般、ECサイトの運営。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="terms" class="section-alt" aria-labelledby="terms-heading">
+    <div class="container">
+      <p class="eyebrow">WHERE &amp; HOW</p>
+      <h2 id="terms-heading">働く場所</h2>
+      <ul class="info-list">
+        <li><span class="term">本店</span><span>名古屋市中区丸の内。名古屋城を望む大津橋交差点の角にある、ロースタリー・カフェ＆ギャラリー</span></li>
+        <li><span class="term">BREWERS</span><span>名古屋PARCO西館1階のコーヒースタンド</span></li>
+        <li><span class="term">働き方</span><span>土日・祝日・年末年始も、お客様をお迎えするお店です</span></li>
+      </ul>
+      <p class="lead-text source-note">※ くわしい条件は、公式の募集ページでご確認ください。</p>
+    </div>
+  </section>
+
+  <section id="person" aria-labelledby="person-heading">
+    <div class="container">
+      <p class="eyebrow">WHO WE ARE LOOKING FOR</p>
+      <h2 id="person-heading">こんな方を、待っています</h2>
+      <div class="card-grid cols-3">
+        <div class="card"><h3>お店に来たことがある方</h3><p>Q.O.L. COFFEEに来店したことがある方。</p></div>
+        <div class="card"><h3>コーヒーと接客が好きな方</h3><p>健康で、明るく前向きな方。</p></div>
+        <div class="card"><h3>経営力を磨きたい方</h3><p>お店づくりに、一緒に向き合える方。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" aria-labelledby="apply-heading">
+    <div class="container">
+      <h2 id="apply-heading">応募のしかた</h2>
+      <p style="color:#ece8e1;">
+        応募の方法とくわしい内容は、公式の募集ページでご確認ください。
+      </p>
+      <div class="cta-group">
+        <a class="btn btn-primary" style="background:#fff;color:var(--color-primary);" href="https://qolcoffee.com/blog_post/6617/" target="_blank" rel="noopener noreferrer">公式の募集ページを見る</a>
+        <a class="btn btn-outline" href="../">お店のページに戻る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Q.O.L. COFFEE 採用ページ（試作）</p>
+    <p>本ページは店舗向けの提案用試作です。正式な求人票ではありません。</p>
+    <p><a href="#main-content">ページの先頭へ戻る</a></p>
+  </div>
+</footer>
+</body>
+</html>
