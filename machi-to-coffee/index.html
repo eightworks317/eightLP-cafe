@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>街と珈琲｜苦いけど、クリア。｜提案用ページ</title>
+<meta name="description" content="名古屋市南区呼続の「街と珈琲」。2003年の創業から、クリーンな深煎りにこだわる自家焙煎コーヒーとおやつのお店。酸味をほとんど感じない、苦いけどクリアなコーヒーと開放的な空間。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#22282c">
+<style>
+  :root {
+    --color-primary: #22282c;      /* 深煎りの、黒に近い色 */
+    --color-secondary: #fafaf7;    /* 白い壁の色 */
+    --color-roast: #7a5232;         /* 深煎りの豆の色 */
+    --color-roast-text: #6e4a2c;    /* 明るい地の上に置く文字用 */
+    --color-roast-btn: #4d3320;     /* 白文字をのせるボタンの地色 */
+    --color-warm: #3d6274;         /* 青い壁の色 */
+    --color-warm-text: #36586a;
+    --color-surface: #efede8;
+    --color-proposal: #ebeae7;
+    --color-proposal-border: #a69a8c;
+    --color-text: #23272a;
+    --color-muted: #585a5c;
+    --color-border: #dcd8d0;
+    --font-serif: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-sans: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  /* ★2026-11-03：背景にうっすら「ドリッパー」の柄を入れています。
+     コーヒーを一杯ずつ淹れる、台形のドリッパーとカップの形です。
+     ・濃さ　：stroke-opacity の数字（0.09）。1 に近いほど濃くなります
+     ・柄の大きさ：background-size の 48px 48px
+     ※ 色を敷いている節（強み／空間／診断）には出ません。 */
+  body {
+    margin: 0;
+    background-color: var(--color-secondary);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cg fill='none' stroke='%2322282c' stroke-opacity='0.09' stroke-width='0.9' stroke-linejoin='round'%3E%3Cpath d='M6 8H20L16 17H10Z M8 17H18V19H8Z M9 19H17V25H9Z'/%3E%3Cpath d='M29 30H41L37.5 38H32.5Z M31 38H39V39.5H31Z M32 39.5H38V44H32Z'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 48px 48px;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 16px; line-height: 1.8; overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+
+  .container {
+    width: 100%; max-width: 960px; margin: 0 auto;
+    padding-left: clamp(14px, 4vw, 32px); padding-right: clamp(14px, 4vw, 32px);
+  }
+
+  .skip-link {
+    position: absolute; left: -999px; top: 0;
+    background: var(--color-roast-btn); color: #fff;
+    padding: 10px 16px; z-index: 200; border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus { left: 0; }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid var(--color-roast); outline-offset: 3px;
+  }
+
+  /* ---------- 提案用ラベル ---------- */
+  .proposal-bar {
+    background: var(--color-primary); color: var(--color-secondary);
+    text-align: center; padding: 8px 14px;
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.06em; line-height: 1.5;
+  }
+
+  /* ---------- ファーストビュー ---------- */
+  .hero {
+    position: relative; min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 96px 0 56px; background: var(--color-primary); overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(34,40,44,0.40) 0%, rgba(34,40,44,0.60) 55%, rgba(34,40,44,0.88) 100%);
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.16em;
+    color: var(--color-secondary); margin: 0 0 14px;
+  }
+  .hero h1 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(27px, 7.6vw, 45px); line-height: 1.4;
+    margin: 0 0 18px; color: var(--color-secondary); overflow-wrap: anywhere;
+  }
+  .hero-lead {
+    font-size: clamp(14px, 3.8vw, 17px); max-width: 34em;
+    margin: 0 0 30px; color: var(--color-secondary);
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 30px;
+    font-size: 12px; letter-spacing: 0.08em; color: var(--color-secondary);
+  }
+  .hero-tags span {
+    border: 1px solid rgba(248,246,241,0.5);
+    border-radius: 999px; padding: 6px 14px; background: rgba(34,40,44,0.35);
+  }
+
+  .cta-group { display: flex; flex-direction: column; gap: 12px; max-width: 340px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 12px 20px; border-radius: 6px;
+    text-decoration: none; font-size: 15px; letter-spacing: 0.02em;
+    border: 1px solid transparent; text-align: center; line-height: 1.4;
+  }
+  .btn-primary { background: var(--color-roast-btn); color: #fff; }
+  .btn-outline { background: transparent; border-color: var(--color-primary); color: var(--color-primary); }
+  .hero .btn-primary { background: var(--color-secondary); color: var(--color-primary); }
+  .hero .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); background: rgba(34,40,44,0.25); }
+  @media (min-width: 560px) { .cta-group { flex-direction: row; max-width: none; } }
+
+  /* ---------- 共通 ---------- */
+  section { padding: clamp(48px, 9vw, 88px) 0; }
+  .section-alt { background: var(--color-surface); }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; color: var(--color-roast-text); margin: 0 0 10px; }
+  h2 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(22px, 6vw, 30px); margin: 0 0 20px; line-height: 1.5; }
+  h3 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(17px, 4.6vw, 20px); margin: 0 0 10px; line-height: 1.6; }
+  p { margin: 0 0 14px; }
+  .lead-text { max-width: 40em; color: var(--color-muted); }
+  .source-note { font-size: .85em; opacity: .8; margin-top: 1.2em; }
+
+  /* ---------- 店名の由来 ---------- */
+  .name-origin {
+    margin: 26px 0 0; padding: 22px 24px;
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-roast);
+    border-radius: 0 12px 12px 0;
+  }
+  .name-origin .en {
+    font-family: var(--font-serif); font-size: clamp(18px, 4.8vw, 24px);
+    letter-spacing: .04em; margin: 0 0 8px; display: block; color: var(--color-roast-text);
+  }
+  .name-origin .ja { font-size: 14.5px; color: var(--color-muted); margin: 0; }
+
+  blockquote.quote {
+    margin: 26px 0 0; padding: 20px 22px;
+    background: var(--color-secondary);
+    border-left: 4px solid var(--color-warm);
+    border-top: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0 10px 10px 0;
+    font-family: var(--font-serif);
+    font-size: clamp(15px, 4vw, 17px); line-height: 1.9;
+  }
+  blockquote.quote cite {
+    display: block; margin-top: 10px; font-family: var(--font-sans);
+    font-style: normal; font-size: 12.5px; color: var(--color-muted);
+  }
+
+  /* ---------- カード ---------- */
+  .card-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
+  @media (min-width: 700px) {
+    .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  }
+  .card {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 10px; padding: 22px; min-width: 0;
+    box-shadow: 0 2px 10px rgba(34,40,44,0.05);
+  }
+  .card .num { font-size: 12px; color: var(--color-roast-text); letter-spacing: 0.1em; display: block; margin-bottom: 10px; }
+  .card p { font-size: 14.5px; color: var(--color-text); margin-bottom: 8px; }
+  .card .value {
+    font-size: 13.5px; color: var(--color-muted);
+    border-top: 1px dashed var(--color-border); padding-top: 10px; margin-top: 10px;
+  }
+  .card-photo { border-radius: 8px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 14px; }
+
+  /* 横に3枚並べたときのそろえ方
+     ① 下端をそろえる作り（subgrid が使えないブラウザ用の保険）
+     このページの見出しは1行が文字サイズの1.6倍なので、2行ぶんは 3.2em です。 */
+  @media (min-width: 700px) {
+    .card-grid.cols-3 .card { display: flex; flex-direction: column; }
+    .card-grid.cols-3 .card h3 { line-height: 1.6; min-height: 3.2em; }
+    .card-grid.cols-3 .card .value { margin-top: auto; }
+  }
+  /* ② ラベル・見出し・本文・価値の4つを、それぞれ別々に高さをそろえます。 */
+  @supports (grid-template-rows: subgrid) {
+    @media (min-width: 700px) {
+      #strengths .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 5; }
+      #ways .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 4; }
+      .card-grid.cols-3 .card h3 { min-height: 0; margin-bottom: 0; }
+      .card-grid.cols-3 .card .value { margin-top: 0; align-self: start; }
+      .card-grid.cols-3 .card p { margin-bottom: 0; }
+      .card-grid.cols-3 .card .num { margin-bottom: 0; }
+      .card-grid.cols-3 .card { row-gap: 10px; }
+    }
+  }
+
+  /* ---------- ストーリー ---------- */
+  .story { display: grid; gap: 24px; }
+  /* 横に並べたとき、写真をとなりの文章と同じ高さまで伸ばします。 */
+  @media (min-width: 760px) {
+    .story { grid-template-columns: 1fr 1fr; align-items: stretch; }
+    .story-photo { height: 100%; min-height: 300px; aspect-ratio: auto; }
+  }
+  .story-photo { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+  .concept-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 22px; }
+  .concept-gallery img { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+
+  /* ---------- 献立 ---------- */
+  .dish-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+  @media (min-width: 620px) { .dish-grid { grid-template-columns: repeat(2, 1fr); } }
+  .dish {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-roast); border-radius: 0 8px 8px 0;
+    padding: 18px 20px; min-width: 0;
+  }
+  .dish.is-warm { border-left-color: var(--color-warm); }
+  .dish .tag { font-size: 12px; letter-spacing: .08em; color: var(--color-roast-text); display: block; }
+  .dish.is-warm .tag { color: var(--color-warm-text); }
+  .dish .name { font-family: var(--font-serif); font-size: 19px; margin: 2px 0 6px; display: block; }
+  .dish .price { font-size: 15px; font-weight: 700; margin: 0 0 8px; }
+  .dish .desc { font-size: 14px; color: var(--color-muted); margin: 0; }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; padding: 0; list-style: none; }
+  .tag-list li {
+    font-size: 13.5px; color: var(--color-muted);
+    border: 1px solid var(--color-border); background: var(--color-secondary);
+    border-radius: 999px; padding: 5px 14px;
+  }
+
+  /* ---------- 地域の節 ---------- */
+  .highlight { background: var(--color-primary); color: var(--color-secondary); }
+  .highlight .eyebrow { color: #a9d2e3; }  /* 暗い地の上の、青い壁の色を明るくしたもの */
+  .highlight-grid { display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 760px) { .highlight-grid { grid-template-columns: 1.1fr 1fr; } }
+  .highlight-visual {
+    border-radius: 10px; aspect-ratio: 4 / 3; width: 100%;
+    object-fit: cover; border: 1px solid rgba(255,255,255,0.15);
+  }
+  .highlight-list { list-style: none; padding: 0; margin: 18px 0 24px; font-size: 14.5px; }
+  .highlight-list li { padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.15); }
+  .highlight-list li:first-child { border-top: none; }
+  .highlight-list b { display: block; margin-bottom: 4px; font-size: 13px; color: #a9d2e3; letter-spacing: 0.04em; }
+
+  /* ---------- 一覧表 ---------- */
+  .info-list {
+    list-style: none; padding: 0; margin: 24px 0 0;
+    display: grid; gap: 0; border-top: 1px solid var(--color-border);
+  }
+  .info-list li {
+    display: grid; grid-template-columns: 120px 1fr; gap: 12px;
+    padding: 14px 0; border-bottom: 1px solid var(--color-border); font-size: 14.5px;
+  }
+  .info-list .term { color: var(--color-muted); font-size: 13px; letter-spacing: 0.04em; }
+  .info-list a { overflow-wrap: anywhere; text-decoration: underline; }
+
+  /* ---------- 試作（診断） ---------- */
+  .proposal-section {
+    background: var(--color-proposal);
+    border-top: 3px solid var(--color-proposal-border);
+    border-bottom: 3px solid var(--color-proposal-border);
+  }
+  .proposal-tag {
+    display: inline-block; font-size: 12px; letter-spacing: 0.1em;
+    background: var(--color-proposal-border); color: #16211f;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .proposal-note {
+    background: var(--color-secondary); border: 1px solid var(--color-proposal-border);
+    border-radius: 8px; padding: 14px 16px; font-size: 13.5px;
+    color: var(--color-muted); margin: 22px 0 30px; line-height: 1.75;
+  }
+  .quiz-app {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 14px; padding: 22px; max-width: 640px;
+  }
+  .quiz-intro h3 { margin: 0 0 12px; font-size: 20px; }
+  .quiz-progress { font-size: 13px; color: var(--color-muted); margin-bottom: 12px; }
+  .quiz-question { font-size: 17px; font-weight: 700; margin: 0 0 12px; }
+  .quiz-options { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 10px; }
+  .quiz-option {
+    width: 100%; text-align: left; padding: 14px 16px; min-height: 44px;
+    border: 1.5px solid var(--color-border); border-radius: 8px;
+    background: var(--color-surface); font-size: 15px;
+    font-family: inherit; color: var(--color-text); cursor: pointer;
+  }
+  .quiz-option[aria-pressed="true"] { border-color: var(--color-roast); background: #e4eef2; font-weight: 700; }
+  .quiz-option[aria-pressed="true"]::before { content: "✓ "; color: var(--color-roast-text); }
+  .quiz-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; }
+  .quiz-nav button { min-height: 44px; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-family: inherit; cursor: pointer; }
+  #quizBack { background: transparent; border: 1px solid var(--color-border); color: var(--color-text); }
+  #quizNext { background: var(--color-roast-btn); border: 1px solid var(--color-roast-btn); color: #fff; }
+  #quizNext:disabled, #quizBack:disabled { opacity: .4; cursor: not-allowed; }
+  .quiz-warning { font-size: 13px; color: #a0432a; margin-top: 6px; min-height: 1.2em; }
+  .quiz-result h3 { font-size: 22px; margin: 0 0 6px; }
+  .quiz-result .result-summary { color: var(--color-muted); margin: 0 0 22px; }
+  .result-detail-list { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 4px; font-size: 14px; }
+  .result-detail-list dt { font-weight: 700; margin-top: 12px; }
+  .result-detail-list dd { margin: 2px 0 0; color: var(--color-muted); }
+  .quiz-result-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .quiz-start-btn {
+    min-height: 44px; padding: 12px 28px; background: var(--color-roast-btn);
+    color: #fff; border: none; border-radius: 6px; font-size: 15px; font-weight: 700; cursor: pointer;
+  }
+  .disclaimer-box {
+    font-size: 13px; line-height: 1.7; color: var(--color-muted);
+    background: var(--color-surface); border: 1px dashed var(--color-border);
+    border-radius: 8px; padding: 14px 16px; margin-top: 22px;
+  }
+
+  /* ---------- 最後のご案内 ---------- */
+  .final-cta { background: var(--color-primary); color: var(--color-secondary); text-align: center; }
+  .final-cta .cta-group { margin: 26px auto 0; justify-content: center; }
+  .final-cta .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); }
+
+  .site-footer {
+    padding: 32px 0 40px; text-align: center; font-size: 12.5px;
+    color: var(--color-muted); border-top: 1px solid var(--color-border);
+  }
+  .site-footer a { text-decoration: underline; }
+  .site-footer p { margin: 6px 0; }
+
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
+<div class="proposal-bar" role="note">
+  CONCEPT LP ／ 店舗向け提案用ページです。本ページには未導入の新サービス提案・試作デモが含まれます。<br>
+  ※本ページの掲載画像は、店舗の世界観を表現したイメージ画像です。
+</div>
+
+<main id="main-content">
+
+  <!-- ファーストビュー -->
+  <section class="hero">
+    <img class="hero-bg" src="images/01_hero_window_16x9.webp" alt="白い壁と木のカウンターに光が差し込む、開放的なコーヒー店のイメージ画像" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <p class="hero-eyebrow">街と珈琲 — 名古屋市南区呼続</p>
+      <h1>苦いけど、<br>クリア。</h1>
+      <p class="hero-lead">
+        自家焙煎コーヒーとおやつのお店です。
+        2003年の創業から、クリーンな深煎りにこだわり続けてきました。
+        酸味をほとんど感じない、苦いけどクリアなコーヒーを、開放的な空間で。
+      </p>
+      <p class="hero-tags">
+        <span>クリーンな深煎り</span>
+        <span>自家焙煎・豆の販売</span>
+        <span>名物のバナナ焼き</span>
+      </p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="https://coffee-diagnosis-app.netlify.app/index.html" target="_blank" rel="noopener noreferrer">コーヒー豆診断アプリを試す</a>
+        <a class="btn btn-outline" href="#strengths">店舗について見る</a>
+        <a class="btn btn-outline" href="https://www.instagram.com/machi_to_coffee/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+      </div>
+      <p style="color:var(--color-secondary);font-size:12px;margin:12px 0 0;opacity:.85;">※診断アプリは試作デモです。別の画面で開きます。</p>
+    </div>
+  </section>
+
+  <!-- コンセプト -->
+  <section id="concept" aria-labelledby="concept-heading">
+    <div class="container">
+      <div class="story">
+        <div>
+          <p class="eyebrow">CONCEPT</p>
+          <h2 id="concept-heading">珈琲が紡ぎだす、<br>暮らしの当たり前</h2>
+          <p class="lead-text">
+            街と珈琲は、名古屋市南区呼続、名鉄呼続駅のすぐそばにある、自家焙煎コーヒーとおやつのお店です。
+            コーヒーを通じて、人と人がつながる場づくりもしているカフェと紹介されています。
+          </p>
+
+          <div class="name-origin">
+            <span class="en">Machi to Coffee</span>
+            <p class="ja">ホームページには、<strong>「扉を開ける前から、もう少しだけ ゆっくりしたくなる。」</strong>という言葉があります。人と人が無理なく顔を合わせられる、街の余白のような場所です。</p>
+          </div>
+
+          <blockquote class="quote">
+            酸味をほとんど感じない、苦いけどクリアなコーヒー
+            <cite>コーヒーイベントの出店者紹介（2026年9月）より</cite>
+          </blockquote>
+
+          <p class="lead-text" style="margin-top:22px;">
+            <strong>深煎りなのに、重たくない。毎日の暮らしの中で飲みたくなる一杯です。</strong>
+          </p>
+        </div>
+        <img class="story-photo" src="images/02_dark_roast_4x3.webp" alt="つやのある深煎りのコーヒー豆のイメージ画像" loading="lazy">
+      </div>
+      <div class="concept-gallery">
+        <img src="images/03_cup_4x3.webp" alt="白いカップに入った深い色のコーヒーのイメージ画像" loading="lazy">
+        <img src="images/04_banana_yaki_4x3.webp" alt="焼き色のついた、もちもちのおやつのイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 強み -->
+  <section id="strengths" class="section-alt" aria-labelledby="strengths-heading">
+    <div class="container">
+      <p class="eyebrow">公開されている情報から見える、この店舗の強み</p>
+      <h2 id="strengths-heading">お店の強み</h2>
+      <p class="lead-text">他店との比較ではなく、公開されている情報で確認できる特徴だけを根拠に整理しています。</p>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <img class="card-photo" src="images/02_dark_roast_4x3.webp" alt="深煎りのコーヒー豆のイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 01</span>
+          <h3>創業から続く、クリーンな深煎り</h3>
+          <p>2003年の創業以来、<strong>クリーンな深煎り</strong>にこだわり続けています。酸味をほとんど感じない、苦いけどクリアな味わいです。</p>
+          <p class="value">お客様にとっての価値：酸味が苦手な方でも、深煎りのおいしさを楽しめます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/05_beans_bag_4x3.webp" alt="袋に入ったコーヒー豆とドリップバッグのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 02</span>
+          <h3>自家焙煎の豆を、家でも</h3>
+          <p>深煎り3種を重ねた<strong>定番ブレンド</strong>、シングルオリジンの<strong>飲み比べセット</strong>。豆の販売や、ドリップバッグの持ち帰りもあります。</p>
+          <p class="value">お客様にとっての価値：お店で気に入った味を、家でも飲めます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/01_hero_window_16x9.webp" alt="光の入る開放的な店内のイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 03</span>
+          <h3>開放的な空間と、おやつ</h3>
+          <p>白い壁と木、窓からの光。座敷やテラス席もある店内で、名物の<strong>もちもちのバナナ焼き</strong>や日替わりのケーキを。</p>
+          <p class="value">お客様にとっての価値：ひとりでも、親子でも、ゆっくり過ごせます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- メニュー -->
+  <section id="menu" aria-labelledby="menu-heading">
+    <div class="container">
+      <p class="eyebrow">MENU</p>
+      <h2 id="menu-heading">深煎りの一杯と、<br>手づくりのおやつ</h2>
+      <p class="lead-text">公式ホームページに載っている内容から整理しました。</p>
+      <div class="dish-grid">
+        <div class="dish">
+          <span class="tag">定番</span>
+          <span class="name">ブレンド</span>
+          <p class="desc">深煎り3種を重ねた、お店の定番。<strong>苦みとコクを、やさしく</strong>感じる味わいです。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">飲み比べ</span>
+          <span class="name">シングルオリジンの飲み比べセット</span>
+          <p class="desc">産地ごとの違いを、少しずつ飲み比べられます。</p>
+        </div>
+        <div class="dish is-warm">
+          <span class="tag">名物</span>
+          <span class="name">バナナ焼き</span>
+          <p class="desc">もちもち食感。<strong>つぶあん、豆乳カスタード、ソーセージ</strong>の3種があります。</p>
+        </div>
+        <div class="dish is-warm">
+          <span class="tag">お昼（11:00〜14:00）</span>
+          <span class="name">お野菜定食・日替わりケーキ</span>
+          <p class="desc">お昼はお野菜の定食。おやつには、日替わりの手づくりケーキもあります。</p>
+        </div>
+      </div>
+      <p class="lead-text source-note">
+        ※ この節は、公式ホームページの内容によります。メニューと価格は変わることがあるため、価格は載せていません。
+      </p>
+    </div>
+  </section>
+
+  <!-- 空間 -->
+  <section id="space" class="highlight" aria-labelledby="space-heading">
+    <div class="container">
+      <div class="highlight-grid">
+        <div>
+          <p class="eyebrow">OPEN SPACE</p>
+          <h2 id="space-heading">扉を開ける前から、<br>ゆっくりしたくなる</h2>
+          <p style="color:#ece9e3;">
+            地下鉄通り沿いの、ひっそりとしたお店。中に入ると、白い壁と木の質感、窓から入る光の、開放的な空間が広がります。
+          </p>
+          <ul class="highlight-list">
+            <li><b>席</b>24席（カウンター4席、テーブル20席）。座敷とテラス席もあります。</li>
+            <li><b>場所</b>名鉄名古屋本線「呼続」駅から歩いて約1分。</li>
+            <li><b>駐車場</b>店舗裏に2台、店舗裏のフリースペースに8台。</li>
+            <li><b>持ち帰り</b>豆の販売、ドリップバッグのテイクアウト。</li>
+          </ul>
+          <div class="cta-group">
+            <a class="btn btn-outline" style="border-color:#fff;color:#fff;" href="https://machi-to-coffee.com/" target="_blank" rel="noopener noreferrer">ホームページを見る</a>
+          </div>
+        </div>
+        <img class="highlight-visual" src="images/03_cup_4x3.webp" alt="窓辺に置かれたコーヒーカップのイメージ画像" loading="lazy">
+      </div>
+      <p class="lead-text source-note" style="color:#cfcac2;">
+        ※ この節は、公式ホームページの内容によります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 試作（診断） -->
+  <section id="proposal-quiz" class="proposal-section" aria-labelledby="quiz-heading">
+    <div class="container">
+      <span class="proposal-tag">INTERACTIVE PROTOTYPE｜動く新サービス試作</span>
+      <h2 id="quiz-heading">深煎りの楽しみ方診断（試作）</h2>
+      <p class="lead-text">
+        「深煎りは苦そう」と感じている方にこそ、このお店のクリアな深煎りを知ってほしい。
+        そんな思いで、好みと楽しみ方から一杯を案内する診断を試作しました。
+        これは店舗運営者向けの新サービス提案・導入アイデアであり、現在提供中のサービスではありません。
+      </p>
+
+      <div class="proposal-note">
+        この診断結果は、公式ホームページの内容をもとにした、おおまかな分け方です。
+        特定の豆やメニューの在庫を保証するものではありません。導入する場合は、お店の豆とメニューに合わせて作り直します。
+      </div>
+
+      <div class="quiz-app" id="quizApp">
+        <div id="quizIntro" class="quiz-intro">
+          <h3>対象：深煎りが気になる方／店舗運営者の方</h3>
+          <p>解決したい課題：「深煎り＝苦くて重い」と思われがちで、はじめての方がこのお店の深煎りを試すきっかけをつかみにくいこと。</p>
+          <button type="button" class="quiz-start-btn" id="quizStartBtn">試してみる</button>
+        </div>
+
+        <form id="quizForm" style="display:none;" novalidate>
+          <p class="quiz-progress" id="quizProgress" aria-live="polite"></p>
+          <p class="quiz-question" id="quizQuestionText"></p>
+          <ul class="quiz-options" id="quizOptions"></ul>
+          <p class="quiz-warning" id="quizWarning" role="alert"></p>
+          <div class="quiz-nav">
+            <button type="button" id="quizBack">戻る</button>
+            <button type="button" id="quizNext">次へ</button>
+          </div>
+        </form>
+
+        <div id="quizResult" style="display:none;" class="quiz-result" aria-live="polite">
+          <h3 id="resultName" tabindex="-1"></h3>
+          <p class="result-summary" id="resultSummary"></p>
+          <dl class="result-detail-list">
+            <dt>そのタイプになった理由</dt>
+            <dd id="resultReason"></dd>
+            <dt>おすすめ</dt>
+            <dd id="resultRecommend"></dd>
+            <dt>お店の強みとのつながり</dt>
+            <dd id="resultStrength"></dd>
+          </dl>
+          <div class="quiz-result-actions">
+            <a class="btn btn-primary" id="resultCta" href="#menu">関連する節を見る</a>
+            <button type="button" class="btn btn-outline" id="quizRestartBtn">最初からやり直す</button>
+          </div>
+        </div>
+
+        <noscript>
+          <p>この試作デモの操作にはJavaScriptが必要です。JavaScriptが無効な場合でも、お店のご紹介や店舗情報は、このページの他の節から引き続きご覧いただけます。</p>
+        </noscript>
+
+        <p class="disclaimer-box">本機能は店舗運営者向けの試作デモです。現在提供中の正式サービスではありません。入力内容の保存・送信は行いません。ページを閉じると回答内容は消えます。お名前やご連絡先を入力していただく欄はありません。</p>
+      </div>
+
+      <!-- 診断アプリへの入り口 -->
+      <div class="quiz-app" style="margin-top:32px;">
+        <h3 style="margin:0 0 10px;">コーヒー豆診断アプリ（試作）</h3>
+        <p style="font-size:14.5px;margin:0 0 10px;">
+          上の診断は、街と珈琲様に合わせて作った見本です。
+          こちらは、好みから合う豆をすぐ探せる診断と、マメルというキャラクターと一緒に味の違いを楽しく学べる診断の、2種類を用意した診断アプリです。
+        </p>
+        <p style="font-size:14.5px;margin:0 0 16px;">
+          あなたに合う一杯を、診断で見つけてみませんか？　好みや飲み方について答えるだけで、おすすめのコーヒータイプを確認できます。
+        </p>
+        <a class="btn btn-primary" href="https://coffee-diagnosis-app.netlify.app/index.html" target="_blank" rel="noopener noreferrer">コーヒー豆診断アプリを試す</a>
+        <p class="source-note" style="margin-top:12px;">
+          ※試作デモが別画面で開きます。入力内容は保存・送信されません。<br>
+          ※現在のアプリでは、街と珈琲様の商品とは異なる豆をご案内しています。導入する場合は、街と珈琲様の豆に入れ替えます。
+        </p>
+      </div>
+
+      <div class="proposal-note" style="margin-top:32px;">
+        <strong>導入アイデア（今後の展開案）：</strong>「酸味が苦手」「深煎りははじめて」という方に、定番ブレンドや飲み比べセットを案内できます。
+        結果から、豆の販売やドリップバッグにもつなげられます。
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section id="info" aria-labelledby="info-heading">
+    <div class="container">
+      <p class="eyebrow">SHOP INFORMATION</p>
+      <h2 id="info-heading">店舗情報</h2>
+      <ul class="info-list">
+        <li><span class="term">店舗名</span><span>街と珈琲</span></li>
+        <li>
+          <span class="term">所在地</span>
+          <span>〒457-0014 愛知県名古屋市南区呼続1丁目13-24<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=%E6%84%9B%E7%9F%A5%E7%9C%8C%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%B8%82%E5%8D%97%E5%8C%BA%E5%91%BC%E7%B6%9A1%E4%B8%81%E7%9B%AE13-24" target="_blank" rel="noopener noreferrer">地図で見る（Googleマップ）</a>
+          </span>
+        </li>
+        <li><span class="term">電話</span><span>052-627-6498</span></li>
+        <li>
+          <span class="term">営業時間</span>
+          <span>水曜日〜日曜日 10:00〜18:00<br>
+            <span class="source-note" style="display:block;margin-top:4px;">※ 火曜日は午前のみ、豆の販売とテイクアウトが中心の日があります。定休日は月曜日です。くわしくは公式ホームページとInstagramでご確認ください。</span>
+          </span>
+        </li>
+        <li><span class="term">駐車場</span><span>店舗裏に2台、店舗裏のフリースペースに8台</span></li>
+        <li><span class="term">ホームページ</span><span><a href="https://machi-to-coffee.com/" target="_blank" rel="noopener noreferrer">machi-to-coffee.com</a></span></li>
+        <li><span class="term">Instagram</span><span><a href="https://www.instagram.com/machi_to_coffee/" target="_blank" rel="noopener noreferrer">@machi_to_coffee</a></span></li>
+      </ul>
+      <p class="lead-text source-note">
+        ※ このページは、公式ホームページ、公式Instagram（@machi_to_coffee）、コーヒーイベントの出店者紹介（2026年9月）をもとに、
+        2026年11月3日時点で整理したものです。内容は変わっている場合があります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 最後のご案内 -->
+  <section class="final-cta" aria-labelledby="final-cta-heading">
+    <div class="container">
+      <h2 id="final-cta-heading">ご来店の前に、ご確認ください</h2>
+      <p style="color:#ece9e3;">月曜日はお休みです。火曜日は午前のみの営業の日があります。最新のお知らせは、公式ホームページとInstagramでご確認ください。</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" style="background:#fff;color:var(--color-primary);" href="https://www.instagram.com/machi_to_coffee/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+        <a class="btn btn-outline" href="https://machi-to-coffee.com/" target="_blank" rel="noopener noreferrer">ホームページを見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>街と珈琲</p>
+    <p>© 街と珈琲. All Rights Reserved.</p>
+    <p><a href="#main-content">ページの先頭へ戻る</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var questions = [
+    {
+      text: "コーヒーの酸味は？",
+      options: [
+        { label: "苦手。酸っぱくないのがいい", cat: "A" },
+        { label: "少しなら大丈夫。違いを知りたい", cat: "B" },
+        { label: "あまり気にしない", cat: "C" },
+        { label: "家でも、いつもの味で飲みたい", cat: "D" }
+      ]
+    },
+    {
+      text: "深煎りについて、近いのは？",
+      options: [
+        { label: "苦いけど、すっきりしたものなら", cat: "A" },
+        { label: "産地によって、どう違うか気になる", cat: "B" },
+        { label: "甘いものと合わせて飲みたい", cat: "C" },
+        { label: "毎日飲むなら、深煎りがいい", cat: "D" }
+      ]
+    },
+    {
+      text: "お店では、どう過ごしたい？",
+      options: [
+        { label: "まずは定番の一杯を", cat: "A" },
+        { label: "いくつか飲み比べたい", cat: "B" },
+        { label: "おやつと一緒に、のんびり", cat: "C" },
+        { label: "豆を買って、さっと帰る", cat: "D" }
+      ]
+    },
+    {
+      text: "持ち帰るなら？",
+      options: [
+        { label: "今日はお店で飲むだけ", cat: "A" },
+        { label: "気に入った産地の豆を", cat: "B" },
+        { label: "バナナ焼きをおみやげに", cat: "C" },
+        { label: "豆かドリップバッグを", cat: "D" }
+      ]
+    }
+  ];
+
+  var results = {
+    A: {
+      name: "はじめての深煎り・定番ブレンドタイプ",
+      summary: "酸味が苦手で、すっきりした深煎りを飲んでみたい方です。",
+      reason: "酸味が苦手、すっきり、定番の一杯に関する回答が多い傾向でした。",
+      recommend: "深煎り3種を重ねた定番のブレンド。苦みとコクを、やさしく感じる味わいです。",
+      strength: "「創業から続く、クリーンな深煎り」の強みが、いちばん活きるタイプです。",
+      ctaHref: "#menu",
+      ctaLabel: "メニューを見る"
+    },
+    B: {
+      name: "産地をめぐる・飲み比べタイプ",
+      summary: "深煎りの中の、産地ごとの違いを楽しみたい方です。",
+      reason: "違いを知りたい、産地、飲み比べに関する回答が多い傾向でした。",
+      recommend: "シングルオリジンの飲み比べセット。気に入った産地があれば、豆で持ち帰れます。",
+      strength: "「自家焙煎の豆を、家でも」の強みが活きるタイプです。",
+      ctaHref: "#menu",
+      ctaLabel: "メニューを見る"
+    },
+    C: {
+      name: "おやつと深煎り・のんびりタイプ",
+      summary: "甘いおやつと深煎りを合わせて、ゆっくり過ごしたい方です。",
+      reason: "甘いものと合わせる、のんびり、おやつに関する回答が多い傾向でした。",
+      recommend: "名物のもちもちのバナナ焼き（つぶあん・豆乳カスタード・ソーセージ）や日替わりケーキと、深煎りの一杯。開放的な店内やテラス席で、どうぞ。",
+      strength: "「開放的な空間と、おやつ」の強みが活きるタイプです。",
+      ctaHref: "#space",
+      ctaLabel: "空間のことを見る"
+    },
+    D: {
+      name: "いつもの深煎りを、家でもタイプ",
+      summary: "お店の深煎りを、毎日の暮らしの中で飲みたい方です。",
+      reason: "家でも、毎日、豆やドリップバッグに関する回答が多い傾向でした。",
+      recommend: "自家焙煎の豆や、ドリップバッグの持ち帰り。お店で気に入った味を、家でも楽しめます。",
+      strength: "「珈琲が紡ぎだす、暮らしの当たり前」というお店の考え方に、いちばん近いタイプです。",
+      ctaHref: "#strengths",
+      ctaLabel: "お店の強みを見る"
+    }
+  };
+
+  var priorityOrder = ["A", "B", "C", "D"];
+
+  var currentIndex = 0;
+  var answers = new Array(questions.length).fill(null);
+
+  var quizIntro = document.getElementById("quizIntro");
+  var quizStartBtn = document.getElementById("quizStartBtn");
+  var quizForm = document.getElementById("quizForm");
+  var quizProgress = document.getElementById("quizProgress");
+  var quizQuestionText = document.getElementById("quizQuestionText");
+  var quizOptions = document.getElementById("quizOptions");
+  var quizWarning = document.getElementById("quizWarning");
+  var quizBack = document.getElementById("quizBack");
+  var quizNext = document.getElementById("quizNext");
+  var quizResult = document.getElementById("quizResult");
+  var quizRestartBtn = document.getElementById("quizRestartBtn");
+
+  function renderQuestion() {
+    quizWarning.textContent = "";
+    var q = questions[currentIndex];
+    quizProgress.textContent = "質問 " + (currentIndex + 1) + " / " + questions.length;
+    quizQuestionText.textContent = q.text;
+    quizOptions.innerHTML = "";
+
+    q.options.forEach(function (opt, i) {
+      var li = document.createElement("li");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "quiz-option";
+      btn.textContent = opt.label;
+      var selected = answers[currentIndex] === i;
+      btn.setAttribute("aria-pressed", selected ? "true" : "false");
+      btn.addEventListener("click", function () {
+        answers[currentIndex] = i;
+        var allBtns = quizOptions.querySelectorAll(".quiz-option");
+        allBtns.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+        btn.setAttribute("aria-pressed", "true");
+        quizWarning.textContent = "";
+      });
+      li.appendChild(btn);
+      quizOptions.appendChild(li);
+    });
+
+    quizBack.disabled = currentIndex === 0;
+    quizNext.textContent = currentIndex === questions.length - 1 ? "結果を見る" : "次へ";
+  }
+
+  function startQuiz() {
+    currentIndex = 0;
+    answers = new Array(questions.length).fill(null);
+    quizIntro.style.display = "none";
+    quizResult.style.display = "none";
+    quizForm.style.display = "block";
+    renderQuestion();
+  }
+
+  function showResult() {
+    var scores = { A: 0, B: 0, C: 0, D: 0 };
+    answers.forEach(function (ansIndex, qIndex) {
+      if (ansIndex === null) { return; }
+      var cat = questions[qIndex].options[ansIndex].cat;
+      scores[cat] += 1;
+    });
+
+    // 同点の場合は、最後の質問（4問目）で選んだものを優先します。
+    // それでも決まらない場合のみ、A→B→C→D→Eの順を採用します。
+    var lastCat = null;
+    var lastAnswerIndex = answers[answers.length - 1];
+    if (lastAnswerIndex !== null) {
+      lastCat = questions[questions.length - 1].options[lastAnswerIndex].cat;
+    }
+
+    var maxScore = -1;
+    priorityOrder.forEach(function (cat) {
+      if (scores[cat] > maxScore) { maxScore = scores[cat]; }
+    });
+    var topCats = priorityOrder.filter(function (cat) { return scores[cat] === maxScore; });
+
+    var winner;
+    if (topCats.length === 1) {
+      winner = topCats[0];
+    } else if (lastCat !== null && topCats.indexOf(lastCat) !== -1) {
+      winner = lastCat;
+    } else {
+      winner = topCats[0];
+    }
+
+    var r = results[winner];
+    document.getElementById("resultName").textContent = r.name;
+    document.getElementById("resultSummary").textContent = r.summary;
+    document.getElementById("resultReason").textContent = r.reason;
+    document.getElementById("resultRecommend").textContent = r.recommend;
+    document.getElementById("resultStrength").textContent = r.strength;
+    var cta = document.getElementById("resultCta");
+    cta.href = r.ctaHref;
+    cta.textContent = r.ctaLabel;
+
+    quizForm.style.display = "none";
+    quizResult.style.display = "block";
+    document.getElementById("resultName").focus();
+  }
+
+  quizStartBtn.addEventListener("click", startQuiz);
+
+  quizNext.addEventListener("click", function () {
+    if (answers[currentIndex] === null) {
+      quizWarning.textContent = "選択肢を選んでから次へ進んでください。";
+      return;
+    }
+    if (currentIndex === questions.length - 1) {
+      showResult();
+    } else {
+      currentIndex += 1;
+      renderQuestion();
+    }
+  });
+
+  quizBack.addEventListener("click", function () {
+    if (currentIndex > 0) {
+      currentIndex -= 1;
+      renderQuestion();
+    }
+  });
+
+  quizRestartBtn.addEventListener("click", function () {
+    quizResult.style.display = "none";
+    quizIntro.style.display = "block";
+  });
+})();
+</script>
+
+</body>
+</html>
