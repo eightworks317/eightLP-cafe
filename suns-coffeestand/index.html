@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SUNS coffeestand（サンズコーヒースタンド）｜焙煎したての、スペシャルティコーヒーを。｜提案用ページ</title>
+<meta name="description" content="名古屋市港区のコーヒースタンド「SUNS coffeestand」。いつもそろう深煎りと中煎りのブレンドに、エチオピアなどのシングルオリジン。焙煎したての豆も予約で。BGMのない静かな店内で、カフェラテやフォカッチャサンドを。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2a3140">
+<style>
+  :root {
+    --color-primary: #2a3140;      /* 深いネイビー */
+    --color-secondary: #fcfaf5;    /* 白いドリッパーの色 */
+    --color-roast: #c99a3f;         /* 焙煎した豆の色 */
+    --color-roast-text: #855c1c;    /* 明るい地の上に置く文字用 */
+    --color-roast-btn: #5b3d13;     /* 白文字をのせるボタンの地色 */
+    --color-warm: #b5612a;         /* 朝日の色 */
+    --color-warm-text: #9e5222;
+    --color-surface: #eff0f3;
+    --color-proposal: #e8e9ec;
+    --color-proposal-border: #9a9fab;
+    --color-text: #23262d;
+    --color-muted: #545866;
+    --color-border: #d9dbe1;
+    --font-serif: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-sans: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  /* ★2026-11-11：背景にうっすら「お日さまと豆」の柄を入れています。
+     店名の SUNS にちなんで、お日さまとコーヒー豆を、間をあけて並べています。
+     ・濃さ　：stroke-opacity の数字（0.09）。1 に近いほど濃くなります
+     ・柄の大きさ：background-size の 60px 60px
+     ※ 色を敷いている節（強み／診断など）には出ません。 */
+  body {
+    margin: 0;
+    background-color: var(--color-secondary);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg fill='none' stroke='%232a3140' stroke-opacity='0.09' stroke-width='0.9' stroke-linejoin='round' stroke-linecap='round'%3E%3Ccircle cx='15' cy='16' r='5'/%3E%3Cpath d='M15 6 V8'/%3E%3Cpath d='M15 24 V26'/%3E%3Cpath d='M5 16 H7'/%3E%3Cpath d='M23 16 H25'/%3E%3Cpath d='M8 9 L9.5 10.5'/%3E%3Cpath d='M20.5 21.5 L22 23'/%3E%3Cpath d='M22 9 L20.5 10.5'/%3E%3Cpath d='M9.5 21.5 L8 23'/%3E%3Cellipse cx='44' cy='44' rx='3.5' ry='5' transform='rotate(30 44 44)'/%3E%3Cpath d='M42 40.5 Q45 44 46 47.5'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 60px 60px;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 16px; line-height: 1.8; overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+
+  .container {
+    width: 100%; max-width: 960px; margin: 0 auto;
+    padding-left: clamp(14px, 4vw, 32px); padding-right: clamp(14px, 4vw, 32px);
+  }
+
+  .skip-link {
+    position: absolute; left: -999px; top: 0;
+    background: var(--color-roast-btn); color: #fff;
+    padding: 10px 16px; z-index: 200; border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus { left: 0; }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid var(--color-roast); outline-offset: 3px;
+  }
+
+  /* ---------- 提案用ラベル ---------- */
+  .proposal-bar {
+    background: var(--color-primary); color: var(--color-secondary);
+    text-align: center; padding: 8px 14px;
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.06em; line-height: 1.5;
+  }
+
+  /* ---------- ファーストビュー ---------- */
+  .hero {
+    position: relative; min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 96px 0 56px; background: var(--color-primary); overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(42,49,64,0.40) 0%, rgba(42,49,64,0.60) 55%, rgba(42,49,64,0.88) 100%);
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.16em;
+    color: var(--color-secondary); margin: 0 0 14px;
+  }
+  .hero h1 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(27px, 7.6vw, 45px); line-height: 1.4;
+    margin: 0 0 18px; color: var(--color-secondary); overflow-wrap: anywhere;
+  }
+  .hero-lead {
+    font-size: clamp(14px, 3.8vw, 17px); max-width: 34em;
+    margin: 0 0 30px; color: var(--color-secondary);
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 30px;
+    font-size: 12px; letter-spacing: 0.08em; color: var(--color-secondary);
+  }
+  .hero-tags span {
+    border: 1px solid rgba(248,246,241,0.5);
+    border-radius: 999px; padding: 6px 14px; background: rgba(42,49,64,0.35);
+  }
+
+  .cta-group { display: flex; flex-direction: column; gap: 12px; max-width: 340px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 12px 20px; border-radius: 6px;
+    text-decoration: none; font-size: 15px; letter-spacing: 0.02em;
+    border: 1px solid transparent; text-align: center; line-height: 1.4;
+  }
+  .btn-primary { background: var(--color-roast-btn); color: #fff; }
+  .btn-outline { background: transparent; border-color: var(--color-primary); color: var(--color-primary); }
+  .hero .btn-primary { background: var(--color-secondary); color: var(--color-primary); }
+  .hero .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); background: rgba(42,49,64,0.25); }
+  @media (min-width: 560px) { .cta-group { flex-direction: row; max-width: none; } }
+
+  /* ---------- 共通 ---------- */
+  section { padding: clamp(48px, 9vw, 88px) 0; }
+  .section-alt { background: var(--color-surface); }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; color: var(--color-roast-text); margin: 0 0 10px; }
+  h2 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(22px, 6vw, 30px); margin: 0 0 20px; line-height: 1.5; }
+  h3 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(17px, 4.6vw, 20px); margin: 0 0 10px; line-height: 1.6; }
+  p { margin: 0 0 14px; }
+  .lead-text { max-width: 40em; color: var(--color-muted); }
+  .source-note { font-size: .85em; opacity: .8; margin-top: 1.2em; }
+
+  /* ---------- 店名の由来 ---------- */
+  .name-origin {
+    margin: 26px 0 0; padding: 22px 24px;
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-roast);
+    border-radius: 0 12px 12px 0;
+  }
+  .name-origin .en {
+    font-family: var(--font-serif); font-size: clamp(18px, 4.8vw, 24px);
+    letter-spacing: .04em; margin: 0 0 8px; display: block; color: var(--color-roast-text);
+  }
+  .name-origin .ja { font-size: 14.5px; color: var(--color-muted); margin: 0; }
+
+  blockquote.quote {
+    margin: 26px 0 0; padding: 20px 22px;
+    background: var(--color-secondary);
+    border-left: 4px solid var(--color-warm);
+    border-top: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0 10px 10px 0;
+    font-family: var(--font-serif);
+    font-size: clamp(15px, 4vw, 17px); line-height: 1.9;
+  }
+  blockquote.quote cite {
+    display: block; margin-top: 10px; font-family: var(--font-sans);
+    font-style: normal; font-size: 12.5px; color: var(--color-muted);
+  }
+
+  /* ---------- カード ---------- */
+  .card-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
+  @media (min-width: 700px) {
+    .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  }
+  .card {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 10px; padding: 22px; min-width: 0;
+    box-shadow: 0 2px 10px rgba(42,49,64,0.05);
+  }
+  .card .num { font-size: 12px; color: var(--color-roast-text); letter-spacing: 0.1em; display: block; margin-bottom: 10px; }
+  .card p { font-size: 14.5px; color: var(--color-text); margin-bottom: 8px; }
+  .card .value {
+    font-size: 13.5px; color: var(--color-muted);
+    border-top: 1px dashed var(--color-border); padding-top: 10px; margin-top: 10px;
+  }
+  .card-photo { border-radius: 8px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 14px; }
+
+  /* 横に3枚並べたときのそろえ方
+     ① 下端をそろえる作り（subgrid が使えないブラウザ用の保険）
+     このページの見出しは1行が文字サイズの1.6倍なので、2行ぶんは 3.2em です。 */
+  @media (min-width: 700px) {
+    .card-grid.cols-3 .card { display: flex; flex-direction: column; }
+    .card-grid.cols-3 .card h3 { line-height: 1.6; min-height: 3.2em; }
+    .card-grid.cols-3 .card .value { margin-top: auto; }
+  }
+  /* ② ラベル・見出し・本文・価値の4つを、それぞれ別々に高さをそろえます。 */
+  @supports (grid-template-rows: subgrid) {
+    @media (min-width: 700px) {
+      #strengths .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 5; }
+      #ways .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 4; }
+      .card-grid.cols-3 .card h3 { min-height: 0; margin-bottom: 0; }
+      .card-grid.cols-3 .card .value { margin-top: 0; align-self: start; }
+      .card-grid.cols-3 .card p { margin-bottom: 0; }
+      .card-grid.cols-3 .card .num { margin-bottom: 0; }
+      .card-grid.cols-3 .card { row-gap: 10px; }
+    }
+  }
+
+  /* ---------- ストーリー ---------- */
+  .story { display: grid; gap: 24px; }
+  /* 横に並べたとき、写真をとなりの文章と同じ高さまで伸ばします。 */
+  @media (min-width: 760px) {
+    .story { grid-template-columns: 1fr 1fr; align-items: stretch; }
+    .story-photo { height: 100%; min-height: 300px; aspect-ratio: auto; }
+  }
+  .story-photo { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+  .concept-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 22px; }
+  .concept-gallery img { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+
+  /* ---------- 献立 ---------- */
+  .dish-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+  @media (min-width: 620px) { .dish-grid { grid-template-columns: repeat(2, 1fr); } }
+  .dish {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-roast); border-radius: 0 8px 8px 0;
+    padding: 18px 20px; min-width: 0;
+  }
+  .dish.is-warm { border-left-color: var(--color-warm); }
+  .dish .tag { font-size: 12px; letter-spacing: .08em; color: var(--color-roast-text); display: block; }
+  .dish.is-warm .tag { color: var(--color-warm-text); }
+  .dish .name { font-family: var(--font-serif); font-size: 19px; margin: 2px 0 6px; display: block; }
+  .dish .price { font-size: 15px; font-weight: 700; margin: 0 0 8px; }
+  .dish .desc { font-size: 14px; color: var(--color-muted); margin: 0; }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; padding: 0; list-style: none; }
+  .tag-list li {
+    font-size: 13.5px; color: var(--color-muted);
+    border: 1px solid var(--color-border); background: var(--color-secondary);
+    border-radius: 999px; padding: 5px 14px;
+  }
+
+  /* ---------- 地域の節 ---------- */
+  .highlight { background: var(--color-primary); color: var(--color-secondary); }
+  .highlight .eyebrow { color: #f2c98e; }  /* 暗い地の上の、焙煎した豆の明るい色 */
+  .highlight-grid { display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 760px) { .highlight-grid { grid-template-columns: 1.1fr 1fr; } }
+  .highlight-visual {
+    border-radius: 10px; aspect-ratio: 4 / 3; width: 100%;
+    object-fit: cover; border: 1px solid rgba(255,255,255,0.15);
+  }
+  .highlight-list { list-style: none; padding: 0; margin: 18px 0 24px; font-size: 14.5px; }
+  .highlight-list li { padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.15); }
+  .highlight-list li:first-child { border-top: none; }
+  .highlight-list b { display: block; margin-bottom: 4px; font-size: 13px; color: #f2c98e; letter-spacing: 0.04em; }
+
+  /* ---------- 一覧表 ---------- */
+  .info-list {
+    list-style: none; padding: 0; margin: 24px 0 0;
+    display: grid; gap: 0; border-top: 1px solid var(--color-border);
+  }
+  .info-list li {
+    display: grid; grid-template-columns: 120px 1fr; gap: 12px;
+    padding: 14px 0; border-bottom: 1px solid var(--color-border); font-size: 14.5px;
+  }
+  .info-list .term { color: var(--color-muted); font-size: 13px; letter-spacing: 0.04em; }
+  .info-list a { overflow-wrap: anywhere; text-decoration: underline; }
+
+  /* ---------- 試作（診断） ---------- */
+  .proposal-section {
+    background: var(--color-proposal);
+    border-top: 3px solid var(--color-proposal-border);
+    border-bottom: 3px solid var(--color-proposal-border);
+  }
+  .proposal-tag {
+    display: inline-block; font-size: 12px; letter-spacing: 0.1em;
+    background: var(--color-proposal-border); color: #16211f;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .proposal-note {
+    background: var(--color-secondary); border: 1px solid var(--color-proposal-border);
+    border-radius: 8px; padding: 14px 16px; font-size: 13.5px;
+    color: var(--color-muted); margin: 22px 0 30px; line-height: 1.75;
+  }
+  .quiz-app {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 14px; padding: 22px; max-width: 640px;
+  }
+  .quiz-intro h3 { margin: 0 0 12px; font-size: 20px; }
+  .quiz-progress { font-size: 13px; color: var(--color-muted); margin-bottom: 12px; }
+  .quiz-question { font-size: 17px; font-weight: 700; margin: 0 0 12px; }
+  .quiz-options { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 10px; }
+  .quiz-option {
+    width: 100%; text-align: left; padding: 14px 16px; min-height: 44px;
+    border: 1.5px solid var(--color-border); border-radius: 8px;
+    background: var(--color-surface); font-size: 15px;
+    font-family: inherit; color: var(--color-text); cursor: pointer;
+  }
+  .quiz-option[aria-pressed="true"] { border-color: var(--color-roast); background: #e7eaf0; font-weight: 700; }
+  .quiz-option[aria-pressed="true"]::before { content: "✓ "; color: var(--color-roast-text); }
+  .quiz-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; }
+  .quiz-nav button { min-height: 44px; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-family: inherit; cursor: pointer; }
+  #quizBack { background: transparent; border: 1px solid var(--color-border); color: var(--color-text); }
+  #quizNext { background: var(--color-roast-btn); border: 1px solid var(--color-roast-btn); color: #fff; }
+  #quizNext:disabled, #quizBack:disabled { opacity: .4; cursor: not-allowed; }
+  .quiz-warning { font-size: 13px; color: #a0432a; margin-top: 6px; min-height: 1.2em; }
+  .quiz-result h3 { font-size: 22px; margin: 0 0 6px; }
+  .quiz-result .result-summary { color: var(--color-muted); margin: 0 0 22px; }
+  .result-detail-list { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 4px; font-size: 14px; }
+  .result-detail-list dt { font-weight: 700; margin-top: 12px; }
+  .result-detail-list dd { margin: 2px 0 0; color: var(--color-muted); }
+  .quiz-result-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .quiz-start-btn {
+    min-height: 44px; padding: 12px 28px; background: var(--color-roast-btn);
+    color: #fff; border: none; border-radius: 6px; font-size: 15px; font-weight: 700; cursor: pointer;
+  }
+  .disclaimer-box {
+    font-size: 13px; line-height: 1.7; color: var(--color-muted);
+    background: var(--color-surface); border: 1px dashed var(--color-border);
+    border-radius: 8px; padding: 14px 16px; margin-top: 22px;
+  }
+
+  /* ---------- 最後のご案内 ---------- */
+  .final-cta { background: var(--color-primary); color: var(--color-secondary); text-align: center; }
+  .final-cta .cta-group { margin: 26px auto 0; justify-content: center; }
+  .final-cta .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); }
+
+  .site-footer {
+    padding: 32px 0 40px; text-align: center; font-size: 12.5px;
+    color: var(--color-muted); border-top: 1px solid var(--color-border);
+  }
+  .site-footer a { text-decoration: underline; }
+  .site-footer p { margin: 6px 0; }
+
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<div class="proposal-bar" role="note">
+  CONCEPT LP ／ 店舗向け提案用ページです。本ページには未導入の新サービス提案・試作デモが含まれます。<br>
+  ※本ページの掲載画像は、店舗の世界観を表現したイメージ画像です。
+</div>
+
+<main id="main-content">
+
+  <!-- ファーストビュー -->
+  <section class="hero">
+    <img class="hero-bg" src="images/01_hero_stand_16x9.webp" alt="明るい光の入る、木のカウンターのコーヒースタンドのイメージ画像" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <p class="hero-eyebrow">SUNS coffeestand（サンズコーヒースタンド） — 愛知県名古屋市港区</p>
+      <h1>焙煎したての、<br>スペシャルティコーヒーを。</h1>
+      <p class="hero-lead">
+        名古屋・港区のコーヒースタンドです。
+        いつもそろう深煎りと中煎りのブレンドに、エチオピアなどのシングルオリジン。
+        BGMのない静かな店内で、カフェラテやフォカッチャサンドといっしょに。
+      </p>
+      <p class="hero-tags">
+        <span>スペシャルティコーヒー</span>
+        <span>コーヒー豆の販売</span>
+        <span>静かな店内</span>
+      </p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="https://coffee-diagnosis-app.netlify.app/index.html" target="_blank" rel="noopener noreferrer">コーヒー豆診断アプリを試す</a>
+        <a class="btn btn-outline" href="#beans">豆について見る</a>
+        <a class="btn btn-outline" href="https://www.instagram.com/suns_coffeestand/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+      </div>
+      <p style="color:var(--color-secondary);font-size:12px;margin:12px 0 0;opacity:.85;">※診断アプリは試作デモで、別の画面で開きます。</p>
+    </div>
+  </section>
+
+  <!-- コンセプト -->
+  <section id="concept" aria-labelledby="concept-heading">
+    <div class="container">
+      <div class="story">
+        <div>
+          <p class="eyebrow">CONCEPT</p>
+          <h2 id="concept-heading">家でも、会社でも、<br>お店の一杯を</h2>
+          <p class="lead-text">
+            SUNS coffeestand は、名古屋市港区のコーヒースタンドです。
+            お店で一杯を楽しめるだけでなく、コーヒー豆の販売もしています。
+          </p>
+
+          <div class="name-origin">
+            <span class="en">Freshly Roasted</span>
+            <p class="ja">気に入ったシングルオリジンは、前もって声をかければ<strong>焙煎したての豆</strong>で渡してもらえます。</p>
+          </div>
+
+          <blockquote class="quote">
+            気に入った豆を購入したい場合は前もってお声掛けしていただけますと焙煎したての豆をお渡しできます
+            <cite>公式Instagramより</cite>
+          </blockquote>
+
+          <p class="lead-text" style="margin-top:22px;">
+            「BGMのない静かな店内」「読書や作業をしたい人に」「モーニングにも」という来店者の声もありました。駐車場もあります。
+          </p>
+        </div>
+        <img class="story-photo" src="images/02_beans_4x3.webp" alt="袋に入ったコーヒー豆のイメージ画像" loading="lazy">
+      </div>
+      <div class="concept-gallery">
+        <img src="images/03_dripper_4x3.webp" alt="白いドリッパーでコーヒーを淹れるイメージ画像" loading="lazy">
+        <img src="images/04_latte_4x3.webp" alt="カフェラテのイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 強み -->
+  <section id="strengths" class="section-alt" aria-labelledby="strengths-heading">
+    <div class="container">
+      <p class="eyebrow">公開されている情報から見える、この店舗の強み</p>
+      <h2 id="strengths-heading">お店の強み</h2>
+      <p class="lead-text">他店との比較ではなく、公開されている情報で確認できる特徴だけを根拠に整理しています。</p>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <img class="card-photo" src="images/02_beans_4x3.webp" alt="コーヒー豆のイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 01</span>
+          <h3>いつもそろう、2つのブレンド</h3>
+          <p>深煎りと中煎りのブレンドは、<strong>いつも在庫がある</strong>ので、いつでも用意してもらえます。</p>
+          <p class="value">お客様にとっての価値：いつもの豆を、切らさずに楽しめます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/03_dripper_4x3.webp" alt="ドリッパーのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 02</span>
+          <h3>出会える、シングルオリジン</h3>
+          <p>エチオピアなど、その時々の<strong>シングルオリジン</strong>。気に入った豆は、焙煎したてで用意してもらえます。</p>
+          <p class="value">お客様にとっての価値：産地ごとの個性と、焙煎したての香りを楽しめます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/05_focaccia_4x3.webp" alt="フォカッチャサンドのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 03</span>
+          <h3>静かな店内で、ゆっくり</h3>
+          <p>BGMのない<strong>静かな店内</strong>で、カフェラテや、ボリュームのあるフォカッチャサンドを。</p>
+          <p class="value">お客様にとっての価値：読書や作業にも、ゆっくり集中できます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 豆 -->
+  <section id="beans" class="highlight" aria-labelledby="beans-heading">
+    <div class="container">
+      <div class="highlight-grid">
+        <div>
+          <p class="eyebrow">BEANS</p>
+          <h2 id="beans-heading">いまのおすすめは、<br>エチオピア バツ コボ</h2>
+          <p style="color:#e5e8ee;">
+            お店のInstagramで紹介されている、新しい豆と、豆の買い方です。
+          </p>
+          <ul class="highlight-list">
+            <li><b>エチオピア バツ コボ（ナチュラル・中煎り）</b>熟したフルーツのニュアンス。ストロベリーやピーチのような風味で、なめらかで飲みやすいコーヒーです。</li>
+            <li><b>いつもそろうブレンド</b>深煎りと中煎りのブレンドは、大量でなければいつでも用意できます。</li>
+            <li><b>焙煎したてを、予約で</b>シングルオリジンは前もって声をかければ、焙煎したての豆を。3〜4日ほど余裕をもって。</li>
+          </ul>
+          <div class="cta-group">
+            <a class="btn btn-outline" style="border-color:#fff;color:#fff;" href="https://www.instagram.com/suns_coffeestand/" target="_blank" rel="noopener noreferrer">新しい豆をInstagramで</a>
+          </div>
+        </div>
+        <img class="highlight-visual" src="images/03_dripper_4x3.webp" alt="ドリッパーのイメージ画像" loading="lazy">
+      </div>
+      <p class="lead-text source-note" style="color:#c9cfdb;">
+        ※ この節は、公式Instagram（@suns_coffeestand）の2026年10月〜11月の投稿によります。豆は終売になることがあります。
+      </p>
+    </div>
+  </section>
+
+  <!-- メニュー -->
+  <section id="coffee" aria-labelledby="coffee-heading">
+    <div class="container">
+      <p class="eyebrow">MENU</p>
+      <h2 id="coffee-heading">一杯のコーヒーと、<br>ボリュームのあるサンド</h2>
+      <p class="lead-text">公式Instagramと、公開されている来店者の感想から整理しました。</p>
+      <div class="dish-grid" id="menu">
+        <div class="dish">
+          <span class="tag">コーヒー</span>
+          <span class="name">ハンドドリップ</span>
+          <p class="desc">ブレンドやシングルオリジンを、一杯ずつ。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">コーヒー</span>
+          <span class="name">カフェラテ</span>
+          <p class="desc">ミルクと合わせた、やさしい一杯。</p>
+        </div>
+        <div class="dish is-warm">
+          <span class="tag">フード</span>
+          <span class="name">フォカッチャサンド</span>
+          <p class="desc">ボリュームのある、フォカッチャのサンド。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">朝</span>
+          <span class="name">モーニング</span>
+          <p class="desc">朝の一杯といっしょに。</p>
+        </div>
+        <div class="dish is-warm">
+          <span class="tag">豆</span>
+          <span class="name">深煎り・中煎りのブレンド</span>
+          <p class="desc">いつもそろう2つのブレンド。季節のブレンドも。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">豆</span>
+          <span class="name">シングルオリジン</span>
+          <p class="desc">その時々の産地の豆。予約で焙煎したてを。</p>
+        </div>
+      </div>
+      <p class="lead-text source-note">
+        ※ メニューと価格は変わることがあるため、価格は載せていません。最新の内容は、公式Instagramでご確認ください。
+      </p>
+    </div>
+  </section>
+
+  <!-- 試作（診断） -->
+  <section id="proposal-quiz" class="proposal-section" aria-labelledby="quiz-heading">
+    <div class="container">
+      <span class="proposal-tag">INTERACTIVE PROTOTYPE｜動く新サービス試作</span>
+      <h2 id="quiz-heading">わたしの豆えらび診断（試作）</h2>
+      <p class="lead-text">
+        深煎りと中煎りのブレンドに、その時々のシングルオリジン。豆を買って帰れるお店だからこそ、
+        好みと飲み方から「まず試してほしい豆」を案内する診断を試作しました。
+        これは店舗運営者向けの新サービス提案・導入アイデアであり、現在提供中のサービスではありません。
+      </p>
+
+      <div class="proposal-note">
+        この診断結果は、公式Instagramと公開されている情報をもとにした、おおまかな分け方です。
+        特定の豆の在庫を保証するものではありません。導入する場合は、お店の豆に合わせて作り直します。
+      </div>
+
+      <div class="quiz-app" id="quizApp">
+        <div id="quizIntro" class="quiz-intro">
+          <h3>対象：好みの豆を見つけたい方／店舗運営者の方</h3>
+          <p>解決したい課題：ブレンドとシングルオリジンがあるお店で、はじめての方が「どの豆を買えばいいか」迷いやすいこと。</p>
+          <button type="button" class="quiz-start-btn" id="quizStartBtn">試してみる</button>
+        </div>
+
+        <form id="quizForm" style="display:none;" novalidate>
+          <p class="quiz-progress" id="quizProgress" aria-live="polite"></p>
+          <p class="quiz-question" id="quizQuestionText"></p>
+          <ul class="quiz-options" id="quizOptions"></ul>
+          <p class="quiz-warning" id="quizWarning" role="alert"></p>
+          <div class="quiz-nav">
+            <button type="button" id="quizBack">戻る</button>
+            <button type="button" id="quizNext">次へ</button>
+          </div>
+        </form>
+
+        <div id="quizResult" style="display:none;" class="quiz-result" aria-live="polite">
+          <h3 id="resultName" tabindex="-1"></h3>
+          <p class="result-summary" id="resultSummary"></p>
+          <dl class="result-detail-list">
+            <dt>そのタイプになった理由</dt>
+            <dd id="resultReason"></dd>
+            <dt>おすすめ</dt>
+            <dd id="resultRecommend"></dd>
+            <dt>お店の強みとのつながり</dt>
+            <dd id="resultStrength"></dd>
+          </dl>
+          <div class="quiz-result-actions">
+            <a class="btn btn-primary" id="resultCta" href="#beans">関連する節を見る</a>
+            <button type="button" class="btn btn-outline" id="quizRestartBtn">最初からやり直す</button>
+          </div>
+        </div>
+
+        <noscript>
+          <p>この試作デモの操作にはJavaScriptが必要です。JavaScriptが無効な場合でも、お店のご紹介や店舗情報は、このページの他の節から引き続きご覧いただけます。</p>
+        </noscript>
+
+        <p class="disclaimer-box">本機能は店舗運営者向けの試作デモです。現在提供中の正式サービスではありません。入力内容の保存・送信は行いません。ページを閉じると回答内容は消えます。お名前やご連絡先を入力していただく欄はありません。</p>
+      </div>
+
+      <!-- 診断アプリへの入り口 -->
+      <div class="quiz-app" style="margin-top:32px;">
+        <h3 style="margin:0 0 10px;">コーヒー豆診断アプリ（試作）</h3>
+        <p style="font-size:14.5px;margin:0 0 10px;">
+          上の診断は、SUNS coffeestand様の豆に合わせて作った見本です。
+          こちらは、好みから合う豆をすぐ探せる診断と、マメルというキャラクターと一緒に味の違いを楽しく学べる診断の、2種類を用意した診断アプリです。
+        </p>
+        <p style="font-size:14.5px;margin:0 0 16px;">
+          あなたに合う一杯を、診断で見つけてみませんか？　好みや飲み方について答えるだけで、おすすめのコーヒータイプを確認できます。
+        </p>
+        <a class="btn btn-primary" href="https://coffee-diagnosis-app.netlify.app/index.html" target="_blank" rel="noopener noreferrer">コーヒー豆診断アプリを試す</a>
+        <p class="source-note" style="margin-top:12px;">
+          ※試作デモが別画面で開きます。入力内容は保存・送信されません。<br>
+          ※現在のアプリでは、SUNS coffeestand様の商品とは異なる豆をご案内しています。導入する場合は、お店の豆に入れ替えます。
+        </p>
+      </div>
+
+      <div class="proposal-note" style="margin-top:32px;">
+        <strong>導入アイデア（今後の展開案）：</strong>新しいシングルオリジンが入ったときに、好みの合う方へお知らせする使い方ができます。
+        焙煎したての豆の予約の案内にも、つなげられます。
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section id="info" aria-labelledby="info-heading">
+    <div class="container">
+      <p class="eyebrow">SHOP INFORMATION</p>
+      <h2 id="info-heading">店舗情報</h2>
+      <ul class="info-list">
+        <li><span class="term">店舗名</span><span>SUNS coffeestand（サンズコーヒースタンド）</span></li>
+        <li>
+          <span class="term">所在地</span>
+          <span>〒455-0015 愛知県名古屋市港区港栄3丁目2番28号 宝マリーンハイツA棟 103<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=%E6%84%9B%E7%9F%A5%E7%9C%8C%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%B8%82%E6%B8%AF%E5%8C%BA%E6%B8%AF%E6%A0%843%E4%B8%81%E7%9B%AE2-28" target="_blank" rel="noopener noreferrer">地図で見る（Googleマップ）</a>
+          </span>
+        </li>
+        <li><span class="term">定休日</span><span>月曜日</span></li>
+        <li><span class="term">営業時間</span><span>公式Instagramでご確認ください</span></li>
+        <li><span class="term">駐車場</span><span>あり</span></li>
+        <li><span class="term">Instagram</span><span><a href="https://www.instagram.com/suns_coffeestand/" target="_blank" rel="noopener noreferrer">@suns_coffeestand</a></span></li>
+      </ul>
+      <p class="lead-text source-note">
+        ※ このページは、公式Instagramと、公開されている来店者の感想をもとに、2026年11月11日時点で確認できたことだけを整理したものです。内容は変わっている場合があります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 最後のご案内 -->
+  <section class="final-cta" aria-labelledby="final-cta-heading">
+    <div class="container">
+      <h2 id="final-cta-heading">ご来店の前に、ご確認ください</h2>
+      <p style="color:#e5e8ee;">定休日は月曜日です。新しい豆やお知らせは、公式Instagramでご確認ください。</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" style="background:#fff;color:var(--color-primary);" href="https://www.instagram.com/suns_coffeestand/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+        <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=%E6%84%9B%E7%9F%A5%E7%9C%8C%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%B8%82%E6%B8%AF%E5%8C%BA%E6%B8%AF%E6%A0%843%E4%B8%81%E7%9B%AE2-28" target="_blank" rel="noopener noreferrer">地図を見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>SUNS coffeestand</p>
+    <p>© SUNS coffeestand. All Rights Reserved.</p>
+    <p><a href="#main-content">ページの先頭へ戻る</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var questions = [
+    {
+      text: "コーヒーの好みに近いのは？",
+      options: [
+        { label: "バランスのよい、飲みやすい味", cat: "A" },
+        { label: "しっかりした、苦みとコク", cat: "B" },
+        { label: "果物のような、華やかな味", cat: "C" },
+        { label: "ミルクと合わせて、まろやかに", cat: "D" },
+        { label: "季節ごとに、ちがう味を", cat: "E" }
+      ]
+    },
+    {
+      text: "お店に行くなら？",
+      options: [
+        { label: "朝の、モーニングに", cat: "A" },
+        { label: "静かな店内で、読書や作業を", cat: "B" },
+        { label: "新しい豆を、試しに", cat: "C" },
+        { label: "フォカッチャサンドと、お昼に", cat: "D" },
+        { label: "おうち用の豆を、買いに", cat: "E" }
+      ]
+    },
+    {
+      text: "好きな香りは？",
+      options: [
+        { label: "なじみのある、まろやかな香り", cat: "A" },
+        { label: "深く、香ばしい香り", cat: "B" },
+        { label: "ストロベリーや、ピーチのような香り", cat: "C" },
+        { label: "ミルクの、甘い香り", cat: "D" },
+        { label: "焙煎したての、たちのぼる香り", cat: "E" }
+      ]
+    },
+    {
+      text: "おうちや会社では？",
+      options: [
+        { label: "毎日、いつもの一杯を", cat: "A" },
+        { label: "仕事のあいまに、しゃきっと", cat: "B" },
+        { label: "休日に、ゆっくり味わう", cat: "C" },
+        { label: "カフェオレにして", cat: "D" },
+        { label: "気に入った豆を、予約して", cat: "E" }
+      ]
+    }
+  ];
+
+  var results = {
+    A: {
+      name: "中煎りブレンドタイプ",
+      summary: "バランスのよい、毎日の一杯を楽しみたい方です。",
+      reason: "飲みやすい味、朝のモーニング、まろやかな香り、いつもの一杯に関する回答が多い傾向でした。",
+      recommend: "いつもそろう、中煎りのブレンド。毎日の一杯にぴったりです。",
+      strength: "中煎りと深煎りのブレンドは、いつも在庫があります。",
+      ctaHref: "#beans",
+      ctaLabel: "豆について見る"
+    },
+    B: {
+      name: "深煎りブレンドタイプ",
+      summary: "しっかりした苦みとコクで、集中したい方です。",
+      reason: "苦みとコク、静かな店内で作業、香ばしい香り、仕事のあいまに関する回答が多い傾向でした。",
+      recommend: "いつもそろう、深煎りのブレンド。静かな店内で、ゆっくり集中しながら。",
+      strength: "BGMのない静かな店内で、読書や作業にも向くお店です。",
+      ctaHref: "#beans",
+      ctaLabel: "豆について見る"
+    },
+    C: {
+      name: "エチオピアのシングルオリジンタイプ",
+      summary: "果物のような、華やかなコーヒーを味わいたい方です。",
+      reason: "華やかな味、新しい豆を試す、ストロベリーやピーチの香り、休日にゆっくりに関する回答が多い傾向でした。",
+      recommend: "いまのおすすめ「エチオピア バツ コボ」。ナチュラル製法の、ストロベリーやピーチのような風味。",
+      strength: "その時々のシングルオリジンに出会えるお店です。",
+      ctaHref: "#beans",
+      ctaLabel: "豆について見る"
+    },
+    D: {
+      name: "カフェラテとサンドタイプ",
+      summary: "まろやかなカフェラテと、しっかりお昼を楽しみたい方です。",
+      reason: "ミルクと合わせて、フォカッチャサンド、ミルクの香り、カフェオレに関する回答が多い傾向でした。",
+      recommend: "カフェラテと、ボリュームのあるフォカッチャサンド。",
+      strength: "コーヒーと、しっかり食べられるフードがそろいます。",
+      ctaHref: "#menu",
+      ctaLabel: "メニューを見る"
+    },
+    E: {
+      name: "焙煎したてを予約タイプ",
+      summary: "焙煎したての豆で、おうちや会社でもお店の味を楽しみたい方です。",
+      reason: "季節ごとの味、おうち用の豆、焙煎したての香り、予約してに関する回答が多い傾向でした。",
+      recommend: "気に入ったシングルオリジンを、前もって予約して焙煎したてで。季節のブレンドも。",
+      strength: "声をかければ、焙煎したての豆を用意してもらえます（3〜4日ほど余裕をもって）。",
+      ctaHref: "#beans",
+      ctaLabel: "豆について見る"
+    }
+  };
+
+  var priorityOrder = ["A", "B", "C", "D", "E"];
+
+  var currentIndex = 0;
+  var answers = new Array(questions.length).fill(null);
+
+  var quizIntro = document.getElementById("quizIntro");
+  var quizStartBtn = document.getElementById("quizStartBtn");
+  var quizForm = document.getElementById("quizForm");
+  var quizProgress = document.getElementById("quizProgress");
+  var quizQuestionText = document.getElementById("quizQuestionText");
+  var quizOptions = document.getElementById("quizOptions");
+  var quizWarning = document.getElementById("quizWarning");
+  var quizBack = document.getElementById("quizBack");
+  var quizNext = document.getElementById("quizNext");
+  var quizResult = document.getElementById("quizResult");
+  var quizRestartBtn = document.getElementById("quizRestartBtn");
+
+  function renderQuestion() {
+    quizWarning.textContent = "";
+    var q = questions[currentIndex];
+    quizProgress.textContent = "質問 " + (currentIndex + 1) + " / " + questions.length;
+    quizQuestionText.textContent = q.text;
+    quizOptions.innerHTML = "";
+
+    q.options.forEach(function (opt, i) {
+      var li = document.createElement("li");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "quiz-option";
+      btn.textContent = opt.label;
+      var selected = answers[currentIndex] === i;
+      btn.setAttribute("aria-pressed", selected ? "true" : "false");
+      btn.addEventListener("click", function () {
+        answers[currentIndex] = i;
+        var allBtns = quizOptions.querySelectorAll(".quiz-option");
+        allBtns.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+        btn.setAttribute("aria-pressed", "true");
+        quizWarning.textContent = "";
+      });
+      li.appendChild(btn);
+      quizOptions.appendChild(li);
+    });
+
+    quizBack.disabled = currentIndex === 0;
+    quizNext.textContent = currentIndex === questions.length - 1 ? "結果を見る" : "次へ";
+  }
+
+  function startQuiz() {
+    currentIndex = 0;
+    answers = new Array(questions.length).fill(null);
+    quizIntro.style.display = "none";
+    quizResult.style.display = "none";
+    quizForm.style.display = "block";
+    renderQuestion();
+  }
+
+  function showResult() {
+    var scores = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+    answers.forEach(function (ansIndex, qIndex) {
+      if (ansIndex === null) { return; }
+      var cat = questions[qIndex].options[ansIndex].cat;
+      scores[cat] += 1;
+    });
+
+    // 同点の場合は、最後の質問（4問目）で選んだものを優先します。
+    // それでも決まらない場合のみ、A→B→C→D→Eの順を採用します。
+    var lastCat = null;
+    var lastAnswerIndex = answers[answers.length - 1];
+    if (lastAnswerIndex !== null) {
+      lastCat = questions[questions.length - 1].options[lastAnswerIndex].cat;
+    }
+
+    var maxScore = -1;
+    priorityOrder.forEach(function (cat) {
+      if (scores[cat] > maxScore) { maxScore = scores[cat]; }
+    });
+    var topCats = priorityOrder.filter(function (cat) { return scores[cat] === maxScore; });
+
+    var winner;
+    if (topCats.length === 1) {
+      winner = topCats[0];
+    } else if (lastCat !== null && topCats.indexOf(lastCat) !== -1) {
+      winner = lastCat;
+    } else {
+      winner = topCats[0];
+    }
+
+    var r = results[winner];
+    document.getElementById("resultName").textContent = r.name;
+    document.getElementById("resultSummary").textContent = r.summary;
+    document.getElementById("resultReason").textContent = r.reason;
+    document.getElementById("resultRecommend").textContent = r.recommend;
+    document.getElementById("resultStrength").textContent = r.strength;
+    var cta = document.getElementById("resultCta");
+    cta.href = r.ctaHref;
+    cta.textContent = r.ctaLabel;
+
+    quizForm.style.display = "none";
+    quizResult.style.display = "block";
+    document.getElementById("resultName").focus();
+  }
+
+  quizStartBtn.addEventListener("click", startQuiz);
+
+  quizNext.addEventListener("click", function () {
+    if (answers[currentIndex] === null) {
+      quizWarning.textContent = "選択肢を選んでから次へ進んでください。";
+      return;
+    }
+    if (currentIndex === questions.length - 1) {
+      showResult();
+    } else {
+      currentIndex += 1;
+      renderQuestion();
+    }
+  });
+
+  quizBack.addEventListener("click", function () {
+    if (currentIndex > 0) {
+      currentIndex -= 1;
+      renderQuestion();
+    }
+  });
+
+  quizRestartBtn.addEventListener("click", function () {
+    quizResult.style.display = "none";
+    quizIntro.style.display = "block";
+  });
+})();
+</script>
+
+</body>
+</html>
