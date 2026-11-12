@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>なつカフェ｜出会えたらラッキーな、季節のスイーツ。｜提案用ページ</title>
+<meta name="description" content="岡崎市河原町のカフェ「なつカフェ」。アンティークの家具が並ぶ暖かい色の店内で、季節のスイーツや焼き菓子、月替わりのモーニング、選べるキッシュプレートを。座敷もあり、お子さん連れでも安心。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#4a3328">
+<style>
+  :root {
+    --color-primary: #4a3328;      /* アンティークの家具の色 */
+    --color-secondary: #fdf9f3;    /* 白いお皿の色 */
+    --color-roast: #d39a45;         /* さつまいもの黄色 */
+    --color-roast-text: #865a17;    /* 明るい地の上に置く文字用 */
+    --color-roast-btn: #5c3c10;     /* 白文字をのせるボタンの地色 */
+    --color-warm: #8a3a5c;         /* さつまいもの皮の色 */
+    --color-warm-text: #7e3554;
+    --color-surface: #f5efe8;
+    --color-proposal: #ede6df;
+    --color-proposal-border: #a89c90;
+    --color-text: #2c241f;
+    --color-muted: #5e534b;
+    --color-border: #e3d9cf;
+    --font-serif: "Yu Mincho", "Hiragino Mincho ProN", "游明朝", serif;
+    --font-sans: "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  /* ★2026-11-12：背景にうっすら「マフィンとさつまいも」の柄を入れています。
+     秋のスイートポテトマフィンにちなんで、マフィンとさつまいもを、間をあけて並べています。
+     ・濃さ　：stroke-opacity の数字（0.09）。1 に近いほど濃くなります
+     ・柄の大きさ：background-size の 60px 60px
+     ※ 色を敷いている節（強み／週末／診断）には出ません。 */
+  body {
+    margin: 0;
+    background-color: var(--color-secondary);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg fill='none' stroke='%234a3328' stroke-opacity='0.09' stroke-width='0.9' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M8 16 H22 L20 26 H10 Z'/%3E%3Cpath d='M7 16 Q7 8 15 8 Q23 8 23 16'/%3E%3Cpath d='M12 19 V24 M15 19 V24 M18 19 V24'/%3E%3Cpath d='M36 44 Q40 36 48 38 Q54 40 52 46 Q48 52 40 50 Q34 49 36 44 Z'/%3E%3Cpath d='M52 46 L55 48'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 60px 60px;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 16px; line-height: 1.8; overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+
+  .container {
+    width: 100%; max-width: 960px; margin: 0 auto;
+    padding-left: clamp(14px, 4vw, 32px); padding-right: clamp(14px, 4vw, 32px);
+  }
+
+  .skip-link {
+    position: absolute; left: -999px; top: 0;
+    background: var(--color-roast-btn); color: #fff;
+    padding: 10px 16px; z-index: 200; border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus { left: 0; }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid var(--color-roast); outline-offset: 3px;
+  }
+
+  /* ---------- 提案用ラベル ---------- */
+  .proposal-bar {
+    background: var(--color-primary); color: var(--color-secondary);
+    text-align: center; padding: 8px 14px;
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.06em; line-height: 1.5;
+  }
+
+  /* ---------- ファーストビュー ---------- */
+  .hero {
+    position: relative; min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 96px 0 56px; background: var(--color-primary); overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(74,51,40,0.40) 0%, rgba(74,51,40,0.60) 55%, rgba(74,51,40,0.88) 100%);
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: clamp(12px, 3vw, 13px); letter-spacing: 0.16em;
+    color: var(--color-secondary); margin: 0 0 14px;
+  }
+  .hero h1 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(27px, 7.6vw, 45px); line-height: 1.4;
+    margin: 0 0 18px; color: var(--color-secondary); overflow-wrap: anywhere;
+  }
+  .hero-lead {
+    font-size: clamp(14px, 3.8vw, 17px); max-width: 34em;
+    margin: 0 0 30px; color: var(--color-secondary);
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 30px;
+    font-size: 12px; letter-spacing: 0.08em; color: var(--color-secondary);
+  }
+  .hero-tags span {
+    border: 1px solid rgba(248,246,241,0.5);
+    border-radius: 999px; padding: 6px 14px; background: rgba(74,51,40,0.35);
+  }
+
+  .cta-group { display: flex; flex-direction: column; gap: 12px; max-width: 340px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 12px 20px; border-radius: 6px;
+    text-decoration: none; font-size: 15px; letter-spacing: 0.02em;
+    border: 1px solid transparent; text-align: center; line-height: 1.4;
+  }
+  .btn-primary { background: var(--color-roast-btn); color: #fff; }
+  .btn-outline { background: transparent; border-color: var(--color-primary); color: var(--color-primary); }
+  .hero .btn-primary { background: var(--color-secondary); color: var(--color-primary); }
+  .hero .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); background: rgba(74,51,40,0.25); }
+  @media (min-width: 560px) { .cta-group { flex-direction: row; max-width: none; } }
+
+  /* ---------- 共通 ---------- */
+  section { padding: clamp(48px, 9vw, 88px) 0; }
+  .section-alt { background: var(--color-surface); }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; color: var(--color-roast-text); margin: 0 0 10px; }
+  h2 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(22px, 6vw, 30px); margin: 0 0 20px; line-height: 1.5; }
+  h3 { font-family: var(--font-serif); font-weight: 500; font-size: clamp(17px, 4.6vw, 20px); margin: 0 0 10px; line-height: 1.6; }
+  p { margin: 0 0 14px; }
+  .lead-text { max-width: 40em; color: var(--color-muted); }
+  .source-note { font-size: .85em; opacity: .8; margin-top: 1.2em; }
+
+  /* ---------- 店名の由来 ---------- */
+  .name-origin {
+    margin: 26px 0 0; padding: 22px 24px;
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-roast);
+    border-radius: 0 12px 12px 0;
+  }
+  .name-origin .en {
+    font-family: var(--font-serif); font-size: clamp(18px, 4.8vw, 24px);
+    letter-spacing: .04em; margin: 0 0 8px; display: block; color: var(--color-roast-text);
+  }
+  .name-origin .ja { font-size: 14.5px; color: var(--color-muted); margin: 0; }
+
+  blockquote.quote {
+    margin: 26px 0 0; padding: 20px 22px;
+    background: var(--color-secondary);
+    border-left: 4px solid var(--color-warm);
+    border-top: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0 10px 10px 0;
+    font-family: var(--font-serif);
+    font-size: clamp(15px, 4vw, 17px); line-height: 1.9;
+  }
+  blockquote.quote cite {
+    display: block; margin-top: 10px; font-family: var(--font-sans);
+    font-style: normal; font-size: 12.5px; color: var(--color-muted);
+  }
+
+  /* ---------- カード ---------- */
+  .card-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
+  @media (min-width: 700px) {
+    .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  }
+  .card {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 10px; padding: 22px; min-width: 0;
+    box-shadow: 0 2px 10px rgba(74,51,40,0.05);
+  }
+  .card .num { font-size: 12px; color: var(--color-roast-text); letter-spacing: 0.1em; display: block; margin-bottom: 10px; }
+  .card p { font-size: 14.5px; color: var(--color-text); margin-bottom: 8px; }
+  .card .value {
+    font-size: 13.5px; color: var(--color-muted);
+    border-top: 1px dashed var(--color-border); padding-top: 10px; margin-top: 10px;
+  }
+  .card-photo { border-radius: 8px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 14px; }
+
+  /* 横に3枚並べたときのそろえ方
+     ① 下端をそろえる作り（subgrid が使えないブラウザ用の保険）
+     このページの見出しは1行が文字サイズの1.6倍なので、2行ぶんは 3.2em です。 */
+  @media (min-width: 700px) {
+    .card-grid.cols-3 .card { display: flex; flex-direction: column; }
+    .card-grid.cols-3 .card h3 { line-height: 1.6; min-height: 3.2em; }
+    .card-grid.cols-3 .card .value { margin-top: auto; }
+  }
+  /* ② ラベル・見出し・本文・価値の4つを、それぞれ別々に高さをそろえます。 */
+  @supports (grid-template-rows: subgrid) {
+    @media (min-width: 700px) {
+      #strengths .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 5; }
+      #ways .card-grid.cols-3 .card { display: grid; grid-template-rows: subgrid; grid-row: span 4; }
+      .card-grid.cols-3 .card h3 { min-height: 0; margin-bottom: 0; }
+      .card-grid.cols-3 .card .value { margin-top: 0; align-self: start; }
+      .card-grid.cols-3 .card p { margin-bottom: 0; }
+      .card-grid.cols-3 .card .num { margin-bottom: 0; }
+      .card-grid.cols-3 .card { row-gap: 10px; }
+    }
+  }
+
+  /* ---------- ストーリー ---------- */
+  .story { display: grid; gap: 24px; }
+  /* 横に並べたとき、写真をとなりの文章と同じ高さまで伸ばします。 */
+  @media (min-width: 760px) {
+    .story { grid-template-columns: 1fr 1fr; align-items: stretch; }
+    .story-photo { height: 100%; min-height: 300px; aspect-ratio: auto; }
+  }
+  .story-photo { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+  .concept-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 22px; }
+  .concept-gallery img { border-radius: 10px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; min-width: 0; }
+
+  /* ---------- 献立 ---------- */
+  .dish-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+  @media (min-width: 620px) { .dish-grid { grid-template-columns: repeat(2, 1fr); } }
+  .dish {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-roast); border-radius: 0 8px 8px 0;
+    padding: 18px 20px; min-width: 0;
+  }
+  .dish.is-warm { border-left-color: var(--color-warm); }
+  .dish .tag { font-size: 12px; letter-spacing: .08em; color: var(--color-roast-text); display: block; }
+  .dish.is-warm .tag { color: var(--color-warm-text); }
+  .dish .name { font-family: var(--font-serif); font-size: 19px; margin: 2px 0 6px; display: block; }
+  .dish .price { font-size: 15px; font-weight: 700; margin: 0 0 8px; }
+  .dish .desc { font-size: 14px; color: var(--color-muted); margin: 0; }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; padding: 0; list-style: none; }
+  .tag-list li {
+    font-size: 13.5px; color: var(--color-muted);
+    border: 1px solid var(--color-border); background: var(--color-secondary);
+    border-radius: 999px; padding: 5px 14px;
+  }
+
+  /* ---------- 地域の節 ---------- */
+  .highlight { background: var(--color-primary); color: var(--color-secondary); }
+  .highlight .eyebrow { color: #f3cf8f; }  /* 暗い地の上の、スイートポテトの色 */
+  .highlight-grid { display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 760px) { .highlight-grid { grid-template-columns: 1.1fr 1fr; } }
+  .highlight-visual {
+    border-radius: 10px; aspect-ratio: 4 / 3; width: 100%;
+    object-fit: cover; border: 1px solid rgba(255,255,255,0.15);
+  }
+  .highlight-list { list-style: none; padding: 0; margin: 18px 0 24px; font-size: 14.5px; }
+  .highlight-list li { padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.15); }
+  .highlight-list li:first-child { border-top: none; }
+  .highlight-list b { display: block; margin-bottom: 4px; font-size: 13px; color: #f0c890; letter-spacing: 0.04em; }
+
+  /* ---------- 一覧表 ---------- */
+  .info-list {
+    list-style: none; padding: 0; margin: 24px 0 0;
+    display: grid; gap: 0; border-top: 1px solid var(--color-border);
+  }
+  .info-list li {
+    display: grid; grid-template-columns: 120px 1fr; gap: 12px;
+    padding: 14px 0; border-bottom: 1px solid var(--color-border); font-size: 14.5px;
+  }
+  .info-list .term { color: var(--color-muted); font-size: 13px; letter-spacing: 0.04em; }
+  .info-list a { overflow-wrap: anywhere; text-decoration: underline; }
+
+  /* ---------- 試作（診断） ---------- */
+  .proposal-section {
+    background: var(--color-proposal);
+    border-top: 3px solid var(--color-proposal-border);
+    border-bottom: 3px solid var(--color-proposal-border);
+  }
+  .proposal-tag {
+    display: inline-block; font-size: 12px; letter-spacing: 0.1em;
+    background: var(--color-proposal-border); color: #16211f;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .proposal-note {
+    background: var(--color-secondary); border: 1px solid var(--color-proposal-border);
+    border-radius: 8px; padding: 14px 16px; font-size: 13.5px;
+    color: var(--color-muted); margin: 22px 0 30px; line-height: 1.75;
+  }
+  .quiz-app {
+    background: var(--color-secondary); border: 1px solid var(--color-border);
+    border-radius: 14px; padding: 22px; max-width: 640px;
+  }
+  .quiz-intro h3 { margin: 0 0 12px; font-size: 20px; }
+  .quiz-progress { font-size: 13px; color: var(--color-muted); margin-bottom: 12px; }
+  .quiz-question { font-size: 17px; font-weight: 700; margin: 0 0 12px; }
+  .quiz-options { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 10px; }
+  .quiz-option {
+    width: 100%; text-align: left; padding: 14px 16px; min-height: 44px;
+    border: 1.5px solid var(--color-border); border-radius: 8px;
+    background: var(--color-surface); font-size: 15px;
+    font-family: inherit; color: var(--color-text); cursor: pointer;
+  }
+  .quiz-option[aria-pressed="true"] { border-color: var(--color-roast); background: #f4eae0; font-weight: 700; }
+  .quiz-option[aria-pressed="true"]::before { content: "✓ "; color: var(--color-roast-text); }
+  .quiz-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; }
+  .quiz-nav button { min-height: 44px; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-family: inherit; cursor: pointer; }
+  #quizBack { background: transparent; border: 1px solid var(--color-border); color: var(--color-text); }
+  #quizNext { background: var(--color-roast-btn); border: 1px solid var(--color-roast-btn); color: #fff; }
+  #quizNext:disabled, #quizBack:disabled { opacity: .4; cursor: not-allowed; }
+  .quiz-warning { font-size: 13px; color: #a0432a; margin-top: 6px; min-height: 1.2em; }
+  .quiz-result h3 { font-size: 22px; margin: 0 0 6px; }
+  .quiz-result .result-summary { color: var(--color-muted); margin: 0 0 22px; }
+  .result-detail-list { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 4px; font-size: 14px; }
+  .result-detail-list dt { font-weight: 700; margin-top: 12px; }
+  .result-detail-list dd { margin: 2px 0 0; color: var(--color-muted); }
+  .quiz-result-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .quiz-start-btn {
+    min-height: 44px; padding: 12px 28px; background: var(--color-roast-btn);
+    color: #fff; border: none; border-radius: 6px; font-size: 15px; font-weight: 700; cursor: pointer;
+  }
+  .disclaimer-box {
+    font-size: 13px; line-height: 1.7; color: var(--color-muted);
+    background: var(--color-surface); border: 1px dashed var(--color-border);
+    border-radius: 8px; padding: 14px 16px; margin-top: 22px;
+  }
+
+  /* ---------- 最後のご案内 ---------- */
+  .final-cta { background: var(--color-primary); color: var(--color-secondary); text-align: center; }
+  .final-cta .cta-group { margin: 26px auto 0; justify-content: center; }
+  .final-cta .btn-outline { border-color: var(--color-secondary); color: var(--color-secondary); }
+
+  .site-footer {
+    padding: 32px 0 40px; text-align: center; font-size: 12.5px;
+    color: var(--color-muted); border-top: 1px solid var(--color-border);
+  }
+  .site-footer a { text-decoration: underline; }
+  .site-footer p { margin: 6px 0; }
+
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
+<div class="proposal-bar" role="note">
+  CONCEPT LP ／ 店舗向け提案用ページです。本ページには未導入の新サービス提案・試作デモが含まれます。<br>
+  ※本ページの掲載画像は、店舗の世界観を表現したイメージ画像です。
+</div>
+
+<main id="main-content">
+
+  <!-- ファーストビュー -->
+  <section class="hero">
+    <img class="hero-bg" src="images/01_hero_interior_16x9.webp" alt="アンティークの家具が並ぶ、暖かい色のカフェの店内のイメージ画像" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <p class="hero-eyebrow">なつカフェ — 愛知県岡崎市河原町</p>
+      <h1>出会えたらラッキーな、<br>季節のスイーツ。</h1>
+      <p class="hero-lead">
+        アンティークの家具が並ぶ、暖かい色のカフェです。
+        店頭に並ぶとすぐに売り切れてしまうマフィンや、数量限定のパフェ。
+        月替わりのモーニングと、選べるキッシュプレートも。
+      </p>
+      <p class="hero-tags">
+        <span>季節のスイーツ</span>
+        <span>月替わりのモーニング</span>
+        <span>選べるキッシュプレート</span>
+      </p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="#sweets">季節のスイーツを見る</a>
+        <a class="btn btn-outline" href="https://www.instagram.com/natsucafe_/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+      </div>
+      <p style="color:var(--color-secondary);font-size:12px;margin:12px 0 0;opacity:.85;">※見出しは、お店のInstagramの「出会えたらラッキー」をもとにしています。</p>
+    </div>
+  </section>
+
+  <!-- コンセプト -->
+  <section id="concept" aria-labelledby="concept-heading">
+    <div class="container">
+      <div class="story">
+        <div>
+          <p class="eyebrow">CONCEPT</p>
+          <h2 id="concept-heading">ひとりの朝にも、<br>家族のひとときにも</h2>
+          <p class="lead-text">
+            なつカフェは、岡崎市河原町にあるカフェです。
+            アンティークの家具が並ぶ暖かい色の店内で、カウンター、テーブル、座敷から席を選べます。
+          </p>
+
+          <div class="name-origin">
+            <span class="en">Natsu Cafe</span>
+            <p class="ja">座敷の席もあり、<strong>小さなお子さん連れでも安心</strong>して過ごせるお店です。</p>
+          </div>
+
+          <blockquote class="quote">
+            店頭に並ぶとすぐに売り切れてしまう　スイートポテトマフィン　出会えたらラッキー
+            <cite>公式Instagramより</cite>
+          </blockquote>
+
+          <p class="lead-text" style="margin-top:22px;">
+            「小さなお子さん連れでも安心して連れて行ける」「その日の気分でモーニングを選べそう」という来店者の声もありました。
+          </p>
+        </div>
+        <img class="story-photo" src="images/02_muffin_4x3.webp" alt="スイートポテトマフィンのイメージ画像" loading="lazy">
+      </div>
+      <div class="concept-gallery">
+        <img src="images/04_morning_4x3.webp" alt="かぼちゃスープとトーストのモーニングのイメージ画像" loading="lazy">
+        <img src="images/05_quiche_4x3.webp" alt="キッシュプレートのイメージ画像" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 強み -->
+  <section id="strengths" class="section-alt" aria-labelledby="strengths-heading">
+    <div class="container">
+      <p class="eyebrow">公開されている情報から見える、この店舗の強み</p>
+      <h2 id="strengths-heading">お店の強み</h2>
+      <p class="lead-text">他店との比較ではなく、公開されている情報で確認できる特徴だけを根拠に整理しています。</p>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <img class="card-photo" src="images/03_parfait_4x3.webp" alt="パフェのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 01</span>
+          <h3>季節の、手作りスイーツ</h3>
+          <p>秋のスイートポテトマフィンや、数量限定のパフェ。マフィンやスコーンなどの<strong>焼き菓子</strong>もそろいます。</p>
+          <p class="value">お客様にとっての価値：その季節だけの味に、出会えます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/04_morning_4x3.webp" alt="モーニングのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 02</span>
+          <h3>月替わりの、モーニング</h3>
+          <p>定番のモーニングに加えて、<strong>月替わりのモーニング</strong>も。10月は、具だくさんのかぼちゃスープのモーニングでした。</p>
+          <p class="value">お客様にとっての価値：毎月、ちがう朝ごはんを楽しめます。</p>
+        </div>
+        <div class="card">
+          <img class="card-photo" src="images/05_quiche_4x3.webp" alt="キッシュのイメージ画像" loading="lazy">
+          <span class="num">STRENGTH 03</span>
+          <h3>選べる、キッシュプレート</h3>
+          <p>キッシュに、サラダ、パン、スープ、副菜とドリンク。<strong>キッシュは毎月かわります</strong>。</p>
+          <p class="value">お客様にとっての価値：お昼に、ゆっくりバランスのよいごはんを。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 季節のスイーツ -->
+  <section id="sweets" class="highlight" aria-labelledby="sweets-heading">
+    <div class="container">
+      <div class="highlight-grid">
+        <div>
+          <p class="eyebrow">SEASONAL SWEETS</p>
+          <h2 id="sweets-heading">この秋の、<br>季節のスイーツ</h2>
+          <p style="color:#efe6dc;">
+            お店のInstagramで紹介されている、秋のスイーツです。
+          </p>
+          <ul class="highlight-list">
+            <li><b>スイートポテトマフィン</b>毎年大人気。中にも上にもスイートポテトを詰め込んだ、さつまいものやさしい甘みの秋らしい味わいです。</li>
+            <li><b>なつパフェ シャインマスカット</b>秋の、数量限定のパフェ。今しか食べられない旬の味です。</li>
+            <li><b>いつもの焼き菓子</b>レモンケーキやスコーン、いろいろなマフィン。テイクアウトもできます。</li>
+          </ul>
+          <div class="cta-group">
+            <a class="btn btn-outline" style="border-color:#fff;color:#fff;" href="https://www.instagram.com/natsucafe_/" target="_blank" rel="noopener noreferrer">季節のスイーツをInstagramで</a>
+          </div>
+        </div>
+        <img class="highlight-visual" src="images/03_parfait_4x3.webp" alt="シャインマスカットのパフェのイメージ画像" loading="lazy">
+      </div>
+      <p class="lead-text source-note" style="color:#d9cdc1;">
+        ※ この節は、公式Instagram（@natsucafe_）の2026年10月の投稿によります。季節のスイーツは数量限定で、なくなり次第終了です。
+      </p>
+    </div>
+  </section>
+
+  <!-- メニュー -->
+  <section id="menu" aria-labelledby="menu-heading">
+    <div class="container">
+      <p class="eyebrow">MENU</p>
+      <h2 id="menu-heading">モーニングから、<br>午後のおやつまで</h2>
+      <p class="lead-text">公式Instagramと、公開されている記事・来店者の感想から整理しました。</p>
+      <div class="dish-grid">
+        <div class="dish">
+          <span class="tag">モーニング</span>
+          <span class="name">月替わりのモーニング</span>
+          <p class="desc">10月は、具だくさんのかぼちゃスープに、トースト、ゆで卵、ヨーグルト。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">モーニング</span>
+          <span class="name">スコーンやトーストのモーニング</span>
+          <p class="desc">その日の気分で選べるモーニング。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">ランチ</span>
+          <span class="name">選べるキッシュプレート</span>
+          <p class="desc">毎月かわるキッシュに、サラダ、パン、スープ、副菜、ドリンク。</p>
+        </div>
+        <div class="dish is-warm">
+          <span class="tag">スイーツ</span>
+          <span class="name">季節のパフェ・マフィン</span>
+          <p class="desc">数量限定のパフェや、季節のマフィン。</p>
+        </div>
+        <div class="dish is-warm">
+          <span class="tag">ドリンク</span>
+          <span class="name">自家製のクラフトコーラ</span>
+          <p class="desc">自家製のジンジャーエールや、珈琲スカッシュ、レモネードも。</p>
+        </div>
+        <div class="dish">
+          <span class="tag">テイクアウト</span>
+          <span class="name">焼き菓子・キッシュ</span>
+          <p class="desc">駐車場から行けるテイクアウトの窓口で、焼き菓子やキッシュ、ドリンクを。</p>
+        </div>
+      </div>
+      <p class="lead-text source-note">
+        ※ メニューと価格は変わることがあるため、価格は載せていません。最新の内容は、公式Instagramでご確認ください。
+      </p>
+    </div>
+  </section>
+
+  <!-- 試作（診断） -->
+  <section id="proposal-quiz" class="proposal-section" aria-labelledby="quiz-heading">
+    <div class="container">
+      <span class="proposal-tag">INTERACTIVE PROTOTYPE｜動く新サービス試作</span>
+      <h2 id="quiz-heading">なつカフェの過ごし方診断（試作）</h2>
+      <p class="lead-text">
+        季節のスイーツ、月替わりのモーニング、選べるキッシュプレート。楽しみ方がいろいろあるお店だからこそ、
+        いくつかの質問に答えると、今日のあなたに合う過ごし方を案内する診断を試作しました。
+        これは店舗運営者向けの新サービス提案・導入アイデアであり、現在提供中のサービスではありません。
+      </p>
+
+      <div class="proposal-note">
+        この診断結果は、公式Instagramと公開されている情報をもとにした、おおまかな分け方です。
+        特定のメニューの提供を保証するものではありません。導入する場合は、お店のメニューに合わせて作り直します。
+      </div>
+
+      <div class="quiz-app" id="quizApp">
+        <div id="quizIntro" class="quiz-intro">
+          <h3>対象：はじめて訪ねる方／店舗運営者の方</h3>
+          <p>解決したい課題：季節や月ごとにメニューが変わるお店で、はじめての方が「いつ行けば、なにが楽しめるか」わかりにくいこと。</p>
+          <button type="button" class="quiz-start-btn" id="quizStartBtn">試してみる</button>
+        </div>
+
+        <form id="quizForm" style="display:none;" novalidate>
+          <p class="quiz-progress" id="quizProgress" aria-live="polite"></p>
+          <p class="quiz-question" id="quizQuestionText"></p>
+          <ul class="quiz-options" id="quizOptions"></ul>
+          <p class="quiz-warning" id="quizWarning" role="alert"></p>
+          <div class="quiz-nav">
+            <button type="button" id="quizBack">戻る</button>
+            <button type="button" id="quizNext">次へ</button>
+          </div>
+        </form>
+
+        <div id="quizResult" style="display:none;" class="quiz-result" aria-live="polite">
+          <h3 id="resultName" tabindex="-1"></h3>
+          <p class="result-summary" id="resultSummary"></p>
+          <dl class="result-detail-list">
+            <dt>そのタイプになった理由</dt>
+            <dd id="resultReason"></dd>
+            <dt>おすすめ</dt>
+            <dd id="resultRecommend"></dd>
+            <dt>お店の強みとのつながり</dt>
+            <dd id="resultStrength"></dd>
+          </dl>
+          <div class="quiz-result-actions">
+            <a class="btn btn-primary" id="resultCta" href="#menu">関連する節を見る</a>
+            <button type="button" class="btn btn-outline" id="quizRestartBtn">最初からやり直す</button>
+          </div>
+        </div>
+
+        <noscript>
+          <p>この試作デモの操作にはJavaScriptが必要です。JavaScriptが無効な場合でも、お店のご紹介や店舗情報は、このページの他の節から引き続きご覧いただけます。</p>
+        </noscript>
+
+        <p class="disclaimer-box">本機能は店舗運営者向けの試作デモです。現在提供中の正式サービスではありません。入力内容の保存・送信は行いません。ページを閉じると回答内容は消えます。お名前やご連絡先を入力していただく欄はありません。</p>
+      </div>
+
+      <div class="proposal-note" style="margin-top:32px;">
+        <strong>導入アイデア（今後の展開案）：</strong>その月のモーニングやキッシュ、季節のスイーツのお知らせにつなげられます。
+        数量限定のスイーツが並ぶ日を、楽しみにしている方へのご案内にも使えます。
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報 -->
+  <section id="info" aria-labelledby="info-heading">
+    <div class="container">
+      <p class="eyebrow">SHOP INFORMATION</p>
+      <h2 id="info-heading">店舗情報</h2>
+      <ul class="info-list">
+        <li><span class="term">店舗名</span><span>なつカフェ</span></li>
+        <li>
+          <span class="term">所在地</span>
+          <span>〒444-2118 愛知県岡崎市河原町16-12<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=%E6%84%9B%E7%9F%A5%E7%9C%8C%E5%B2%A1%E5%B4%8E%E5%B8%82%E6%B2%B3%E5%8E%9F%E7%94%BA16-12" target="_blank" rel="noopener noreferrer">地図で見る（Googleマップ）</a>
+          </span>
+        </li>
+        <li><span class="term">電話</span><span>0564-79-7797</span></li>
+        <li><span class="term">定休日</span><span>火曜日</span></li>
+        <li><span class="term">駐車場</span><span>あり</span></li>
+        <li><span class="term">Instagram</span><span><a href="https://www.instagram.com/natsucafe_/" target="_blank" rel="noopener noreferrer">@natsucafe_</a></span></li>
+      </ul>
+      <p class="lead-text source-note">
+        ※ このページは、公式Instagram、公開されている記事と来店者の感想をもとに、2026年11月12日時点で確認できたことだけを整理したものです。内容は変わっている場合があります。営業時間とお休みは、公式Instagramでご確認ください。
+      </p>
+    </div>
+  </section>
+
+  <!-- 最後のご案内 -->
+  <section class="final-cta" aria-labelledby="final-cta-heading">
+    <div class="container">
+      <h2 id="final-cta-heading">ご来店の前に、ご確認ください</h2>
+      <p style="color:#efe6dc;">季節のスイーツは数量限定です。その月のモーニングやスイーツは、公式Instagramでご確認ください。</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" style="background:#fff;color:var(--color-primary);" href="https://www.instagram.com/natsucafe_/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+        <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=%E6%84%9B%E7%9F%A5%E7%9C%8C%E5%B2%A1%E5%B4%8E%E5%B8%82%E6%B2%B3%E5%8E%9F%E7%94%BA16-12" target="_blank" rel="noopener noreferrer">地図を見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>なつカフェ</p>
+    <p>© なつカフェ. All Rights Reserved.</p>
+    <p><a href="#main-content">ページの先頭へ戻る</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var questions = [
+    {
+      text: "なつカフェに行くなら、いつ？",
+      options: [
+        { label: "午後の、おやつの時間に", cat: "A" },
+        { label: "朝の、モーニングの時間に", cat: "B" },
+        { label: "お昼の、ランチに", cat: "C" }
+      ]
+    },
+    {
+      text: "食べたいのは？",
+      options: [
+        { label: "季節のパフェや、マフィン", cat: "A" },
+        { label: "あたたかいスープと、トースト", cat: "B" },
+        { label: "キッシュと、たっぷりのサラダ", cat: "C" }
+      ]
+    },
+    {
+      text: "飲みたいのは？",
+      options: [
+        { label: "スイーツに合う、カフェラテ", cat: "A" },
+        { label: "朝の、ホットコーヒー", cat: "B" },
+        { label: "自家製の、クラフトコーラ", cat: "C" }
+      ]
+    },
+    {
+      text: "どう過ごしたい？",
+      options: [
+        { label: "限定のスイーツに、出会いたい", cat: "A" },
+        { label: "ひとりで、ゆっくり朝の時間を", cat: "B" },
+        { label: "家族や友だちと、座敷でのんびり", cat: "C" }
+      ]
+    }
+  ];
+
+  var results = {
+    A: {
+      name: "出会えたらラッキーのスイーツタイプ",
+      summary: "その季節だけのスイーツに、出会いたい方です。",
+      reason: "おやつの時間、パフェやマフィン、スイーツに合う一杯、限定のスイーツに関する回答が多い傾向でした。",
+      recommend: "秋のスイートポテトマフィンや、数量限定のパフェ。レモンケーキやスコーンのテイクアウトも。",
+      strength: "季節ごとの手作りスイーツと、焼き菓子がそろいます。",
+      ctaHref: "#sweets",
+      ctaLabel: "季節のスイーツを見る"
+    },
+    B: {
+      name: "月替わりモーニングタイプ",
+      summary: "毎月かわる朝ごはんで、一日を始めたい方です。",
+      reason: "モーニングの時間、スープとトースト、朝のコーヒー、ひとりの朝の時間に関する回答が多い傾向でした。",
+      recommend: "その月の、月替わりのモーニング。スコーンやトーストのモーニングも。",
+      strength: "定番に加えて、月替わりのモーニングがあります。",
+      ctaHref: "#menu",
+      ctaLabel: "メニューを見る"
+    },
+    C: {
+      name: "キッシュプレートでのんびりタイプ",
+      summary: "お昼に、家族や友だちとゆっくり過ごしたい方です。",
+      reason: "ランチ、キッシュとサラダ、自家製のクラフトコーラ、座敷でのんびりに関する回答が多い傾向でした。",
+      recommend: "毎月かわるキッシュの、選べるキッシュプレート。ドリンクは自家製のクラフトコーラで。",
+      strength: "座敷の席もあり、小さなお子さん連れでも安心して過ごせます。",
+      ctaHref: "#menu",
+      ctaLabel: "メニューを見る"
+    }
+  };
+
+  var priorityOrder = ["A", "B", "C"];
+
+  var currentIndex = 0;
+  var answers = new Array(questions.length).fill(null);
+
+  var quizIntro = document.getElementById("quizIntro");
+  var quizStartBtn = document.getElementById("quizStartBtn");
+  var quizForm = document.getElementById("quizForm");
+  var quizProgress = document.getElementById("quizProgress");
+  var quizQuestionText = document.getElementById("quizQuestionText");
+  var quizOptions = document.getElementById("quizOptions");
+  var quizWarning = document.getElementById("quizWarning");
+  var quizBack = document.getElementById("quizBack");
+  var quizNext = document.getElementById("quizNext");
+  var quizResult = document.getElementById("quizResult");
+  var quizRestartBtn = document.getElementById("quizRestartBtn");
+
+  function renderQuestion() {
+    quizWarning.textContent = "";
+    var q = questions[currentIndex];
+    quizProgress.textContent = "質問 " + (currentIndex + 1) + " / " + questions.length;
+    quizQuestionText.textContent = q.text;
+    quizOptions.innerHTML = "";
+
+    q.options.forEach(function (opt, i) {
+      var li = document.createElement("li");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "quiz-option";
+      btn.textContent = opt.label;
+      var selected = answers[currentIndex] === i;
+      btn.setAttribute("aria-pressed", selected ? "true" : "false");
+      btn.addEventListener("click", function () {
+        answers[currentIndex] = i;
+        var allBtns = quizOptions.querySelectorAll(".quiz-option");
+        allBtns.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+        btn.setAttribute("aria-pressed", "true");
+        quizWarning.textContent = "";
+      });
+      li.appendChild(btn);
+      quizOptions.appendChild(li);
+    });
+
+    quizBack.disabled = currentIndex === 0;
+    quizNext.textContent = currentIndex === questions.length - 1 ? "結果を見る" : "次へ";
+  }
+
+  function startQuiz() {
+    currentIndex = 0;
+    answers = new Array(questions.length).fill(null);
+    quizIntro.style.display = "none";
+    quizResult.style.display = "none";
+    quizForm.style.display = "block";
+    renderQuestion();
+  }
+
+  function showResult() {
+    var scores = { A: 0, B: 0, C: 0 };
+    answers.forEach(function (ansIndex, qIndex) {
+      if (ansIndex === null) { return; }
+      var cat = questions[qIndex].options[ansIndex].cat;
+      scores[cat] += 1;
+    });
+
+    // 同点の場合は、最後の質問（4問目）で選んだものを優先します。
+    // それでも決まらない場合のみ、A→B→Cの順を採用します。
+    var lastCat = null;
+    var lastAnswerIndex = answers[answers.length - 1];
+    if (lastAnswerIndex !== null) {
+      lastCat = questions[questions.length - 1].options[lastAnswerIndex].cat;
+    }
+
+    var maxScore = -1;
+    priorityOrder.forEach(function (cat) {
+      if (scores[cat] > maxScore) { maxScore = scores[cat]; }
+    });
+    var topCats = priorityOrder.filter(function (cat) { return scores[cat] === maxScore; });
+
+    var winner;
+    if (topCats.length === 1) {
+      winner = topCats[0];
+    } else if (lastCat !== null && topCats.indexOf(lastCat) !== -1) {
+      winner = lastCat;
+    } else {
+      winner = topCats[0];
+    }
+
+    var r = results[winner];
+    document.getElementById("resultName").textContent = r.name;
+    document.getElementById("resultSummary").textContent = r.summary;
+    document.getElementById("resultReason").textContent = r.reason;
+    document.getElementById("resultRecommend").textContent = r.recommend;
+    document.getElementById("resultStrength").textContent = r.strength;
+    var cta = document.getElementById("resultCta");
+    cta.href = r.ctaHref;
+    cta.textContent = r.ctaLabel;
+
+    quizForm.style.display = "none";
+    quizResult.style.display = "block";
+    document.getElementById("resultName").focus();
+  }
+
+  quizStartBtn.addEventListener("click", startQuiz);
+
+  quizNext.addEventListener("click", function () {
+    if (answers[currentIndex] === null) {
+      quizWarning.textContent = "選択肢を選んでから次へ進んでください。";
+      return;
+    }
+    if (currentIndex === questions.length - 1) {
+      showResult();
+    } else {
+      currentIndex += 1;
+      renderQuestion();
+    }
+  });
+
+  quizBack.addEventListener("click", function () {
+    if (currentIndex > 0) {
+      currentIndex -= 1;
+      renderQuestion();
+    }
+  });
+
+  quizRestartBtn.addEventListener("click", function () {
+    quizResult.style.display = "none";
+    quizIntro.style.display = "block";
+  });
+})();
+</script>
+
+</body>
+</html>
